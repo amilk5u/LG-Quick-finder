@@ -1,112 +1,99 @@
-// filter 
-let _filter = {
-  Cat: ["WD", "WM"],
+const $wrap = $('#wrap')
+let catInfo,sizeInfo,colorInfo,intentInfo;
+
+$('.submit_btn').on('click', function () {
+   var catInfo = $("input[name='testInput']:checked").val(); 
+   var sizeInfo = $("input[name='testInput']:checked").val(); 
+   var colorInfo = $("input[name='testInput']:checked").val(); 
+   var intentInfo = $("input[name='testInput']:checked").val(); 
+})
+
+// filter
+const insertOption = {
+  Cat: ['WD', 'WM'],
   size: [8, 9, 10, 10.5, 12],
-  color: ["white", "graphite", "black steel"],
-  intent: ["Price","Features"],
-};
-
-let _filter1 = {
-   Cat: ["WD"],
-   size: [8, 12],
-   color: ["white", "black steel"],
-   intent: ["Price"],
- };
- 
-
-/* 
-   1. input 클릭시 input value 를 가져와서 filter에 해당하는 부분에 push 해준다
-   2. 다음스탭도 동일하게 push 해준다
-   3. 비교에서는 value 를 반복 후 제품들과 비교하여 true 일 때 반환한다
-*/
-
-console.log(_filter1.Cat);
-
-
+  color: ['white', 'graphite', 'black steel'],
+  intent: ['Price', 'Features'],
+}
 
 // product
 const washingMachine = [
   {
-    product: "product01",
-    Cat: "WM",
+    product: 'product01',
+    Cat: 'WM',
     size: 8,
-    color: "graphite",
-    intent: "Price",
+    color: 'graphite',
+    intent: 'Price',
   },
   {
-    product: "product02",
-    Cat: "WD",
+    product: 'product02',
+    Cat: 'WD',
     size: 9,
-    color: "black steel",
-	intent: "Features",
+    color: 'black steel',
+    intent: 'Price',
   },
   {
-    product: "product03",
-    Cat: "WM",
+    product: 'product03',
+    Cat: 'WM',
     size: 10,
-    color: "white",
-	intent: "Price",
+    color: 'white',
+    intent: 'Price',
   },
   {
-    product: "product04",
-    Cat: "WD",
+    product: 'product04',
+    Cat: 'WD',
     size: 10.5,
-    color: "black steel",
-	intent: "Price",
+    color: 'black steel',
+    intent: 'Price',
   },
   {
-    product: "product05",
-    Cat: "WM",
+    product: 'product05',
+    Cat: 'WM',
     size: 12,
-    color: "graphite",
-	intent: "Features"
+    color: 'graphite',
+    intent: 'Price',
   },
   {
-    product: "product06",
-    Cat: "WD",
+    product: 'product06',
+    Cat: 'WD',
     size: 12,
-    color: "white",
-	intent: "Features"
+    color: 'white',
+    intent: 'Features',
   },
   {
-    product: "product07",
-    Cat: "WM",
+    product: 'product07',
+    Cat: 'WM',
     size: 8,
-    color: "black steel",
-	intent: "Price"
+    color: 'black steel',
+    intent: 'Price',
   },
   {
-    product: "product08",
-    Cat: "WD",
+    product: 'product08',
+    Cat: 'WD',
     size: 9,
-    color: "graphite",
-	intent: "Features"
+    color: 'graphite',
+    intent: 'Features',
+  },
+]
+// console.log(washingMachine)
+
+/* 
+    1. push 해서 배열,객체화 한다
+    2. value 를 반복하여 원하는 데이터가 1개라도 있을 시 true를 반환한다
+    3. 
+
+*/
+
+const selectMachine = washingMachine.filter((item) => {
+  if (item.Cat === cat && item.intent === intent) {
+    return item.size === size || item.color === 'back steel'
   }
-];
-// console.log(washingMachine);
+})
+console.log(selectMachine)
 
-const $wrap = $("#wrap"),
-      $view = $wrap.find(".view");
-const test2 = washingMachine.map((item) => {
-   if (item.Cat === _filter1.Cat) {
-      return item
-   }
-
-
-
-   
- /*  if (item.Cat === _filter1.Cat &&  item.intent === _filter1.intent ) {
-  } */
-});
-
-
-
-
-console.log(test2);
-
-/* // 뿌리기
-test2.forEach(function (item, index) {
-  $view.append(
+// 뿌리기
+selectMachine.forEach(function (item, index) {
+  $wrap.append(
     `<div class="box"> 
 		<span>${item.product}</span>
 		<span>${item.Cat}</span>
@@ -114,6 +101,6 @@ test2.forEach(function (item, index) {
 		<span>${item.color}</span> 
 		<span>${item.intent}</span> 
 	</div>
-	`
-  );
-}); */
+	`,
+  )
+})

@@ -12,12 +12,46 @@
 
 <body>
    <div id="wrap">
-      <div class="check">
-         <input type="radio" value="WD" id="check01" name="button01">
-         <label for="check01">WD</label>
-         <input type="radio" value="WM" id="check02" name="button01">
-         <label for="check02">WM</label>
+      <div class="option">
+         <span>Category (분류)</span>
+         <input type="radio" id="WM" name="Category">
+         <label for="WM">WM</label>
+         <input type="radio" id="WD" name="Category">
+         <label for="WD">WD</label>
       </div>
+      <div class="option">
+         <span>Capacity (제품용량)</span>
+         <input type="checkbox" id="8cap" name="Capacity">
+         <label for="8cap">8</label>
+         <input type="checkbox" id="9cap" name="Capacity">
+         <label for="9cap">9</label>
+         <input type="checkbox" id="10cap" name="Capacity">
+         <label for="10cap">10</label>
+         <input type="checkbox" id="10_5cap" name="Capacity">
+         <label for="10_5cap">10.5</label>
+         <input type="checkbox" id="12cap" name="Capacity">
+         <label for="12cap">12</label>
+      </div>
+      <div class="option">
+         <span>Size (크기)</span>
+         <input type="checkbox" id="500size" name="Size">
+         <label for="500size">500 size</label>
+         <input type="checkbox" id="600size" name="Size">
+         <label for="600size">600 size</label>
+         <input type="checkbox" id="700size" name="size">
+         <label for="700size">700 size</label>
+      </div>
+      <div class="option">
+         <span>Color (색상)</span>
+         <input type="checkbox" id="white" name="Color">
+         <label for="white">500 size</label>
+         <input type="checkbox" id="graphite" name="Color">
+         <label for="graphite">500 size</label>
+         <input type="checkbox" id="blackSteel" name="Color">
+         <label for="blackSteel">500 size</label>
+      </div>
+      <button class="submit_btn" type="submit">제출</button>
+
       <!-- <div class="view"></div> -->
    </div>
    <script src="./javascript.js"></script>
