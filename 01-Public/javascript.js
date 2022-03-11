@@ -1,98 +1,144 @@
 const $wrap = $('#wrap')
-let catInfo,sizeInfo,colorInfo,intentInfo;
-
-$('.submit_btn').on('click', function () {
-   var catInfo = $("input[name='testInput']:checked").val(); 
-   var sizeInfo = $("input[name='testInput']:checked").val(); 
-   var colorInfo = $("input[name='testInput']:checked").val(); 
-   var intentInfo = $("input[name='testInput']:checked").val(); 
-})
-
-// filter
+// Filter Example
 const insertOption = {
-  Cat: ['WD', 'WM'],
-  size: [8, 9, 10, 10.5, 12],
-  color: ['white', 'graphite', 'black steel'],
-  intent: ['Price', 'Features'],
+  Category: ['WD', 'WM'],
+  Capacity: [8, 9, 10, 10.5, 12],
+  Size: [500, 600, 700],
+  Color: ['white', 'graphite', 'black steel'],
+  Intent: ['Price', 'Features'],
+}
+// Filter1
+const insertOption1 = {
+  Category: [],
+  Capacity: [],
+  Size: [],
+  Color: [],
+  Intent: [],
 }
 
-// product
+
+$('.submit_btn').on('click', function () {
+  $("input[name='Capacity']:checked").each(function () {
+    insertOption1.Capacity.push($(this).val())
+  })
+  $("input[name='Category']:checked").each(function () {
+    insertOption1.Category.push($(this).val())
+  })
+  $("input[name='Size']:checked").each(function () {
+    insertOption1.Size.push($(this).val())
+  })
+  $("input[name='Color']:checked").each(function () {
+    insertOption1.Color.push($(this).val())
+  })
+  $("input[name='Intent']:checked").each(function () {
+    insertOption1.Intent.push($(this).val())
+  })
+  console.log(insertOption1)
+})
+
+// Product
 const washingMachine = [
   {
-    product: 'product01',
-    Cat: 'WM',
-    size: 8,
-    color: 'graphite',
-    intent: 'Price',
+    Product: 'product01',
+    Category: 'WM',
+    Capacity: 8,
+    Size: 500,
+    Color: 'graphite',
+    Intent: 'Price',
   },
   {
-    product: 'product02',
-    Cat: 'WD',
-    size: 9,
-    color: 'black steel',
-    intent: 'Price',
+    Product: 'product02',
+    Category: 'WD',
+    Capacity: 9,
+    Size: 600,
+    Color: 'black steel',
+    Intent: 'Price',
   },
   {
-    product: 'product03',
-    Cat: 'WM',
-    size: 10,
-    color: 'white',
-    intent: 'Price',
+    Product: 'product03',
+    Category: 'WM',
+    Capacity: 10,
+    Size: 700,
+    Color: 'white',
+    Intent: 'Price',
   },
   {
-    product: 'product04',
-    Cat: 'WD',
-    size: 10.5,
-    color: 'black steel',
-    intent: 'Price',
+    Product: 'product04',
+    Category: 'WD',
+    Capacity: 10.5,
+    Size: 500,
+    Color: 'black steel',
+    Intent: 'Price',
   },
   {
-    product: 'product05',
-    Cat: 'WM',
-    size: 12,
-    color: 'graphite',
-    intent: 'Price',
+    Product: 'product05',
+    Category: 'WM',
+    Capacity: 12,
+    Size: 500,
+    Color: 'graphite',
+    Intent: 'Price',
   },
   {
-    product: 'product06',
-    Cat: 'WD',
-    size: 12,
-    color: 'white',
-    intent: 'Features',
+    Product: 'product06',
+    Category: 'WD',
+    Capacity: 8,
+    Size: 700,
+    Color: 'white',
+    Intent: 'Features',
   },
   {
-    product: 'product07',
-    Cat: 'WM',
-    size: 8,
-    color: 'black steel',
-    intent: 'Price',
+    Product: 'product07',
+    Category: 'WM',
+    Capacity: 9,
+    Size: 600,
+    Color: 'black steel',
+    Intent: 'Price',
   },
   {
-    product: 'product08',
-    Cat: 'WD',
-    size: 9,
-    color: 'graphite',
-    intent: 'Features',
+    Product: 'product08',
+    Category: 'WD',
+    Capacity: 10.5,
+    Size: 600,
+    Color: 'graphite',
+    Intent: 'Features',
   },
 ]
 // console.log(washingMachine)
 
-/* 
-    1. push 해서 배열,객체화 한다
-    2. value 를 반복하여 원하는 데이터가 1개라도 있을 시 true를 반환한다
-    3. 
 
-*/
+/* for ( let key in insertOption ) {
+   console.log(insertOption[key])
+} */
 
-const selectMachine = washingMachine.filter((item) => {
-  if (item.Cat === cat && item.intent === intent) {
-    return item.size === size || item.color === 'back steel'
-  }
+const washSelectMachine = washingMachine.filter((item) => {
+
+   /* 
+      1. 배열이 있는 것만 반복함
+      2. 반복한 것을 some 돌린다
+      3. filter 와 매칭한다 맞으면 item
+   */
+
+      for ( let key in insertOption ) {
+         console.log(insertOption[key])
+         console.log(item.Category)
+         console.log(key)
+         if ( insertOption[key] === key ) {
+            console.log(key)
+
+         }
+      }
+
+
+
+   
+  /* if (item.Category === ) {
+    return item.Size === Size || item.Color === 'back steel'
+  } */
 })
-console.log(selectMachine)
+console.log(washSelectMachine)
 
 // 뿌리기
-selectMachine.forEach(function (item, index) {
+/* washSelectMachine.forEach(function (item, index) {
   $wrap.append(
     `<div class="box"> 
 		<span>${item.product}</span>
@@ -103,4 +149,4 @@ selectMachine.forEach(function (item, index) {
 	</div>
 	`,
   )
-})
+}) */
