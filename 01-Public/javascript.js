@@ -1,26 +1,26 @@
 const $wrap = $('#wrap')
 
 // Filter Example
-const insertOption = {
-  Category: ['WD', 'WM'],
-  Capacity: [8, 9, 10, 10.5, 12],
-  Size: [500, 600, 700],
-  Color: ['white', 'graphite', 'black steel'],
-  Intent: ['Price', 'Features'],
-}
+// Category: ['WD', 'WM'],
+// Capacity: [8, 9, 10, 10.5, 12],
+// Size: [500, 600, 700],
+// Color: ['white', 'graphite', 'black steel'],
+// Intent: ['Price', 'Features'],
 
-const _category = []
-const _intent = []
-const insertOption1 = {
+const insertOption = {
+  Category: [],
   Capacity: [],
   Size: [],
   Color: [],
+  Intent: [],
 }
 
-const insertOption2 = {
-  Capacity: [8, 10, 9, 10.5],
+const insertOption1 = {
+  Category: ['WD'],
+  Capacity: [8, 10],
   Size: [500, 700],
   Color: ['white'],
+  Intent: ['Price'],
 }
 
 // Product
@@ -158,48 +158,39 @@ const washingMachine = [
 
 function inputCheck() {
   $("input[name='Category']:checked").each(function () {
-    //  insertOption1.Category.push($(this).val())
-    _category.push($(this).val())
+   insertOption.Category.push($(this).val())
   })
   $("input[name='Intent']:checked").each(function () {
-    // insertOption1.Category.push($(this).val())
-    _intent.push($(this).val())
+   insertOption.Intent.push($(this).val())
   })
+  $("input[name='Capacity']:checked").each(function () {
+   insertOption.Capacity.push($(this).val())
+  })
+  $("input[name='Color']:checked").each(function () {
+   insertOption.Color.push($(this).val())
+  })
+  console.log(insertOption)
 }
 
-function aaa(item,index) {
-   console.log(index)
-   console.log('용량 판단')
-
-
-
-  for (let i = 0; i < insertOption2.Capacity.length; i++) {
-   if (item.Capacity === insertOption2.Capacity[i]) {
-      console.log(item.Product)
-     console.log('Capacity insert ' + insertOption2.Capacity[i])
-     console.log('Capacity original ' + item.Capacity)
-     console.log('맞습니다!!!')
-     return item
-   }
- }
- console.log(index)
- console.log('컬러 판단')
- for (let i = 0; i < insertOption2.Color.length; i++) {
-    if (item.Color === insertOption2.Color[i]) {
-      console.log(item.Product)
-      console.log('Color insert ' + insertOption2.Color[i])
-      console.log('Color original ' + item.Color)
-      console.log('맞습니다!!!')
+function sortOption(item, index) {
+   // Capacity 에 해당하는 것과 Color 에 해당하는 것이 있을 때 나오게
+  for (let i = 0; i < insertOption.Capacity.length; i++) {
+    if (item.Capacity == insertOption.Capacity[i]) {
+      return item
+    }
+  }
+  for (let i = 0; i < insertOption.Color.length; i++) {
+    if (item.Color == insertOption.Color[i]) {
+      return item
     }
   }
 }
 
-
 function filterSelect() {
   // 제품의 8번을 무조건 돌고, 제품 8개 중에 하나 라도 같은게 있으면 그 값을 리턴한다
-  const washSelectMachine = washingMachine.filter((item,index) => {
-    if (item.Category === _category[0] && item.Intent === _intent[0]) {
-       return aaa(item, index)
+  const washSelectMachine = washingMachine.filter((item, index) => {
+    if (item.Category === insertOption.Category[0] && item.Intent === insertOption.Intent[0]) {
+      return sortOption(item, index)
     }
   })
   // 뿌리기
