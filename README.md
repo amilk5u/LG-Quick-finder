@@ -1,3 +1,1 @@
 # LG-Quick-finder
-
-ㅎㅎㅎ
