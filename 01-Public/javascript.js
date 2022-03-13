@@ -7,6 +7,8 @@ const $wrap = $('#wrap')
 // Color: ['white', 'graphite', 'black steel'],
 // Intent: ['Price', 'Features'],
 
+console.log("추가")
+
 const insertOption = {
   Category: [],
   Capacity: [],
@@ -171,9 +173,6 @@ function inputCheck() {
   })
   console.log(insertOption)
 }
-console.log("ddd");
-console.log("dddd")
-console.log("dddd")
 function sortOption(item, index) {
    // Capacity 에 해당하는 것과 Color 에 해당하는 것이 있을 때 나오게
   for (let i = 0; i < insertOption.Capacity.length; i++) {
