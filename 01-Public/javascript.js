@@ -167,7 +167,6 @@ function inputCheck() {
       console.log(insertOption)
    }
 }
-
 function sortOption(item, index) {
   // Capacity 에 해당하는 것과 Color 에 해당하는 것이 있을 때 그 값을 return
   for (let i = 0; i < insertOption.Capacity.length; i++) {
