@@ -15,14 +15,6 @@ const insertOption = {
   Intent: [],
 }
 
-const insertOption1 = {
-  Category: ['WD'],
-  Capacity: [8, 10],
-  Size: [500, 700],
-  Color: ['white'],
-  Intent: ['Price'],
-}
-
 // Product
 const washingMachine = [
   {
@@ -157,23 +149,27 @@ const washingMachine = [
 // console.log(washingMachine)
 
 function inputCheck() {
-  $("input[name='Category']:checked").each(function () {
-   insertOption.Category.push($(this).val())
-  })
+  $("input[name='Category']:checked").each((function () {
+    insertOption.Category.push($(this).val())
+  }))
   $("input[name='Intent']:checked").each(function () {
-   insertOption.Intent.push($(this).val())
+    insertOption.Intent.push($(this).val())
   })
   $("input[name='Capacity']:checked").each(function () {
-   insertOption.Capacity.push($(this).val())
+    insertOption.Capacity.push($(this).val())
   })
   $("input[name='Color']:checked").each(function () {
-   insertOption.Color.push($(this).val())
+    insertOption.Color.push($(this).val())
   })
-  console.log(insertOption)
+  newFunction()
+
+   function newFunction() {
+      console.log(insertOption)
+   }
 }
 
 function sortOption(item, index) {
-   // Capacity 에 해당하는 것과 Color 에 해당하는 것이 있을 때 나오게
+  // Capacity 에 해당하는 것과 Color 에 해당하는 것이 있을 때 그 값을 return
   for (let i = 0; i < insertOption.Capacity.length; i++) {
     if (item.Capacity == insertOption.Capacity[i]) {
       return item
@@ -187,13 +183,14 @@ function sortOption(item, index) {
 }
 
 function filterSelect() {
-  // 제품의 8번을 무조건 돌고, 제품 8개 중에 하나 라도 같은게 있으면 그 값을 리턴한다
+   // Product 중 같은 value 가 있을 시 그 값을 return
   const washSelectMachine = washingMachine.filter((item, index) => {
     if (item.Category === insertOption.Category[0] && item.Intent === insertOption.Intent[0]) {
       return sortOption(item, index)
     }
   })
-  // 뿌리기
+
+  // Load 
   washSelectMachine.forEach(function (item) {
     $wrap.append(
       `<div class="box"> 
@@ -204,7 +201,7 @@ function filterSelect() {
           <span>${item.Color}</span> 
           <span>${item.Intent}</span> 
        </div>
-       `,
+      `,
     )
   })
 }
