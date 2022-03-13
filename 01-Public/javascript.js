@@ -7,8 +7,6 @@ const $wrap = $('#wrap')
 // Color: ['white', 'graphite', 'black steel'],
 // Intent: ['Price', 'Features'],
 
-console.log("추가")
-
 const insertOption = {
   Category: [],
   Capacity: [],
