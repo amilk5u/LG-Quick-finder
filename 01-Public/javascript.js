@@ -197,12 +197,12 @@ function sortOption(item, index) {
       return item
     }
   }
-  //   console.log(selectProduct)
+    console.log(selectProduct)
 
   /* 
    1. Color든 , Capacity든 Intent 든 for문을 모두 돌린다
-   2. 조건문 
-
+   2. 조건문 해당하는 것이 모두 true 일 때 나머지 해당하는 것만 true
+  
 
  */
 }
