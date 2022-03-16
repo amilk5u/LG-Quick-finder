@@ -168,52 +168,39 @@ function inputCheck() {
   console.log(insertOption)
 }
 
-// example
-const _selectProduct = ['pro02', 'pro08', 'pro13', 'pro16']
-const selectProduct = []
-
 function sortOption(item, index) {
-  /*   for (let i = 0; i < insertOption.Capacity.length; i++) {
+  // Capacity 에 해당하는 것과 Color 에 해당하는 것이 있을 때 그 값을 return
+  for (let i = 0; i < insertOption.Capacity.length; i++) {
+    console.log(insertOption.Capacity[i])
     if (item.Capacity == insertOption.Capacity[i]) {
       return item
-    }
-  } */
-
-  // 현재 클릭한 Capacity가 포함된 product를 selectProduct에 푸쉬한다
-  for (let i = 0; i < insertOption.Capacity.length; i++) {
-    if (item.Capacity == insertOption.Capacity[i]) {
-      selectProduct.push(item.Product)
     }
   }
   for (let i = 0; i < insertOption.Color.length; i++) {
     if (item.Color == insertOption.Color[i]) {
-      selectProduct.push(item.Product)
-    }
-  }
-  // select된 product를 매칭하여 return 한다
-  for (let s = 0; s < selectProduct.length; s++) {
-    if (item.Product === selectProduct[s]) {
-      console.log(item)
       return item
     }
   }
-  //   console.log(selectProduct)
 
-  /* 
-   1. Color든 , Capacity든 Intent 든 for문을 모두 돌린다
-   2. 조건문 
+  // 현재 선택한 옵션의 갯수 만큼 반복해서 나열
+//   for (let i = 0; i < insertOption.Capacity.length; i++) {}
 
-
- */
+  // Capacity 와 Color 모두 해당하는 것을 return
+  /*  if (
+    item.Capacity == ddd && item.Color === ccc
+  ) {
+    return item;
+  } */
 }
 
 function filterSelect() {
   inputCheck()
   // Product 중 같은 value 가 있을 시 그 값을 return
   const washSelectMachine = washingMachine.filter((item, index) => {
-    //  item category 와 insertOption 카테고리가 같을때
-
-    if (item.Category === insertOption.Category[0]) {
+    if (
+      item.Category === insertOption.Category[0] &&
+      item.Intent === insertOption.Intent[0]
+    ) {
       return sortOption(item, index)
     }
   })
