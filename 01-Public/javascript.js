@@ -150,9 +150,7 @@ const washingMachine = [
 
 function inputCheck() {
   $('.option').each(function () {
-    $(this)
-      .find('input:checked')
-      .each(function () {
+    $(this).find('input:checked').each(function () {
         let _name = $(this).attr('name')
         if (_name === 'Category') {
           insertOption.Category.push($(this).val())
@@ -173,31 +171,32 @@ const _selectProduct = ['pro02', 'pro08', 'pro13', 'pro16']
 const selectProduct = []
 
 function sortOption(item, index) {
-  /*   for (let i = 0; i < insertOption.Capacity.length; i++) {
-    if (item.Capacity == insertOption.Capacity[i]) {
-      return item
-    }
-  } */
-
   // 현재 클릭한 Capacity가 포함된 product를 selectProduct에 푸쉬한다
   for (let i = 0; i < insertOption.Capacity.length; i++) {
     if (item.Capacity == insertOption.Capacity[i]) {
-      selectProduct.push(item.Product)
+      return item
     }
   }
   for (let i = 0; i < insertOption.Color.length; i++) {
     if (item.Color == insertOption.Color[i]) {
-      selectProduct.push(item.Product)
+      return item
     }
   }
+
+
+
+
+
+
+
   // select된 product를 매칭하여 return 한다
-  for (let s = 0; s < selectProduct.length; s++) {
+  /*  for (let s = 0; s < selectProduct.length; s++) {
     if (item.Product === selectProduct[s]) {
       console.log(item)
       return item
     }
-  }
-    console.log(selectProduct)
+  } */
+  //   console.log(selectProduct)
 
   /* 
    1. Color든 , Capacity든 Intent 든 for문을 모두 돌린다
