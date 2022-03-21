@@ -169,8 +169,8 @@ function inputCheck() {
 }
 
 // example
-const _selectProduct = ["pro02", "pro08", "pro13", "pro16"];
-const selectProduct = []
+// const _selectProduct = ["pro02", "pro08", "pro13", "pro16"];
+let selectProduct = []
 
 function sortOption(item, index) {
    // 현재 클릭한 Capacity가 포함된 product를 selectProduct에 푸쉬한다
@@ -180,11 +180,24 @@ function sortOption(item, index) {
       }
    }
 
-   // select된 product를 매칭하여 return 한다
    for (let s = 0; s < selectProduct.length; s++) {
       if (item.Product === selectProduct[s]) {
          for (let i = 0; i < insertOption.Color.length; i++) {
             if (item.Color == insertOption.Color[i]) {
+               console.log(item.Color)
+               console.log(insertOption.Color[i])
+               selectProduct = []
+               selectProduct.push(item.Product);
+            }
+         }
+      }
+   }
+
+   for (let s = 0; s < selectProduct.length; s++) {
+      if (item.Product === selectProduct[s]) {
+         for (let i = 0; i < insertOption.Intent.length; i++) {
+            if (item.Intent == insertOption.Intent[i]) {
+               selectProduct = []
                return item
             }
          }
@@ -192,7 +205,7 @@ function sortOption(item, index) {
    }
 
 
- 
+
 }
 
 function filterSelect() {
