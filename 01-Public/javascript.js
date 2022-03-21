@@ -181,7 +181,6 @@ function sortOption(item, index) {
 
   // 현재 선택한 옵션의 갯수 만큼 반복해서 나열
   /*   for (let i = 0; i < insertOption.Capacity.length; i++) {
-    
   } */
 
   // Capacity 와 Color 모두 해당하는 것을 return
