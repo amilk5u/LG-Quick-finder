@@ -12,57 +12,66 @@
 
 <body>
    <div id="wrap">
-      <div class="option">
-         <span>Category (타입)</span>
-         <input type="radio" id="WM" name="Category" value="WM" />
-         <label for="WM">WM</label>
-         <input type="radio" id="WD" name="Category" value="WD" />
-         <label for="WD">WD</label>
-         <button class="next_btn" type="button">다음</button>
+      <div class="select_01">
+         <div class="option">
+            <p><strong>Q0. </strong>Purpose of purchase (구매목적)</p>
+            <input type="radio" id="NewSetup" name="Purpose" value="New Setup" />
+            <label for="NewSetup">New Setup</label>
+            <input type="radio" id="Replacement" name="Purpose" value="Replacement" />
+            <label for="Replacement">Replacement</label>
+            <input type="radio" id="Upgrade" name="Purpose" value="Upgrade" />
+            <label for="Upgrade">Upgrade</label>
+            <button class="next_btn" type="button">다음</button>
+         </div>
+         <div class="option">
+            <p><strong>Q1. </strong>Category (타입)</p>
+            <input type="radio" id="WM" name="Category" value="WM" />
+            <label for="WM">WM</label>
+            <input type="radio" id="WD" name="Category" value="WD" />
+            <label for="WD">WD</label>
+            <button class="next_btn" type="button">다음</button>
+         </div>
+         <div class="option">
+            <p><strong>Q2. </strong>Capacity (용량)</p>
+            <input type="checkbox" id="8cap" name="Capacity" value="8" />
+            <label for="8cap">8~10kg</label>
+            <input type="checkbox" id="11cap" name="Capacity" value="11" />
+            <label for="11cap">10~12kg</label>
+            <button class="next_btn" type="button">다음</button>
+         </div>
+         <!-- <div class="option">
+            <p>Size (크기)</p>
+            <input type="checkbox" id="width" name="Size" value="500">
+            <label for="500size">width : Under 600mm</label>
+            <input type="checkbox" id="600size" name="Size" value="600">
+            <label for="600size">600 size</label>
+            <input type="checkbox" id="700size" name="Size" value="700">
+            <label for="700size">700 size</label>
+            <button class="next_btn" type="button">다음</button>
+         </div> -->
+         <div class="option">
+            <p><strong>Q4. </strong>Color (색상)</p>
+            <input type="checkbox" id="white" name="Color" value="white" />
+            <label for="white">white</label>
+            <input type="checkbox" id="graphite" name="Color" value="graphite" />
+            <label for="graphite">graphite</label>
+            <input type="checkbox" id="blackSteel" name="Color" value="black steel" />
+            <label for="blackSteel">black steel</label>
+            <button class="next_btn" type="button">다음</button>
+         </div>
+         <div class="option">
+            <p><strong>Q5. </strong>Intent (가격 or 편리,최신형)</p>
+            <input type="radio" id="price" name="Intent" value="Price" />
+            <label for="price">Price</label>
+            <input type="radio" id="features" name="Intent" value="Features" />
+            <label for="features">Features</label>
+         </div>
+         <button class="submit_btn" type="submit">submit</button>
       </div>
-      <div class="option">
-         <span>Capacity (용량)</span>
-         <input type="checkbox" id="8cap" name="Capacity" value="8" />
-         <label for="8cap">8</label>
-         <input type="checkbox" id="9cap" name="Capacity" value="9" />
-         <label for="9cap">9</label>
-         <input type="checkbox" id="10cap" name="Capacity" value="10" />
-         <label for="10cap">10</label>
-         <input type="checkbox" id="10_5cap" name="Capacity" value="10.5" />
-         <label for="10_5cap">10.5</label>
-         <input type="checkbox" id="12cap" name="Capacity" value="12" />
-         <label for="12cap">12</label>
-         <button class="next_btn" type="button">다음</button>
-      </div>
-      <!--  <div class="option">
-         <span>Size (크기)</span>
-         <input type="checkbox" id="500size" name="Size" value="500">
-         <label for="500size">500 size</label>
-         <input type="checkbox" id="600size" name="Size" value="600">
-         <label for="600size">600 size</label>
-         <input type="checkbox" id="700size" name="Size" value="700">
-         <label for="700size">700 size</label>
-         <button class="next_btn" type="button">다음</button>
-      </div> -->
-      <div class="option">
-         <span>Color (색상)</span>
-         <input type="checkbox" id="white" name="Color" value="white" />
-         <label for="white">white</label>
-         <input type="checkbox" id="graphite" name="Color" value="graphite" />
-         <label for="graphite">graphite</label>
-         <input type="checkbox" id="blackSteel" name="Color" value="black steel" />
-         <label for="blackSteel">black steel</label>
-         <button class="next_btn" type="button">다음</button>
-      </div>
-      <div class="option">
-         <span>Intent (가격 or 편리,최신형)</span>
-         <input type="radio" id="price" name="Intent" value="Price" />
-         <label for="price">Price</label>
-         <input type="radio" id="features" name="Intent" value="Features" />
-         <label for="features">Features</label>
-      </div>
-      <button class="submit_btn" type="submit">submit</button>
+      <div class="select_02"></div>
    </div>
+
+
    <script src="./javascript.js"></script>
 </body>
 

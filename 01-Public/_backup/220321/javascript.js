@@ -12,7 +12,7 @@ const insertOption = {
    Capacity: [],
    Size: [],
    Color: [],
-   Intent: []
+   Intent: [],
 };
 
 // Product
@@ -159,52 +159,53 @@ function inputCheck() {
             } else if (_name === "Intent") {
                insertOption.Intent.push($(this).val());
             } else if (_name === "Capacity") {
-               if ($(this).val() == 8) {
-                  insertOption.Capacity.push(8, 9, 10)
-               } else {
-                  insertOption.Capacity.push(10, 11, 12)
-               }
+               insertOption.Capacity.push($(this).val());
             } else if (_name === "Color") {
                insertOption.Color.push($(this).val());
             }
          });
    });
+   console.log(insertOption);
 }
-let selectCapacity = []
-let selectColor = []
-let selectIntent = []
+
+// example
+const _selectProduct = ["pro02", "pro08", "pro13", "pro16"];
+let selectProduct = []
 
 function sortOption(item, index) {
-   // console.log(index)
    // 현재 클릭한 Capacity가 포함된 product를 selectProduct에 푸쉬한다
    for (let i = 0; i < insertOption.Capacity.length; i++) {
       if (item.Capacity == insertOption.Capacity[i]) {
-         selectCapacity.push(item.Product);
+         selectProduct.push(item.Product);
       }
    }
-   // console.log(selectCapacity)
 
-   for (let s = 0; s < selectCapacity.length; s++) {
-      if (item.Product === selectCapacity[s]) {
+
+   // select된 product를 매칭하여 return 한다
+   for (let s = 0; s < selectProduct.length; s++) {
+      if (item.Product === selectProduct[s]) {
          for (let i = 0; i < insertOption.Color.length; i++) {
             if (item.Color == insertOption.Color[i]) {
-               selectColor.push(item.Product);
+               selectProduct = []
+               selectProduct.push(item.Product);
             }
          }
       }
    }
-   // console.log(selectColor)
 
-   for (let s = 0; s < selectColor.length; s++) {
-      if (item.Product === selectColor[s]) {
+   for (let s = 0; s < selectProduct.length; s++) {
+      if (item.Product === selectProduct[s]) {
          for (let i = 0; i < insertOption.Intent.length; i++) {
             if (item.Intent == insertOption.Intent[i]) {
-               // selectColor.push(item.Product);
+               selectProduct = []
                return item
             }
          }
       }
    }
+
+
+ 
 }
 
 function filterSelect() {
@@ -212,26 +213,25 @@ function filterSelect() {
    // Product 중 같은 value 가 있을 시 그 값을 return
    const washSelectMachine = washingMachine.filter((item, index) => {
       //  item category 와 insertOption 카테고리가 같을때
+
       if (item.Category === insertOption.Category[0]) {
          return sortOption(item, index);
       }
    });
-   // $(".select_01").css("display","none")
 
    // Load
    washSelectMachine.forEach(function (item) {
       $wrap.append(
-         `
-            <div class="box"> 
-               <p>제품 : ${item.Product}</p>
-               <p>카테고리 : ${item.Category}</p>
-               <p>용량 : ${item.Capacity}kg</p>
-               <p>컬러 : ${item.Color}</p> 
-               <p>타입 : ${item.Intent}</p> 
-            </div>
-         `
+         `<div class="box"> 
+          <span>${item.Product}</span>
+          <span>${item.Category}</span>
+          <span>${item.Capacity}</span>
+          <span>${item.Size}</span>
+          <span>${item.Color}</span> 
+          <span>${item.Intent}</span> 
+       </div>
+      `
       );
-      // <p>사이즈 : ${item.Size} </p>
    });
 }
 
