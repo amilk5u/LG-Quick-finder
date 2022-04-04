@@ -1,10 +1,12 @@
 const $wrap = $("#wrap");
 const insertOption = {
-   Category: [],
-   Capacity: [],
-   Size: [],
-   Color: [],
-   Intent: []
+   Product: [],
+   Q0: [],
+   Q1: [],
+   Q2: [],
+   Q3: [],
+   Q4: [],
+   Q5: []
 };
 
 function inputCheck() {
@@ -30,22 +32,37 @@ function inputCheck() {
    });
 }
 
-function filterSelect() {
-   inputCheck();
-   // Load
-   washSelectMachine.forEach(function (item) {
-      $wrap.append(
-         `
-            <div class="box"> 
-               <p>제품 : ${item.Product}</p>
-               <p>카테고리 : ${item.Category}</p>
-               <p>용량 : ${item.Capacity}kg</p>
-               <p>컬러 : ${item.Color}</p> 
-               <p>타입 : ${item.Intent}</p> 
-            </div>
-         `
-      );
+function DataInsert() {
+   $.ajax({
+      url: "./data.json", // 어디로 갈거니? // 갈 때 데이터
+      datatype: "json",
+      // async:false, // 동기방식 
+      success: function (data) {
+         console.log(data)
+      }
    });
 }
 
+function filterSelect() {
+   inputCheck();
+   DataInsert();
+}
+
 $(".submit_btn").on("click", filterSelect);
+
+const objPersons = {
+   persons: {
+      name: "kim", 
+      age: 20, 
+      gender: "man"
+   },
+};
+
+const { persons } = objPersons
+// ES5: const persons = Object.assign([], objPersons.persons)와 동일
+const mapPersons = Object.values(persons).map(
+   v => Object.keys(v).map(v2 => v[v2])
+)
+const filteredPersonsAge = persons.filter(v => v.age > 25)
+
+
