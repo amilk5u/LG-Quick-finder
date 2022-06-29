@@ -300,7 +300,7 @@ function stepChangeEvent(idx) {
 
 // 항목 클릭 이벤트 함수
 function answerSelectEvent(idx) {
-	let bin = [];
+	// let bin = [];
 
 	console.log('항목 클릭 이벤트 : ', idx);
 	$('.answer_btn').removeClass('select');
@@ -319,26 +319,29 @@ function answerSelectEvent(idx) {
 				console.log('remove')
 				_this.removeClass('select');
 			}
-
-
-
-			if (_this.hasClass('select')) {
-				bin.push(_this.data('value'));
-	
-			}
-
-
+			// if (_this.hasClass('select')) {
+			// 	bin.push(_this.data('value'));
+			// }
 		} else {
 			$('.answer_btn').removeClass('select');
 			_this.addClass('select');
-
-
 		}
 
+
+		// 제품선택 매칭
 		if (idx === 0) {
-
-
+			console.log('여기다@@@')
 		}
+
+
+
+
+
+
+
+
+
+
 
 		// 하나 이상 선택시 active 되는 부분
 		if ($('.answer_btn.select').length > 0) {
