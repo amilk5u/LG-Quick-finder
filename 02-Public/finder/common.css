@@ -65,4 +65,5 @@ table { width: 100%; text-align: left; border-collapse: collapse; border-spacing
 .screen_img  { width: 100%; height: 300px; border:2px solid blue; }
 .question_txt  { left: 50%; position: absolute; top: 0; }
 /* 선택항목 */
-.appliance_finder .select_wrap  { width: 100%; }
+.appliance_finder .answer_wrap  { width: 100%; }
+.appliance_finder .answer_wrap .answer_btn.select {background-color: greenyellow;}

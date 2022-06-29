@@ -145,35 +145,49 @@ const ConfigData = {
 			defaultScreenImg: 'step3-메인 이미지',
 			interactionPage: false, // 인터렉트 페이지 유/무 정의
 			appliancePopup: true, // 팝업 유/무 정의
+			selectionsData: [
+				{
+					dataValue: 'step3-value1',
+					content: 'step3-content1',
+				},
+				{
+					dataValue: 'step3-value2',
+					content: 'step3-content2',
+				},
+				{
+					dataValue: 'step3-value3',
+					content: 'step3-content3',
+				},
+			],
 		},
-		{
-			finderStep: 'step-4',
-			questionText: 'Q4 - 냉장고제품 질문?',
-			defaultScreenImg: 'url',
-			interactionPage: true, // 인터렉트 페이지 유/무 정의
-			appliancePopup: false, // 팝업 유/무 정의
-		},
-		{
-			finderStep: 'step-5',
-			questionText: 'Q5 - 냉장고제품 질문?',
-			defaultScreenImg: 'url',
-			interactionPage: true, // 인터렉트 페이지 유/무 정의
-			appliancePopup: false, // 팝업 유/무 정의
-		},
-		{
-			finderStep: 'step-6',
-			questionText: 'Q6 - 냉장고제품 질문?',
-			defaultScreenImg: 'url',
-			interactionPage: false, // 인터렉트 페이지 유/무 정의
-			appliancePopup: false, // 팝업 유/무 정의
-		},
-		{
-			finderStep: 'step-7',
-			questionText: 'Q7 - 냉장고제품 질문?',
-			defaultScreenImg: 'url',
-			interactionPage: false, // 인터렉트 페이지 유/무 정의
-			appliancePopup: false, // 팝업 유/무 정의
-		}
+		/* 	{
+				finderStep: 'step-4',
+				questionText: 'Q4 - 냉장고제품 질문?',
+				defaultScreenImg: 'url',
+				interactionPage: true, // 인터렉트 페이지 유/무 정의
+				appliancePopup: false, // 팝업 유/무 정의
+			},
+			{
+				finderStep: 'step-5',
+				questionText: 'Q5 - 냉장고제품 질문?',
+				defaultScreenImg: 'url',
+				interactionPage: true, // 인터렉트 페이지 유/무 정의
+				appliancePopup: false, // 팝업 유/무 정의
+			},
+			{
+				finderStep: 'step-6',
+				questionText: 'Q6 - 냉장고제품 질문?',
+				defaultScreenImg: 'url',
+				interactionPage: false, // 인터렉트 페이지 유/무 정의
+				appliancePopup: false, // 팝업 유/무 정의
+			},
+			{
+				finderStep: 'step-7',
+				questionText: 'Q7 - 냉장고제품 질문?',
+				defaultScreenImg: 'url',
+				interactionPage: false, // 인터렉트 페이지 유/무 정의
+				appliancePopup: false, // 팝업 유/무 정의
+			} */
 	]
 }
 
@@ -199,7 +213,6 @@ function loadStepEvent(idx) {
 	console.log('interactionPage :', ConfigData.finderSetting[idx].interactionPage);
 	console.log('appliancePopup :', ConfigData.finderSetting[idx].appliancePopup);
 	console.log('questionText : ', ConfigData.finderSetting[idx].questionText)
-	console.log('----------------------------------------------------------------------------------')
 
 	// 스텝 전환
 	$(".appliance_finder > div").removeClass();
@@ -212,27 +225,42 @@ function loadStepEvent(idx) {
 	$(".screen_img img").attr('alt', ConfigData.finderSetting[idx].defaultScreenImg);
 	// console.log(ConfigData.finderSetting[idx].defaultScreenImg)
 
-
-
-	// 항목뿌리기
-	// 항목 갯수 만큼 뿌리기
-	console.log($(".answer_wrap").html(''));
-	for (let i = 0; i < selectionsData.length; i++) {
-		$(".answer_wrap").append('<li><button class="answer_btn" type="button">' + selectionsData[i].content +'</button></li>');
-		// console.log($(".answer_wrap").find("li button"))
+	// step 예외 적용
+	if (idx === 2) {
+		// size
+		// 항목 뿌리기
+		$(".answer_wrap").html('');
+		for (let i = 0; i < selectionsData.length; i++) {
+			$(".answer_wrap").append('<li><button class="answer_btn" type="button">' + selectionsData[i].content + '</button></li>');
+			// console.log($(".answer_wrap").find("li button"))
+			// for (let j = 0; i < selectionsData[i].content) {
+			// }
+		}
+	} else {
+		// 항목 뿌리기
+		$(".answer_wrap").html('');
+		for (let i = 0; i < selectionsData.length; i++) {
+			$(".answer_wrap").append('<li><button class="answer_btn" type="button">' + selectionsData[i].content + '</button></li>');
+			// console.log($(".answer_wrap li").eq(i)s.find("button").attr('data-value', selectionsData[i].dataValue))
+		}
 	}
 }
+
+
+
 
 // 페이지 이동 이벤트
 function stepChangeEvent(idx) {
 	// 페이지 open
 	$(".appliance_finder").css('display', 'block');
 	loadStepEvent(idx);
+	answerSelectEvent(idx);
 	// 다음버튼
 	$("#nextBtn").on("click", function () {
 		if (idx < ConfigData.finderSetting.length - 1) {
 			idx++;
 			loadStepEvent(idx);
+			answerSelectEvent(idx);
 		}
 	});
 	// 이전버튼
@@ -240,12 +268,32 @@ function stepChangeEvent(idx) {
 		if (idx > 0) {
 			idx--;
 			loadStepEvent(idx);
+			answerSelectEvent(idx);
 		}
 	});
+	// answerSelectEvent(idx);
 }
+// 현재 페이지
 stepChangeEvent(0);
 
 
+function answerSelectEvent(idx) {
+	console.log('항목 클릭 이벤트 : ', idx);
+	$(".answer_btn").removeClass("select");
+	$(".answer_btn").on("click", function () {
+		let _this = $(this);
+
+		if (!_this.hasClass("select")) {
+			console.log('add');
+			_this.addClass("select");
+		} else {
+			console.log('remove')
+			_this.removeClass("select");
+		}
+		// if ($(".answer_btn.select").length > ) {
+		// }
+	});
+}
 
 
 // 결과화면
