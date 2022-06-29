@@ -1,170 +1,281 @@
+// step 저장
+let finderStepData = [];
+
 //냉장고 DATA
 const ConfigData = {
-   object: [
-      {
-         name: '냉장고1',
-         defaultSrceenImg: 'url',
-         popupImgUrl: 'url',
-         capacity: ['value1', 'value1'],
-         size: {
-            depth: ['value1'],
-            width: ['value1', 'value1'],
-            height: ['value1'],
-         },
-      },
-      {
-         name: '냉장고2',
-         defaultSrceenImg: 'url',
-         popupImgUrl: 'url',
-         capacity: ['value1', 'value1'],
-         size: {
-            depth: ['value1'],
-            width: ['value1', 'value1'],
-            height: ['value1'],
-         },
-      },
-      {
-         name: '냉장고3',
-         defaultSrceenImg: 'url',
-         popupImgUrl: 'url',
-         capacity: ['value1', 'value1'],
-         size: {
-            depth: ['value1'],
-            width: ['value1', 'value1'],
-            height: ['value1'],
-         },
-      }
-   ],
-   screenData: [
-      {
-         finderStep: 'Q1',
-         questionText: 'Q1 - 냉장고제품 질문?',
-         defaultSrceenImgUrl: 'url',
-         selectionsData: [
-            {
-               dataValue: 'RG00043687',
-               content: '냉장고1',
-               description: '냉장고 1 디스크립션',
-               iconURl: 'url',
-               SrceenImgUrl: 'url'
-            },
-            {
-               dataValue: 'RG00043687',
-               content: '냉장고1',
-               description: '냉장고 2 디스크립션',
-               iconURl: 'url',
-               SrceenImgUrl: 'url'
-            },
-            {
-               dataValue: 'RG00043687',
-               content: '냉장고1',
-               description: '냉장고 2 디스크립션',
-               iconURl: 'url',
-               SrceenImgUrl: 'url'
-            }
-         ],
-         interactionPage: { boolean: true, },
-      },
-      {
-         // Capacity
-         finderStep: 'Q2',
-         questionText: 'Q2 - Capacity 질문?',
-         defaultSrceenImgUrl: 'url',
-         selectionsData: [
-            {
-               dataValue: 'RG00043687',
-               content: 'Under 450L',
-               description: 'A practical choice for infrequent fridge users or prudent grocery shoppers.',
-               icon: {
-                  url: './images/icon/icon-1.png'
-               },
-            },
-         ],
-         interactionPage: { boolean: false },
-      },
-      {
-         // Size
-         finderStep: 'Q3',
-         questionText: 'Q3 - Size 질문?',
-         defaultSrceenImgUrl: 'url',
-         description: {
-            head: 'A guide to measure your fridge space.',
-            detaile: 'Know how much space you have for your fridge. Doors need (25-50 mm) space to open and ventilate. All LG fridges are counter depth, a slender, complementary structure. Cold or hot spots are not advised.'
-         },
-         selectionsData: {
-            depth: [
-               { dataValue: '760mm', content: 'Counter depth (Under 760 mm)' },
-               { dataValue: '760mm-', content: 'Standard depth (760 mm or more)' },
-            ],
-            width: [
-               { dataValue: '600mm', content: 'Under 600 mm' },
-               { dataValue: '600-900mm', content: '600-900 mm' },
-               { dataValue: '900m-', content: '900 mm or more' }
-            ],
-            height: [
-               { dataValue: '1800mm', content: 'Under 1800 mm' },
-               { dataValue: '1800-2000mm', content: '1800-2000 mm' },
-               { dataValue: '2000mm-', content: '2000 mm or more' }
-            ],
-         },
-         interactionPage: { boolean: false },
-      },
-      {
-         // Ice & Water
-         finderStep: 'Q4',
-         questionText: 'Ice & Water Dispenser Do you need a fridge with an Ice & Water Dispenser?',
-         defaultSrceenImg: 'class_name0',
-         selectionsData: [
-            {
-               dataValue: 'Plumbed',
-               content: 'Plumbed',
-               description: 'Get handy access to water and ice withot refilling the water tank.',
-               icon: { url: './images/icon/icon-1.png' },
-            },
-            {
-               dataValue: 'Non-Plumbed',
-               content: 'Non Plumbed',
-               description: {
-                  head: 'Refillable water tanks connected to the dispenser.',
-                  detaile: "When connecting to a direct water supply isn't feasible, non-plumbed fridges offer a convenient alternative of refillable water tanks connected to a door-mounted dispenser."
-               },
-               icon: { url: './images/icon/icon-2.png' },
-            },
-            {
-               dataValue: 'Water only',
-               content: 'Non Plumbed (Water only)',
-               description: {
-                  head: 'Enjoy chilled water straight from your fridge.',
-                  detaile: 'A handy way to access chilled water from your freezer through a built-in refillable water tank.'
-               },
-               icon: { url: './images/icon/icon-3.png' },
-            },
-            {
-               dataValue: 'No-ice-water-dispenser',
-               content: 'No ice & water dispenser',
-               description: "I don't need one.",
-               icon: { url: './images/icon/icon-3.png' },
-            },
-            {
-               dataValue: 'All',
-               content: "Doesn't matter to me, I'd like to see all models.",
-               description: null,
-               icon: { url: null },
-            },
-         ],
-         interactionPage: { boolean: false },
-      },
+	// 제품 정보 정의
+	object: [
+		{
+			id: '멀티 냉장고',
+			defaultScreenImg: '멀티 냉장고 이미지',
+			// popupImgUrl: 'url',
+			capacity: ['capacity-value1', 'capacity-value2'],
+			size: {
+				depth: ['depth-value1'],
+				width: ['width-value2', 'width-value3'],
+				height: ['height-value2'],
+			},
+		},
+		{
+			id: '아메리칸 냉장고',
+			defaultScreenImg: '아메리칸 냉장고 이미지',
+			// popupImgUrl: 'url',
+			capacity: ['capacity-value1', 'capacity-value2'],
+			size: {
+				depth: ['depth-value2'],
+				width: ['width-value1'],
+				height: ['height-value2', 'height-value3'],
+			},
+		},
+		{
+			id: '톨 냉장고',
+			defaultScreenImg: '톨 냉장고 이미지',
+			// popupImgUrl: 'url',
+			capacity: ['value1', 'value1'],
+			size: {
+				depth: ['depth-value3'],
+				width: ['width-value1', 'width-value2'],
+				height: ['height-value1'],
+			},
+		}
+	],
+	// 질문페이지 사전 정의 
+	finderSetting: [
+		// 제품 선택
+		{
+			finderStep: 'step-1',
+			questionText: 'Q1 - 냉장고제품 질문?',
+			defaultScreenImg: 'step1-메인 이미지',
+			interactionPage: true, // 인터렉트 페이지 유/무 정의
+			appliancePopup: false, // 팝업 유/무 정의
+			selectionsData: [
+				{
+					dataValue: 'step1-value1',
+					content: 'step1-content1',
+					iconImgUrl: {
+						default: '멀티 아이콘',
+						active: 'active 멀티 아이콘'
+					},
+					// 클릭시 변경되야할 데이터 항목 
+					changeData: {
+						description: '멀티 디스크립션',
+						screenImgUrl: '멀티 냉장고 이미지',
+					}
+				},
+				{
+					dataValue: 'step1-value2',
+					content: 'step1-content2',
+					iconImgUrl: {
+						default: '아메리칸 아이콘',
+						active: 'active 아메리칸 아이콘'
+					},
+					// 클릭시 변경되야할 데이터 항목 
+					changeData: {
+						description: '아메리칸 디스크립션',
+						screenImgUrl: '아메리칸 냉장고 이미지',
+					}
+				},
+				{
+					dataValue: 'step1-value3',
+					content: 'step1-content3',
+					iconImgUrl: {
+						default: '톨 아이콘',
+						active: 'active 톨 아이콘'
+					},
+					// 클릭시 변경되야할 데이터 항목 
+					changeData: {
+						description: '톨 디스크립션',
+						screenImgUrl: '톨 냉장고 이미지',
+					}
+				},
+			],
 
-   ]
+		},
+		{
+			finderStep: 'step-2',
+			questionText: 'Q2 - 냉장고제품 질문?',
+			defaultScreenImg: 'step2-메인 이미지',
+			interactionPage: true, // 인터렉트 페이지 유/무 정의
+			appliancePopup: false, // 팝업 유/무 정의
+			selectionsData: [
+				{
+					dataValue: 'step2-value1',
+					content: 'step2-content1',
+					iconImgUrl: {
+						default: '멀티 아이콘',
+						active: 'active 멀티 아이콘'
+					},
+					// 클릭시 변경되야할 데이터 항목 
+					changeData: {
+						description: '멀티 디스크립션',
+						screenImgUrl: '멀티 냉장고 이미지',
+					}
+				},
+				{
+					dataValue: 'step2-value2',
+					content: 'step2-content2',
+					iconImgUrl: {
+						default: '멀티 아이콘',
+						active: 'active 멀티 아이콘'
+					},
+					// 클릭시 변경되야할 데이터 항목 
+					changeData: {
+						description: '멀티 디스크립션',
+						screenImgUrl: '멀티 냉장고 이미지',
+					}
+				},
+				{
+					dataValue: 'step2-value3',
+					content: 'step2-content3',
+					iconImgUrl: {
+						default: '멀티 아이콘',
+						active: 'active 멀티 아이콘'
+					},
+					// 클릭시 변경되야할 데이터 항목 
+					changeData: {
+						description: '멀티 디스크립션',
+						screenImgUrl: '멀티 냉장고 이미지',
+					}
+				},
+			],
+		},
+		{
+			finderStep: 'step-3',
+			questionText: 'Q3 - 냉장고제품 질문?',
+			defaultScreenImg: 'step3-메인 이미지',
+			interactionPage: false, // 인터렉트 페이지 유/무 정의
+			appliancePopup: true, // 팝업 유/무 정의
+		},
+		{
+			finderStep: 'step-4',
+			questionText: 'Q4 - 냉장고제품 질문?',
+			defaultScreenImg: 'url',
+			interactionPage: true, // 인터렉트 페이지 유/무 정의
+			appliancePopup: false, // 팝업 유/무 정의
+		},
+		{
+			finderStep: 'step-5',
+			questionText: 'Q5 - 냉장고제품 질문?',
+			defaultScreenImg: 'url',
+			interactionPage: true, // 인터렉트 페이지 유/무 정의
+			appliancePopup: false, // 팝업 유/무 정의
+		},
+		{
+			finderStep: 'step-6',
+			questionText: 'Q6 - 냉장고제품 질문?',
+			defaultScreenImg: 'url',
+			interactionPage: false, // 인터렉트 페이지 유/무 정의
+			appliancePopup: false, // 팝업 유/무 정의
+		},
+		{
+			finderStep: 'step-7',
+			questionText: 'Q7 - 냉장고제품 질문?',
+			defaultScreenImg: 'url',
+			interactionPage: false, // 인터렉트 페이지 유/무 정의
+			appliancePopup: false, // 팝업 유/무 정의
+		}
+	]
 }
+
+
+// 스텝 class 저장
+for (let i = 0; i < ConfigData.finderSetting.length; i++) {
+	finderStepData.push(ConfigData.finderSetting[i].finderStep);
+}
+
+
+
+// 데이터 뿌리기
+function loadStepEvent(idx) {
+
+	// let _answerLength = ConfigData.finderSetting[idx].selectionsData.length;
+	let selectionsData = ConfigData.finderSetting[idx].selectionsData;
+
+
+	// 해당 페이지 정보
+	console.log('----해당 페이지 정보--------------')
+	console.log('idx : ', idx);
+	console.log('finder-step : ', ConfigData.finderSetting[idx].finderStep);
+	console.log('interactionPage :', ConfigData.finderSetting[idx].interactionPage);
+	console.log('appliancePopup :', ConfigData.finderSetting[idx].appliancePopup);
+	console.log('questionText : ', ConfigData.finderSetting[idx].questionText)
+	console.log('----------------------------------------------------------------------------------')
+
+	// 스텝 전환
+	$(".appliance_finder > div").removeClass();
+	$(".appliance_finder > div").addClass(finderStepData[idx]);
+
+	// 해당 디클 뿌리기
+	$(".question_txt").text(ConfigData.finderSetting[idx].questionText);
+
+	// 해당 이미지 뿌리기
+	$(".screen_img img").attr('alt', ConfigData.finderSetting[idx].defaultScreenImg);
+	// console.log(ConfigData.finderSetting[idx].defaultScreenImg)
+
+
+
+	// 항목뿌리기
+	// 항목 갯수 만큼 뿌리기
+	console.log($(".answer_wrap").html(''));
+	for (let i = 0; i < selectionsData.length; i++) {
+		$(".answer_wrap").append('<li><button class="answer_btn" type="button">' + selectionsData[i].content +'</button></li>');
+		// console.log($(".answer_wrap").find("li button"))
+	}
+}
+
+// 페이지 이동 이벤트
+function stepChangeEvent(idx) {
+	// 페이지 open
+	$(".appliance_finder").css('display', 'block');
+	loadStepEvent(idx);
+	// 다음버튼
+	$("#nextBtn").on("click", function () {
+		if (idx < ConfigData.finderSetting.length - 1) {
+			idx++;
+			loadStepEvent(idx);
+		}
+	});
+	// 이전버튼
+	$("#prevBtn").on("click", function () {
+		if (idx > 0) {
+			idx--;
+			loadStepEvent(idx);
+		}
+	});
+}
+stepChangeEvent(0);
+
+
+
+
+// 결과화면
+$("#shopNow").on("click", function () {
+	console.log("결과화면");
+});
+
+
+
+
+
+
+
+
+
+
+
 
 // select DATA
 let selectAnswer = {
-   Q1: ['value1'],
-   Q2: ['value1', 'value2'],
-   Q3: ['value3', 'value3'],
-   Q4: ['value1', 'value1', 'value1',],
-   Q5: ['value1', 'value1'],
-   Q6: ['value1'],
-   Q7: ['value1', 'value1'],
+	Q1: ['value1'],
+	Q2: ['value1', 'value2'],
+	Q3: ['value3', 'value3'],
+	Q4: ['value1', 'value1', 'value1',],
+	Q5: ['value1', 'value1'],
+	Q6: ['value1'],
+	Q7: ['value1', 'value1'],
+}
+
+
+function finder() {
+	alert("민주바보")
 }

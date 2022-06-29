@@ -1,12 +1,60 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-   <meta charset="UTF-8">
-   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <title>Document</title>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<link rel="stylesheet" href="./common.css">
+	<script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
 </head>
 <body>
-   
+	<div id="wrap">
+		<button type="button" onClick="stepChangeEvent(0);">버튼</button>
+		<!-- 냉장고 질문 start -->
+		<div class="appliance_finder">
+			<div class="step-1">
+				<nav id="navigation" class="nav">
+					<ul>
+						<li>content 1</li>
+						<li>content 2</li>
+						<li>content 3</li>
+						<li>content 4</li>
+						<li>content 5</li>
+						<li>content 6</li>
+						<li>content 7</li>
+					</ul>
+				</nav>
+				<div class="finder_contents">
+					<div class="view_wrap">
+						<div class="screen_img">
+							<img src="" alt="이미지">
+						</div>
+						<div class="screen_title">
+							<div class="question_txt">
+								
+							</div>
+						</div>
+					</div>
+					<ul class="answer_wrap">
+					<!-- 	<li>
+							<button class="answer_btn" type="button">내용1</button>
+						</li>
+						<li>
+							<button class="answer_btn" type="button">내용2</button>
+						</li>
+						<li>
+							<button class="answer_btn" type="button">내용3</button>
+						</li> -->
+					</ul>
+				</div>
+				<button id="prevBtn" type="button">이전</button>
+				<button id="nextBtn" type="button">다음</button>
+			</div>
+			<button id="shopNow" class="" type="button">결과화면</button>
+		</div>
+		<!-- 냉장고 질문 end -->
+	</div>
+	<script src="./data.js"></script>
 </body>
 </html>
