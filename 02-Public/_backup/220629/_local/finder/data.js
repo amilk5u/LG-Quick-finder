@@ -2,32 +2,12 @@
 let finderStepData = [];
 
 // select DATA
-let selectAnswer = {
-	step1: ['value1', 'value2'],
-	step2: ['value1', 'value2'],
-	step3: {
-		depth: ['value1'],
-		width: ['value'],
-		height: ['value', 'value2'],
-	},
-	step4: ['value1', 'value2'],
-	step5: ['value1', 'value2'],
-	step6: ['value1', 'value2'],
-	step7: ['value1', 'value2'],
-}
-/* let selectAnswer = {
-	step1: ['value1', 'value2'],
-	step2: ['value1', 'value2'],
-	step3: {
-		depth: ['value1'],
-		width: ['value'],
-		height: ['value', 'value2'],
-	},
-	step4: ['value1', 'value2'],
-	step5: ['value1', 'value2'],
-	step6: ['value1', 'value2'],
-	step7: ['value1', 'value2'],
-} */
+let selectAnswer = [
+/* 	['value1']
+	['value1', 'value2'],
+	['value1', 'value2'],
+	['value1', 'value3'], */
+]
 
 
 //냉장고 DATA
@@ -241,33 +221,33 @@ function stepUpdateEvent(idx) {
 	console.log('questionText : ', ConfigData.finderSetting[idx].questionText)
 
 	// step class 변경
-	$('.appliance_finder > div').removeClass();
-	$('.appliance_finder > div').addClass(finderStepData[idx]);
+	$(".appliance_finder > div").removeClass();
+	$(".appliance_finder > div").addClass(finderStepData[idx]);
 
 	// 해당 디스클리이머 뿌리기
-	$('.question_txt').text(ConfigData.finderSetting[idx].questionText);
+	$(".question_txt").text(ConfigData.finderSetting[idx].questionText);
 
 	// 해당 이미지 뿌리기
-	$('.screen_img img').attr('alt', ConfigData.finderSetting[idx].defaultScreenImg);
+	$(".screen_img img").attr('alt', ConfigData.finderSetting[idx].defaultScreenImg);
 	// console.log(ConfigData.finderSetting[idx].defaultScreenImg)
 
 	// step 예외 적용
 	if (idx === 2) {
 		// size
 		// 항목 목록 뿌리기
-		$('.answer_wrap').html('');
+		$(".answer_wrap").html('');
 		for (let i = 0; i < selectionsData.length; i++) {
-			$('.answer_wrap').append('<li><button class="answer_btn" type="button">' + selectionsData[i].content + '</button></li>');
-			// console.log($('.answer_wrap').find('li button'))
+			$(".answer_wrap").append('<li><button class="answer_btn" type="button">' + selectionsData[i].content + '</button></li>');
+			// console.log($(".answer_wrap").find("li button"))
 			// for (let j = 0; i < selectionsData[i].content) {
 			// }
 		}
 	} else {
 		// 항목 목록 뿌리기
-		$('.answer_wrap').html('');
+		$(".answer_wrap").html('');
 		for (let i = 0; i < selectionsData.length; i++) {
-			$('.answer_wrap').append('<li><button class="answer_btn" type="button">' + selectionsData[i].content + '</button></li>');
-			$('.answer_wrap li').eq(i).find('button').attr('data-value', selectionsData[i].dataValue);
+			$(".answer_wrap").append('<li><button class="answer_btn" type="button">' + selectionsData[i].content + '</button></li>');
+			$(".answer_wrap li").eq(i).find("button").attr('data-value', selectionsData[i].dataValue);
 		}
 	}
 	answerSelectEvent(idx);
@@ -278,18 +258,18 @@ function stepUpdateEvent(idx) {
 // 페이지 이동 이벤트 함수
 function stepChangeEvent(idx) {
 	// 페이지 open
-	$('.appliance_finder').css('display', 'block');
+	$(".appliance_finder").css('display', 'block');
 	stepUpdateEvent(idx);
 
 	// 다음버튼
-	$('#nextBtn').on('click', function () {
+	$("#nextBtn").on("click", function () {
 		if (idx < ConfigData.finderSetting.length - 1) {
 			idx++;
 			stepUpdateEvent(idx);
 		}
 	});
 	// 이전버튼
-	$('#prevBtn').on('click', function () {
+	$("#prevBtn").on("click", function () {
 		if (idx > 0) {
 			idx--;
 			stepUpdateEvent(idx);
@@ -300,53 +280,40 @@ function stepChangeEvent(idx) {
 
 // 항목 클릭 이벤트 함수
 function answerSelectEvent(idx) {
-	let bin = [];
-
 	console.log('항목 클릭 이벤트 : ', idx);
-	$('.answer_btn').removeClass('select');
-	$('#nextBtn').removeClass('on');
-	$('#shopNow').removeClass('on');
+	$(".answer_btn").removeClass("select");
+	$("#nextBtn").removeClass("on");
+	$("#shopNow").removeClass("on");
 
 	// 항목 클릭 
-	$('.answer_btn').on('click', function () {
+	$(".answer_btn").on("click", function () {
 		let _this = $(this);
 
 		if (idx !== 0) {
-			if (!_this.hasClass('select')) {
+			if (!_this.hasClass("select")) {
 				console.log('add');
-				_this.addClass('select');
+				_this.addClass("select");
 			} else {
 				console.log('remove')
-				_this.removeClass('select');
+				_this.removeClass("select");
 			}
-
-
-
-			if (_this.hasClass('select')) {
-				bin.push(_this.data('value'));
-	
-			}
-
-
 		} else {
-			$('.answer_btn').removeClass('select');
-			_this.addClass('select');
+			$(".answer_btn").removeClass("select");
+			_this.addClass("select");
 
 
-		}
-
-		if (idx === 0) {
-
-
+			console.log(_this.data('value'));
+			console.log(idx)
+			console.log(selectAnswer[0])
 		}
 
 		// 하나 이상 선택시 active 되는 부분
-		if ($('.answer_btn.select').length > 0) {
-			$('#nextBtn').addClass('on');
-			$('#shopNow').addClass('on');
+		if ($(".answer_btn.select").length > 0) {
+			$("#nextBtn").addClass("on");
+			$("#shopNow").addClass("on");
 		} else {
-			$('#nextBtn').removeClass('on');
-			$('#shopNow').removeClass('on');
+			$("#nextBtn").removeClass("on");
+			$("#shopNow").removeClass("on");
 		}
 	});
 }
@@ -355,8 +322,8 @@ function answerSelectEvent(idx) {
 
 
 // 결과화면
-$('#shopNow').on('click', function () {
-	console.log('결과화면');
+$("#shopNow").on("click", function () {
+	console.log("결과화면");
 });
 
 function init() {
