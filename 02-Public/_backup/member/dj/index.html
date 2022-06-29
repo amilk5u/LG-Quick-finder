@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>WM LIST</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <div id="wrap">
+        <form>
+            <fieldset>
+                <div class="first_name">
+                    <input type="checkbox" id="q1_1" name="first_name" value="Marcus">
+                    <label for="q1_1">Marcus</label>
+                    <input type="checkbox" id="q1_2" name="first_name" value="Sydelle">
+                    <label for="q1_2">Sydelle</label>
+                    <input type="checkbox" id="q1_3" name="first_name" value="Constantin">
+                    <label for="q1_3">Constantin</label>
+                </div>
+                <div class="last_name">
+                    <input type="checkbox" id="q2_1" name="last_name" value="Salatino">
+                    <label for="q2_1">Salatino</label>
+                    <input type="checkbox" id="q2_2" name="last_name" value="Ozanne">
+                    <label for="q2_2">Ozanne</label>
+                    <input type="checkbox" id="q2_3" name="last_name" value="Huggett">
+                    <label for="q2_3">Huggett</label>
+                </div>
+                <div class="email">
+                    <input type="checkbox" id="q3_1" name="email" value="naver">
+                    <label for="q3_1">naver</label>
+                    <input type="checkbox" id="q3_2" name="email" value="daum">
+                    <label for="q3_2">daum</label>
+                    <input type="checkbox" id="q3_3" name="email" value="google">
+                    <label for="q3_3">google</label>
+                </div>
+                <button type="button" onclick="filter_submit(this.form)">전송</button>
+            </fieldset>
+        </form>
+        <div class="table_wrap"></div>
+    </div>
+
+    <script>
+        function filter_submit(){
+           var $fisrtName = [];
+           $(".first_name").find("input:checked").each(function (){
+               $fisrtName.push($(this).val());
+           });
+           var $lastName = $(".last_name").find("input:checked").val();
+           var $Email = $(".email").find("input:checked").val();
+           console.log($fisrtName);
+           console.log($lastName);
+           console.log($Email);
+
+            var formData = $("form").serializeArray();
+            $.ajax({
+                url: "./wm_list.json",
+                type: "post",
+                datatype: "json",
+                data: formData,
+                success: function(data){
+                    if(data.length > 0){
+                        var tb=$('<table />')
+                        for(var i in data){
+                            if(data[i].first_name === $fisrtName[i] || data[i].last_name === $lastName || data[i].email === $Email){
+                                var $id=data[i].id;
+                                var $first_name=data[i].first_name;
+                                var $last_name=data[i].last_name;
+                                var $email=data[i].email;
+                                var row=$('<tr />').append($('<td />').text($id), $('<td />').text($first_name), $('<td />').text($last_name), $('<td />').text($email));
+                                tb.append(row);
+                            }
+                            $('.table_wrap').html(tb);
+                        }
+                    }
+                }
+            });
+        }
+    </script>
+</body>
+</html>

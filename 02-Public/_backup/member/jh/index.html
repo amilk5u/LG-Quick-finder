@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>quick finder</title>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+    <style>
+        .survey_list > li {display:none;}
+        .survey_list > li:first-child {display:block;}
+    </style>
+</head>
+<body>
+
+<div class="survey">
+    <form method="post" name="surveyFrm" id="surveyFrm">
+        <ol class="survey_list">
+            <li data-question="QType1">
+                <h3>Question 1</h3>
+                <ul>
+                    <li><input type="radio" name="QType1" id="QType1-1"><label for="QType1-1">항문 1-1</label></li>
+                    <li><input type="radio" name="QType1" id="QType1-2"><label for="QType1-2">항문 1-2</label></li>
+                    <li><input type="radio" name="QType1" id="QType1-3"><label for="QType1-3">항문 1-3</label></li>
+                </ul>
+            </li>
+            <li data-question="QType2">
+                <h3>Question 2</h3>
+                <ul>
+                    <li><input type="radio" name="QType2" id="QType2-1" onclick="selectQuestion('QType2', '1')"><label for="QType2-1">항문 2-1</label></li>
+                    <li><input type="radio" name="QType2" id="QType2-2" onclick="selectQuestion('QType2', '2')"><label for="QType2-2">항문 2-2</label></li>
+                    <li><input type="radio" name="QType2" id="QType2-3" onclick="selectQuestion('QType2', '3')"><label for="QType2-3">항문 2-3</label></li>
+                </ul>
+            </li>
+            <!--<li data-question="QType3">
+                <h3>Question 3 (중복선택 가능)</h3>
+                <ul>
+                    <li><input type="checkbox" name="QType3" id="QType3-1" onclick="selectQuestion('QType2', '1')"><label for="QType3-1">항문 3-1</label></li>
+                    <li><input type="checkbox" name="QType3" id="QType3-2" onclick="selectQuestion('QType3', '2')"><label for="QType3-2">항문 3-2</label></li>
+                    <li><input type="checkbox" name="QType3" id="QType3-3" onclick="selectQuestion('QType3', '3')"><label for="QType3-3">항문 3-3</label></li>
+                </ul>
+            </li>-->
+            <li data-question="QType4">
+                <h3>Question 4</h3>
+                <ul>
+                    <li><input type="radio" name="QType4" id="QType4-1" onclick="selectQuestion('QType4', '1')"><label for="QType4-1">항문 4-1</label></li>
+                    <li><input type="radio" name="QType4" id="QType4-2" onclick="selectQuestion('QType4', '2')"><label for="QType4-2">항문 4-2</label></li>
+                    <li><input type="radio" name="QType4" id="QType4-3" onclick="selectQuestion('QType4', '3')"><label for="QType4-3">항문 4-3</label></li>
+                </ul>
+            </li>
+        </ol>
+    </form>
+    <button type="button" class="resultBtn" onclick="surveyResult()";>Result...</button>
+</div>
+
+<script>
+    function selectQuestion(k,v){
+        var $surveyList = $(".survey_list");
+        $("input[name="+k+"_selected]").val(v);
+        var _currentIdx = $surveyList.find("> li[data-question="+k+"]").index();
+        $surveyList.find("> li").hide();
+        $surveyList.find("> li").eq(_currentIdx+1).show();
+    }
+
+    function surveyResult(){
+        // var f = document.surveyFrm;
+
+        $.ajax({
+            url: "./surveyType_WM.json",
+            type: "POST",
+            data: $("#surveyFrm").serialize(),
+            dataType:"json",
+        }).done(function(data) {
+            console.log(data);
+        });
+    }
+</script>
+</body>
+</html>
