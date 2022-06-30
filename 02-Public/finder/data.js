@@ -324,6 +324,16 @@ function answerSelectEvent(idx, selectionsData) {
 		} else {
 			
 			console.log('나머지 페이지 클릭')
+
+
+			if (_this.hasClass('select')) {
+				bin.push(_this.data('value'))
+			}
+			console.log(bin);
+
+			bin.forEach(function(i){
+				console.log(i);
+			});
 		}
 
 
