@@ -2,31 +2,36 @@
 let finderStepData = [];
 
 // select DATA
-let selectAnswer = {
-	step1: ['value1', 'value2'],
-	step2: ['value1', 'value2'],
-	step3: {
-		depth: ['value1'],
-		width: ['value'],
-		height: ['value', 'value2'],
+let selectAnswer = [
+	{
+		key: [],
+		value: [],
 	},
-	step4: ['value1', 'value2'],
-	step5: ['value1', 'value2'],
-	step6: ['value1', 'value2'],
-	step7: ['value1', 'value2'],
-}
+	{
+		key: [],
+		value: [],
+	},
+	{
+		key: [],
+		option: {
+			depth: [],
+			width: [],
+			height: [],
+		}
+	},
+]
 /* let selectAnswer = {
-	step1: ['value1', 'value2'],
-	step2: ['value1', 'value2'],
-	step3: {
+	'step-1': ['value1', 'value2'],
+	'step-2': ['value1', 'value2'],
+	'step-3': {
 		depth: ['value1'],
 		width: ['value'],
 		height: ['value', 'value2'],
 	},
-	step4: ['value1', 'value2'],
-	step5: ['value1', 'value2'],
-	step6: ['value1', 'value2'],
-	step7: ['value1', 'value2'],
+	'step-4': ['value1', 'value2'],
+	'step-5': ['value1', 'value2'],
+	'step-6': ['value1', 'value2'],
+	'step-7': ['value1', 'value2'],
 } */
 
 
@@ -73,6 +78,7 @@ const ConfigData = {
 		// 제품 선택
 		{
 			finderStep: 'step-1',
+			key: '',
 			questionText: 'Q1 - 냉장고제품 질문?',
 			defaultScreenImg: 'step1-메인 이미지',
 			interactionPage: true, // 인터렉트 페이지 유/무 정의
@@ -122,6 +128,7 @@ const ConfigData = {
 		},
 		{
 			finderStep: 'step-2',
+			key: '',
 			questionText: 'Q2 - 냉장고제품 질문?',
 			defaultScreenImg: 'step2-메인 이미지',
 			interactionPage: true, // 인터렉트 페이지 유/무 정의
@@ -170,6 +177,7 @@ const ConfigData = {
 		},
 		{
 			finderStep: 'step-3',
+			key: '',
 			questionText: 'Q3 - 냉장고제품 질문?',
 			defaultScreenImg: 'step3-메인 이미지',
 			interactionPage: false, // 인터렉트 페이지 유/무 정의
@@ -189,34 +197,6 @@ const ConfigData = {
 				},
 			],
 		},
-		/* 	{
-				finderStep: 'step-4',
-				questionText: 'Q4 - 냉장고제품 질문?',
-				defaultScreenImg: 'url',
-				interactionPage: true, // 인터렉트 페이지 유/무 정의
-				appliancePopup: false, // 팝업 유/무 정의
-			},
-			{
-				finderStep: 'step-5',
-				questionText: 'Q5 - 냉장고제품 질문?',
-				defaultScreenImg: 'url',
-				interactionPage: true, // 인터렉트 페이지 유/무 정의
-				appliancePopup: false, // 팝업 유/무 정의
-			},
-			{
-				finderStep: 'step-6',
-				questionText: 'Q6 - 냉장고제품 질문?',
-				defaultScreenImg: 'url',
-				interactionPage: false, // 인터렉트 페이지 유/무 정의
-				appliancePopup: false, // 팝업 유/무 정의
-			},
-			{
-				finderStep: 'step-7',
-				questionText: 'Q7 - 냉장고제품 질문?',
-				defaultScreenImg: 'url',
-				interactionPage: false, // 인터렉트 페이지 유/무 정의
-				appliancePopup: false, // 팝업 유/무 정의
-			} */
 	]
 }
 
@@ -233,7 +213,7 @@ function stepUpdateEvent(idx) {
 	let selectionsData = ConfigData.finderSetting[idx].selectionsData;
 
 	// 해당 페이지 정보
-	console.log('----현재 페이지------------------------------------------------------------------------------------------------------')
+	console.log('----현재 페이지--------------------------------------------------------------');
 	console.log('idx : ', idx);
 	console.log('finder-step : ', ConfigData.finderSetting[idx].finderStep);
 	console.log('interactionPage :', ConfigData.finderSetting[idx].interactionPage);
@@ -270,7 +250,7 @@ function stepUpdateEvent(idx) {
 			$('.answer_wrap li').eq(i).find('button').attr('data-value', selectionsData[i].dataValue);
 		}
 	}
-	answerSelectEvent(idx);
+	answerSelectEvent(idx, selectionsData);
 }
 
 
@@ -299,8 +279,8 @@ function stepChangeEvent(idx) {
 
 
 // 항목 클릭 이벤트 함수
-function answerSelectEvent(idx) {
-	// let bin = [];
+function answerSelectEvent(idx, selectionsData) {
+	let bin = [];
 
 	console.log('항목 클릭 이벤트 : ', idx);
 	$('.answer_btn').removeClass('select');
@@ -313,15 +293,17 @@ function answerSelectEvent(idx) {
 
 		if (idx !== 0) {
 			if (!_this.hasClass('select')) {
-				console.log('add');
+				// console.log('add');
 				_this.addClass('select');
 			} else {
-				console.log('remove')
+				// console.log('remove')
 				_this.removeClass('select');
 			}
-			// if (_this.hasClass('select')) {
-			// 	bin.push(_this.data('value'));
-			// }
+
+			/* if (_this.hasClass('select')) {
+				bin.push(_this.data('value'));
+			} */
+
 		} else {
 			$('.answer_btn').removeClass('select');
 			_this.addClass('select');
@@ -330,11 +312,19 @@ function answerSelectEvent(idx) {
 
 		// 제품선택 매칭
 		if (idx === 0) {
-			console.log('여기다@@@')
+			console.log('항목 클릭!!!------------------------------');
+			selectAnswer[idx].value = [];
+			selectAnswer[idx].value.push(_this.data('value'));
+
+			/* 		for (let i = 0; i < selectionsData.length; i++) {
+						console.log(i);
+						console.log($('.answer_btn').index());
+						// console.log(_this.index() === i)
+					} */
+		} else {
+			
+			console.log('나머지 페이지 클릭')
 		}
-
-
-
 
 
 
