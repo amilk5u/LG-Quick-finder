@@ -198,10 +198,37 @@ function main() {
 	}
 
 
-	// 데이터 뿌리기
+	// 스텝 이동 이벤트 함수
+	function stepChangeEvent(idx) {
+		// 스텝 open
+		$('#quickFinder').css('display', 'block');
+		stepUpdateEvent(idx);
+
+		// 다음버튼
+		$('#nextStepBtn').on('click', function () {
+			let judgmentStep = 'nextStep';
+
+			if (idx < ConfigData.finderSetting.length - 1) {
+				idx++;
+				stepUpdateEvent(idx, judgmentStep);
+			}
+		});
+		// 이전버튼
+		$('#backStepBtn').on('click', function () {
+			let judgmentStep = 'backStep';
+
+			if (idx > 0) {
+				idx--;
+				stepUpdateEvent(idx, judgmentStep);
+			}
+		});
+	}
+
+
+	// 데이터 뿌리기 (현재 스텝 데이터 항목 뿌리기)
 	function stepUpdateEvent(idx, judgmentStep) {
-		// let _answerLength = ConfigData.finderSetting[idx].selectionsData.length;
 		let currentSelectionsData = ConfigData.finderSetting[idx].selectionsData; // 현재 스텝의 항목 데이터
+		let lastSelectDataValue;
 		// $(".que_title").css('display', 'block');
 		// $(".qna_description").css('display', 'none');
 
@@ -213,6 +240,8 @@ function main() {
 		console.log('appliancePopup :', ConfigData.finderSetting[idx].appliancePopup);
 		console.log('questionText : ', ConfigData.finderSetting[idx].questionText)
 		console.log('-----------------------------------------------------------------');
+
+
 
 		// step class 변경
 		$('#quickFinder').removeClass();
@@ -246,13 +275,11 @@ function main() {
 			}
 		}
 
-
 		// 이전 데이터 유지(뿌리기) , 다음 스텝 데이터 삭제
 		if (judgmentStep === 'backStep') {
 			$(".que_title").css('display', 'none');
 			$(".qna_description").css('display', 'block');
 			selectAnswer[idx + 1].value = []; // 다음 스텝 데이터 삭제
-
 
 			// 버튼 value와 저장된 value와 같으면 active 
 			$(".answer_btn").each(function () {
@@ -263,6 +290,28 @@ function main() {
 					}
 				});
 			});
+
+
+			if (idx === 0) {
+				lastSelectDataValue = selectAnswer[idx].value[0]; // 마지막데이터
+			} else {
+				lastSelectDataValue = selectAnswer[idx].value[selectAnswer[idx].value.length - 1]; // 저장된 value 에서 마지막 데이터 
+			}
+			console.log(lastSelectDataValue)
+
+			// value 저장 배열의 마지막 value 값과 매칭되는 항목 데이터 가져오기
+			let selectData = currentSelectionsData.filter(item => {
+				return item.dataValue === lastSelectDataValue;
+			})
+
+			// 선택된 항목에 대한 데이터 뿌리기
+			$(".qna_description .txt_box").text(selectData[0].changeData.description);
+
+
+
+
+
+
 		} else {
 			$(".que_title").css('display', 'block');
 			$(".qna_description").css('display', 'none');
@@ -270,38 +319,9 @@ function main() {
 		answerSelectEvent(idx, currentSelectionsData, judgmentStep);
 	}
 
-
-
-	// 스텝 이동 이벤트 함수
-	function stepChangeEvent(idx) {
-		// 스텝 open
-		$('#quickFinder').css('display', 'block');
-		stepUpdateEvent(idx);
-
-		// 다음버튼
-		$('#nextStepBtn').on('click', function () {
-			let judgmentStep = 'nextStep';
-
-			if (idx < ConfigData.finderSetting.length - 1) {
-				idx++;
-				stepUpdateEvent(idx, judgmentStep);
-			}
-		});
-		// 이전버튼
-		$('#backStepBtn').on('click', function () {
-			let judgmentStep = 'backStep';
-
-			if (idx > 0) {
-				idx--;
-				stepUpdateEvent(idx, judgmentStep);
-			}
-		});
-	}
-
-
 	// 항목 클릭 이벤트 함수
 	function answerSelectEvent(idx, currentSelectionsData, judgmentStep) {
-		let selectValueData = [];
+		let selectValueData = selectAnswer[idx].value;
 		let lastSelectDataValue;
 		// console.log('항목 클릭 이벤트 : ', idx);
 		console.log(judgmentStep);
@@ -310,8 +330,6 @@ function main() {
 		if (judgmentStep !== 'backStep') {
 			$('.answer_btn').removeClass('active');
 		}
-
-		selectValueData = selectAnswer[idx].value;
 		console.log(selectValueData);
 
 		$('#nextStepBtn').removeClass('on');
@@ -356,6 +374,10 @@ function main() {
 				lastSelectDataValue = selectValueData[selectValueData.length - 1];
 				console.log(lastSelectDataValue)
 			}
+
+
+
+
 
 			console.log('selectAnswer (선택된 value 데이터 저장) : ', selectAnswer);
 			// console.log('currentSelectionsData (현재 스텝 항목): ', currentSelectionsData);
