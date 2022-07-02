@@ -12207,7 +12207,14 @@ html.no_scroll { overflow: hidden; padding: 0 17px 0 0; }
 
 #skipNavigation a:focus { top: 0; text-align: center; }
 
+/* #quickFinder {
+	display: none;
+} */
+.btn_wrap > button { display: inline-block; padding: 20px; background-color: #eee; }
+
 .show_now_wrap { margin: 6.51042vw 0 0; }
+
+.answer_btn { padding: 20px; }
 
 .answer_btn.active { background-color: #222; color: #fff; }
 
