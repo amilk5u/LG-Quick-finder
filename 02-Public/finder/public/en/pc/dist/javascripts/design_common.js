@@ -361,42 +361,21 @@ function main() {
 			for (let i = 0; i < currentSelectionsData.length; i++) {
 				let buttonHtml = '';
 				for (let j = 0; j < currentSelectionsData[i].item.dataValue.length; j++) {
-					buttonHtml += '<button class="answer_btn" type="button" data-value="' + currentSelectionsData[i].item.dataValue[j] + '" > ' + currentSelectionsData[i].item.content[j] + ' </button>';
-					// console.log('제품 : ', productObject[0].size[i].value)
+					// 기본 disabled
+					let disabledPresence = 'disabled';
 
-
-					// step1에서 선택한 제품 value 와 화면의 value 값이 같은 것
-					productObject[0].size[i].value.forEach(function(item){
-						// console.log('default : ', currentSelectionsData[i].item.dataValue[j]); // 비교할 대상
-						// console.log(item)
-						// console.log(currentSelectionsData[i].item.dataValue[j] === item)
-						console.log(currentSelectionsData[i].item.dataValue[j])
+					// step1 에서 선택한 제품 value 와 화면의 value 값이 같으면 초기화
+					productObject[0].size[i].value.forEach(function (item) {
 						if (currentSelectionsData[i].item.dataValue[j] === item) {
-							// $('.answer_btn').data()
-						} else {
-							// console.log(currentSelectionsData[i].item.dataValue[j])
+							disabledPresence = '';
 						}
 					})
-
-
-
+					buttonHtml += '<button class="answer_btn" type="button" data-value="' + currentSelectionsData[i].item.dataValue[j] + '" ' + disabledPresence + '  > ' + currentSelectionsData[i].item.content[j] + ' </button>';
 				}
-
-
-
 				liHtml += '<li> ' + buttonHtml + ' </li>';
 			}
 			$('#selectWrap ol').append(liHtml);
-
-			// $('.answer_btn').data('value') === .css('disable');
-
-			/* 		console.log($('.answer_btn').data('value') === 'width-value1')
-					if ($('.answer_btn').data('value') === 'width-value1') {
-						$('.answer_btn').css('disable', true);
-					} */
-
-
-
+			
 		} else {
 			for (let i = 0; i < currentSelectionsData.length; i++) {
 				$('#selectWrap ol').append('<li><button class="answer_btn" type="button" data-value="' + currentSelectionsData[i].dataValue + '"> <i></i> <p> ' + currentSelectionsData[i].content + '</p></button></li>');
@@ -541,7 +520,7 @@ function main() {
 				$(".qna_description .txt_box").text(selectData[0].changeData.description);
 				$("#qnaImgWrap img").attr('alt', selectData[0].changeData.screenImgUrl);
 			} else if (idx === 2) {
-				// console.log('dmkgkgkgkgk')
+				// console.log('step2');
 			} else {
 				$(".qna_description .txt_box").text(selectData[0].changeData.description);
 			}
