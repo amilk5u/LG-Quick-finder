@@ -1,7 +1,4 @@
 @charset "UTF-8";
-/* #quickFinder {
-	display: none;
-} */
 .btn_wrap > button {
 	display: inline-block;
 	padding:20px;
@@ -19,9 +16,8 @@
 	color:#fff;
 }
 #quickFinder {
-	padding:vw(20) 0 0; background-image:url(../../images/common/bg_gradation.gif);
+	padding:vw(20) 0 0; background-image:url(../../images/common/bg_gradation.gif); display: none;
 	@include backgroundSolt(0, 0, repeat-x);
-	
 	//상단 네비게이션
 	#finderNav {
 		height:vw(80); padding:0 vw(40);
@@ -48,7 +44,6 @@
 				width:vw(86); height:2px; display:block; content:""; background-color:#dbdbdb; position:absolute;
 				top:50%; left:vw(-85); margin:-1px 0 0;
 			}
-			
 			
 			&.active {
 				&:before {background-color:$red;}

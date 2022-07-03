@@ -17,11 +17,11 @@ function main() {
 		{
 			step: 'step03',
 			key: [],
-			value: {
-				depth: [],
-				width: [],
-				height: [],
-			}
+			value: [
+				[],
+				[],
+				[],
+			]
 		},
 	];
 
@@ -31,7 +31,7 @@ function main() {
 		object: [
 			{
 				id: '멀티 냉장고',
-				value: 'step1-value1',
+				key: 'step1-value1',
 				screenImg: {
 					// defaultScreenImg: '',
 					changeScreenImg: '멀티 냉장고 남자이미지1',
@@ -39,15 +39,24 @@ function main() {
 					productImg: '멀티 냉장고 화이트 이미지',
 				},
 				capacity: ['capacity-value1', 'capacity-value2'],
-				size: {
-					depth: ['depth-value1'],
-					width: ['width-value2', 'width-value3'],
-					height: ['height-value2'],
-				},
+				size: [
+					{
+						category: 'depth',
+						value: ['depth-value1'],
+					},
+					{
+						category: 'width',
+						value: ['width-value1', 'width-value3'],
+					},
+					{
+						category: 'height',
+						value: ['height-value2'],
+					},
+				],
 			},
 			{
 				id: '아메리칸 냉장고',
-				value: 'step1-value2',
+				key: 'step1-value2',
 				screenImg: {
 					// defaultScreenImg: '',
 					changeScreenImg: '아메리칸 냉장고 남자이미지2',
@@ -55,15 +64,24 @@ function main() {
 					productImg: '아메리칸 냉장고 화이트 이미지',
 				},
 				capacity: ['capacity-value1', 'capacity-value2'],
-				size: {
-					depth: ['depth-value2'],
-					width: ['width-value1'],
-					height: ['height-value2', 'height-value3'],
-				},
+				size: [
+					{
+						category: 'depth',
+						value: ['depth-value2'],
+					},
+					{
+						category: 'width',
+						value: ['width-value2', 'width-value3'],
+					},
+					{
+						category: 'height',
+						value: ['height-value1'],
+					},
+				],
 			},
 			{
 				id: '톨 냉장고',
-				value: 'step1-value3',
+				key: 'step1-value3',
 				screenImg: {
 					// defaultScreenImg: '',
 					changeScreenImg: '톨 냉장고 남자이미지3',
@@ -71,11 +89,20 @@ function main() {
 					productImg: '톨 냉장고 화이트 이미지',
 				},
 				capacity: ['value1', 'value1'],
-				size: {
-					depth: ['depth-value1'],
-					width: ['width-value1', 'width-value2'],
-					height: ['height-value1'],
-				},
+				size: [
+					{
+						category: 'depth',
+						value: ['depth-value1'],
+					},
+					{
+						category: 'width',
+						value: ['width-value1', 'width-value2'],
+					},
+					{
+						category: 'height',
+						value: ['height-value3'],
+					},
+				],
 			}
 		],
 		// 질문페이지 사전 정의 
@@ -182,7 +209,7 @@ function main() {
 					},
 				],
 			},
-			// 예외 (size)
+			// 예외 step (size)
 			{
 				finderStep: 'step03',
 				key: '',
@@ -193,13 +220,15 @@ function main() {
 				descriptionClass: 'desc_2', // 디스크립션 class 종류
 				selectionsData: [
 					{
+						category: 'depth',
 						label: 'depth 설명',
 						item: {
-							dataValue: ['depth-value1', 'depth-value1',],
+							dataValue: ['depth-value1', 'depth-value2',],
 							content: ['depth-content1', 'depth-content2',],
 						}
 					},
 					{
+						category: 'width',
 						label: 'depth 설명',
 						item: {
 							dataValue: ['width-value1', 'width-value2', 'width-value3',],
@@ -207,6 +236,7 @@ function main() {
 						}
 					},
 					{
+						category: 'height',
 						label: 'depth 설명',
 						item: {
 							dataValue: ['height-value1', 'height-value2', 'height-value3',],
@@ -252,7 +282,7 @@ function main() {
 	}
 
 
-	// 데이터 뿌리기 (현재 스텝 데이터 항목 뿌리기)
+	// 현재 스텝의 html 뿌리기
 	function stepUpdateEvent(idx, judgmentStep) {
 		let currentSelectionsData = ConfigData.finderSetting[idx].selectionsData; // 현재 스텝의 항목 데이터
 		let currentAnswerValue = selectAnswer[idx].value; // 현재스텝 저장된 value 
@@ -261,9 +291,9 @@ function main() {
 		let descClass = ConfigData.finderSetting[idx].descriptionClass; // 해당스텝 class
 		// 스텝1 문항 선택과 매칭되는 object 데이터 가져오기
 		let productObject = ConfigData.object.filter(item => {
-			return item.value === selectProduct
+			return item.key === selectProduct
 		})
-		console.log(productObject)
+		console.log('productObject (1문항에서 선택한 제품 데이터) : ', productObject)
 
 		// 해당 스텝 정보
 		console.log('----현재 스텝--------------------------------------------------------------');
@@ -297,35 +327,58 @@ function main() {
 		/* 해당 항목 데이터 뿌리기 start------------- */
 		if (idx === 2) {
 			let liHtml = '';
-			// li , button 뿌리기
+
+			// 제품 value 비교하여 없는것은 disable 처리 / li , button 뿌리기
 			for (let i = 0; i < currentSelectionsData.length; i++) {
 				let buttonHtml = '';
 				for (let j = 0; j < currentSelectionsData[i].item.dataValue.length; j++) {
 					buttonHtml += '<button class="answer_btn" type="button" data-value="' + currentSelectionsData[i].item.dataValue[j] + '" > ' + currentSelectionsData[i].item.content[j] + ' </button>';
-					// $('#selectWrap ol li').eq(i).find('button').eq(j).attr('data-value', currentSelectionsData[i].item.dataValue[j]);
+					// console.log('제품 : ', productObject[0].size[i].value)
+
+
+					// step1에서 선택한 제품 value 와 화면의 value 값이 같은 것
+					productObject[0].size[i].value.forEach(function(item){
+						// console.log('default : ', currentSelectionsData[i].item.dataValue[j]); // 비교할 대상
+						// console.log(item)
+						// console.log(currentSelectionsData[i].item.dataValue[j] === item)
+						console.log(currentSelectionsData[i].item.dataValue[j])
+						if (currentSelectionsData[i].item.dataValue[j] === item) {
+							// $('.answer_btn').data()
+						} else {
+							// console.log(currentSelectionsData[i].item.dataValue[j])
+						}
+					})
+
+
+
 				}
+
+
+
 				liHtml += '<li> ' + buttonHtml + ' </li>';
 			}
 			$('#selectWrap ol').append(liHtml);
+
+			// $('.answer_btn').data('value') === .css('disable');
+
+			/* 		console.log($('.answer_btn').data('value') === 'width-value1')
+					if ($('.answer_btn').data('value') === 'width-value1') {
+						$('.answer_btn').css('disable', true);
+					} */
+
+
+
 		} else {
 			for (let i = 0; i < currentSelectionsData.length; i++) {
 				$('#selectWrap ol').append('<li><button class="answer_btn" type="button" data-value="' + currentSelectionsData[i].dataValue + '"> <i></i> <p> ' + currentSelectionsData[i].content + '</p></button></li>');
 				// $('#selectWrap ol li').eq(i).find('button').attr('data-value', currentSelectionsData[i].dataValue);
 			}
 		}
-
-
-
-
-
 		if (idx === 1) {
 			console.log('스텝2');
-			// console.log(productObject[0])
 			$("#qnaImgWrap").find('img').attr('alt', productObject[0].screenImg.changeScreenImg)
 		}
 		/* 해당 항목 데이터 뿌리기 end------------- */
-
-
 
 		// back 버튼 클릭시 이전 데이터 유지, 다음 스텝 데이터 삭제
 		if (judgmentStep === 'backStep') {
@@ -358,13 +411,13 @@ function main() {
 			$(".que_title").css('display', 'block');
 			$(".qna_description").css('display', 'none');
 		}
-		answerSelectEvent(idx, currentSelectionsData, judgmentStep); // 항목 클릭 함수
+		answerSelectEvent(idx, currentSelectionsData, judgmentStep, productObject); // 항목 클릭 함수
 	}
 
 
 
 	// 항목 클릭 이벤트 함수
-	function answerSelectEvent(idx, currentSelectionsData, judgmentStep) {
+	function answerSelectEvent(idx, currentSelectionsData, judgmentStep, productObject) {
 		let currentAnswerValue = selectAnswer[idx].value; // 현재 저장된 value 
 		let lastAnswerValue; // 저장된 데이터에서 마지막 value
 
@@ -403,6 +456,12 @@ function main() {
 				selectAnswer[idx].value = [];
 				selectAnswer[idx].value.push(_this.data('value'));
 				lastAnswerValue = _this.data('value');
+			} else if (idx === 2) {
+				console.log('3스텝 항목 클릭! 햇습니다.')
+
+
+
+
 			} else {
 				// value 저장 배열에서 현재 선택된 value 와 중복되는 데이터 제거
 				currentAnswerValue.forEach(function (item, idx) {
@@ -421,13 +480,8 @@ function main() {
 
 
 			console.log('selectAnswer (선택된 value 데이터 저장) : ', selectAnswer);
+
 			sprayData(idx, currentSelectionsData, lastAnswerValue); // 선택한 항목의 대한 데이터 뿌리기
-
-
-
-
-
-
 
 
 			// 하나 이상 선택시 active 되는 부분
@@ -451,13 +505,16 @@ function main() {
 
 
 
-
 		// 선택한 항목 데이터 뿌리기
 		if ($('.answer_btn.active').length > 0) {
 			// 공통 뿌리기
-			$(".qna_description .txt_box").text(selectData[0].changeData.description);
 			if (idx === 0) {
+				$(".qna_description .txt_box").text(selectData[0].changeData.description);
 				$("#qnaImgWrap img").attr('alt', selectData[0].changeData.screenImgUrl);
+			} else if (idx === 2) {
+				// console.log('dmkgkgkgkgk')
+			} else {
+				$(".qna_description .txt_box").text(selectData[0].changeData.description);
 			}
 		}
 
@@ -479,7 +536,11 @@ function main() {
 		console.log('결과화면');
 	});
 
+
 	// 퀵파인더 start
+	/* $('.btn').on('click',function(){
+		stepChangeEvent(0);
+	}); */
 	stepChangeEvent(0);
 }
 
