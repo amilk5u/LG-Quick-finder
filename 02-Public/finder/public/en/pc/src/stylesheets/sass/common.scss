@@ -21,6 +21,7 @@ select {
     @include transition(border-color, .2s);
     &:focus { border-color:$violet !important;}
 }
+button:focus {}
 
 ::selection { background:$violet; color:$white; text-shadow:none; }
 

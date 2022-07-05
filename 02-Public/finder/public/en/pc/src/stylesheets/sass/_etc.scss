@@ -1,73 +1,49 @@
 @charset "UTF-8";
-
-//etc - 개인정보처리방침
-#contentsWrap.util_terms {
-    width:1180px; margin:0 auto;
-    #subTitle {
-        padding:60px 0 0 !important;
-        p {margin:55px 0 0; line-height:34px; font-size:18px; padding:30px 40px; background-color:$gray5; color:$gray2;}
-    }
-    .terms_tab {
-        padding:55px 0 0;
-        h5 {font-size:28px; font-weight:$light;}
-        ul {
-            border-top:2px solid $black; border-bottom:1px solid $gray4; padding:20px 50px 45px; margin:30px 0 0;
-            @extend %clearfix;
+.popup_step01 {
+    width:100%; display:none;
+    .popup_wrap {
+        display: none;
+        &.multi {            
+            .tit_wrap i {background-image:url(../../images/step01/popup_icon01.png);}
+            .popup_con .txt_wrap .txt_box {margin:vw(-55) 0 0;}
         }
-        li {
-            padding:25px 0 0; float:left;
-            &:nth-of-type(odd) {width:600px;}
+        &.american {
+            .tit_wrap i {background-image:url(../../images/step01/popup_icon02.png);}
+            .popup_con .txt_wrap .txt_box {margin:vw(-57) 0 0;}
         }
-        button {
-            font-size:18px; position:relative;
-            @include transition(color, .3s);
-
-            &:hover,
-            &:focus {
-                color:$violet;
-                &:after {width:100%;}
+        &.tall {
+            .tit_wrap i {background-image:url(../../images/step01/popup_icon03.png);}
+            .popup_con .txt_wrap .txt_box {margin:vw(-52) 0 0;}
+        }
+        .tit_wrap {
+            padding:vw(23) vw(40); background-image:url(../../images/step01/popup_tit_bg.gif);
+            @include backgroundSoltC;
+            @include displayFlexCenter;
+            i {
+                width:vw(72); height:vw(72); display:inline-block; background-color:#ef8809;
+                @include backgroundSoltC(55%, 50%, no-repeat, auto vw(48));
+                @include borderRadius(100%);
+                @include boxShadow(0 3px 10px -4px $black);
             }
-            &:after {
-                width:0; height:1px; display:block; content:""; position:absolute; bottom:-2px; background-color:$violet;
-                @include transition(width, .3s);
-            }
+            strong {padding:0 0 0 vw(30); color:$white; font-size:vw(36); text-shadow:1px 2px 1px #2e2b2b;}
         }
-    }
-    .terms_contents {
-        strong {font-size:28px; display:block; padding:55px 0 0; font-weight:$light;}
-        p {font-size:18px; color:$gray2; line-height:34px;}
-        p.txt01 { padding:20px 0 0;}
-        p.txt02 {
-            padding:40px 0 0;
-            span {
-                display:block; padding:0 0 0 15px;
-                a {
-                    color:$gray2;
-                    @include transition(color, .3s);
-                    &:hover,
-                    &:focus {color:$violet;}
+        .popup_con {
+            padding:vw(40); background-image:url(../../images/step01/popup_contents_bg.jpg); text-align:center;
+            @include backgroundSoltC(50%, 0);
+            strong {font-family:$bau; font-size:vw(38); line-height:vw(56); color:$white; -webkit-text-stroke: vw(2) #000}
+            .txt_wrap {
+                padding:vw(70) 0 0;
+                img {height:vw(391); position:relative; z-index:1;}
+                .txt_box {
+                    padding:vw(80) vw(40) vw(30); background-color:$white; margin:vw(-55) 0 0;
+                    @include borderRadius(vw(25));
+                }
+                p {font-size:vw(38); line-height:vw(44); padding:0 vw(15);}
+                .close_btn {
+                    width:100%; height:vw(100); background-color:#464646; color:$white; font-size:vw(36); font-weight:$bold; margin:vw(40) 0 0;
+                    @include borderRadius(vw(50));
                 }
             }
-        }
-        .terms_download {
-            height:46px; display:inline-block; margin:20px 0 0; line-height:46px; padding:0 28px 0 52px; font-size:15px; position:relative; background-color:$white;
-            @include borderSet(1px, solid, $gray3);
-            @include transition;
-            &:after {
-                width:15px; height:16px; display:block; content:""; background-image:url(../../images/common/down_icon.png); position:absolute; top:14px; left:23px;
-                @include backgroundSolt(0, 0);
-                @include transition;
-            }
-            &:hover,
-            &:focus {
-                background-color:$violet; color:$white; border-color:$violet;
-                &:after { background-image:url(../../images/common/down_icon_over.png); -ms-background-position-y:4px; background-position-y:4px;}
-            }
-        }
-        .change_doc {
-            padding:25px 0 0;
-            p {font-size:18px; color:$black; line-height:18px; padding:15px 0 0;}
-            a {width:18px; height:18px; display:inline-block; background:url(../../images/common/parent_doc_icon.gif) 0 0 no-repeat; text-indent:-9999px; margin:0 0 0 10px;}
         }
     }
 }

@@ -1,102 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <title></title>
-    <!-- 공통적용헤더정보 -->
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
-    <!-- //공통적용헤더정보 -->
-    <meta name="Description" content="">
-    <meta property="og:type" content="website">
-    <meta property="og:title" content="">
-    <meta property="og:description" content="">
-    <meta property="og:image" content="">
-    <meta property="og:url" content="">
-    <meta property="og:site_name" content="">
-    <meta name="Keywords" content="">
-    <meta name="Author" content="">
-    <meta name="robots" content="ALL">
-    <link rel="stylesheet" href="./stylesheets/css/common.css">
-    <script src="./javascripts/jquery-1.8.2.min.js"></script>
-</head>
-<body>
-<div class="guide_line">
-    <div class="guide_70"></div>
-    <div class="guide_center"></div>
-    <div class="guide_1320"></div>
-    <div class="guide_1180"></div>
-</div>
-
-    <!-- LGEGMC-2020 End -->
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    <!--<nav class="breadcrumb">
-        <ul itemscope="" itemtype="http://schema.org/BreadcrumbList">
-            <li itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem">
-                <a href="/ca_en" itemprop="item" data-link-area="gnb-breadcrumb" data-link-name="home">
-                    <span itemprop="name">Home</span>
-                </a>
-                <meta itemprop="position" content="1">
-            </li>
-            <li itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem">
-                <a href="/ca_en/styler" itemprop="item" data-link-area="gnb-breadcrumb" data-link-name="home_styler">
-                    <span itemprop="name">Styler</span>
-                </a>
-                <meta itemprop="position" content="2">
-            </li>
-            <li>
-                <strong>Discover LG Styler</strong>
-            </li>
-        </ul>
-    </nav>-->
-</div>
-
+@@include("./include/header.html")
 
     <!-- Enter Code Here -->
-    <div id="quickFinder" class="step01">
+    <div id="quickFinder" class="step01" style="display:none;">
         <!--navigation-->
         <div id="finderNav">
             <ul>
@@ -106,12 +11,13 @@
                 </li>
                 <li>
                     <strong>2</strong>
-                    <p>PRODUCT CAPACITY</p>
+                    <p>PRODUCT CAPACITY</p> 
                 </li>
                 <li>
                     <strong>3</strong>
                     <p>PRODUCT SIZE</p>
-                </li> 
+                </li>
+                <li>
                     <strong>4</strong>
                     <p>Ice & Water Dispenser</p>
                 </li>
@@ -153,7 +59,7 @@
         <div id="selectWrap">
             <ol>
                 <li>
-                    <button type="button" class="active">
+                    <button type="button">
                         <i></i>
                         <p>Multi Door Fridge Freezer</p>
                     </button>
@@ -179,7 +85,7 @@
             <button type="button" id="nextStepBtn">Next <i></i></button>
         </div>
         <!--항목 선택 후 버튼 올리려면 show_now_wrap 클래스에 active 추가-->
-        <div class="show_now_wrap active">
+        <div class="show_now_wrap">
             <img src="./images/common/shop_now_character.png" alt="button character">
             <button type="button" id="shopNowBtn">#SHOP NOW <i></i></button>
         </div>
@@ -188,7 +94,7 @@
     <!--step1 next 버튼 이후 팝업-->
     <!--popup_step01 none:block-->
     <!--popup_wrap에서 필요한 제품군 block / class 명칭은 이후에 필터 값으로 변경-->
-    <div class="popup_step01">
+    <div class="popup_step01" style="display: block;">
         <div class="popup_wrap multi">
             <div class="tit_wrap">
                 <i></i>
@@ -272,9 +178,4 @@
     </div>
     <!--//step1 next 버튼 이후 팝업-->
 
-
-
-<script src="./javascripts/plugin.js"></script>
-<script src="./javascripts/design_common.js"></script>
-</body>
-</html>
+@@include("./include/footer.html")

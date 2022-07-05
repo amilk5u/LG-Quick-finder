@@ -1,91 +1,188 @@
 @@include("./include/header.html")
-<!-- <button type="button" class="btn">퀵파인더 시작</button> -->
-<!-- Enter Code Here -->
-<div id="quickFinder">
-	<!--navigation-->
-	<div id="finderNav">
-		<ul>
-			<li>
-				<strong>1</strong>
-				<p>PRODUCT TYPE</p>
-			</li>
-			<li>
-				<strong>2</strong>
-				<p>PRODUCT CAPACITY</p>
-			</li>
-			<li>
-				<strong>3</strong>
-				<p>PRODUCT SIZE</p>
-			</li>
-			<li>
-				<strong>4</strong>
-				<p>Ice & Water Dispenser</p>
-			</li>
-			<li>
-				<strong>5</strong>
-				<p>KEY FEATURE</p>
-			</li>
-			<li>
-				<strong>6</strong>
-				<p>ADDITIONAL FEATURES</p>
-			</li>
-			<li>
-				<strong>7</strong>
-				<p>PRODUCT COLOUR</p>
-			</li>
-		</ul>
-	</div>
-	<!--//navigation-->
-	<!--question & answer area-->
-	<div class="qna_wrap">
-		<strong class="que_title"> What type of fridge are <br> you looking for? </strong>
-		<div class="qna_description">
-			<strong>What type of fridge are you looking for?</strong>
-			<p class="txt_box">
-				<i> </i>
-				<span> Multi doors with full-width fridge above and freezer below. </span>
-			</p>
-		</div>
-	</div>
-	<!--//question & answer area-->
-	<!--question image-->
-	<!-- <div id="qnaImgWrap" style="background-image:url(./images/step01/que_img00.png);">
-			<img src="" alt="안녕">
-		</div> -->
-	<div id="qnaImgWrap">
-		<img src="" alt="">
-	</div>
-	<!--//question image-->
-	<!--선택 항목 버튼-->
-	<!--선택 된 항목은 button에 active 클래스-->
-	<div id="selectWrap">
-		<ol>
-			<li>
-				<button type="button" class="answer_btn">
-					<i></i>
-					<p>Multi Door Fridge Freezer</p>
-				</button>
-			</li>
-			<li>
-				<button type="button" class="answer_btn">
-					<i></i>
-					<p>American Style Fridge Freezer</p>
-				</button>
-			</li>
-			<li>
-				<button type="button" class="answer_btn">
-					<i></i>
-					<p>Tall Fridge Freezer</p>
-				</button>
-			</li>
-		</ol>
-	</div>
-	<!--//선택 항목 버튼-->
-	<div class="btn_wrap">
-		<button type="button" id="backStepBtn">back</button>
-		<button type="button" id="nextStepBtn">next</button>
-	</div>
-	<div class="show_now_wrap">
-		<button type="button" id="shopNowBtn">#SHOP NOW</button>
-	</div>
-</div> @@include("./include/footer.html")
+
+    <!-- <button type="button" class="btn">퀵파인더 시작</button> -->
+
+
+
+<!-- 
+    <div class="step01">
+        <button type="button" data-value="Q1_value1">Q1_value1</button>
+        <button type="button" data-value="Q1_value2">Q1_value2</button>
+        <button type="button" data-value="Q1_value3">Q1_value3</button>
+    </div>
+    <div class="step01">
+        <button type="button" class="value1">value1</button>
+        <button type="button" class="value2">value2</button>
+        <button type="button" class="value3">value3</button>
+        <button type="button" class="value4">value4</button>
+    </div>
+    <div class="step01">
+        <button type="button" class="value1">value3</button>
+        <button type="button" class="value1">value3</button>
+        <button type="button" class="value1">value3</button>
+    </div> -->
+
+
+    <!-- Enter Code Here -->
+    <div id="quickFinder">
+        <!--navigation-->
+        <div id="finderNav">
+            <ul>
+                <li>
+                    <strong>1</strong>
+                    <p>PRODUCT TYPE</p>
+                </li>
+                <li>
+                    <strong>2</strong>
+                    <p>PRODUCT CAPACITY</p>
+                </li> 
+                <li>
+                    <strong>3</strong>
+                    <p>PRODUCT SIZE</p>
+                </li>
+                <li>
+                    <strong>4</strong>
+                    <p>Ice & Water Dispenser</p>
+                </li>
+                <li>
+                    <strong>5</strong>
+                    <p>KEY FEATURE</p>
+                </li>
+                <li>
+                    <strong>6</strong>
+                    <p>ADDITIONAL FEATURES</p>
+                </li>
+                <li>
+                    <strong>7</strong>
+                    <p>PRODUCT COLOUR</p>
+                </li>
+            </ul>
+        </div>
+        <!--//navigation-->
+
+        <!--question & answer area-->
+        <div class="qna_wrap">
+            <strong class="que_title">
+
+            </strong>
+            <div class="qna_description">
+                <strong></strong>
+                <p class="txt_box"></p>
+            </div>
+        </div>
+        <!--//question & answer area-->
+
+        <!--question image-->
+        <!-- <div id="qnaImgWrap" style="background-image:url(./images/step01/que_img00.png);"> -->
+        <div id="qnaImgWrap">
+            <img src="" alt="">
+        </div>
+        <!--//question image-->
+
+        <!--선택 항목 버튼-->
+        <!--선택 된 항목은 button에 active 클래스-->
+        <div id="selectWrap">
+            <ol>
+            </ol>
+        </div>
+        <!--//선택 항목 버튼-->
+        <!--항목 선택되면 nextStepBtn id에 active 클래스 추가-->
+        <div class="step_move_wrap">
+            <button type="button" id="backStepBtn">prev button</button>
+            <button type="button" id="nextStepBtn">Next <i></i></button>
+        </div>
+        <!--항목 선택 후 버튼 올리려면 show_now_wrap 클래스에 active 추가-->
+        <div class="show_now_wrap">
+            <img src="./images/common/shop_now_character.png" alt="button character">
+            <button type="button" id="shopNowBtn">#SHOP NOW <i></i></button>
+        </div>
+    </div>
+
+    <!--step1 next 버튼 이후 팝업-->
+    <!--popup_step01 none:block-->
+    <!--popup_wrap에서 필요한 제품군 block / class 명칭은 이후에 필터 값으로 변경-->
+    <div class="popup_step01">
+        <div class="popup_wrap multi">
+            <div class="tit_wrap">
+                <i></i>
+                <strong>Multi Door Fridge Freezer</strong>
+            </div>
+            <div class="popup_con">
+                <strong>
+                    A fitting choice for large <br>
+                    households or food lovers.
+                </strong>
+                <div class="txt_wrap">
+                    <img src="./images/step01/popup_contents_img01.png" alt="family & Multi Door Fridge Freezer">
+                    <div class="txt_box">
+                        <p>
+                            Fits effortlessly into smaller spaces,
+                            ideal for prudent grocery shoppers
+                            who store small smounts of food.
+                            It is a decades-long steady-seller
+                            in the UK, chosen by
+                            nearly half of its households.
+                        </p>
+                        <button type="button" class="close_btn">Moving on</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="popup_wrap american">
+            <div class="tit_wrap">
+                <i></i>
+                <strong>American Style Fridge Freezer</strong>
+            </div>
+            <div class="popup_con">
+                <strong>
+                    A nice choice for those who <br>
+                    use the freezer frequently.
+                </strong>
+                <div class="txt_wrap">
+                    <img src="./images/step01/popup_contents_img02.png" alt="cooking & American Style Fridge Freezer">
+                    <div class="txt_box">
+                        <p>
+                            Its fridge and freezer sections are
+                            positioned  next to each other,
+                            making both easy to reach.
+                            This vertically arranged side-by-side'
+                            or 'double door' type is spacious.
+                            It offers lots of space with our
+                            largest model, and is chosen by nearly
+                            a quarter of UK households.
+                        </p>
+                        <button type="button" class="close_btn">Moving on</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="popup_wrap tall">
+            <div class="tit_wrap">
+                <i></i>
+                <strong>Tall Fridge Freezer</strong>
+            </div>
+            <div class="popup_con">
+                <strong>
+                    A sleek and practical option <br>
+                    for space-saving.
+                </strong>
+                <div class="txt_wrap">
+                    <img src="./images/step01/popup_contents_img03.png" alt="best seller & Tall Fridge Freezer">
+                    <div class="txt_box">
+                        <p>
+                            Fit effortlessly into smaller
+                            spaces and ideal for fewer people.
+                            It is a decades-long
+                            steady-seller in the UK,
+                            chosen by nearly half of
+                            its households.
+                        </p>
+                        <button type="button" class="close_btn">Moving on</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--//step1 next 버튼 이후 팝업-->
+
+@@include("./include/footer.html")

@@ -154,7 +154,7 @@ function main() {
 				finderStep: 'step02',
 				key: '',
 				questionText: 'step02 - 질문?',
-				defaultScreenImg: 'step2-메인 이미지',
+				defaultScreenImg: 'step02 - default 이미지',
 				interactionPage: true, // 인터렉트 페이지 유/무 정의
 				appliancePopup: false, // 팝업 유/무 정의
 				descriptionClass: 'desc_2', // 디스크립션 class 종류
@@ -189,7 +189,7 @@ function main() {
 				],
 			},
 			// 예외 step (size)
-			/* {
+/* 			{
 				finderStep: 'step03',
 				key: '',
 				questionText: 'step03 - 질문?',

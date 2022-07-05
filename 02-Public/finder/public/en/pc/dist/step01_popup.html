@@ -96,7 +96,7 @@
 
 
     <!-- Enter Code Here -->
-    <div id="quickFinder" class="step01">
+    <div id="quickFinder" class="step01" style="display:none;">
         <!--navigation-->
         <div id="finderNav">
             <ul>
@@ -106,12 +106,13 @@
                 </li>
                 <li>
                     <strong>2</strong>
-                    <p>PRODUCT CAPACITY</p>
+                    <p>PRODUCT CAPACITY</p> 
                 </li>
                 <li>
                     <strong>3</strong>
                     <p>PRODUCT SIZE</p>
-                </li> 
+                </li>
+                <li>
                     <strong>4</strong>
                     <p>Ice & Water Dispenser</p>
                 </li>
@@ -153,7 +154,7 @@
         <div id="selectWrap">
             <ol>
                 <li>
-                    <button type="button" class="active">
+                    <button type="button">
                         <i></i>
                         <p>Multi Door Fridge Freezer</p>
                     </button>
@@ -179,7 +180,7 @@
             <button type="button" id="nextStepBtn">Next <i></i></button>
         </div>
         <!--항목 선택 후 버튼 올리려면 show_now_wrap 클래스에 active 추가-->
-        <div class="show_now_wrap active">
+        <div class="show_now_wrap">
             <img src="./images/common/shop_now_character.png" alt="button character">
             <button type="button" id="shopNowBtn">#SHOP NOW <i></i></button>
         </div>
@@ -188,7 +189,7 @@
     <!--step1 next 버튼 이후 팝업-->
     <!--popup_step01 none:block-->
     <!--popup_wrap에서 필요한 제품군 block / class 명칭은 이후에 필터 값으로 변경-->
-    <div class="popup_step01">
+    <div class="popup_step01" style="display: block;">
         <div class="popup_wrap multi">
             <div class="tit_wrap">
                 <i></i>
