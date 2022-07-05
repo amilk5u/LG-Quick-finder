@@ -270,7 +270,7 @@ function main1() {
       });
    }
 
-   let _filterProductArray = [];
+   let _filterProductArray = [{},{}];
 
    function stepUpdateEvent(idx, judgmentStep) {
       let currentSelectionsData = ConfigData.finderSetting[idx].selectionsData; // 현재 스텝의 항목 데이터
@@ -305,7 +305,30 @@ function main1() {
          }
       }
 
-      console.log(_array);
+      // console.log(_array);
+      if (idx !== 0) {
+         // console.log(_array[0].productKey);
+         for ( let i = 0; i < _array.length; i++ ) {
+            console.log(_array[i].productKey);
+            // console.log(_filterProductArray)
+            // console.log(typeof _filterProductArray === 'object');
+            // console.log(_filterProductArray[i])
+
+            for (let j = 0; j <_filterProductArray.length; j++) {
+               // console.log(_filterProductArray[j].productKey)
+               // console.log(_filterProductArray[j].productKey === _array[i].productKey)
+               if (_filterProductArray[j].productKey === _array[i].productKey) {
+                  _filterProductArray = [];
+                  console.log(_filterProductArray.push(_array[i].productKey))
+               }
+            }
+
+            
+
+         }
+      }
+
+
 
 
 

@@ -322,7 +322,6 @@ function answerSelectEvent(idx, selectionsData) {
 						// console.log(_this.index() === i)
 					} */
 		} else {
-			
 			console.log('나머지 페이지 클릭')
 
 
