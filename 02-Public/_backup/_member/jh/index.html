@@ -5,72 +5,153 @@
     <title>quick finder</title>
     <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
     <style>
-        .survey_list > li {display:none;}
-        .survey_list > li:first-child {display:block;}
+        /*.survey_list > li {display:none;}
+        .survey_list > li:first-child {display:block;}*/
     </style>
 </head>
 <body>
 
 <div class="survey">
     <form method="post" name="surveyFrm" id="surveyFrm">
+        <p>순차적으로 데이터 입력 [처음 선택값이 기준값**]</p>
         <ol class="survey_list">
-            <li data-question="QType1">
-                <h3>Question 1</h3>
+            <li data-question="Q1">
+                <h3>Q1. 제품 타입 (필수입력)</h3>
                 <ul>
-                    <li><input type="radio" name="QType1" id="QType1-1"><label for="QType1-1">항문 1-1</label></li>
-                    <li><input type="radio" name="QType1" id="QType1-2"><label for="QType1-2">항문 1-2</label></li>
-                    <li><input type="radio" name="QType1" id="QType1-3"><label for="QType1-3">항문 1-3</label></li>
+                    <li><input type="radio" name="Q1" id="Q1-1" value="WD"><label for="Q1-1">WD</label></li>
+                    <li><input type="radio" name="Q1" id="Q1-2" value="WM"><label for="Q1-2">WM</label></li>
                 </ul>
             </li>
-            <li data-question="QType2">
-                <h3>Question 2</h3>
+            <li data-question="Q2">
+                <h3>Q2. 제품 용량</h3>
                 <ul>
-                    <li><input type="radio" name="QType2" id="QType2-1" onclick="selectQuestion('QType2', '1')"><label for="QType2-1">항문 2-1</label></li>
-                    <li><input type="radio" name="QType2" id="QType2-2" onclick="selectQuestion('QType2', '2')"><label for="QType2-2">항문 2-2</label></li>
-                    <li><input type="radio" name="QType2" id="QType2-3" onclick="selectQuestion('QType2', '3')"><label for="QType2-3">항문 2-3</label></li>
+                    <li><input type="checkbox" name="Q2" id="Q2-1" value="8"><label for="Q2-1">8</label></li>
+                    <li><input type="checkbox" name="Q2" id="Q2-2" value="9"><label for="Q2-2">9</label></li>
+                    <li><input type="checkbox" name="Q2" id="Q2-3" value="10"><label for="Q2-3">10</label></li>
+                    <li><input type="checkbox" name="Q2" id="Q2-4" value="10.5"><label for="Q2-4">10.5</label></li>
+                    <li><input type="checkbox" name="Q2" id="Q2-5" value="12"><label for="Q2-5">12</label></li>
                 </ul>
             </li>
-            <!--<li data-question="QType3">
-                <h3>Question 3 (중복선택 가능)</h3>
+            <li data-question="Q3">
+                <h3>Q3. 사이즈</h3>
+                <ol>
+                    <li>
+                        <strong>Width</strong><br>
+                        <input type="checkbox" name="Q3_1" id="Q3_1" value="Under 600 mm"><label for="Q3_1">Under 600 mm</label>
+                        <input type="checkbox" name="Q3_1" id="Q3_1-1" value="Under 700 mm"><label for="Q3_1-1">Under 700 mm</label>
+                    </li>
+                    <li>
+                        <strong>Depth</strong><br>
+                        <input type="checkbox" name="Q3_2" id="Q3_2" value="500mm or more"><label for="Q3_2">500mm or more</label>
+                        <input type="checkbox" name="Q3_2" id="Q3_2-1" value="600mm or more"><label for="Q3_2-1">600mm or more</label>
+                    </li>
+                    <li>
+                        <strong>Height</strong><br>
+                        <input type="checkbox" name="Q3_3" id="Q3_3" value="Under 970 mm"><label for="Q3_3">Under 970 mm</label>
+                        <input type="checkbox" name="Q3_3" id="Q3_3-1" value="Under 870 mm"><label for="Q3_3-1">Under 870 mm</label>
+                    </li>
+                </ol>
+            </li>
+            <li data-question="Q4">
+                <h3>Q4. 컬러</h3>
                 <ul>
-                    <li><input type="checkbox" name="QType3" id="QType3-1" onclick="selectQuestion('QType2', '1')"><label for="QType3-1">항문 3-1</label></li>
-                    <li><input type="checkbox" name="QType3" id="QType3-2" onclick="selectQuestion('QType3', '2')"><label for="QType3-2">항문 3-2</label></li>
-                    <li><input type="checkbox" name="QType3" id="QType3-3" onclick="selectQuestion('QType3', '3')"><label for="QType3-3">항문 3-3</label></li>
+                    <li><input type="checkbox" name="Q4" id="Q4-1" value="White"><label for="Q4-1">White</label></li>
+                    <li><input type="checkbox" name="Q4" id="Q4-2" value="Graphite"><label for="Q4-2">Graphite</label></li>
+                    <li><input type="checkbox" name="Q4" id="Q4-3" value="Black Steel"><label for="Q4-3">Black Steel</label></li>
+                </ul>
+            </li>
+            <li data-question="Q5">
+                <h3>Q5. 구매의향</h3>
+                <ul>
+                    <li><button type="button" onclick="surveyResult(this);">Price</button></li>
+                    <li><button type="button">Features</button></li>
+                </ul>
+            </li>
+            <!--<li data-question="Q6">
+                <h3>Q6. Radio test</h3>
+                <ul>
+                    <li><input type="radio" name="Q6" id="Q6-1" value="WD11"><label for="Q6-1">test 1</label></li>
+                    <li><input type="radio" name="Q6" id="Q6-2" value="WM11"><label for="Q6-2">test 2</label></li>
                 </ul>
             </li>-->
-            <li data-question="QType4">
-                <h3>Question 4</h3>
-                <ul>
-                    <li><input type="radio" name="QType4" id="QType4-1" onclick="selectQuestion('QType4', '1')"><label for="QType4-1">항문 4-1</label></li>
-                    <li><input type="radio" name="QType4" id="QType4-2" onclick="selectQuestion('QType4', '2')"><label for="QType4-2">항문 4-2</label></li>
-                    <li><input type="radio" name="QType4" id="QType4-3" onclick="selectQuestion('QType4', '3')"><label for="QType4-3">항문 4-3</label></li>
-                </ul>
-            </li>
         </ol>
     </form>
-    <button type="button" class="resultBtn" onclick="surveyResult()";>Result...</button>
+    <button type="button" class="resultBtn" onclick="surveyResult(this);">Result...</button>
 </div>
 
+<script src="./filters_WMWD.js"></script>
+<!-- <script src="./test.js"></script> -->
 <script>
-    function selectQuestion(k,v){
-        var $surveyList = $(".survey_list");
-        $("input[name="+k+"_selected]").val(v);
-        var _currentIdx = $surveyList.find("> li[data-question="+k+"]").index();
-        $surveyList.find("> li").hide();
-        $surveyList.find("> li").eq(_currentIdx+1).show();
-    }
+    var userSelect = {};
+    var formTypeChk = [];
+    function surveyResult(select){
+        var _this = $(select).text(),
+            data = $("#surveyFrm").serialize();
 
-    function surveyResult(){
-        // var f = document.surveyFrm;
+        $(".survey_list > li").each(function(){
+            var $this = $(this);
+            if($(this).data("question") == "Q3"){
+                $(this).find("li").each(function(){
+                    multiDataFunc($this);
+                });
+            }else{
+                multiDataFunc($this);
+            }
+        });
+
+        function multiDataFunc($this){
+            let str = "", str_re = "";
+            $this.find("input:checked").each(function(){
+                const qNum = $(this).attr("name");
+                if($(this).attr("type") != "checkbox"){
+                    userSelect[qNum] = $(this).val();
+                    if($(this).attr("type") == "radio"){
+                        formTypeChk.push(qNum);
+                    }
+                }else{
+                    str += $(this).val() + ",";
+                    str_re = str.slice(0, -1);
+                    userSelect[qNum] = str_re;
+                }
+                str, str_re = "";
+            });
+        }
+
+        console.log("userSelect", userSelect);
 
         $.ajax({
-            url: "./surveyType_WM.json",
+            url: "test.js",
             type: "POST",
-            data: $("#surveyFrm").serialize(),
-            dataType:"json",
-        }).done(function(data) {
-            console.log(data);
-        });
+            data: data,
+            dataType:"script"
+        }).done(function() {
+            console.log("result", result);
+            /*if(_this == "Price"){
+                if(result != ""){
+                    // console.log("Price",result.Price);
+                    for (let i = 0; i < result.length; i++) {
+                        // console.log(result[i].Price);
+                        console.log(result[i].productName);
+                    }
+                }else{
+                    console.log("찾으시는 제품이 없습니다.");
+                }
+            }else{
+                if(result != ""){
+                    // console.log("Product Name",result.productName);
+                    for (var i = 0; i < result.length; i++) {
+                        console.log(result[i].productName);
+                    }
+                }else{
+                    console.log("찾으시는 제품이 없습니다.");
+                }
+            }*/
+            /*$(".survey_list li input:checked").each(function(i){
+                $(this).prop('checked', false);
+            });*/
+            result = undefined;
+            userSelect = {};
+        })
     }
 </script>
 </body>

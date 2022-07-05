@@ -1,0 +1,49 @@
+#wrap {width:1200px; margin:30px auto;}
+
+fieldset {width:600px; margin:0 auto; border:1px solid #333; position:relative;}
+fieldset > button {position:absolute; top:410px; right:50px;}
+fieldset > button.prev_btn {right:150px;}
+fieldset > button.next_btn {right:100px;}
+input[type=radio], input[type=checkbox] {display:none;}
+.features_submit_btn {display:none;}
+
+/* 슬라이드 */
+.slide_wrap {min-height:450px; position:relative; overflow:hidden;}
+.slide_wrap > div {width:100%; padding:20px; box-sizing:border-box; position:absolute; top:0; left:100%;}
+.slide_wrap > div:first-child {left:0;}
+.slide_wrap > div > p {font-size:20px; margin:0 0 20px;}
+.slide_wrap > div > label {font-size:24px; font-weight:bold; margin:12px 0 0; cursor:pointer; display:block;}
+.slide_wrap > div label:first-of-type {margin:0;}
+.slide_wrap > div label.on {color:#f00;}
+
+/* 사이즈 질문 */
+.size_area > div {position:relative; margin:16px 0 0;}
+.size_area > div:first-of-type {margin:0;}
+.size_area > div > p {font-size:20px; padding:0 0 8px;}
+.size_area > div > label {font-size:24px; font-weight:bold; cursor:pointer; display:inline-block; margin:0 0 0 12px;}
+
+/* 인텐트 질문 */
+.intent_area > button {border:2px solid #666; border-radius:10px; margin:0 0 0 20px; padding:0 20px; transition:.5s;}
+.intent_area > button:hover {background-color:#666;}
+.intent_area > button:hover span {color:#fff;}
+.intent_area > button:first-of-type {margin:0;}
+.intent_area > button span {font-size:24px; font-weight:bold; line-height:30px;}
+
+/* 인디케이터 */
+.indicator {position:absolute; top:410px; left:50%; transform:translateX(-50%); display:flex;}
+.indicator li {margin:0 0 0 10px;}
+.indicator li:first-child {margin:0;}
+.indicator li button.on {color:#f00;}
+.indicator li button span {font-size:16px; font-weight:bold;}
+
+/* 결과 출력 */
+.result_area {width:600px; margin:0 auto; padding:80px 0 0;}
+.result_area ol > li {border:1px solid #333; margin:20px 0 0; padding:30px; box-sizing:border-box;}
+.result_area ol > li:first-child {margin:0;}
+.result_area ol > li:after {clear:both; display:block; content:"";}
+.result_area ol > li > p {font-size:24px; font-weight:bold;}
+.result_area .left_area, .result_area .right_area {width:50%; float:left; padding:20px 0 0;}
+.result_area .left_area img {width:200px;}
+.result_area .right_area p {margin:10px 0 0; font-size:20px;}
+.result_area .right_area p:first-child {margin:0;}
+.result_area .right_area p span {font-weight:bold;}

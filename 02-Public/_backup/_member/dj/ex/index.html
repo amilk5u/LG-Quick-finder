@@ -1,0 +1,469 @@
+<!doctype html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>WM LIST</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="js/default.js"></script>
+</head>
+<body>
+    <div id="wrap">
+        <form>
+            <fieldset>
+                <div class="slide_wrap">
+                    <div class="purpose_area">
+                        <p>Q1. Why are you looking for a new washing machine?</p>
+                        <input type="radio" id="q1_1" name="purpose" value="New Setup">
+                        <label for="q1_1">New Setup</label>
+                        <input type="radio" id="q1_2" name="purpose" value="Replacement">
+                        <label for="q1_2">Replacement</label>
+                        <input type="radio" id="q1_3" name="purpose" value="Upgrade">
+                        <label for="q1_3">Upgrade</label>
+                    </div>
+                    <div class="cat_area">
+                        <p>Q2. What type of washing machine are you looking for?</p>
+                        <input type="radio" id="q2_1" name="Cat" value="WM">
+                        <label for="q2_1">Front Load Washing Machine</label>
+                        <input type="radio" id="q2_2" name="Cat" value="WM">
+                        <label for="q2_2">Top Load Washing Machine</label>
+                        <input type="radio" id="q2_3" name="Cat" value="WD">
+                        <label for="q2_3">Washer and Dryer</label>
+                    </div>
+                    <div class="capacity_area">
+                        <p>Q3. What capacity do you need?</p>
+                        <input type="checkbox" id="q3_1" name="capacity" value="9">
+                        <label for="q3_1">8–12 kg (Dry 5–9 kg)</label>
+                        <input type="checkbox" id="q3_2" name="capacity" value="10.5">
+                        <label for="q3_2">13–16 kg (Dry 9–15 kg)</label>
+                        <input type="checkbox" id="q3_3" name="capacity" value="12">
+                        <label for="q3_3">17–24 kg (Dry 16–20 kg)</label>
+                    </div>
+                    <div class="size_area">
+                        <p>Q4. Which size best fits your space?</p>
+                        <div class="width_wrap">
+                            <p>width</p>
+                            <input type="checkbox" id="q4_1_1" name="width" value="Under 600mm">
+                            <label for="q4_1_1">Under 600mm</label>
+                            <input type="checkbox" id="q4_1_2" name="width" value="600–700mm">
+                            <label for="q4_1_2">600–700mm</label>
+                            <input type="checkbox" id="q4_1_3" name="width" value="700mm or more">
+                            <label for="q4_1_3">700mm or more</label>
+                        </div>
+                        <div class="depth_wrap">
+                            <p>depth</p>
+                            <input type="checkbox" id="q4_2_1" name="depth" value="Under 600mm">
+                            <label for="q4_2_1">Under 600mm</label>
+                            <input type="checkbox" id="q4_2_2" name="depth" value="600–830mm">
+                            <label for="q4_2_2">600–830mm</label>
+                            <input type="checkbox" id="q4_2_3" name="depth" value="830mm or more">
+                            <label for="q4_2_3">830mm or more</label>
+                        </div>
+                        <div class="height_wrap">
+                            <p>height</p>
+                            <input type="checkbox" id="q4_3_1" name="height" value="Under 860mm">
+                            <label for="q4_3_1">Under 860mm</label>
+                            <input type="checkbox" id="q4_3_2" name="height" value="860–970mm">
+                            <label for="q4_3_2">860–970mm</label>
+                            <input type="checkbox" id="q4_3_3" name="height" value="970mm or more">
+                            <label for="q4_3_3">970mm or more</label>
+                        </div>
+                    </div>
+                    <div class="color_area">
+                        <p>Q5. Which color do you prefer?</p>
+                        <input type="checkbox" id="q5_1" name="color" value="White">
+                        <label for="q5_1">White</label>
+                        <input type="checkbox" id="q5_2" name="color" value="Graphite">
+                        <label for="q5_2">Graphite</label>
+                        <input type="checkbox" id="q5_3" name="color" value="Black Steel">
+                        <label for="q5_3">Black Steel</label>
+                    </div>
+                    <div class="intent_area">
+                        <p>What’s more important to you?</p>
+                        <button type="button" onclick="filter_submit(this.form)"><span>Price</span></button>
+                        <button type="button" class="features_btn"><span>Features</span></button>
+                    </div>
+                    <div class="function_area">
+                        <p>Q6. Which features are most important to you?</p>
+                        <input type="checkbox" id="q6_1" name="minimal" value="Y">
+                        <label for="q6_1">Gentle fabric care for minimal damage</label>
+                        <input type="checkbox" id="q6_2" name="powerful" value="Y">
+                        <label for="q6_2">Powerful washing</label>
+                        <input type="checkbox" id="q6_3" name="time" value="Y">
+                        <label for="q6_3">Time-efficient</label>
+                        <input type="checkbox" id="q6_4" name="energy" value="A">
+                        <label for="q6_4">Energy-efficient </label>
+                        <input type="checkbox" id="q6_5" name="automated" value="Y">
+                        <label for="q6_5">Automated allocation and disposal of detergent</label>
+                        <input type="checkbox" id="q6_6" name="access" value="Y">
+                        <label for="q6_6">Remote access and control</label>
+                        <input type="checkbox" id="q6_7" name="sensing" value="Y">
+                        <label for="q6_7">Fabric-sensing minimizes damage</label>
+                        <input type="checkbox" id="q6_8" name="hygiene" value="Y">
+                        <label for="q6_8">Hygiene</label>
+                    </div>
+                </div>
+                <ul class="indicator">
+                    <li><button type="button" class="on"><span>1</span></button></li>
+                    <li><button type="button"><span>2</span></button></li>
+                    <li><button type="button"><span>3</span></button></li>
+                    <li><button type="button"><span>4</span></button></li>
+                    <li><button type="button"><span>5</span></button></li>
+                    <li><button type="button"><span>6</span></button></li>
+                    <li><button type="button"><span>7</span></button></li>
+                </ul>
+                <button type="button" class="prev_btn"><span><</span></button>
+                <button type="button" class="next_btn"><span>></span></button>
+                <button type="button" class="features_submit_btn" onclick="filter_submit(this.form)">전송</button>
+            </fieldset>
+        </form>
+        <div class="result_area">
+            <ol></ol>
+        </div>
+    </div>
+
+    <script>
+        // 전송 클릭 시 실행
+        function filter_submit() {
+            // 각 질문마다 체크된 value 값 각각 배열에 저장
+            var $catArr = [];
+            $(".cat_area").find("input:checked").each(function () {
+                $catArr.push($(this).val());
+            });
+            var $capacityArr = [];
+            $(".capacity_area").find("input:checked").each(function () {
+                $capacityArr.push(Number($(this).val()));
+            });
+            var $widthArr = [];
+            $(".width_wrap").find("input:checked").each(function () {
+                $widthArr.push($(this).val());
+            });
+            var $depthArr = [];
+            $(".depth_wrap").find("input:checked").each(function () {
+                $depthArr.push($(this).val());
+            });
+            var $heightArr = [];
+            $(".height_wrap").find("input:checked").each(function () {
+                $heightArr.push($(this).val());
+            });
+            var $colorArr = [];
+            $(".color_area").find("input:checked").each(function () {
+                $colorArr.push($(this).val());
+            });
+            var $minimalVal = $("input[name=minimal]:checked").val();
+            var $powerfulVal = $("input[name=powerful]:checked").val();
+            var $timeVal = $("input[name=time]:checked").val();
+            var $energyVal = $("input[name=energy]:checked").val();
+            var $automatedVal = $("input[name=automated]:checked").val();
+            var $accessVal = $("input[name=access]:checked").val();
+            var $sensingVal = $("input[name=sensing]:checked").val();
+            var $hygieneVal = $("input[name=hygiene]:checked").val();
+
+            // 체크 된 값이 들어있는 배열들 새로운 배열에 저장
+            var $inputAllArr = [$catArr, $capacityArr, $widthArr, $depthArr, $heightArr, $colorArr, $minimalVal, $powerfulVal, $timeVal, $energyVal, $automatedVal, $accessVal, $sensingVal, $hygieneVal];
+            // $inputAllArr 에서 빈 값이 아닌 요소 index 배열에 저장
+            var $inputIndexArr = [];
+            for (var i = 0; i < $inputAllArr.length; i++) {
+                if ($inputAllArr[i] && $inputAllArr[i].length) {
+                    $inputIndexArr.push(i);
+                }
+            }
+            // 체크된 문항 개수
+            var _conut = $inputIndexArr.length;
+
+            // json 데이터 불러오기
+            $.ajax({
+                url: "wm_list.json",
+                type: "post",
+                success: function (data) {
+                    // 조건에 맞게 필터링
+                    var $listData = data.filter(function (item) {
+                        // json 데이터 배열로 저장
+                        var $itemArr = [item.Cat, item.capacity, item.width, item.depth, item.height, item.color, item.minimal, item.powerful, item.time, item.energy, item.automated, item.access, item.sensing, item.hygiene];
+                        // 체크 된 문항 = 1개
+                        if (_conut === 1) {
+                            var idxC1 = $inputIndexArr[0];
+                            for (var iC1 = 0; iC1 < $inputAllArr[idxC1].length; iC1 ++) {
+                                if ($itemArr[idxC1] === $inputAllArr[idxC1][iC1]) {
+                                    return true;
+                                }
+                            }
+                        }
+                        // 각 문항마다 true 값을 담을 빈배열 선언
+                        var $typeArr01 = [];
+                        var $typeArr02 = [];
+                        var $typeArr03 = [];
+                        var $typeArr04 = [];
+                        var $typeArr05 = [];
+                        var $typeArr06 = [];
+                        var $typeArr07 = [];
+                        var $typeArr08 = [];
+                        var $typeArr09 = [];
+                        var $typeArr10 = [];
+                        var $typeArr11 = [];
+                        var $typeArr12 = [];
+                        var $typeArr13 = [];
+                        var $typeArr14 = [];
+                        // 체크 된 문항 = 2개
+                        if (_conut === 2) {
+                            var $c2Arr = [$typeArr01, $typeArr02];
+                            for (var i = 0; i < _conut; i ++) {
+                                for (var idx = 0; idx < $inputAllArr[$inputIndexArr[i]].length; idx++) {
+                                    if ($itemArr[$inputIndexArr[i]] === $inputAllArr[$inputIndexArr[i]][idx]) {
+                                        $c2Arr[i].push(true);
+                                    }
+                                }
+                            }
+                            for (var idxC2 = 0; idxC2 < $typeArr01.length; idxC2++) {
+                                if ($typeArr01[idxC2] && $typeArr02[idxC2]){
+                                    return true;
+                                }
+                            }
+                        }
+                        // 체크 된 문항 = 3개
+                        if (_conut === 3) {
+                            var $c3Arr = [$typeArr01, $typeArr02, $typeArr03];
+                            for (var i = 0; i < _conut; i ++) {
+                                for (var idx = 0; idx < $inputAllArr[$inputIndexArr[i]].length; idx++) {
+                                    if ($itemArr[$inputIndexArr[i]] === $inputAllArr[$inputIndexArr[i]][idx]) {
+                                        $c3Arr[i].push(true);
+                                    }
+                                }
+                            }
+                            for (var idxC3 = 0; idxC3 < $typeArr01.length; idxC3++) {
+                                if ($typeArr01[idxC3] && $typeArr02[idxC3] && $typeArr03[idxC3]){
+                                    return true;
+                                }
+                            }
+                        }
+                        // 체크 된 문항 = 4개
+                        if (_conut === 4) {
+                            var $c4Arr = [$typeArr01, $typeArr02, $typeArr03, $typeArr04];
+                            for (var i = 0; i < _conut; i ++) {
+                                for (var idx = 0; idx < $inputAllArr[$inputIndexArr[i]].length; idx++) {
+                                    if ($itemArr[$inputIndexArr[i]] === $inputAllArr[$inputIndexArr[i]][idx]) {
+                                        $c4Arr[i].push(true);
+                                    }
+                                }
+                            }
+                            for (var idxC4 = 0; idxC4 < $typeArr01.length; idxC4++) {
+                                if ($typeArr01[idxC4] && $typeArr02[idxC4] && $typeArr03[idxC4] && $typeArr04[idxC4]){
+                                    return true;
+                                }
+                            }
+                        }
+                        // 체크 된 문항 = 5개
+                        if (_conut === 5) {
+                            var $c5Arr = [$typeArr01, $typeArr02, $typeArr03, $typeArr04, $typeArr05];
+                            for (var i = 0; i < _conut; i ++) {
+                                for (var idx = 0; idx < $inputAllArr[$inputIndexArr[i]].length; idx++) {
+                                    if ($itemArr[$inputIndexArr[i]] === $inputAllArr[$inputIndexArr[i]][idx]) {
+                                        $c5Arr[i].push(true);
+                                    }
+                                }
+                            }
+                            for (var idxC5 = 0; idxC5 < $typeArr01.length; idxC5++) {
+                                if ($typeArr01[idxC5] && $typeArr02[idxC5] && $typeArr03[idxC5] && $typeArr04[idxC5] && $typeArr05[idxC5]){
+                                    return true;
+                                }
+                            }
+                        }
+                        // 체크 된 문항 = 6개
+                        if (_conut === 6) {
+                            var $c6Arr = [$typeArr01, $typeArr02, $typeArr03, $typeArr04, $typeArr05, $typeArr06];
+                            for (var i = 0; i < _conut; i ++) {
+                                for (var idx = 0; idx < $inputAllArr[$inputIndexArr[i]].length; idx++) {
+                                    if ($itemArr[$inputIndexArr[i]] === $inputAllArr[$inputIndexArr[i]][idx]) {
+                                        $c6Arr[i].push(true);
+                                    }
+                                }
+                            }
+                            for (var idxC6 = 0; idxC6 < $typeArr01.length; idxC6++) {
+                                if ($typeArr01[idxC6] && $typeArr02[idxC6] && $typeArr03[idxC6] && $typeArr04[idxC6] && $typeArr05[idxC6] && $typeArr06[idxC6]){
+                                    return true;
+                                }
+                            }
+                        }
+                        // 체크 된 문항 = 7개
+                        if (_conut === 7) {
+                            var $c7Arr = [$typeArr01, $typeArr02, $typeArr03, $typeArr04, $typeArr05, $typeArr06, $typeArr07];
+                            for (var i = 0; i < _conut; i ++) {
+                                for (var idx = 0; idx < $inputAllArr[$inputIndexArr[i]].length; idx++) {
+                                    if ($itemArr[$inputIndexArr[i]] === $inputAllArr[$inputIndexArr[i]][idx]) {
+                                        $c7Arr[i].push(true);
+                                    }
+                                }
+                            }
+                            for (var idxC7 = 0; idxC7 < $typeArr01.length; idxC7++) {
+                                if ($typeArr01[idxC7] && $typeArr02[idxC7] && $typeArr03[idxC7] && $typeArr04[idxC7] && $typeArr05[idxC7] && $typeArr06[idxC7] && $typeArr07[idxC7]){
+                                    return true;
+                                }
+                            }
+                        }
+                        // 체크 된 문항 = 8개
+                        if (_conut === 8) {
+                            var $c8Arr = [$typeArr01, $typeArr02, $typeArr03, $typeArr04, $typeArr05, $typeArr06, $typeArr07, $typeArr08];
+                            for (var i = 0; i < _conut; i ++) {
+                                for (var idx = 0; idx < $inputAllArr[$inputIndexArr[i]].length; idx++) {
+                                    if ($itemArr[$inputIndexArr[i]] === $inputAllArr[$inputIndexArr[i]][idx]) {
+                                        $c8Arr[i].push(true);
+                                    }
+                                }
+                            }
+                            for (var idxC8 = 0; idxC8 < $typeArr01.length; idxC8++) {
+                                if ($typeArr01[idxC8] && $typeArr02[idxC8] && $typeArr03[idxC8] && $typeArr04[idxC8] && $typeArr05[idxC8] && $typeArr06[idxC8] && $typeArr07[idxC8] && $typeArr08[idxC8]){
+                                    return true;
+                                }
+                            }
+                        }
+                        // 체크 된 문항 = 9개
+                        if (_conut === 9) {
+                            var $c9Arr = [$typeArr01, $typeArr02, $typeArr03, $typeArr04, $typeArr05, $typeArr06, $typeArr07, $typeArr08, $typeArr09];
+                            for (var i = 0; i < _conut; i ++) {
+                                for (var idx = 0; idx < $inputAllArr[$inputIndexArr[i]].length; idx++) {
+                                    if ($itemArr[$inputIndexArr[i]] === $inputAllArr[$inputIndexArr[i]][idx]) {
+                                        $c9Arr[i].push(true);
+                                    }
+                                }
+                            }
+                            for (var idxC9 = 0; idxC9 < $typeArr01.length; idxC9++) {
+                                if ($typeArr01[idxC9] && $typeArr02[idxC9] && $typeArr03[idxC9] && $typeArr04[idxC9] && $typeArr05[idxC9] && $typeArr06[idxC9] && $typeArr07[idxC9] && $typeArr08[idxC9] && $typeArr09[idxC9]){
+                                    return true;
+                                }
+                            }
+                        }
+                        // 체크 된 문항 = 10개
+                        if (_conut === 10) {
+                            var $c10Arr = [$typeArr01, $typeArr02, $typeArr03, $typeArr04, $typeArr05, $typeArr06, $typeArr07, $typeArr08, $typeArr09, $typeArr10];
+                            for (var i = 0; i < _conut; i ++) {
+                                for (var idx = 0; idx < $inputAllArr[$inputIndexArr[i]].length; idx++) {
+                                    if ($itemArr[$inputIndexArr[i]] === $inputAllArr[$inputIndexArr[i]][idx]) {
+                                        $c10Arr[i].push(true);
+                                    }
+                                }
+                            }
+                            for (var idxC10 = 0; idxC10 < $typeArr01.length; idxC10++) {
+                                if ($typeArr01[idxC10] && $typeArr02[idxC10] && $typeArr03[idxC10] && $typeArr04[idxC10] && $typeArr05[idxC10] && $typeArr06[idxC10] && $typeArr07[idxC10] && $typeArr08[idxC10] && $typeArr09[idxC10] && $typeArr10[idxC10]){
+                                    return true;
+                                }
+                            }
+                        }
+                        // 체크 된 문항 = 11개
+                        if (_conut === 11) {
+                            var $c11Arr = [$typeArr01, $typeArr02, $typeArr03, $typeArr04, $typeArr05, $typeArr06, $typeArr07, $typeArr08, $typeArr09, $typeArr10, $typeArr11];
+                            for (var i = 0; i < _conut; i ++) {
+                                for (var idx = 0; idx < $inputAllArr[$inputIndexArr[i]].length; idx++) {
+                                    if ($itemArr[$inputIndexArr[i]] === $inputAllArr[$inputIndexArr[i]][idx]) {
+                                        $c11Arr[i].push(true);
+                                    }
+                                }
+                            }
+                            for (var idxC11 = 0; idxC11 < $typeArr01.length; idxC11++) {
+                                if ($typeArr01[idxC11] && $typeArr02[idxC11] && $typeArr03[idxC11] && $typeArr04[idxC11] && $typeArr05[idxC11] && $typeArr06[idxC11] && $typeArr07[idxC11] && $typeArr08[idxC11] && $typeArr09[idxC11] && $typeArr10[idxC11] && $typeArr11[idxC11]){
+                                    return true;
+                                }
+                            }
+                        }
+                        // 체크 된 문항 = 12개
+                        if (_conut === 12) {
+                            var $c12Arr = [$typeArr01, $typeArr02, $typeArr03, $typeArr04, $typeArr05, $typeArr06, $typeArr07, $typeArr08, $typeArr09, $typeArr10, $typeArr11, $typeArr12];
+                            for (var i = 0; i < _conut; i ++) {
+                                for (var idx = 0; idx < $inputAllArr[$inputIndexArr[i]].length; idx++) {
+                                    if ($itemArr[$inputIndexArr[i]] === $inputAllArr[$inputIndexArr[i]][idx]) {
+                                        $c12Arr[i].push(true);
+                                    }
+                                }
+                            }
+                            for (var idxC12 = 0; idxC12 < $typeArr01.length; idxC12++) {
+                                if ($typeArr01[idxC12] && $typeArr02[idxC12] && $typeArr03[idxC12] && $typeArr04[idxC12] && $typeArr05[idxC12] && $typeArr06[idxC12] && $typeArr07[idxC12] && $typeArr08[idxC12] && $typeArr09[idxC12] && $typeArr10[idxC12] && $typeArr11[idxC12] && $typeArr12[idxC12]){
+                                    return true;
+                                }
+                            }
+                        }
+                        // 체크 된 문항 = 13개
+                        if (_conut === 13) {
+                            var $c13Arr = [$typeArr01, $typeArr02, $typeArr03, $typeArr04, $typeArr05, $typeArr06, $typeArr07, $typeArr08, $typeArr09, $typeArr10, $typeArr11, $typeArr12, $typeArr13];
+                            for (var i = 0; i < _conut; i ++) {
+                                for (var idx = 0; idx < $inputAllArr[$inputIndexArr[i]].length; idx++) {
+                                    if ($itemArr[$inputIndexArr[i]] === $inputAllArr[$inputIndexArr[i]][idx]) {
+                                        $c13Arr[i].push(true);
+                                    }
+                                }
+                            }
+                            for (var idxC13 = 0; idxC13 < $typeArr01.length; idxC13++) {
+                                if ($typeArr01[idxC13] && $typeArr02[idxC13] && $typeArr03[idxC13] && $typeArr04[idxC13] && $typeArr05[idxC13] && $typeArr06[idxC13] && $typeArr07[idxC13] && $typeArr08[idxC13] && $typeArr09[idxC13] && $typeArr10[idxC13] && $typeArr11[idxC13] && $typeArr12[idxC13] && $typeArr13[idxC13]){
+                                    return true;
+                                }
+                            }
+                        }
+                        // 체크 된 문항 = 14개
+                        if (_conut === 14) {
+                            var $c14Arr = [$typeArr01, $typeArr02, $typeArr03, $typeArr04, $typeArr05, $typeArr06, $typeArr07, $typeArr08, $typeArr09, $typeArr10, $typeArr11, $typeArr12, $typeArr13, $typeArr14];
+                            for (var i = 0; i < _conut; i ++) {
+                                for (var idx = 0; idx < $inputAllArr[$inputIndexArr[i]].length; idx++) {
+                                    if ($itemArr[$inputIndexArr[i]] === $inputAllArr[$inputIndexArr[i]][idx]) {
+                                        $c14Arr[i].push(true);
+                                    }
+                                }
+                            }
+                            for (var idxC14 = 0; idxC14 < $typeArr01.length; idxC14++) {
+                                if ($typeArr01[idxC14] && $typeArr02[idxC14] && $typeArr03[idxC14] && $typeArr04[idxC14] && $typeArr05[idxC14] && $typeArr06[idxC14] && $typeArr07[idxC14] && $typeArr08[idxC14] && $typeArr09[idxC14] && $typeArr10[idxC14] && $typeArr11[idxC14] && $typeArr12[idxC14] && $typeArr13[idxC14] && $typeArr14[idxC14]){
+                                    return true;
+                                }
+                            }
+                        }
+                    });
+
+                    // 조건에 맞는 데이터 표시
+                    // 데이터가 있을 경우
+                    if ($listData.length > 0) {
+                        var list = "";
+                        for (var i in $listData) {
+                            list += "<li>";
+                            list += "<p>" +$listData[i].product+ "</p>";
+                            list += "<div class='left_area'>";
+                            list += "<a href=" +$listData[i].url+ ">";
+                            list += "<img src=" +$listData[i].image+ " alt=" +$listData[i].product+ ">";
+                            list += "</a>";
+                            list += "</div>";
+                            list += "<div class='right_area'>";
+                            list += "<p>price : £<span class='price'>" +$listData[i].price+ "</span></p>";
+                            list += "<p>type : <span>" +$listData[i].Cat+ "</span></p>";
+                            list += "<p>capacity : <span>" +$listData[i].capacity+ "</span></p>";
+                            list += "<p>width : <span>" +$listData[i].width+ "</span></p>";
+                            list += "<p>depth : <span>" +$listData[i].depth+ "</span></p>";
+                            list += "<p>height : <span>" +$listData[i].height+ "</span></p>";
+                            list += "<p>color : <span>" +$listData[i].color+ "</span></p>";
+                            list += "</div>";
+                            list += "</li>";
+                        }
+                        // 내림차순 출력
+                        var sortdir = 1;
+                        var rec = list.split("</li>");
+                        rec.sort(function (a, b) {
+                            var val1 = Number($(a).find(".price").text());
+                            var val2 = Number($(b).find(".price").text());
+                            return (val1 < val2) ? -sortdir : (val1 > val2) ? sortdir : 0;
+                        });
+                        $(".result_area > ol").html(rec);
+                        // 천단위 콤마
+                        $(".price").each(function (){
+                            var parts = $(this).text().toString().split(".");
+                            var numberCom = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",") + (parts[1] ? "." + parts[1] : "");
+                            $(this).text(numberCom);
+                        });
+                    }
+                    // 데이터가 없을 경우
+                    else {
+                        $(".result_area > ol").html("<li><p>결과가 없습니다.</p></li>");
+                    }
+                }
+            });
+        }
+    </script>
+</body>
+</html>

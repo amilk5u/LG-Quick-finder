@@ -17,7 +17,8 @@ $window.load(function () {
     $(window).scroll(function () {
         winSc = $(this).scrollTop();
     });
-    main();
+    // main();
+    main1();
     layout();
 });
 function layout() {
@@ -28,59 +29,34 @@ function layout() {
 
 
 function main() {
-	// step 배열 순서 저장
-	let finderStepData = [];
 
 	// select DATA
 	let selectAnswer = [
 		{
-			step: 'step01',
-			key: '',
+			key: 'key-1', // 키 들어갈 부분
+			value: ['step01-value1','step01-value2'],
+		},
+		{
+			key: 'key-2', 
+			value: ['step01-value1','step01-value2'],
+		},
+		{
+			key: 'key-3', 
+			value: ['step01-value1','step01-value2'],
+		},
+		{
+			key: 'key-4', 
 			value: [],
 		},
 		{
-			step: 'step02',
-			key: '',
+			key: 'key-5', 
 			value: [],
-		},
-		{
-			step: 'step03',
-			value: [
-				{
-					key: 'depth',
-					val: []
-				},
-				{
-					key: 'width',
-					val: []
-				},
-				{
-					key: 'height',
-					val: []
-				},
-			]
-		},
-		{
-			step: 'step04',
-			key: '',
-			value: [],
-		},
-/* 		{
-			step: 'step05',
-			key: '',
-			value: [],
-		},
-		{
-			step: 'step06',
-			key: '',
-			value: [],
-		},
-		{
-			step: 'step07',
-			key: '',
-			value: [],
-		}, */
+		}
 	];
+
+
+
+	
 
 	//냉장고 DATA
 	const ConfigData = {
@@ -243,7 +219,7 @@ function main() {
 				],
 			},
 			// 예외 step (size)
-			{
+			/* {
 				finderStep: 'step03',
 				key: '',
 				questionText: 'step03 - 질문?',
@@ -281,8 +257,8 @@ function main() {
 						}
 					},
 				],
-			},
-			{
+			}, */
+			/* {
 				finderStep: 'step04',
 				key: '',
 				questionText: 'step04 - 질문?',
@@ -319,16 +295,9 @@ function main() {
 						}
 					},
 				],
-			},
+			}, */
 		]
 	}
-
-
-	// 스텝 class 저장
-	for (let i = 0; i < ConfigData.finderSetting.length; i++) {
-		finderStepData.push(ConfigData.finderSetting[i].finderStep);
-	}
-
 
 	// 스텝 이동 이벤트 함수
 	function stepChangeEvent(idx) {
@@ -652,3 +621,131 @@ function main() {
 
 
 
+
+function main1() {
+
+
+   let _select = {
+      Q1: ['value3'],
+      Q2: [''],
+      Q3_1: [],
+      Q3_2: [],
+      Q3_3: [],
+      Q4: [],
+      Q5: [],
+      Q6: [],
+      Q7: [],
+   }
+
+
+   // 예시 
+   const product1 = {
+      'Q1': {
+         Q1: ['value1'],
+         Q2: ['value1'],
+         Q3_1: ['value1'],
+         Q3_2: ['value1'],
+         Q3_3: ['value1'],
+      },
+      'Q2': {
+         Q1: ['value2'],
+         Q2: ['value2'],
+         Q3_1: ['value1'],
+         Q3_2: ['value1'],
+         Q3_3: ['value1'],
+      },
+      'Q3': {
+         Q1: ['value3'],
+         Q2: ['value3'],
+         Q3_1: ['value1'],
+         Q3_2: ['value1'],
+         Q3_3: ['value1'],
+      },
+      'Q4': {
+         Q1: ['value4'],
+         Q2: ['value4'],
+         Q3_1: ['value1'],
+         Q3_2: ['value1'],
+         Q3_3: ['value1'],
+      },
+   }
+
+   const productData = [
+      {
+         Q1: ['Q1_value1'],
+         Q2: ['Q2_value1'],
+         Q3_1: ['Q3_value1'],
+         Q3_2: ['Q3_value2'],
+         Q3_3: ['Q3_value1'],
+         Q4: ['04_value1', 'Q4_value2', 'Q4_value3'],
+         Q5: ['05_value1', '05_value1', '05_value1'],
+         Q6: ['06_value1', '06_value1', '06_value1', '06_value1', '06_value1'],
+         Q7: ['07_value2'],
+      },
+      {
+         Q1: ['Q1_value2'],
+         Q2: ['Q2_value2'],
+         Q3_1: ['Q3_value1'],
+         Q3_2: ['Q3_value2'],
+         Q3_3: ['Q3_value3'],
+         Q4: ['04_value1', 'Q4_value2', 'Q4_value3'],
+         Q5: ['05_value1', '05_value1', '05_value1'],
+         Q6: ['06_value1', '06_value1', '06_value1', '06_value1', '06_value1'],
+         Q7: ['07_value1'],
+      },
+      {
+         Q1: ['Q1_value3'],
+         Q2: ['Q2_value3'],
+         Q3_1: ['Q3_value1'],
+         Q3_2: ['Q3_value3'],
+         Q3_3: ['Q3_value2'],
+         Q4: ['04_value1', 'Q4_value2', 'Q4_value3'],
+         Q5: ['05_value1', '05_value1', '05_value1'],
+         Q6: ['06_value1', '06_value1', '06_value1', '06_value1', '06_value1'],
+         Q7: ['07_value3'],
+      },
+      {
+         Q1: ['Q1_value4'],
+         Q2: ['Q2_value4'],
+         Q3_1: ['Q3_value3'],
+         Q3_2: ['Q3_value1'],
+         Q3_3: ['Q3_value2'],
+         Q4: ['04_value1', 'Q4_value2', 'Q4_value3'],
+         Q5: ['05_value1', '05_value1', '05_value1'],
+         Q6: ['06_value1', '06_value1', '06_value1', '06_value1', '06_value1'],
+         Q7: ['07_value1'],
+      },
+      {
+         Q1: ['Q1_value4'],
+         Q2: ['Q2_value4'],
+         Q3_1: ['Q3_value3'],
+         Q3_2: ['Q3_value1'],
+         Q3_3: ['Q3_value2'],
+         Q4: ['04_value1', 'Q4_value2', 'Q4_value3'],
+         Q5: ['05_value1', '05_value1', '05_value1'],
+         Q6: ['06_value1', '06_value1', '06_value1', '06_value1', '06_value1'],
+         Q7: ['07_value1'],
+      },
+   ]
+
+
+   for (let i = 0; i < Object.values(product1).length; i++) {
+
+      for (let j = 0; j < Object.values(product1)[i].Q2.length; j++) {
+         console.log(j)
+         console.log(Object.values(product1)[i].Q1[j]);
+         /*  const ddd = Object.values(product1)[i].filter(item => {
+             return item.Q1 === '영채'
+          }); */
+         // console.log(ddd);
+
+         // let ddd = Object.values(product1)[i]
+         if (Object.values(product1)[i].Q2[j] === '영채') {
+            // console.log(j)
+            // console.log(Object.keys(product1)[i]);
+            // product1.Object.keys(product1)[i]
+            // console.log(product1.Object.keys(product1)[i]);
+         }
+      }
+   }
+}

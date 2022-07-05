@@ -6,74 +6,305 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>WM LIST</title>
+    <link rel="stylesheet" href="./style.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 <body>
     <div id="wrap">
         <form>
             <fieldset>
-                <div class="first_name">
-                    <input type="checkbox" id="q1_1" name="first_name" value="Marcus">
-                    <label for="q1_1">Marcus</label>
-                    <input type="checkbox" id="q1_2" name="first_name" value="Sydelle">
-                    <label for="q1_2">Sydelle</label>
-                    <input type="checkbox" id="q1_3" name="first_name" value="Constantin">
-                    <label for="q1_3">Constantin</label>
+                <div class="cat_area">
+                    <p>Q1. What type of washing machine are you looking for?</p>
+                    <input type="checkbox" id="q1_1" name="Cat" value="WM">
+                    <label for="q1_1">WM</label>
+                    <input type="checkbox" id="q1_2" name="Cat" value="WD">
+                    <label for="q1_2">WD</label>
                 </div>
-                <div class="last_name">
-                    <input type="checkbox" id="q2_1" name="last_name" value="Salatino">
-                    <label for="q2_1">Salatino</label>
-                    <input type="checkbox" id="q2_2" name="last_name" value="Ozanne">
-                    <label for="q2_2">Ozanne</label>
-                    <input type="checkbox" id="q2_3" name="last_name" value="Huggett">
-                    <label for="q2_3">Huggett</label>
+                <div class="capacity_area">
+                    <p>Q2. What capacity do you need?</p>
+                    <input type="checkbox" id="q2_1" name="capacity" value="9">
+                    <label for="q2_1">9</label>
+                    <input type="checkbox" id="q2_2" name="capacity" value="10.5">
+                    <label for="q2_2">10.5</label>
+                    <input type="checkbox" id="q2_3" name="capacity" value="12">
+                    <label for="q2_3">12</label>
                 </div>
-                <div class="email">
-                    <input type="checkbox" id="q3_1" name="email" value="naver">
-                    <label for="q3_1">naver</label>
-                    <input type="checkbox" id="q3_2" name="email" value="daum">
-                    <label for="q3_2">daum</label>
-                    <input type="checkbox" id="q3_3" name="email" value="google">
-                    <label for="q3_3">google</label>
+                <div class="size_area">
+                    <p>Q3. Which size best fits your space?</p>
+                    <div class="width_wrap">
+                        <span>width</span>
+                        <input type="checkbox" id="q3_1_1" name="width" value="600">
+                        <label for="q3_1_1">600</label>
+                        <input type="checkbox" id="q3_1_2" name="width" value="700">
+                        <label for="q3_1_2">700</label>
+                    </div>
+                    <div class="depth_wrap">
+                        <span>depth</span>
+                        <input type="checkbox" id="q3_2_1" name="depth" value="600">
+                        <label for="q3_2_1">600</label>
+                        <input type="checkbox" id="q3_2_2" name="depth" value="700">
+                        <label for="q3_2_2">700</label>
+                    </div>
+                    <div class="height_wrap">
+                        <span>height</span>
+                        <input type="checkbox" id="q3_3_1" name="height" value="600">
+                        <label for="q3_3_1">600</label>
+                        <input type="checkbox" id="q3_3_2" name="height" value="700">
+                        <label for="q3_3_2">700</label>
+                    </div>
+                </div>
+                <div class="color_area">
+                    <p>Q4.  Which color do you prefer?</p>
+                    <input type="checkbox" id="q4_1" name="color" value="white">
+                    <label for="q4_1">white</label>
+                    <input type="checkbox" id="q4_2" name="color" value="graphite">
+                    <label for="q4_2">graphite</label>
+                    <input type="checkbox" id="q4_3" name="color" value="Black Steel">
+                    <label for="q4_3">Black Steel</label>
+                </div>
+                <div class="intent_area">
+                    <p>Q5. What’s more important to you (in a washing machine)?</p>
+                    <input type="checkbox" id="q5_1" name="intent" value="Price">
+                    <label for="q5_1">Price</label>
+                    <input type="checkbox" id="q5_2" name="intent" value="Features">
+                    <label for="q5_2">Features</label>
                 </div>
                 <button type="button" onclick="filter_submit(this.form)">전송</button>
             </fieldset>
         </form>
-        <div class="table_wrap"></div>
+        <table>
+            <thead>
+                <tr>
+                    <th>product</th>
+                    <th>Cat</th>
+                    <th>capacity</th>
+                    <th>width</th>
+                    <th>depth</th>
+                    <th>height</th>
+                    <th>color</th>
+                    <th>intent</th>
+                    <th>url</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
     </div>
 
     <script>
-        function filter_submit(){
-           var $fisrtName = [];
-           $(".first_name").find("input:checked").each(function (){
-               $fisrtName.push($(this).val());
-           });
-           var $lastName = $(".last_name").find("input:checked").val();
-           var $Email = $(".email").find("input:checked").val();
-           console.log($fisrtName);
-           console.log($lastName);
-           console.log($Email);
+        // 라벨 클릭 효과
+        $("label").click(function () {
+            if (!$(this).hasClass("on")) {
+                $(this).addClass("on");
+            } else {
+                $(this).removeClass("on");
+            }
+        });
 
-            var formData = $("form").serializeArray();
+        // 전송 클릭 시 실행
+        function filter_submit() {
+            // 각 질문마다 체크된 value 값 각각 배열에 저장
+            var $catArr = [];
+            $(".cat_area").find("input:checked").each(function () {
+                $catArr.push($(this).val());
+            });
+            var $capacityArr = [];
+            $(".capacity_area").find("input:checked").each(function () {
+                $capacityArr.push(Number($(this).val()));
+            });
+            var $widthArr = [];
+            $(".width_wrap").find("input:checked").each(function () {
+                $widthArr.push(Number($(this).val()));
+            });
+            var $depthArr = [];
+            $(".depth_wrap").find("input:checked").each(function () {
+                $depthArr.push(Number($(this).val()));
+            });
+            var $heightArr = [];
+            $(".height_wrap").find("input:checked").each(function () {
+                $heightArr.push(Number($(this).val()));
+            });
+            var $colorArr = [];
+            $(".color_area").find("input:checked").each(function () {
+                $colorArr.push($(this).val());
+            });
+            var $intentArr = [];
+            $(".intent_area").find("input:checked").each(function () {
+                $intentArr.push($(this).val());
+            });
+            // $inputAllArr = 체크 된 값이 들어있는 배열들 새로운 배열에 저장
+            var $inputAllArr = [$catArr, $capacityArr, $widthArr, $depthArr, $heightArr, $colorArr, $intentArr];
+            /*console.log($inputAllArr);*/
+
+            // $inputIndexArr = $inputAllArr 에서 빈 값이 아닌 요소 index 배열에 저장
+            var $inputIndexArr = [];
+            for (var i = 0; i < $inputAllArr.length; i++) {
+                if ($inputAllArr[i] && $inputAllArr[i].length) {
+                    $inputIndexArr.push(i);
+                }
+            }
+            /*console.log($inputIndexArr);*/
+            // _conut = 체크된 문항 개수
+            var _conut = $inputIndexArr.length;
+            /*console.log(_conut);*/
+
+            // json 데이터 불러오기
             $.ajax({
                 url: "./wm_list.json",
                 type: "post",
-                datatype: "json",
-                data: formData,
-                success: function(data){
-                    if(data.length > 0){
-                        var tb=$('<table />')
-                        for(var i in data){
-                            if(data[i].first_name === $fisrtName[i] || data[i].last_name === $lastName || data[i].email === $Email){
-                                var $id=data[i].id;
-                                var $first_name=data[i].first_name;
-                                var $last_name=data[i].last_name;
-                                var $email=data[i].email;
-                                var row=$('<tr />').append($('<td />').text($id), $('<td />').text($first_name), $('<td />').text($last_name), $('<td />').text($email));
-                                tb.append(row);
+                success: function (data) {
+                    // 조건에 맞게 필터링
+                    var listData = data.filter(function (item) {
+                        // $itemArr = json 데이터 배열로 저장
+                        var $itemArr = [item.Cat, item.capacity, item.width, item.depth, item.height, item.color, item.intent];
+
+                        // 서로 비교해야할 요소가 $inputAllArr 과 $itemArr 의 같은 index 에 있음
+                        // $inputIndexArr 에 선택한 요소의 index 가 담겨 있어 $itemArr[$inputIndexArr[x]] === $inputAllArr[$inputIndexArr[x]][i] 로 비교
+                        // x는 체크된 문항 개수에 따라 1개 일 때 0, 2개일 때 0, 1... 7개 일 때 0, 1, 2, 3, 4, 5, 6 으로 지정
+                        // i는 그 문항에 체크한 값의 개수 만큼 비교해야 되기 때문에 for 문을 사용해 하나씩 비교
+                        // 빈 배열에 true 값을 저장하여 각 배열끼리 비교 후 모두 true 인 값만 출력
+
+                        // 체크 된 문항 = 1개
+                        if (_conut === 1) {
+                            var idxC1 = $inputIndexArr[0];
+                            for (var iC1 = 0; iC1 < $inputAllArr[idxC1].length; iC1 ++) {
+                                if ($itemArr[idxC1] === $inputAllArr[idxC1][iC1]) {
+                                    return true;
+                                }
                             }
-                            $('.table_wrap').html(tb);
                         }
+                        // 각 문항마다 true 값을 담을 빈배열 선언
+                        var $typeArr01 = [];
+                        var $typeArr02 = [];
+                        var $typeArr03 = [];
+                        var $typeArr04 = [];
+                        var $typeArr05 = [];
+                        var $typeArr06 = [];
+                        var $typeArr07 = [];
+                        // 체크 된 문항 = 2개
+                        if (_conut === 2) {
+                            var $c2Arr = [];
+                            for (var a = 0; a < _conut; a++){
+                                $c2Arr.push([]);
+                            }
+                            for (var i = 0; i < _conut; i ++) {
+                                for (var idx = 0; idx < $inputAllArr[$inputIndexArr[i]].length; idx++) {
+                                    if ($itemArr[$inputIndexArr[i]] === $inputAllArr[$inputIndexArr[i]][idx]) {
+                                        $c2Arr[i].push(true);
+                                    }
+                                }
+                            }
+                            console.log($c2Arr);
+                            /*console.log($c2Arr);*/
+                            for (var idxC2 = 0; idxC2 < $c2Arr.length; idxC2++) {
+                                if ($c2Arr[0][idxC2] && $c2Arr[1][idxC2]){
+                                    return true;
+                                }
+                            }
+                        }
+                        // 체크 된 문항 = 3개
+                        if (_conut === 3) {
+                            var $c3Arr = [$typeArr01, $typeArr02, $typeArr03];
+                            for (var i = 0; i < _conut; i ++) {
+                                for (var idx = 0; idx < $inputAllArr[$inputIndexArr[i]].length; idx++) {
+                                    if ($itemArr[$inputIndexArr[i]] === $inputAllArr[$inputIndexArr[i]][idx]) {
+                                        $c3Arr[i].push(true);
+                                    }
+                                }
+                            }
+                            for (var idxC3 = 0; idxC3 < $typeArr01.length; idxC3++) {
+                                if ($typeArr01[idxC3] && $typeArr02[idxC3] && $typeArr03[idxC3]){
+                                    return true;
+                                }
+                            }
+                        }
+                        // 체크 된 문항 = 4개
+                        if (_conut === 4) {
+                            var $c4Arr = [$typeArr01, $typeArr02, $typeArr03, $typeArr04];
+                            for (var i = 0; i < _conut; i ++) {
+                                for (var idx = 0; idx < $inputAllArr[$inputIndexArr[i]].length; idx++) {
+                                    if ($itemArr[$inputIndexArr[i]] === $inputAllArr[$inputIndexArr[i]][idx]) {
+                                        $c4Arr[i].push(true);
+                                    }
+                                }
+                            }
+                            for (var idxC4 = 0; idxC4 < $typeArr01.length; idxC4++) {
+                                if ($typeArr01[idxC4] && $typeArr02[idxC4] && $typeArr03[idxC4] && $typeArr04[idxC4]){
+                                    return true;
+                                }
+                            }
+                        }
+                        // 체크 된 문항 = 5개
+                        if (_conut === 5) {
+                            var $c5Arr = [$typeArr01, $typeArr02, $typeArr03, $typeArr04, $typeArr05];
+                            for (var i = 0; i < _conut; i ++) {
+                                for (var idx = 0; idx < $inputAllArr[$inputIndexArr[i]].length; idx++) {
+                                    if ($itemArr[$inputIndexArr[i]] === $inputAllArr[$inputIndexArr[i]][idx]) {
+                                        $c5Arr[i].push(true);
+                                    }
+                                }
+                            }
+                            for (var idxC5 = 0; idxC5 < $typeArr01.length; idxC5++) {
+                                if ($typeArr01[idxC5] && $typeArr02[idxC5] && $typeArr03[idxC5] && $typeArr04[idxC5] && $typeArr05[idxC5]){
+                                    return true;
+                                }
+                            }
+                        }
+                        // 체크 된 문항 = 6개
+                        if (_conut === 6) {
+                            var $c6Arr = [$typeArr01, $typeArr02, $typeArr03, $typeArr04, $typeArr05, $typeArr06];
+                            for (var i = 0; i < _conut; i ++) {
+                                for (var idx = 0; idx < $inputAllArr[$inputIndexArr[i]].length; idx++) {
+                                    if ($itemArr[$inputIndexArr[i]] === $inputAllArr[$inputIndexArr[i]][idx]) {
+                                        $c6Arr[i].push(true);
+                                    }
+                                }
+                            }
+                            for (var idxC6 = 0; idxC6 < $typeArr01.length; idxC6++) {
+                                if ($typeArr01[idxC6] && $typeArr02[idxC6] && $typeArr03[idxC6] && $typeArr04[idxC6] && $typeArr05[idxC6] && $typeArr06[idxC6]){
+                                    return true;
+                                }
+                            }
+                        }
+                        // 체크 된 문항 = 7개
+                        if (_conut === 7) {
+                            var $c7Arr = [$typeArr01, $typeArr02, $typeArr03, $typeArr04, $typeArr05, $typeArr06, $typeArr07];
+                            for (var i = 0; i < _conut; i ++) {
+                                for (var idx = 0; idx < $inputAllArr[$inputIndexArr[i]].length; idx++) {
+                                    if ($itemArr[$inputIndexArr[i]] === $inputAllArr[$inputIndexArr[i]][idx]) {
+                                        $c7Arr[i].push(true);
+                                    }
+                                }
+                            }
+                            for (var idxC7 = 0; idxC7 < $typeArr01.length; idxC7++) {
+                                if ($typeArr01[idxC7] && $typeArr02[idxC7] && $typeArr03[idxC7] && $typeArr04[idxC7] && $typeArr05[idxC7] && $typeArr06[idxC7] && $typeArr07[idxC7]){
+                                    return true;
+                                }
+                            }
+                        }
+                    });
+                    /*console.log(listData);*/
+                    // 조건에 맞는 데이터 표시
+                    // 데이터가 있을 경우
+                    if (listData.length > 0) {
+                        var list = "";
+                        for (var i in listData) {
+                            list += "<tr>";
+                            list += "<td>" + listData[i].product + "</td>";
+                            list += "<td>" + listData[i].Cat + "</td>";
+                            list += "<td>" + listData[i].capacity + "</td>";
+                            list += "<td>" + listData[i].width + "</td>";
+                            list += "<td>" + listData[i].depth + "</td>";
+                            list += "<td>" + listData[i].height + "</td>";
+                            list += "<td>" + listData[i].color + "</td>";
+                            list += "<td>" + listData[i].intent + "</td>";
+                            list += "<td><a href=" + listData[i].url + ">" + listData[i].url + "</a></td>";
+                            list += "</tr>";
+                        }
+                        $("tbody").html(list);
+                    }
+                    // 데이터가 없을 경우
+                    else {
+                        $("tbody").html("<tr><td colspan='9'>결과가 없습니다.</td></tr>");
                     }
                 }
             });

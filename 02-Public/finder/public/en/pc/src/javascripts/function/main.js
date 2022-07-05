@@ -1,57 +1,32 @@
 function main() {
-	// step 배열 순서 저장
-	let finderStepData = [];
 
 	// select DATA
 	let selectAnswer = [
 		{
-			step: 'step01',
-			key: '',
+			key: 'key-1', // 키 들어갈 부분
+			value: ['step01-value1','step01-value2'],
+		},
+		{
+			key: 'key-2', 
+			value: ['step01-value1','step01-value2'],
+		},
+		{
+			key: 'key-3', 
+			value: ['step01-value1','step01-value2'],
+		},
+		{
+			key: 'key-4', 
 			value: [],
 		},
 		{
-			step: 'step02',
-			key: '',
+			key: 'key-5', 
 			value: [],
-		},
-		{
-			step: 'step03',
-			value: [
-				{
-					key: 'depth',
-					val: []
-				},
-				{
-					key: 'width',
-					val: []
-				},
-				{
-					key: 'height',
-					val: []
-				},
-			]
-		},
-		{
-			step: 'step04',
-			key: '',
-			value: [],
-		},
-/* 		{
-			step: 'step05',
-			key: '',
-			value: [],
-		},
-		{
-			step: 'step06',
-			key: '',
-			value: [],
-		},
-		{
-			step: 'step07',
-			key: '',
-			value: [],
-		}, */
+		}
 	];
+
+
+
+	
 
 	//냉장고 DATA
 	const ConfigData = {
@@ -214,7 +189,7 @@ function main() {
 				],
 			},
 			// 예외 step (size)
-			{
+			/* {
 				finderStep: 'step03',
 				key: '',
 				questionText: 'step03 - 질문?',
@@ -252,8 +227,8 @@ function main() {
 						}
 					},
 				],
-			},
-			{
+			}, */
+			/* {
 				finderStep: 'step04',
 				key: '',
 				questionText: 'step04 - 질문?',
@@ -290,16 +265,9 @@ function main() {
 						}
 					},
 				],
-			},
+			}, */
 		]
 	}
-
-
-	// 스텝 class 저장
-	for (let i = 0; i < ConfigData.finderSetting.length; i++) {
-		finderStepData.push(ConfigData.finderSetting[i].finderStep);
-	}
-
 
 	// 스텝 이동 이벤트 함수
 	function stepChangeEvent(idx) {
