@@ -21,10 +21,11 @@ function main1() {
          productKey: 'product01',
          data: {
             Q1: 'step1_value1',
-            Q2: 'step2_value1',
+            Q2: 'step1_value2',
+            Q3: 'step3_value2',
             Q3_1: 'step3_1_value1',
-            Q3_2: 'step3_2_value1',
-            Q3_3: 'step3_3_value1',
+            Q3_2: 'step3_2_value2',
+            Q3_3: 'step3_3_value3',
          }
       },
       {
@@ -32,47 +33,52 @@ function main1() {
          data: {
             Q1: 'step1_value2',
             Q2: 'step2_value2',
+            Q3: 'step3_value1',
             Q3_1: 'step3_1_value1',
-            Q3_2: 'step3_2_value1',
-            Q3_3: 'step3_3_value1',
+            Q3_2: 'step3_2_value2',
+            Q3_3: 'step3_3_value3',
             // Q4: ['value1', 'value3', 'value4'],
          }
       },
       {
          productKey: 'product03',
          data: {
-            Q1: 'step1_value3',
+            Q1: 'step1_value1',
             Q2: 'step2_value3',
+            Q3: 'step3_value1',
             Q3_1: 'step3_1_value1',
             Q3_2: 'step3_2_value2',
-            Q3_3: 'step3_3_value2',
+            Q3_3: 'step3_3_value3',
             // Q4: ['value1', 'value5', 'value7'],
          }
       },
       {
          productKey: 'product04',
          data: {
-            Q1: 'step1_value4',
+            Q1: 'step1_value3',
+            Q2: 'step2_value3',
+            Q3: 'step3_value2',
+            Q3_1: 'step3_1_value2',
+            Q3_2: 'step3_2_value1',
+            Q3_3: 'step3_3_value1',
+            // Q4: ['value9', 'value1', 'value8'],
+         }
+      },
+      {
+         productKey: 'product05',
+         data: {
+            Q1: 'step1_value3',
             Q2: 'step2_value4',
+            Q3: 'step3_value3',
             Q3_1: 'step3_1_value1',
-            Q3_2: 'step3_2_value2',
+            Q3_2: 'step3_2_value1',
             Q3_3: 'step3_3_value2',
             // Q4: ['value9', 'value1', 'value8'],
          }
       },
-      /*       {
-               productKey: 'product05',
-               data: {
-                  Q1: 'step1_value3',
-                  Q2: 'step2_value1',
-                  Q3: 'step3_value2',
-                  Q3_1: 'step3_1_value1',
-                  Q3_2: 'step3_2_value1',
-                  Q3_3: 'step3_3_value2',
-                  // Q4: ['value9', 'value1', 'value8'],
-               }
-            }, */
    ]
+
+
 
 
    //냉장고 DATA
@@ -196,27 +202,30 @@ function main1() {
             appliancePopup: false, // 팝업 유/무 정의
             selectionsData: [
                {
-                  category: 'depth',
-                  label: '"depth 설명"',
-                  item: {
-                     dataValue: ['step3_1_value1', 'step3_1_value2',],
-                     content: ['step3_1_content1', 'step3_1_content2',],
+                  dataValue: 'step3_value1',
+                  content: 'step3_content1',
+                  // 클릭시 변경되야할 데이터 항목 
+                  changeData: {
+                     description: 'step03 - 항목 1 디스크립션',
+                     screenImgUrl: 'step03 - 항목 1 이미지',
                   }
                },
                {
-                  category: 'width',
-                  label: '"width 설명"',
-                  item: {
-                     dataValue: ['step3_2_value1', 'step3_2_value2', 'step3_2_value3',],
-                     content: ['step3_2_content1', 'step3_2_content2', 'step3_2_content3',],
+                  dataValue: 'step3_value2',
+                  content: 'step3_content2',
+                  // 클릭시 변경되야할 데이터 항목 
+                  changeData: {
+                     description: 'step03 - 항목 2 디스크립션',
+                     screenImgUrl: 'step03 - 항목 2 이미지',
                   }
                },
                {
-                  category: 'height',
-                  label: '"height 설명"',
-                  item: {
-                     dataValue: ['step3_3_value1', 'step3_3_value2', 'step3_3_value3',],
-                     content: ['step3_3_content1', 'step3_3_content2', 'step3_3_content3',],
+                  dataValue: 'step3_value3',
+                  content: 'step3_content3',
+                  // 클릭시 변경되야할 데이터 항목 
+                  changeData: {
+                     description: 'step03 - 항목 3 디스크립션',
+                     screenImgUrl: 'step03 - 항목 3 이미지',
                   }
                },
             ],
@@ -282,290 +291,44 @@ function main1() {
             ],
          }, */
       ],
-
-
-
-
       // 페이지 데이터 
       qestionData: [
          {
             key: 'step1_key',
-            option: [
-               {
-                  value : 'step1_value1',
-                  content: 'step1_content1',
-                  changeData: {
-                     description: 'step02 - 항목 1 디스크립션',
-                     icon: 'step02 - 항목 1 아이콘',
-                  }
-               },
-               {
-                  value : 'step1_value2',
-                  content: 'step1_content2',
-                  // 클릭시 변경되야할 데이터 항목 
-                  changeData: {
-                     description: 'step02 - 항목 2 디스크립션',
-                     icon: 'step02 - 항목 2 아이콘',
-                  }
-               },
-               {
-                  value: 'step2_value3',
-                  content: 'step2_content3',
-                  // 클릭시 변경되야할 데이터 항목 
-                  changeData: {
-                     description: 'step02 - 항목 3 디스크립션',
-                     icon: 'step02 - 항목 3 아이콘',
-                  }
-               },
-            ],
+            value: ['step1_value1', 'step1_value1', 'step1_value1'],
+            content: ['step1_value1', 'step1_value1', 'step1_value1']
          },
          {
             key: 'step2_key',
-            option: [
-               {
-                  value : 'step2_value1',
-                  content: 'step2_content1',
-                  changeData: {
-                     description: 'step02 - 항목 1 디스크립션',
-                     icon: 'step02 - 항목 1 아이콘',
-                  }
-               },
-               {
-                  value : 'step1_value2',
-                  content: 'step1_content2',
-                  // 클릭시 변경되야할 데이터 항목 
-                  changeData: {
-                     description: 'step02 - 항목 2 디스크립션',
-                     icon: 'step02 - 항목 2 아이콘',
-                  }
-               },
-               {
-                  value: 'step2_value3',
-                  content: 'step2_content3',
-                  // 클릭시 변경되야할 데이터 항목 
-                  changeData: {
-                     description: 'step02 - 항목 3 디스크립션',
-                     icon: 'step02 - 항목 3 아이콘',
-                  }
-               },
-            ],
+            value: ['value1', 'value2', 'value3']
          },
          {
             key: 'step3_1_key',
-            option: [
-               {
-                  value : 'step1_value1',
-                  content: 'step1_content1',
-                  changeData: {
-                     description: 'step02 - 항목 1 디스크립션',
-                     icon: 'step02 - 항목 1 아이콘',
-                  }
-               },
-               {
-                  value : 'step1_value2',
-                  content: 'step1_content2',
-                  // 클릭시 변경되야할 데이터 항목 
-                  changeData: {
-                     description: 'step02 - 항목 2 디스크립션',
-                     icon: 'step02 - 항목 2 아이콘',
-                  }
-               },
-               {
-                  value: 'step2_value3',
-                  content: 'step2_content3',
-                  // 클릭시 변경되야할 데이터 항목 
-                  changeData: {
-                     description: 'step02 - 항목 3 디스크립션',
-                     icon: 'step02 - 항목 3 아이콘',
-                  }
-               },
-            ],
+            value: ['value1', 'value2', 'value3']
          },
          {
             key: 'step3_2_key',
-            option: [
-               {
-                  value : 'step1_value1',
-                  content: 'step1_content1',
-                  changeData: {
-                     description: 'step02 - 항목 1 디스크립션',
-                     icon: 'step02 - 항목 1 아이콘',
-                  }
-               },
-               {
-                  value : 'step1_value2',
-                  content: 'step1_content2',
-                  // 클릭시 변경되야할 데이터 항목 
-                  changeData: {
-                     description: 'step02 - 항목 2 디스크립션',
-                     icon: 'step02 - 항목 2 아이콘',
-                  }
-               },
-               {
-                  value: 'step2_value3',
-                  content: 'step2_content3',
-                  // 클릭시 변경되야할 데이터 항목 
-                  changeData: {
-                     description: 'step02 - 항목 3 디스크립션',
-                     icon: 'step02 - 항목 3 아이콘',
-                  }
-               },
-            ],
+            value: ['value1', 'value2', 'value3']
          },
          {
             key: 'step3_3_key',
-            option: [
-               {
-                  value : 'step1_value1',
-                  content: 'step1_content1',
-                  changeData: {
-                     description: 'step02 - 항목 1 디스크립션',
-                     icon: 'step02 - 항목 1 아이콘',
-                  }
-               },
-               {
-                  value : 'step1_value2',
-                  content: 'step1_content2',
-                  // 클릭시 변경되야할 데이터 항목 
-                  changeData: {
-                     description: 'step02 - 항목 2 디스크립션',
-                     icon: 'step02 - 항목 2 아이콘',
-                  }
-               },
-               {
-                  value: 'step2_value3',
-                  content: 'step2_content3',
-                  // 클릭시 변경되야할 데이터 항목 
-                  changeData: {
-                     description: 'step02 - 항목 3 디스크립션',
-                     icon: 'step02 - 항목 3 아이콘',
-                  }
-               },
-            ],
+            value: ['value1', 'value2', 'value3']
          },
          {
             key: 'step4_key',
-            option: [
-               {
-                  value : 'step1_value1',
-                  content: 'step1_content1',
-                  changeData: {
-                     description: 'step02 - 항목 1 디스크립션',
-                     icon: 'step02 - 항목 1 아이콘',
-                  }
-               },
-               {
-                  value : 'step1_value2',
-                  content: 'step1_content2',
-                  // 클릭시 변경되야할 데이터 항목 
-                  changeData: {
-                     description: 'step02 - 항목 2 디스크립션',
-                     icon: 'step02 - 항목 2 아이콘',
-                  }
-               },
-               {
-                  value: 'step2_value3',
-                  content: 'step2_content3',
-                  // 클릭시 변경되야할 데이터 항목 
-                  changeData: {
-                     description: 'step02 - 항목 3 디스크립션',
-                     icon: 'step02 - 항목 3 아이콘',
-                  }
-               },
-            ],
+            value: ['value1', 'value2', 'value3']
          },
          {
-            key: 'step5_key',
-            option: [
-               {
-                  value : 'step1_value1',
-                  content: 'step1_content1',
-                  changeData: {
-                     description: 'step02 - 항목 1 디스크립션',
-                     icon: 'step02 - 항목 1 아이콘',
-                  }
-               },
-               {
-                  value : 'step1_value2',
-                  content: 'step1_content2',
-                  // 클릭시 변경되야할 데이터 항목 
-                  changeData: {
-                     description: 'step02 - 항목 2 디스크립션',
-                     icon: 'step02 - 항목 2 아이콘',
-                  }
-               },
-               {
-                  value: 'step2_value3',
-                  content: 'step2_content3',
-                  // 클릭시 변경되야할 데이터 항목 
-                  changeData: {
-                     description: 'step02 - 항목 3 디스크립션',
-                     icon: 'step02 - 항목 3 아이콘',
-                  }
-               },
-            ],
+            key: 'step4_key',
+            value: ['value1', 'value2', 'value3']
          },
          {
-            key: 'step6_key',
-            option: [
-               {
-                  value : 'step1_value1',
-                  content: 'step1_content1',
-                  changeData: {
-                     description: 'step02 - 항목 1 디스크립션',
-                     icon: 'step02 - 항목 1 아이콘',
-                  }
-               },
-               {
-                  value : 'step1_value2',
-                  content: 'step1_content2',
-                  // 클릭시 변경되야할 데이터 항목 
-                  changeData: {
-                     description: 'step02 - 항목 2 디스크립션',
-                     icon: 'step02 - 항목 2 아이콘',
-                  }
-               },
-               {
-                  value: 'step2_value3',
-                  content: 'step2_content3',
-                  // 클릭시 변경되야할 데이터 항목 
-                  changeData: {
-                     description: 'step02 - 항목 3 디스크립션',
-                     icon: 'step02 - 항목 3 아이콘',
-                  }
-               },
-            ],
+            key: 'step4_key',
+            value: ['value1', 'value2', 'value3']
          },
          {
-            key: 'step7_key',
-            option: [
-               {
-                  value : 'step1_value1',
-                  content: 'step1_content1',
-                  changeData: {
-                     description: 'step02 - 항목 1 디스크립션',
-                     icon: 'step02 - 항목 1 아이콘',
-                  }
-               },
-               {
-                  value : 'step1_value2',
-                  content: 'step1_content2',
-                  // 클릭시 변경되야할 데이터 항목 
-                  changeData: {
-                     description: 'step02 - 항목 2 디스크립션',
-                     icon: 'step02 - 항목 2 아이콘',
-                  }
-               },
-               {
-                  value: 'step2_value3',
-                  content: 'step2_content3',
-                  // 클릭시 변경되야할 데이터 항목 
-                  changeData: {
-                     description: 'step02 - 항목 3 디스크립션',
-                     icon: 'step02 - 항목 3 아이콘',
-                  }
-               },
-            ],
+            key: 'step4_key',
+            value: ['value1', 'value2', 'value3']
          },
       ]
    }
@@ -599,8 +362,6 @@ function main1() {
 
    function stepUpdateEvent(idx, judgmentStep) {
       let currentSelectionsData = ConfigData.finderSetting[idx].selectionsData; // 현재 스텝의 항목 데이터
-      let currentQestionData = ConfigData.qestionData[idx].option;
-      console.log(currentQestionData)
       let _array = []; // 이전 스텝에서(만) 저장된 product 배열
       // let currentAnswerValue = selectAnswer[idx].value; // 현재스텝 저장된 value 
 
@@ -633,15 +394,16 @@ function main1() {
          3. 추출된 제품 데이터 배열과 다음 스텝의 마크업에 데이터와 일치하는 값이 없을 경우에 해당되는 value 값을 가진 button에 disabled 한다.
       */
 
+
+
       //  step 1 제외하고 실행
-      if (idx !== 0 && idx !== 1) {
+      if (idx !== 0) {
          let liHtml = ''; // li , button html
          let disabledPresence = ''; // disabled 유 / 무
 
          // 제품 index 만큼 for 문 실행
          for (let i = 0; i < productObject.length; i++) {
             // 현재 선택한 항목의 배열 수 만큼 제품 for 문 실행
-            // console.log(Object.values(_result)[idx - 1].length);
             for (let j = 0; j < Object.values(_result)[idx - 1].length; j++) {
                // 제품의 value 값과 선택 항목의 value 값이 매칭되는 제품 추출
                if (Object.values(productObject[i].data)[idx - 1] === Object.values(_result)[idx - 1][j]) {
@@ -650,17 +412,6 @@ function main1() {
                }
             }
          }
-/*          // 제품 index 만큼 for 문 실행
-         for (let i = 0; i < productObject.length; i++) {
-            // 현재 선택한 항목의 배열 수 만큼 제품 for 문 실행
-            for (let j = 0; j < Object.values(_result)[idx - 1].length; j++) {
-               // 제품의 value 값과 선택 항목의 value 값이 매칭되는 제품 추출
-               if (Object.values(productObject[i].data)[idx - 1] === Object.values(_result)[idx - 1][j]) {
-                  // 매칭되는 제품 데이터 값 배열에 push
-                  _array.push(productObject[i]);
-               }
-            }
-         } */
 
          console.log('_array : (이전 스텝 저장value와 매칭되는 제품)', _array);
 
@@ -684,19 +435,19 @@ function main1() {
          } else {
             _filterProductArray = _array;
          }
+
          console.log('_filterProductArray (최종 매칭되는 제품)', _filterProductArray)
 
 
          // 마크업 뿌리기
          // 저장된 최종 product 배열 value 와 현 스텝의 마크업 value를 비교하여 하나라도 매칭 되지 않으면 disbled 
          // 현스텝 항목 만큼 for 문 돌리기
-         for (let i = 0; i < currentQestionData.length; i++) {
-            console.log('dddd');
+         for (let i = 0; i < currentSelectionsData.length; i++) {
             let bol;
             // 현재 저장된 product 갯수 만큼 for 문 돌리기
             for (let j = 0; j < _filterProductArray.length; j++) {
                // 저장된 product value 와 현스텝의 마크업 value 와 매칭되는 데이터 추출
-               if (Object.values(_filterProductArray[j].data)[idx] === currentQestionData[i].value) {
+               if (Object.values(_filterProductArray[j].data)[idx] === currentSelectionsData[i].dataValue) {
                   bol = true;
                }
             }
@@ -706,20 +457,14 @@ function main1() {
             } else {
                disabledPresence = '';
             }
-            liHtml += '<li><button class="answer_btn" type="button" data-value="' + currentQestionData[i].value + '" ' + disabledPresence + ' > ' + currentQestionData[i].content + ' </button></li>';
+            liHtml += '<li><button class="answer_btn" type="button" data-value="' + currentSelectionsData[i].dataValue + '" ' + disabledPresence + ' > ' + currentSelectionsData[i].content + ' </button></li>';
          }
          $('#selectWrap ol').append(liHtml);
-
       } else {
          // step 1
-      /*    for (let i = 0; i < currentSelectionsData.length; i++) {
+         for (let i = 0; i < currentSelectionsData.length; i++) {
             $('#selectWrap ol').append('<li><button class="answer_btn" type="button" data-value="' + currentSelectionsData[i].dataValue + '"> <i></i> <p> ' + currentSelectionsData[i].content + '</p></button></li>');
-         } */
-      }
-      if (idx === 2) { // step 3 (예외 step)
-         console.log('야 너 진짜 죽ㅇ는다')
-         let ddd = ConfigData.qestionData;
-         console.log(ddd)
+         }
       }
       // console.log(_filterProductArray); // 현재 저장된 최종 product 배열
 
@@ -759,7 +504,7 @@ function main1() {
             _this.addClass('active');
          }
 
-
+         console.log(_filterProductArray);
 
 
 
@@ -786,21 +531,6 @@ function main1() {
          }
 
          console.log('_result (사용자가 선택한 스텝별 value) : ', _result);
-
-
-
-
-
-
-
-         console.log(_filterProductArray);
-
-
-
-
-
-
-
          sprayData(idx, currentSelectionsData, lastAnswerValue); // 선택한 항목의 대한 데이터 뿌리기
 
 

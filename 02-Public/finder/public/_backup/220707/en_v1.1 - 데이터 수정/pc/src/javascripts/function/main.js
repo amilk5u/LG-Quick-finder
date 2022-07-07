@@ -4,22 +4,22 @@ function main() {
 	let selectAnswer = [
 		{
 			key: 'key-1', // 키 들어갈 부분
-			value: ['step01-value1', 'step01-value2'],
+			value: ['step01-value1','step01-value2'],
 		},
 		{
-			key: 'key-2',
-			value: ['step01-value1', 'step01-value2'],
+			key: 'key-2', 
+			value: ['step01-value1','step01-value2'],
 		},
 		{
-			key: 'key-3',
-			value: ['step01-value1', 'step01-value2'],
+			key: 'key-3', 
+			value: ['step01-value1','step01-value2'],
 		},
 		{
-			key: 'key-4',
+			key: 'key-4', 
 			value: [],
 		},
 		{
-			key: 'key-5',
+			key: 'key-5', 
 			value: [],
 		}
 	];
@@ -185,7 +185,7 @@ function main() {
 				],
 			},
 			// 예외 step (size)
-			{
+/* 			{
 				finderStep: 'step03',
 				key: '',
 				questionText: 'step03 - 질문?',
@@ -223,7 +223,7 @@ function main() {
 						}
 					},
 				],
-			},
+			}, */
 			/* {
 				finderStep: 'step04',
 				key: '',
