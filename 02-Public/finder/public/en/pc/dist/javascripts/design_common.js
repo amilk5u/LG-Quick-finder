@@ -29,6 +29,11 @@ function layout() {
 
 function main() {
 	let _select = {};
+	/* 	let _select = {
+			Q1: 'step1_value1',
+			Q2: ['step2_value2','step2_value3'],
+		}; */
+
 	let _result = {}; // 마지막 최종 결과 데이터 추출 배열
 
 	const product = {
@@ -67,7 +72,7 @@ function main() {
 		},
 		'product4': {
 			Q1: 'Q1_value4',
-			Q2: '민주다',
+			Q2: 'Q2_value2',
 			Q3_1: 'Q3_1_value2',
 			Q3_2: 'Q3_2_value2',
 			Q3_3: 'Q3_3_value1',
@@ -176,24 +181,24 @@ function main() {
 		htmlData: {
 			'Q1': [
 				{
-					value: 'step1_value1',
-					content: 'step1_content1',
+					value: 'Q1_value1',
+					content: 'Q1_content1',
 					changeData: {
 						description: 'step02 - 항목 1 디스크립션',
 						icon: 'step01 - 항목 1 아이콘',
 					}
 				},
 				{
-					value: 'step1_value2',
-					content: 'step1_content2',
+					value: 'Q1_value2',
+					content: 'Q1_content2',
 					changeData: {
 						description: 'step02 - 항목 1 디스크립션',
 						icon: 'step01 - 항목 1 아이콘',
 					}
 				},
 				{
-					value: 'step1_value3',
-					content: 'step1_content3',
+					value: 'Q1_value3',
+					content: 'Q1_content1',
 					changeData: {
 						description: 'step01 - 항목 1 디스크립션',
 						icon: 'step01 - 항목 1 아이콘',
@@ -202,76 +207,84 @@ function main() {
 			],
 			'Q2': [
 				{
-					value: 'step1_value1',
-					content: 'step2_content1',
+					value: 'Q2_value1',
+					content: 'Q2_content1',
 					changeData: {
 						description: 'step02 - 항목 1 디스크립션',
 						icon: 'step02 - 항목 1 아이콘',
 					}
 				},
 				{
-					value: 'step1_value2',
-					content: 'step2_content2',
+					value: 'Q2_value2',
+					content: 'Q2_content2',
 					changeData: {
 						description: 'step02 - 항목 1 디스크립션',
 						icon: 'step02 - 항목 1 아이콘',
 					}
 				},
+				{
+					value: 'Q2_value3',
+					content: 'Q2_content3',
+					changeData: {
+						description: 'step02 - 항목 1 디스크립션',
+						icon: 'step02 - 항목 1 아이콘',
+					}
+				}
 			],
 			'Q3_1': [
 				{
-					value: 'step3_3_value3',
-					content: 'step3_1_content1'
+					value: 'Q3_1_value1',
+					content: 'Q3_1_content1'
 				},
 				{
-					value: 'step3_1_value2',
-					content: 'step3_1_content2'
+					value: 'Q3_1_value2',
+					content: 'Q3_1_content2'
 				},
 				{
-					value: 'step3_1_value3',
-					content: 'step3_1_content3'
+					value: 'Q3_1_value3',
+					content: 'Q3_1_content3'
 				},
 			],
 			'Q3_2': [
 				{
-					value: 'step3_2_value1',
-					content: 'step3_2_content1'
+					value: 'Q3_2_value1',
+					content: 'Q3_2_content1'
 				},
 				{
-					value: 'step3_2_value2',
-					content: 'step3_2_content2'
+					value: 'Q3_2_value2',
+					content: 'Q3_2_content2'
 				},
 				{
-					value: 'step3_2_value3',
-					content: 'step3_2_content3'
+					value: 'Q3_2_value3',
+					content: 'Q3_2_content3'
 				},
 			],
 			'Q3_3': [
 				{
-					value: 'step3_3_value1',
-					content: 'step3_3_content1'
+					value: 'Q3_3_value1',
+					content: 'Q3_3_content1'
 				},
 				{
-					value: 'step3_3_value2',
-					content: 'step3_3_content2'
+					value: 'Q3_3_value2',
+					content: 'Q3_3_content2'
 				},
 				{
-					value: 'step3_3_value3',
-					content: 'step3_3_content3'
+					value: 'Q3_3_value3',
+					content: 'Q3_3_content3'
 				},
 			],
 			'Q4': [
 				{
-					value: 'step4_value1',
-					content: 'step4_content1',
+					value: 'Q4_value1',
+					content: 'Q4_content1',
 					changeData: {
 						description: 'step04 - 항목 1 디스크립션',
 						icon: 'step04 - 항목 1 아이콘',
 					}
 				},
 				{
-					value: 'step4_value2',
-					content: 'step4_content2',
+					value: 'Q4_value2',
+					content: 'Q4_content2',
 					changeData: {
 						description: 'step04 - 항목 1 디스크립션',
 						icon: 'step04 - 항목 1 아이콘',
@@ -281,21 +294,7 @@ function main() {
 		},
 	}
 
-
-	// 예시
-	for (let key in ConfigData.htmlData) {
-		for (let i = 0; i < ConfigData.htmlData[key].length; i++) {
-			// console.log(i)
-			// console.log(ConfigData.htmlData[key][i].value === 'step3_3_content3')
-			if (ConfigData.htmlData[key][i].value === 'step3_3_value3') {
-				// console.log(i)
-				// console.log(key)
-				// _select[key] = 'step3_3_value3';
-			}
-		}
-	}
-	// console.log(_select);
-
+	let _finalProductArray = [];
 
 	// 스텝 이동 이벤트 함수
 	function stepChangeEvent(idx) {
@@ -328,14 +327,18 @@ function main() {
 		let currentSelectionsData = Object.values(ConfigData.htmlData)[htmlIdx]; // 현재 스텝의 항목 데이터
 		// let currentQestionData = ConfigData.qestionData[idx].option;
 		// console.log(currentQestionData)
-		// let _array = []; // 이전 스텝에서(만) 저장된 product 배열
+		// let _valArray = []; // 이전 스텝에서(만) 저장된 product 배열
 		// let currentAnswerValue = selectAnswer[idx].value; // 현재스텝 저장된 value 
 
 
 		// 해당 스텝 정보
 		console.log('----step--------------------------------------------------------------');
 		console.log('idx (현재스텝 index) : ', idx);
-		// console.log('_result (사용자가 선택한 스텝별 value) : ', _result);
+		console.log('currentSelectionsData.length : ', currentSelectionsData.length)
+		console.log('htmlIdx : ', htmlIdx)
+		console.log('현재 스텝의 key : ', Object.keys(ConfigData.htmlData)[htmlIdx])
+		console.log('현재 스텝의 데이터 : ', Object.values(ConfigData.htmlData)[htmlIdx])
+		console.log('_select (사용자가 선택한 스텝별 value) : ', _select);
 
 
 		// step class 변경
@@ -355,10 +358,6 @@ function main() {
 		$('#selectWrap').html('');
 		$('#selectWrap').append('<ol></ol>');
 
-		console.log('currentSelectionsData.length : ', currentSelectionsData.length)
-		console.log('htmlIdx : ', htmlIdx)
-		console.log('현재 스텝의 key : ', Object.keys(ConfigData.htmlData)[htmlIdx])
-		console.log('현재 스텝의 데이터 : ', Object.values(ConfigData.htmlData)[htmlIdx])
 
 		// step 3 제외
 		if (idx !== 2) {
@@ -367,14 +366,17 @@ function main() {
 			}
 		} else {
 			console.log('step3');
-
 		}
 		answerSelectEvent(idx, htmlIdx, currentSelectionsData, judgmentStep); // 항목 클릭 함수
 	}
 
 	function answerSelectEvent(idx, htmlIdx, currentSelectionsData, judgmentStep) {
-		let currentAnswerValue = Object.values(_result)[idx]; // 현재 저장된 value 
 		let lastAnswerValue; // 저장된 데이터에서 마지막 value
+		let currentKey = Object.keys(ConfigData.htmlData)[htmlIdx]; // 현재 스텝의 key 값
+		let currentHtml = Object.values(ConfigData.htmlData)[htmlIdx]; // 현재 스텝의 항목 데이터
+		let _valArray = [];
+		// console.log(_select)
+		// console.log(currentAnswerValue);
 
 		// 이전 스텝
 		if (judgmentStep !== 'backStep') {
@@ -404,33 +406,61 @@ function main() {
 			}
 
 
-
-			console.log(ConfigData.htmlData)
-
 			// 항목 매칭된 데이터 뿌리기 & 선택된 데이터 push
 			if (idx === 0) {
-				_select['Q1'] = _selectValue;
+				_valArray.push(_selectValue);
+				_select[currentKey] = _valArray;
 				lastAnswerValue = _selectValue;
 			} else {
-
-
-				// 이전 선택했던 값과 product 비교하기
-
 				// value 저장 배열에서 현재 선택된 value 와 중복되는 데이터 제거
-				currentAnswerValue.forEach(function (item, i) {
+				_valArray.forEach(function (item, i) {
 					if (item === _selectValue) {
-						currentAnswerValue.splice(i, 1);
+						_valArray.splice(i, 1);
 					}
 				});
 				// 선택된 value push
 				if (_this.hasClass('active')) {
-					currentAnswerValue.push(_selectValue);
+					// currentAnswerValue.push(_selectValue);
+					_valArray.push(_selectValue)
 				}
-				lastAnswerValue = currentAnswerValue[currentAnswerValue.length - 1]; //선택된 마지막 value
-				console.log('lastAnswerValue : (선택된 마지막 value)', lastAnswerValue);
+				_select[currentKey] = _valArray;
+				// lastAnswerValue = currentAnswerValue[currentAnswerValue.length - 1]; //선택된 마지막 value
+				// console.log('lastAnswerValue : (선택된 마지막 value)', lastAnswerValue);
 			}
 
 			console.log('_select (사용자가 선택한 스텝별 value) : ', _select);
+
+			let _ProductArray = [];
+			// 사용자가 선택한 value 값과 product 의 value 값이 매칭되는 product 제품 추출
+			// 현재 선택한 배열의 갯수만큼 for 문 실행
+			for (let i = 0; i < _select[currentKey].length; i++) {
+				// console.log(_select[currentKey][i])
+
+				// 제품 갯수만큼 for 문 실행
+				for (let key in product) {
+					if (product[key][currentKey] === _select[currentKey][i]) {
+						_ProductArray[key] = product[key];
+					}
+				}
+			}
+
+			console.log('_ProductArray : ',_ProductArray)
+			// product 제품 추출하여 현재 매칭되는 값이 아닌것은 disabled
+			for (let key in _ProductArray) {
+				// console.log(_ProductArray[key][currentKey]);
+				for (let j = 0; j < currentHtml.length; j++) {
+					console.log(currentKey)
+					console.log(currentHtml[j].value === _ProductArray[key][currentKey])
+				}
+			}
+
+
+
+
+
+
+
+
 
 
 			// console.log(_filterProductArray);
