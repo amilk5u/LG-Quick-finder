@@ -39,10 +39,10 @@ function main() {
 	const product = {
 		'product1': {
 			Q1: 'Q1_value1',
-			Q2: 'Q2_value3',
-			Q3_1: 'Q3_1_value2',
-			Q3_2: 'Q3_2_value1',
-			Q3_3: 'Q3_3_value4',
+			Q2: 450,
+			Q3_1: 760,
+			Q3_2: 550,
+			Q3_3: 1790,
 			Q4: 'Q4_value1',
 			Q5: 'Q5_value1',
 			Q6: 'Q6_value2',
@@ -50,10 +50,10 @@ function main() {
 		},
 		'product2': {
 			Q1: 'Q1_value2',
-			Q2: 'Q2_value1',
-			Q3_1: 'Q3_1_value1',
-			Q3_2: 'Q3_2_value2',
-			Q3_3: 'Q3_3_value1',
+			Q2: 550,
+			Q3_1: 760,
+			Q3_2: 680,
+			Q3_3: 1800,
 			Q4: 'Q4_value1',
 			Q5: 'Q5_value2',
 			Q6: 'Q6_value2',
@@ -61,21 +61,142 @@ function main() {
 		},
 		'product3': {
 			Q1: 'Q1_value3',
-			Q2: 'Q2_value1',
-			Q3_1: '민주다',
-			Q3_2: 'Q3_2_value1',
-			Q3_3: 'Q3_3_value2',
+			Q2: 687,
+			Q3_1: 760,
+			Q3_2: 900,
+			Q3_3: 2200,
 			Q4: 'Q4_value3',
 			Q5: 'Q5_value2',
 			Q6: 'Q6_value1',
 			Q7: 'Q7_value41'
 		},
 		'product4': {
-			Q1: 'Q1_value4',
-			Q2: 'Q2_value2',
-			Q3_1: 'Q3_1_value2',
-			Q3_2: 'Q3_2_value2',
-			Q3_3: 'Q3_3_value1',
+			Q1: 'Q1_value2',
+			Q2: 500,
+			Q3_1: 760,
+			Q3_2: 850,
+			Q3_3: 1780,
+			Q4: 'Q4_value1',
+			Q5: 'Q5_value1',
+			Q6: 'Q6_value2',
+			Q7: 'Q7_value3',
+		},
+		'product5': {
+			Q1: 'Q1_value1',
+			Q2: 480,
+			Q3_1: 760,
+			Q3_2: 650,
+			Q3_3: 1820,
+			Q4: 'Q4_value1',
+			Q5: 'Q5_value1',
+			Q6: 'Q6_value2',
+			Q7: 'Q7_value3',
+		},
+		'product6': {
+			Q1: 'Q1_value1',
+			Q2: 538,
+			Q3_1: 760,
+			Q3_2: 750,
+			Q3_3: 1850,
+			Q4: 'Q4_value1',
+			Q5: 'Q5_value1',
+			Q6: 'Q6_value2',
+			Q7: 'Q7_value3',
+		},
+		'product7': {
+			Q1: 'Q1_value2',
+			Q2: 351,
+			Q3_1: 760,
+			Q3_2: 850,
+			Q3_3: 1720,
+			Q4: 'Q4_value1',
+			Q5: 'Q5_value1',
+			Q6: 'Q6_value2',
+			Q7: 'Q7_value3',
+		},
+		'product8': {
+			Q1: 'Q1_value3',
+			Q2: 650,
+			Q3_1: 760,
+			Q3_2: 940,
+			Q3_3: 1980,
+			Q4: 'Q4_value1',
+			Q5: 'Q5_value1',
+			Q6: 'Q6_value2',
+			Q7: 'Q7_value3',
+		},
+		'product9': {
+			Q1: 'Q1_value2',
+			Q2: 475,
+			Q3_1: 760,
+			Q3_2: 570,
+			Q3_3: 2100,
+			Q4: 'Q4_value1',
+			Q5: 'Q5_value1',
+			Q6: 'Q6_value2',
+			Q7: 'Q7_value3',
+		},
+		'product10': {
+			Q1: 'Q1_value3',
+			Q2: 680,
+			Q3_1: 760,
+			Q3_2: 690,
+			Q3_3: 1860,
+			Q4: 'Q4_value1',
+			Q5: 'Q5_value1',
+			Q6: 'Q6_value2',
+			Q7: 'Q7_value3',
+		},
+		'product11': {
+			Q1: 'Q1_value3',
+			Q2: 531,
+			Q3_1: 760,
+			Q3_2: 770,
+			Q3_3: 1730,
+			Q4: 'Q4_value1',
+			Q5: 'Q5_value1',
+			Q6: 'Q6_value2',
+			Q7: 'Q7_value3',
+		},
+		'product12': {
+			Q1: 'Q1_value2',
+			Q2: 490,
+			Q3_1: 760,
+			Q3_2: 820,
+			Q3_3: 1990,
+			Q4: 'Q4_value1',
+			Q5: 'Q5_value1',
+			Q6: 'Q6_value2',
+			Q7: 'Q7_value3',
+		},
+		'product13': {
+			Q1: 'Q1_value1',
+			Q2: 490,
+			Q3_1: 760,
+			Q3_2: 820,
+			Q3_3: 1990,
+			Q4: 'Q4_value1',
+			Q5: 'Q5_value1',
+			Q6: 'Q6_value2',
+			Q7: 'Q7_value3',
+		},
+		'product14': {
+			Q1: 'Q1_value2',
+			Q2: 490,
+			Q3_1: 760,
+			Q3_2: 820,
+			Q3_3: 1990,
+			Q4: 'Q4_value1',
+			Q5: 'Q5_value1',
+			Q6: 'Q6_value2',
+			Q7: 'Q7_value3',
+		},
+		'product15': {
+			Q1: 'Q1_value3',
+			Q2: 490,
+			Q3_1: 760,
+			Q3_2: 950,
+			Q3_3: 2000,
 			Q4: 'Q4_value1',
 			Q5: 'Q5_value1',
 			Q6: 'Q6_value2',
@@ -184,7 +305,7 @@ function main() {
 					value: 'Q1_value1',
 					content: 'Q1_content1',
 					changeData: {
-						description: 'step02 - 항목 1 디스크립션',
+						description: 'step01 - 항목 1 디스크립션',
 						icon: 'step01 - 항목 1 아이콘',
 					}
 				},
@@ -192,23 +313,23 @@ function main() {
 					value: 'Q1_value2',
 					content: 'Q1_content2',
 					changeData: {
-						description: 'step02 - 항목 1 디스크립션',
-						icon: 'step01 - 항목 1 아이콘',
+						description: 'step01 - 항목 2 디스크립션',
+						icon: 'step01 - 항목 2 아이콘',
 					}
 				},
 				{
 					value: 'Q1_value3',
-					content: 'Q1_content1',
+					content: 'Q1_content3',
 					changeData: {
-						description: 'step01 - 항목 1 디스크립션',
-						icon: 'step01 - 항목 1 아이콘',
+						description: 'step01 - 항목 3 디스크립션',
+						icon: 'step01 - 항목 3 아이콘',
 					}
 				},
 			],
 			'Q2': [
 				{
 					value: 'Q2_value1',
-					content: 'Q2_content1',
+					content: '450이하',
 					changeData: {
 						description: 'step02 - 항목 1 디스크립션',
 						icon: 'step02 - 항목 1 아이콘',
@@ -216,7 +337,7 @@ function main() {
 				},
 				{
 					value: 'Q2_value2',
-					content: 'Q2_content2',
+					content: '500~600',
 					changeData: {
 						description: 'step02 - 항목 1 디스크립션',
 						icon: 'step02 - 항목 1 아이콘',
@@ -224,7 +345,7 @@ function main() {
 				},
 				{
 					value: 'Q2_value3',
-					content: 'Q2_content3',
+					content: '600이상',
 					changeData: {
 						description: 'step02 - 항목 1 디스크립션',
 						icon: 'step02 - 항목 1 아이콘',
@@ -324,7 +445,8 @@ function main() {
 	function stepUpdateEvent(idx, judgmentStep) {
 		let htmlIdx = idx; // 항목 별 index
 		if (idx > 2) { htmlIdx += 2; }// 페이지 데이터 index
-		let currentSelectionsData = Object.values(ConfigData.htmlData)[htmlIdx]; // 현재 스텝의 항목 데이터
+		let currentKey = Object.keys(ConfigData.htmlData)[htmlIdx]; // 현재 스텝의 key 값
+		let currentHtml = Object.values(ConfigData.htmlData)[htmlIdx]; // 현재 스텝의 항목 데이터
 		// let currentQestionData = ConfigData.qestionData[idx].option;
 		// console.log(currentQestionData)
 		// let _valArray = []; // 이전 스텝에서(만) 저장된 product 배열
@@ -334,10 +456,11 @@ function main() {
 		// 해당 스텝 정보
 		console.log('----step--------------------------------------------------------------');
 		console.log('idx (현재스텝 index) : ', idx);
-		console.log('currentSelectionsData.length : ', currentSelectionsData.length)
+		console.log('currentSelectionsData.length : ', currentHtml.length)
 		console.log('htmlIdx : ', htmlIdx)
-		console.log('현재 스텝의 key : ', Object.keys(ConfigData.htmlData)[htmlIdx])
-		console.log('현재 스텝의 데이터 : ', Object.values(ConfigData.htmlData)[htmlIdx])
+		console.log('현재 스텝의 key : ', currentKey)
+		console.log('현재 스텝의 데이터 : ', currentHtml)
+		console.log('최종 제품 : ', _finalProductArray)
 		console.log('_select (사용자가 선택한 스텝별 value) : ', _select);
 
 
@@ -359,21 +482,52 @@ function main() {
 		$('#selectWrap').append('<ol></ol>');
 
 
+		
+		if (idx === 1) {
+			for (let key in _finalProductArray) {
+				let productValue = _finalProductArray[key][currentKey];
+				// value가 450이상인것이 있는지 없는지, 500~600이 있는지 없는지 그리고, 600이상이 있는지 없는지 판단.
+				if (productValue <= 450) {
+					console.log('450이하')
+					console.log(productValue)
+				} else if (productValue >= 500 && productValue <= 600) {
+					console.log('500~600')
+					console.log(productValue)
+				} else if (productValue >= 600) {
+					console.log('600이상')
+					console.log(productValue)
+				}
+			}
+		}
+
+
+
+
+
+
 		// step 3 제외
 		if (idx !== 2) {
-			for (let i = 0; i < currentSelectionsData.length; i++) {
-				$('#selectWrap ol').append('<li><button class="answer_btn" type="button" data-value="' + currentSelectionsData[i].value + '"> <i></i> <p> ' + currentSelectionsData[i].content + '</p></button></li>');
+			for (let i = 0; i < currentHtml.length; i++) {
+				$('#selectWrap ol').append('<li><button class="answer_btn" type="button" data-value="' + currentHtml[i].value + '"> <i></i> <p> ' + currentHtml[i].content + '</p></button></li>');
 			}
 		} else {
 			console.log('step3');
 		}
-		answerSelectEvent(idx, htmlIdx, currentSelectionsData, judgmentStep); // 항목 클릭 함수
+
+
+
+
+
+
+
+
+
+		answerSelectEvent(idx, htmlIdx, currentHtml, judgmentStep); // 항목 클릭 함수
 	}
 
-	function answerSelectEvent(idx, htmlIdx, currentSelectionsData, judgmentStep) {
+	function answerSelectEvent(idx, htmlIdx, currentHtml, judgmentStep) {
 		let lastAnswerValue; // 저장된 데이터에서 마지막 value
 		let currentKey = Object.keys(ConfigData.htmlData)[htmlIdx]; // 현재 스텝의 key 값
-		let currentHtml = Object.values(ConfigData.htmlData)[htmlIdx]; // 현재 스텝의 항목 데이터
 		let _valArray = [];
 		// console.log(_select)
 		// console.log(currentAnswerValue);
@@ -405,12 +559,12 @@ function main() {
 				_this.addClass('active');
 			}
 
-
 			// 항목 매칭된 데이터 뿌리기 & 선택된 데이터 push
 			if (idx === 0) {
-				_valArray.push(_selectValue);
-				_select[currentKey] = _valArray;
-				lastAnswerValue = _selectValue;
+				_valArray = []; // 배열 초기화
+				_valArray.push(_selectValue); // 배열에 선택한 값 담기
+				_select[currentKey] = _valArray; // push
+				lastAnswerValue = _selectValue; // 마지막 선택한 값
 			} else {
 				// value 저장 배열에서 현재 선택된 value 와 중복되는 데이터 제거
 				_valArray.forEach(function (item, i) {
@@ -427,7 +581,6 @@ function main() {
 				// lastAnswerValue = currentAnswerValue[currentAnswerValue.length - 1]; //선택된 마지막 value
 				// console.log('lastAnswerValue : (선택된 마지막 value)', lastAnswerValue);
 			}
-
 			console.log('_select (사용자가 선택한 스텝별 value) : ', _select);
 
 			let _ProductArray = [];
@@ -444,15 +597,30 @@ function main() {
 				}
 			}
 
-			console.log('_ProductArray : ',_ProductArray)
+			_finalProductArray = _ProductArray;
+
+			// console.log('_ProductArray : ',_ProductArray)
+
+
 			// product 제품 추출하여 현재 매칭되는 값이 아닌것은 disabled
 			for (let key in _ProductArray) {
 				// console.log(_ProductArray[key][currentKey]);
 				for (let j = 0; j < currentHtml.length; j++) {
-					console.log(currentKey)
-					console.log(currentHtml[j].value === _ProductArray[key][currentKey])
+					// console.log(currentKey)
+					// console.log(currentHtml[j].value === _ProductArray[key][currentKey])
 				}
 			}
+
+			/* 
+				1. 처음에 선택한 값이랑 매칭해서 
+			*/
+
+
+
+
+
+
+
 
 
 
@@ -464,7 +632,6 @@ function main() {
 
 
 			// console.log(_filterProductArray);
-
 			// sprayData(idx, currentSelectionsData, lastAnswerValue); // 선택한 항목의 대한 데이터 뿌리기
 
 
