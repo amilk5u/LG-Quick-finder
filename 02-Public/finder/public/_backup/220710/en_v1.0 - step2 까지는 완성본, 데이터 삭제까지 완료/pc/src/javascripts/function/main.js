@@ -169,259 +169,6 @@ function main() {
 			Q6: 'Q6_value2',
 			Q7: 'Q7_value3',
 		},
-		'product16': {
-			Q1: 'Q1_value3',
-			Q2: 555,
-			Q3_1: 800,
-			Q3_2: 800,
-			Q3_3: 2500,
-			Q4: 'Q4_value1',
-			Q5: 'Q5_value1',
-			Q6: 'Q6_value2',
-			Q7: 'Q7_value3',
-		},
-		'product17': {
-			Q1: 'Q1_value1',
-			Q2: 370,
-			Q3_1: 760,
-			Q3_2: 1500,
-			Q3_3: 1300,
-			Q4: 'Q4_value1',
-			Q5: 'Q5_value1',
-			Q6: 'Q6_value2',
-			Q7: 'Q7_value3',
-		},
-		'product18': {
-			Q1: 'Q1_value2',
-			Q2: 350,
-			Q3_1: 780,
-			Q3_2: 450,
-			Q3_3: 1650,
-			Q4: 'Q4_value1',
-			Q5: 'Q5_value1',
-			Q6: 'Q6_value2',
-			Q7: 'Q7_value3',
-		},
-		'product19': {
-			Q1: 'Q1_value1',
-			Q2: 860,
-			Q3_1: 790,
-			Q3_2: 1450,
-			Q3_3: 1760,
-			Q4: 'Q4_value1',
-			Q5: 'Q5_value1',
-			Q6: 'Q6_value2',
-			Q7: 'Q7_value3',
-		},
-		'product20': {
-			Q1: 'Q1_value3',
-			Q2: 900,
-			Q3_1: 650,
-			Q3_2: 1200,
-			Q3_3: 1800,
-			Q4: 'Q4_value1',
-			Q5: 'Q5_value1',
-			Q6: 'Q6_value2',
-			Q7: 'Q7_value3',
-		},
-		'product21': {
-			Q1: 'Q1_value2',
-			Q2: 700,
-			Q3_1: 800,
-			Q3_2: 650,
-			Q3_3: 1650,
-			Q4: 'Q4_value1',
-			Q5: 'Q5_value1',
-			Q6: 'Q6_value2',
-			Q7: 'Q7_value3',
-		},
-		'product22': {
-			Q1: 'Q1_value3',
-			Q2: 680,
-			Q3_1: 900,
-			Q3_2: 750,
-			Q3_3: 1850,
-			Q4: 'Q4_value1',
-			Q5: 'Q5_value1',
-			Q6: 'Q6_value2',
-			Q7: 'Q7_value3',
-		},
-		'product23': {
-			Q1: 'Q1_value1',
-			Q2: 600,
-			Q3_1: 900,
-			Q3_2: 850,
-			Q3_3: 2000,
-			Q4: 'Q4_value1',
-			Q5: 'Q5_value1',
-			Q6: 'Q6_value2',
-			Q7: 'Q7_value3',
-		},
-		'product24': {
-			Q1: 'Q1_value3',
-			Q2: 840,
-			Q3_1: 680,
-			Q3_2: 1200,
-			Q3_3: 1840,
-			Q4: 'Q4_value1',
-			Q5: 'Q5_value1',
-			Q6: 'Q6_value2',
-			Q7: 'Q7_value3',
-		},
-		'product25': {
-			Q1: 'Q1_value2',
-			Q2: 650,
-			Q3_1: 890,
-			Q3_2: 1350,
-			Q3_3: 2200,
-			Q4: 'Q4_value1',
-			Q5: 'Q5_value1',
-			Q6: 'Q6_value2',
-			Q7: 'Q7_value3',
-		},
-		'product26': {
-			Q1: 'Q1_value3',
-			Q2: 490,
-			Q3_1: 760,
-			Q3_2: 950,
-			Q3_3: 2000,
-			Q4: 'Q4_value1',
-			Q5: 'Q5_value1',
-			Q6: 'Q6_value2',
-			Q7: 'Q7_value3',
-		},
-		'product27': {
-			Q1: 'Q1_value3',
-			Q2: 490,
-			Q3_1: 760,
-			Q3_2: 950,
-			Q3_3: 2000,
-			Q4: 'Q4_value1',
-			Q5: 'Q5_value1',
-			Q6: 'Q6_value2',
-			Q7: 'Q7_value3',
-		},
-		'product28': {
-			Q1: 'Q1_value3',
-			Q2: 490,
-			Q3_1: 760,
-			Q3_2: 950,
-			Q3_3: 2000,
-			Q4: 'Q4_value1',
-			Q5: 'Q5_value1',
-			Q6: 'Q6_value2',
-			Q7: 'Q7_value3',
-		},
-		'product29': {
-			Q1: 'Q1_value3',
-			Q2: 490,
-			Q3_1: 760,
-			Q3_2: 950,
-			Q3_3: 2000,
-			Q4: 'Q4_value1',
-			Q5: 'Q5_value1',
-			Q6: 'Q6_value2',
-			Q7: 'Q7_value3',
-		},
-		'product30': {
-			Q1: 'Q1_value3',
-			Q2: 490,
-			Q3_1: 760,
-			Q3_2: 950,
-			Q3_3: 2000,
-			Q4: 'Q4_value1',
-			Q5: 'Q5_value1',
-			Q6: 'Q6_value2',
-			Q7: 'Q7_value3',
-		},
-		'product31': {
-			Q1: 'Q1_value3',
-			Q2: 490,
-			Q3_1: 760,
-			Q3_2: 950,
-			Q3_3: 2000,
-			Q4: 'Q4_value1',
-			Q5: 'Q5_value1',
-			Q6: 'Q6_value2',
-			Q7: 'Q7_value3',
-		},
-		'product32': {
-			Q1: 'Q1_value3',
-			Q2: 490,
-			Q3_1: 760,
-			Q3_2: 950,
-			Q3_3: 2000,
-			Q4: 'Q4_value1',
-			Q5: 'Q5_value1',
-			Q6: 'Q6_value2',
-			Q7: 'Q7_value3',
-		},
-		'product32': {
-			Q1: 'Q1_value3',
-			Q2: 490,
-			Q3_1: 760,
-			Q3_2: 950,
-			Q3_3: 2000,
-			Q4: 'Q4_value1',
-			Q5: 'Q5_value1',
-			Q6: 'Q6_value2',
-			Q7: 'Q7_value3',
-		},
-		'product32': {
-			Q1: 'Q1_value3',
-			Q2: 490,
-			Q3_1: 760,
-			Q3_2: 950,
-			Q3_3: 2000,
-			Q4: 'Q4_value1',
-			Q5: 'Q5_value1',
-			Q6: 'Q6_value2',
-			Q7: 'Q7_value3',
-		},
-		'product33': {
-			Q1: 'Q1_value3',
-			Q2: 490,
-			Q3_1: 760,
-			Q3_2: 950,
-			Q3_3: 2000,
-			Q4: 'Q4_value1',
-			Q5: 'Q5_value1',
-			Q6: 'Q6_value2',
-			Q7: 'Q7_value3',
-		},
-		'product34': {
-			Q1: 'Q1_value3',
-			Q2: 490,
-			Q3_1: 760,
-			Q3_2: 950,
-			Q3_3: 2000,
-			Q4: 'Q4_value1',
-			Q5: 'Q5_value1',
-			Q6: 'Q6_value2',
-			Q7: 'Q7_value3',
-		},
-		'product35': {
-			Q1: 'Q1_value3',
-			Q2: 490,
-			Q3_1: 760,
-			Q3_2: 950,
-			Q3_3: 2000,
-			Q4: 'Q4_value1',
-			Q5: 'Q5_value1',
-			Q6: 'Q6_value2',
-			Q7: 'Q7_value3',
-		},
-		'product36': {
-			Q1: 'Q1_value3',
-			Q2: 490,
-			Q3_1: 760,
-			Q3_2: 950,
-			Q3_3: 2000,
-			Q4: 'Q4_value1',
-			Q5: 'Q5_value1',
-			Q6: 'Q6_value2',
-			Q7: 'Q7_value3',
-		},
 	}
 
 	const ConfigData = {
@@ -527,7 +274,6 @@ function main() {
 					changeData: {
 						description: 'step01 - 항목 1 디스크립션',
 						icon: 'step01 - 항목 1 아이콘',
-						screenImg: 'step01 - 이미지 1',
 					}
 				},
 				{
@@ -536,7 +282,6 @@ function main() {
 					changeData: {
 						description: 'step01 - 항목 2 디스크립션',
 						icon: 'step01 - 항목 2 아이콘',
-						screenImg: 'step01 - 이미지 2',
 					}
 				},
 				{
@@ -545,7 +290,6 @@ function main() {
 					changeData: {
 						description: 'step01 - 항목 3 디스크립션',
 						icon: 'step01 - 항목 3 아이콘',
-						screenImg: 'step01 - 이미지 3',
 					}
 				},
 			],
@@ -562,55 +306,59 @@ function main() {
 					value: 'Q2_value2',
 					content: '500~600',
 					changeData: {
-						description: 'step02 - 항목 2 디스크립션',
-						icon: 'step02 - 항목 2 아이콘',
+						description: 'step02 - 항목 1 디스크립션',
+						icon: 'step02 - 항목 1 아이콘',
 					}
 				},
 				{
 					value: 'Q2_value3',
 					content: '600이상',
 					changeData: {
-						description: 'step02 - 항목 3 디스크립션',
-						icon: 'step02 - 항목 3 아이콘',
+						description: 'step02 - 항목 1 디스크립션',
+						icon: 'step02 - 항목 1 아이콘',
 					}
 				}
 			],
 			'Q3_1': [
 				{
 					value: 'Q3_1_value1',
-					content: '750이하'
+					content: 'Q3_1_content1'
 				},
 				{
 					value: 'Q3_1_value2',
-					content: '750이상'
-				}
+					content: 'Q3_1_content2'
+				},
+				{
+					value: 'Q3_1_value3',
+					content: 'Q3_1_content3'
+				},
 			],
 			'Q3_2': [
 				{
 					value: 'Q3_2_value1',
-					content: '600mm 이하'
+					content: 'Q3_2_content1'
 				},
 				{
 					value: 'Q3_2_value2',
-					content: '600~900'
+					content: 'Q3_2_content2'
 				},
 				{
 					value: 'Q3_2_value3',
-					content: '900이상'
+					content: 'Q3_2_content3'
 				},
 			],
 			'Q3_3': [
 				{
 					value: 'Q3_3_value1',
-					content: '1800이하'
+					content: 'Q3_3_content1'
 				},
 				{
 					value: 'Q3_3_value2',
-					content: '1800~2000'
+					content: 'Q3_3_content2'
 				},
 				{
 					value: 'Q3_3_value3',
-					content: '2000이상'
+					content: 'Q3_3_content3'
 				},
 			],
 			'Q4': [
@@ -633,6 +381,8 @@ function main() {
 			],
 		},
 	}
+
+	let _finalProductArray = [];
 
 	// 스텝 이동 이벤트 함수
 	function stepChangeEvent(idx) {
@@ -659,6 +409,9 @@ function main() {
 		});
 	}
 
+
+	let _array = []; // 매칭된 제품 배열
+
 	function stepUpdateEvent(idx, judgmentStep) {
 		let htmlIdx = idx; // 항목 별 index
 		if (idx > 2) { htmlIdx += 2; }// 페이지 데이터 index
@@ -684,7 +437,8 @@ function main() {
 		console.log('현재 스텝의 key : ', currentKey)
 		console.log('현재 스텝의 데이터 : ', currentHtml)
 		console.log('_select (사용자가 선택한 스텝별 value) : ', _select);
-		console.log('_stepProduct (스텝별 매칭된 제품) : ', _stepProduct);
+		console.log('_stepProduct (스텝별 매칭된 제품) : ', _stepProduct)
+
 
 		// step class 변경
 		$('#quickFinder').removeClass();
@@ -699,7 +453,7 @@ function main() {
 		// $('#qnaImgWrap').attr('style', 'background-image:url'  ConfigData.finderSetting[idx].defaultScreenImg);
 		// console.log(ConfigData.finderSetting[idx].defaultScreenImg)
 
-		// 항목 초기화 
+		// 항목 초기화
 		$('#selectWrap').html('');
 		$('#selectWrap').append('<ol></ol>');
 
@@ -709,18 +463,7 @@ function main() {
 				$('#selectWrap ol').append('<li><button class="answer_btn" type="button" data-value="' + currentHtml[i].value + '"> <i></i> <p> ' + currentHtml[i].content + '</p></button></li>');
 			}
 		} else {
-			// step 3 데이터 뿌리기
-			let liHtml = '';
-			while (htmlIdx < 5) { // 0, 1, 2가 출력됩니다.
-				let currentHtml = Object.values(ConfigData.htmlData)[htmlIdx]; // 현재 스텝의 항목 데이터
-				let buttonHtml = '';
-				for (let i = 0; i < currentHtml.length; i++) {
-					buttonHtml += '<button class="answer_btn" type="button" data-value=" '+ currentHtml[i].value + '"> <i></i> <p> ' + currentHtml[i].content + '</p></button>';
-				}
-				liHtml += '<li> ' + buttonHtml + ' </li>';
-				htmlIdx++;
-			}
-			$('#selectWrap ol').append(liHtml);
+			console.log('step3');
 		}
 
 
@@ -802,6 +545,10 @@ function main() {
 				console.log('선택된 마지막 value : ', lastAnswerValue);
 			}
 
+
+			// _array
+			// console.log(_array[currentKey]);
+
 			if (idx === 0) {
 				// 사용자가 선택한 value 값과 product 의 value 값이 매칭되는 product 제품 추출
 				// 현재 선택한 배열의 갯수만큼 for 문 실행
@@ -821,13 +568,8 @@ function main() {
 					for (let j = 0; j < _stepProduct[prevKey].length; j++) {
 						let productValue = _stepProduct[prevKey][j][currentKey];
 						// step 2 의 조건에 매칭 되는 제품 _array 에 push
-
-
-						console.log(_select[currentKey][i])
-
 						if (_select[currentKey][i] === currentHtml[0].value) {
 							if (productValue <= 450) {
-								// console.log(productValue)
 								_currentAry.push(_stepProduct[prevKey][j]);
 								_stepProduct[currentKey] = _currentAry;
 							}
@@ -846,20 +588,12 @@ function main() {
 				}
 			}
 
-
-			// 항목을 선택하지 않았을 때 현재 제품의 데이터 초기화
-			if (_select[currentKey].length < 1) {
-				delete _stepProduct[currentKey]
-			}
-
-
-
 			console.log('_stepProduct (최종 선택된 제품) : ', _stepProduct)
 			console.log('_select (사용자가 선택한 스텝별 value) : ', _select);
 
 
 
-			sprayData(idx, currentHtml, lastAnswerValue); // 선택한 항목의 대한 데이터 뿌리기
+			// sprayData(idx, currentHtml, lastAnswerValue); // 선택한 항목의 대한 데이터 뿌리기
 
 
 			// 하나 이상 선택시 active 되는 부분
@@ -883,24 +617,29 @@ function main() {
 	function sprayData(idx, currentHtml, lastAnswerValue) {
 		// value 저장 배열의 마지막 value 값과 매칭되는 항목 데이터 가져오기
 		let selectData = currentHtml.filter(item => {
-			return item.value === lastAnswerValue
+			return item.dataValue === lastAnswerValue
 		});
+
+		console.log(currentHtml)
+		console.log(selectData);
 
 		// 선택한 항목 데이터 뿌리기
 		if ($('.answer_btn.active').length > 0) {
 			// 공통 뿌리기
 			if (idx === 0) {
-				$(".qna_description .txt_box span").text(selectData[0].changeData.description);
-				$("#qnaImgWrap img").attr('alt', selectData[0].changeData.screenImg);
+				// $(".qna_description .txt_box span").text(selectData[0].changeData.description);
+				// $("#qnaImgWrap img").attr('alt', selectData[0].changeData.screenImgUrl);
 			} else if (idx === 2) {
-				// $(".qna_description .txt_box").text(selectData[0].description.description);
+				// $(".qna_description .txt_box").text(selectData[0].description.head);
 				// $(".qna_description .txt_box").text(ConfigData.finderSetting[idx].description.head);
 				// console.log(selectData[0])
 			} else {
-				$(".qna_description .txt_box i").text(selectData[0].changeData.icon);
-				$(".qna_description .txt_box span").text(selectData[0].changeData.description);
+				// $(".qna_description .txt_box i").text(selectData[0].changeData.icon);
+				// $(".qna_description .txt_box span").text(selectData[0].changeData.description);
 			}
 		}
+
+
 	}
 
 
