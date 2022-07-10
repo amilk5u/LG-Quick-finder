@@ -743,71 +743,8 @@ function main() {
 			while (htmlIdx < 5) { // 0, 1, 2가 출력됩니다.
 				let currentHtml = Object.values(ConfigData.htmlData)[htmlIdx]; // 현재 스텝의 항목 데이터
 				let buttonHtml = '';
-
-
-
-
-
 				for (let i = 0; i < currentHtml.length; i++) {
 					buttonHtml += '<button class="answer_btn" type="button" data-value=" ' + currentHtml[i].value + '"> <i></i> <p> ' + currentHtml[i].content + '</p></button>';
-				}
-
-
-
-
-
-
-				// console.log(htmlIdx)
-				$('#selectWrap ol').find('li').find('button').attr('disabled', true); // default disabled true
-				for (let i = 0; i < _stepProduct[prevKey].length; i++) {
-					let currentKey = Object.keys(ConfigData.htmlData)[htmlIdx]; // 현재 스텝의 key 값
-					let productValue = _stepProduct[prevKey][i][currentKey];
-
-					console.log($('#selectWrap ol').find('li').eq(0).find('button'))
-					// // 1. 3_1 이 760이상인지 아닌지 판단
-					if (htmlIdx === 2) {
-						if (productValue <= 760) {
-							console.log('760이하')
-							console.log(productValue)
-							// $('#selectWrap ol').find('li').eq(0).find('button').attr('disabled', false);
-							// $('#selectWrap ol').find('li').eq(0).find('button').eq(0).attr('disabled', false);
-							console.log($('#selectWrap ol').find('li').eq(0).find('button').eq(0))
-						} else {
-							console.log('760이상')
-							console.log(productValue)
-							// $('#selectWrap ol').find('li').eq(1).find('button').attr('disabled', false);
-						}
-					} else if (htmlIdx === 3) {
-						// 2. 3_2 이 600이상, 600~900, 900이상인지 판단
-						if (productValue <= 600) {
-							console.log('600이하')
-							console.log(productValue)
-							// $('#selectWrap ol').find('li').eq(0).find('button').attr('disabled', false);
-						} else if (productValue >= 600 && productValue <= 900) {
-							console.log('600~900')
-							console.log(productValue)
-							// $('#selectWrap ol').find('li').eq(1).find('button').attr('disabled', false);
-						} else if (productValue >= 900) {
-							console.log('900이상')
-							console.log(productValue)
-							// $('#selectWrap ol').find('li').eq(1).find('button').attr('disabled', false);
-						}
-					} else if (htmlIdx === 4) {
-						// 3. 3_3 이 1800이하, 1800~2000, 2000이상인지 판단
-						if (productValue <= 1800) {
-							console.log('1800이하')
-							console.log(productValue)
-							// $('#selectWrap ol').find('li').eq(0).find('button').attr('disabled', false);
-						} else if (productValue >= 1800 && productValue <= 2000) {
-							console.log('1800~2000')
-							console.log(productValue)
-							// $('#selectWrap ol').find('li').eq(1).find('button').attr('disabled', false);
-						} else if (productValue >= 2000) {
-							console.log('2000이상')
-							console.log(productValue)
-							// $('#selectWrap ol').find('li').eq(1).find('button').attr('disabled', false);
-						}
-					}
 				}
 				liHtml += '<li> ' + buttonHtml + ' </li>';
 				htmlIdx++;
@@ -831,15 +768,75 @@ function main() {
 				}
 			}
 		} else if (idx === 2) {
-			for (let i = 0; i < _stepProduct[prevKey].length; i++) {
-				// console.log(_stepProduct[prevKey][i]);
-				// console.log(Object.keys(ConfigData.htmlData)[htmlIdx]);
-				/* 
-					1. 3_1 이 760이상인지 아닌지 판단
-					2. 3_2 이 600이상, 600~900, 900이상인지 판단
-					3. 3_3 이 1800이하, 1800~2000, 2000이상인지 판단
-				*/
+			htmlIdx = 2;
+			while (htmlIdx < 5) { // 0, 1, 2가 출력됩니다.
+				$('#selectWrap ol').find('li').find('button').attr('disabled', true); // default disabled true
 
+				for (let i = 0; i < _stepProduct[prevKey].length; i++) {
+					let currentKey = Object.keys(ConfigData.htmlData)[htmlIdx]; // 현재 스텝의 key 값
+					let productValue = _stepProduct[prevKey][i][currentKey];
+
+					// // 1. 3_1 이 760이상인지 아닌지 판단
+					if (htmlIdx === 2) {
+						if (productValue <= 760) {
+							console.log('760이하')
+							console.log(productValue)
+							// $('#selectWrap ol').find('li').eq(0).find('button').attr('disabled', false);
+							// $('#selectWrap ol').find('li').eq(0).find('button').eq(0).attr('disabled', false);
+							// console.log($('#selectWrap ol').find('li').eq(0).find('button').eq(0))
+						} else {
+							console.log('760이상')
+							console.log(productValue)
+							// $('#selectWrap ol').find('li').eq(0).find('button:nth-of-type(1)').eq(1).attr('disabled',true);
+							// console.log($('#selectWrap ol').find('li').eq(0).find('button:nth-of-type(1)').eq(1).attr('disabled','임니나아ㅣ'))
+							// $('#selectWrap ol').find('li').eq(0).find('button').attr('disabled', false);
+							console.log($('#selectWrap ol').find('li').eq(0).find('button').eq(1).attr('disabled','임니나아ㅣ'))
+							console.log($('#selectWrap ol').find('li').eq(0).find('button').eq(1).css('border','3px solid black'))
+						}
+					} else if (htmlIdx === 3) {
+						// 2. 3_2 이 600이상, 600~900, 900이상인지 판단
+						if (productValue <= 600) {
+							console.log('600이하')
+							console.log(productValue)
+							// $('#selectWrap ol').find('li').eq(0).find('button').attr('disabled', false);
+							// $('#selectWrap ol').find('li').eq(1).find('button').eq(0).attr('disabled', false);
+							console.log($('#selectWrap ol').find('li').eq(1).find('button').eq(0).attr('disabled', false))
+							console.log($('#selectWrap ol').find('li').eq(1).find('button').eq(0).css('border','3px solid black'))
+						} else if (productValue >= 600 && productValue <= 900) {
+							console.log('600~900')
+							console.log(productValue)
+							console.log($('#selectWrap ol').find('li').eq(1).find('button').eq(1).attr('disabled', false))
+							console.log($('#selectWrap ol').find('li').eq(1).find('button').eq(1).css('border','3px solid black'))
+							// $('#selectWrap ol').find('li').eq(1).find('button').attr('disabled', false);
+						} else if (productValue >= 900) {
+							console.log('900이상')
+							console.log(productValue)
+							console.log($('#selectWrap ol').find('li').eq(1).find('button').eq(2).attr('disabled', false))
+							console.log($('#selectWrap ol').find('li').eq(1).find('button').eq(2).css('border','3px solid black'))
+							// $('#selectWrap ol').find('li').eq(1).find('button').attr('disabled', false);
+						}
+					} else if (htmlIdx === 4) {
+						// 3. 3_3 이 1800이하, 1800~2000, 2000이상인지 판단
+						if (productValue <= 1800) {
+							console.log('1800이하')
+							console.log(productValue)
+							console.log($('#selectWrap ol').find('li').eq(2).find('button').eq(0).attr('disabled', false))
+							console.log($('#selectWrap ol').find('li').eq(2).find('button').eq(0).css('border','3px solid black'))
+						} else if (productValue >= 1800 && productValue <= 2000) {
+							console.log('1800~2000')
+							console.log(productValue)
+							console.log($('#selectWrap ol').find('li').eq(2).find('button').eq(1).css('border','3px solid black'))
+							// $('#selectWrap ol').find('li').eq(1).find('button').attr('disabled', false);
+						} else if (productValue >= 2000) {
+							console.log('2000이상')
+							console.log(productValue)
+							console.log($('#selectWrap ol').find('li').eq(2).find('button').eq(2).attr('disabled', false))
+							console.log($('#selectWrap ol').find('li').eq(2).find('button').eq(2).css('border','3px solid black'))
+							// $('#selectWrap ol').find('li').eq(1).find('button').attr('disabled', false);
+						}
+					}
+				}
+				htmlIdx++;
 			}
 		}
 
