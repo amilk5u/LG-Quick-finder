@@ -661,6 +661,60 @@ function main() {
 					}
 				},
 			],
+			'Q5': [
+				{
+					value: 'Q5_value1',
+					content: 'Q5_content1',
+					changeData: {
+						description: 'step05 - 항목 1 디스크립션',
+						icon: 'step05 - 항목 1 아이콘',
+					}
+				},
+				{
+					value: 'Q5_value2',
+					content: 'Q5_content2',
+					changeData: {
+						description: 'step05 - 항목 2 디스크립션',
+						icon: 'step05 - 항목 2 아이콘',
+					}
+				},
+			],
+			'Q6': [
+				{
+					value: 'Q6_value1',
+					content: 'Q6_content1',
+					changeData: {
+						description: 'step06 - 항목 1 디스크립션',
+						icon: 'step06 - 항목 1 아이콘',
+					}
+				},
+				{
+					value: 'Q6_value2',
+					content: 'Q6_content2',
+					changeData: {
+						description: 'step06 - 항목 2 디스크립션',
+						icon: 'step06 - 항목 2 아이콘',
+					}
+				},
+			],
+			'Q7': [
+				{
+					value: 'Q7_value1',
+					content: 'Q7_content1',
+					changeData: {
+						description: 'step07 - 항목 1 디스크립션',
+						icon: 'step07 - 항목 1 아이콘',
+					}
+				},
+				{
+					value: 'Q7_value2',
+					content: 'Q7_content2',
+					changeData: {
+						description: 'step07 - 항목 2 디스크립션',
+						icon: 'step07 - 항목 2 아이콘',
+					}
+				},
+			],
 		},
 	}
 
@@ -981,49 +1035,49 @@ function main() {
 					for (let i = 0; i < _select[keyNum[j]].length; i++) {
 						let _currentVal = _select[keyNum[j]][i]; // 선택한 value 값
 
-
+						// 이전 선텍한 step 제품에서 push
 						for (let p = 0; p < _stepProduct[prevKey].length; p++) {
 							// console.log(_stepProduct[prevKey][p]) // 제품 가져오기
-							let aaa = _stepProduct[prevKey][p][keyNum[j]]; //제품 value
+							let valueNum = _stepProduct[prevKey][p][keyNum[j]]; //제품 value
 
 							// 760 이하
 							if (_currentVal === 'Q3_1_value1') {
-								if (aaa <= 760) {
+								if (valueNum <= 760) {
 									console.log('760이하')
 									console.log(_stepProduct[prevKey][p]);
 								}
 							} else if (_currentVal === 'Q3_1_value2') {
-								if (aaa >= 760) {
+								if (valueNum >= 760) {
 									console.log('760이상')
 									console.log(_stepProduct[prevKey][p]);
 								}
 							} else if (_currentVal === 'Q3_2_value1') {
-								if (aaa <= 600) {
+								if (valueNum <= 600) {
 									console.log('600이하')
 									console.log(_stepProduct[prevKey][p]);
 								}
 							} else if (_currentVal === 'Q3_2_value2') {
-								if (aaa >= 600 && aaa <= 900) {
+								if (valueNum >= 600 && valueNum <= 900) {
 									console.log('600~900')
 									console.log(_stepProduct[prevKey][p]);
 								}
 							} else if (_currentVal === 'Q3_2_value3') {
-								if (aaa >= 900) {
+								if (valueNum >= 900) {
 									console.log('900이상')
 									console.log(_stepProduct[prevKey][p]);
 								}
 							} else if (_currentVal === 'Q3_3_value1') {
-								if (aaa >= 1800) {
+								if (valueNum >= 1800) {
 									console.log('1800이하')
 									console.log(_stepProduct[prevKey][p]);
 								}
 							} else if (_currentVal === 'Q3_3_value2') {
-								if (aaa >= 1800 && aaa <= 2000) {
+								if (valueNum >= 1800 && valueNum <= 2000) {
 									console.log('1800~2000')
 									console.log(_stepProduct[prevKey][p]);
 								}
 							} else if (_currentVal === 'Q3_3_value3') {
-								if (aaa >= 2000) {
+								if (valueNum >= 2000) {
 									console.log('2000이상')
 									console.log(_stepProduct[prevKey][p]);
 								}
