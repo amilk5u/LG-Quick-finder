@@ -79,7 +79,7 @@
     <button type="button" class="resultBtn" onclick="surveyResult(this);">Result...</button>
 </div>
 
-<script src="./filters_WMWD.js"></script>
+<!-- <script src="./filters_WMWD.js"></script> -->
 <!-- <script src="./test.js"></script> -->
 <script>
     var userSelect = {};
@@ -120,7 +120,7 @@
         console.log("userSelect", userSelect);
 
         $.ajax({
-            url: "test.js",
+            url: "./test.js",
             type: "POST",
             data: data,
             dataType:"script"
