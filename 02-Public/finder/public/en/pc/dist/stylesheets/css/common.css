@@ -12209,7 +12209,7 @@ html.no_scroll { overflow: hidden; padding: 0 17px 0 0; }
 
 #selectWrap li { display: flex; }
 
-#selectWrap li button { width: 100%; padding: 20px; background-color: #eee; }
+#selectWrap li button { width: 100%; padding: 20px 0; background-color: #eee; box-sizing: border-box; }
 
 #selectWrap li button.active { background-color: #222; color: #fff; }
 

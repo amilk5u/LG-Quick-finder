@@ -1,0 +1,66 @@
+@charset "UTF-8";
+.popup_step01 {
+    width:100%; display:none;
+    .popup_wrap {
+        display: none;
+        &.multi {            
+            .tit_wrap i {background-image:url(../../images/step01/popup_icon01.png);}
+            .popup_con .txt_wrap .txt_box {margin:vw(-55) 0 0;}
+        }
+        &.american {
+            .tit_wrap i {background-image:url(../../images/step01/popup_icon02.png);}
+            .popup_con .txt_wrap .txt_box {margin:vw(-57) 0 0;}
+        }
+        &.tall {
+            .tit_wrap i {background-image:url(../../images/step01/popup_icon03.png);}
+            .popup_con .txt_wrap .txt_box {margin:vw(-52) 0 0;}
+        }
+        .tit_wrap {
+            padding:vw(23) vw(40); background-image:url(../../images/step01/popup_tit_bg.gif);
+            @include backgroundSoltC;
+            @include displayFlexCenter;
+            i {
+                width:vw(72); height:vw(72); display:inline-block; background-color:#ef8809;
+                @include backgroundSoltC(55%, 50%, no-repeat, auto vw(48));
+                @include borderRadius(100%);
+                @include boxShadow(0 3px 10px -4px $black);
+            }
+            strong {padding:0 0 0 vw(30); color:$white; font-size:vw(36); text-shadow:1px 2px 1px #2e2b2b;}
+        }
+        .popup_con {
+            padding:vw(40); background-image:url(../../images/step01/popup_contents_bg.jpg); text-align:center;
+            @include backgroundSoltC(50%, 0);
+            strong {font-family:$bau; font-size:vw(38); line-height:vw(56); color:$white; -webkit-text-stroke: vw(2) #000}
+            .txt_wrap {
+                padding:vw(70) 0 0;
+                img {height:vw(391); position:relative; z-index:1;}
+                .txt_box {
+                    padding:vw(80) vw(40) vw(30); background-color:$white; margin:vw(-55) 0 0;
+                    @include borderRadius(vw(25));
+                }
+                p {font-size:vw(38); line-height:vw(44); padding:0 vw(15);}
+                .close_btn {
+                    width:100%; height:vw(100); background-color:#464646; color:$white; font-size:vw(36); font-weight:$bold; margin:vw(40) 0 0;
+                    @include borderRadius(vw(50));
+                }
+            }
+        }
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
