@@ -1,0 +1,305 @@
+@charset "UTF-8";
+
+#selectWrap li { display: flex; }
+#selectWrap li button { width:100%; padding:20px 0; background-color: #eee; box-sizing: border-box; }
+#selectWrap li button.active { background-color: #222; color:#fff; }
+
+#quickFinder {
+	padding:vw(20) 0 0; background-image:url(../../images/common/bg_gradation.gif); 
+	@include backgroundSolt(0, 0, repeat-x);
+	button:focus {outline: none;}
+	//상단 네비게이션
+	#finderNav {
+		height:vw(80); padding:0 vw(40);
+		ul {
+			text-align:center; font-size:vw(22);
+			@include displayFlexCenter(center, space-between);
+		}
+		li {
+			position:relative;
+			&:nth-of-type(1) {
+				&:before {display:none;}
+				p {
+					left:0;
+					@include translate(0,0);
+				}
+			}
+			&:last-of-type {
+				p {
+					left:auto; right:0;
+					@include translate(0,0);
+				}
+			}
+			&:before {
+				width:vw(86); height:2px; display:block; content:""; background-color:#dbdbdb; position:absolute;
+				top:50%; left:vw(-85); margin:-1px 0 0;
+			}
+			&.active {
+				&:before {background-color:$red;}
+				strong {width:vw(40); height:vw(40); background-color:$red; color:$white; line-height:vw(40); border-color:$red; font-size:vw(30);}
+				p {display:block;}
+			}
+			&.process_check {
+				&:before {background-color:$red;}
+				strong {
+					border-color:$red;
+					&:before,
+					&:after {display:block;}
+				}
+			}
+		}
+		strong {
+			width:vw(30); height:vw(30); display:inline-block; border:1px solid #d8d8d8; position:relative; z-index:1; line-height:vw(30); color:#bcbcbc; background-color:$white;
+			@include borderRadius(100%);
+			@include boxSizing;
+			&:before {
+				width:100%; height:100%; display:none; content:""; position:absolute; top:0; left:0; background-color:$red;
+				@include borderRadius(100%);
+			}
+			&:after {
+				width:vw(12); height:vw(8); border-bottom:2px solid $white; border-left:2px solid $white; display:none; content:""; position:absolute; top:50%; left:50%;
+				@include transform(translate(-50%, -70%) rotate(-45deg))
+			}
+		}
+		p {
+			width:max-content; position:absolute; top:vw(52); left:50%; display:none; color:#898989;
+			@include translate(-50%, 0);
+		}
+	}
+	
+	//각 스텝별 네비게이션
+	&.step01 {
+		#finderNav ul li:nth-of-type(1) {
+			&:before {background-color:$red;}
+			strong {width:vw(40); height:vw(40); background-color:$red; color:$white; line-height:vw(40); border-color:$red; font-size:vw(30);}
+			p {display:block;}
+		}
+	}
+	&.step02 {
+		#finderNav ul li:nth-of-type(1) {
+			&:before {background-color:$red;}
+			strong {
+				border-color:$red;
+				&:before,
+				&:after {display:block;}
+			}
+		}
+		#finderNav ul li:nth-of-type(2) {
+			&:before {background-color:$red;}
+			strong {width:vw(40); height:vw(40); background-color:$red; color:$white; line-height:vw(40); border-color:$red; font-size:vw(30);}
+			p {display:block;}
+		}
+	}
+	&.step03 {
+		#finderNav ul li:nth-of-type(1), #finderNav ul li:nth-of-type(2) {
+			&:before {background-color:$red;}
+			strong {
+				border-color:$red;
+				&:before,
+				&:after {display:block;}
+			}
+		}
+		#finderNav ul li:nth-of-type(3) {
+			&:before {background-color:$red;}
+			strong {width:vw(40); height:vw(40); background-color:$red; color:$white; line-height:vw(40); border-color:$red; font-size:vw(30);}
+			p {display:block;}
+		}
+	}
+	&.step04 {
+		#finderNav ul li:nth-of-type(1), #finderNav ul li:nth-of-type(2), #finderNav ul li:nth-of-type(3) {
+			&:before {background-color:$red;}
+			strong {
+				border-color:$red;
+				&:before,
+				&:after {display:block;}
+			}
+		}
+		#finderNav ul li:nth-of-type(4) {
+			&:before {background-color:$red;}
+			strong {width:vw(40); height:vw(40); background-color:$red; color:$white; line-height:vw(40); border-color:$red; font-size:vw(30);}
+			p {display:block;}
+		}
+	}
+	&.step05 {
+		#finderNav ul li:nth-of-type(1), #finderNav ul li:nth-of-type(2), #finderNav ul li:nth-of-type(3), #finderNav ul li:nth-of-type(4) {
+			&:before {background-color:$red;}
+			strong {
+				border-color:$red;
+				&:before,
+				&:after {display:block;}
+			}
+		}
+		#finderNav ul li:nth-of-type(5) {
+			&:before {background-color:$red;}
+			strong {width:vw(40); height:vw(40); background-color:$red; color:$white; line-height:vw(40); border-color:$red; font-size:vw(30);}
+			p {display:block;}
+		}
+	}
+	&.step06 {
+		#finderNav ul li:nth-of-type(1), #finderNav ul li:nth-of-type(2), #finderNav ul li:nth-of-type(3), #finderNav ul li:nth-of-type(4), #finderNav ul li:nth-of-type(5) {
+			&:before {background-color:$red;}
+			strong {
+				border-color:$red;
+				&:before,
+				&:after {display:block;}
+			}
+		}
+		#finderNav ul li:nth-of-type(6) {
+			&:before {background-color:$red;}
+			strong {width:vw(40); height:vw(40); background-color:$red; color:$white; line-height:vw(40); border-color:$red; font-size:vw(30);}
+			p {display:block;}
+		}
+	}
+	&.step07 {
+		#finderNav ul li:nth-of-type(1), #finderNav ul li:nth-of-type(2), #finderNav ul li:nth-of-type(3), #finderNav ul li:nth-of-type(4), #finderNav ul li:nth-of-type(5), #finderNav ul li:nth-of-type(6) {
+			&:before {background-color:$red;}
+			strong {
+				border-color:$red;
+				&:before,
+				&:after {display:block;}
+			}
+		}
+		#finderNav ul li:nth-of-type(7) {
+			&:before {background-color:$red;}
+			strong {width:vw(40); height:vw(40); background-color:$red; color:$white; line-height:vw(40); border-color:$red; font-size:vw(30);}
+			p {display:block;}
+		}
+	}
+	
+	.qna_wrap {
+		padding:0 0 vw(20);
+		.que_title {
+			font-size:vw(56); line-height:vw(64); padding:vw(65) vw(40); text-align:center;
+			@include displayFlexCenter;
+			@include boxSizing;
+		}
+		
+		.qna_description {
+			padding:vw(85) vw(50) vw(45); display:none;
+			strong {font-size:vw(34); color:#6b6b6b; font-weight:400;}
+			.txt_box {
+				padding:vw(30) vw(35); border:2px solid #3b3b3b; color:#3b3b3b; font-size:vw(36); line-height:vw(42); margin:vw(15) 0 0; font-weight:500; position:relative; background-color:#fafafa;
+				@include borderRadius(vw(15));
+				@include boxShadow(0px 0px vw(15) vw(-10) $black);
+			}
+		}
+	}
+	
+	#qnaImgWrap {
+		width:100%; height:vw(500);
+		@include backgroundSoltC;
+	}
+	
+	//하단 선택 버튼 영역
+	#selectWrap {
+		padding:0 vw(45) vw(50);
+		@include boxSizing;
+	}
+	
+	&.step01 {
+		.qna_wrap {
+			.qna_description {
+				.txt_box {
+					&:after {
+						width:vw(77); height:vw(80); display:block; content:""; background-image:url(../../images/step01/txt_bubble_icon.png); position:absolute; bottom:vw(-80); left:vw(455);
+ 						@include backgroundSoltC;
+					}
+				}
+			}
+		}
+		#selectWrap {
+			ol {padding:vw(90) 0 0;}
+			li {
+				padding:vw(20) 0 0;
+				&:first-child {padding:0;}
+				&:nth-of-type(1) i {background-image:url(../../images/step01/btn_icon01.png);}
+				&:nth-of-type(2) i {background-image:url(../../images/step01/btn_icon02.png);}
+				&:nth-of-type(3) i {background-image:url(../../images/step01/btn_icon03.png);}
+				&:nth-of-type(1) button.active i {background-image:url(../../images/step01/btn_icon01_on.png);}
+				&:nth-of-type(2) button.active i {background-image:url(../../images/step01/btn_icon02_on.png);}
+				&:nth-of-type(3) button.active i {background-image:url(../../images/step01/btn_icon03_on.png);}
+				button {
+					width:100%; padding:vw(25) vw(70) vw(25) vw(60); background-color:#f4f4f4; font-weight:500;
+					@include borderSet(2px, solid, #ececec);
+					@include borderRadius(3vw);
+					@include displayFlexCenter(center, left);
+					@include transition;
+					&:hover,
+					&:focus {border-color:#464646;}
+					&.active {background-color:#464646; border-color:#464646; color:$white;}
+				}
+				i {
+					width:vw(48); height:vw(44); display:block; margin:0 vw(10) 0 0;
+					@include backgroundSoltC(0, 50%, no-repeat, auto 100%);
+				}
+				p {width:100%; text-align:center; font-size:vw(36);}
+			}
+		}
+	}
+	
+	.step_move_wrap {
+		padding:0 0 vw(36) vw(45);
+		@extend %clearfix;
+		#backStepBtn {
+			width:vw(80); height:vw(80); background-color:#f4f4f4; position:relative; text-indent:-9999px; float:left;
+			@include borderRadius(100%);
+			@include borderSet(2px, solid, #ececec);
+			@include transition;
+			&:after {
+				width:vw(15); height:vw(15); display:block; content:""; position:absolute; left:50%; top:50%;
+				@include borderSet(2px, solid, #646464);
+				@include transform(translate(-25%, -50%) rotate(45deg));
+				border-right-width:0; border-top-width:0;
+				@include transition(border-color, .2s);
+			}
+			&:hover,
+			&:focus {
+				background-color:#464646; border-color:#464646;
+				&:after {border-color:$white;}
+			}
+		}
+		#nextStepBtn {
+			height:vw(80); float:left; margin:0 0 0 vw(20); background-color:#f4f4f4; padding:0 vw(38); color:#cfcfcf; font-size:vw(32);
+			@include borderSet(2px, solid, #ececec);
+			@include borderRadius(vw(80));
+			@include transition;
+			i {
+				width:vw(15); height:vw(15); display:inline-block;
+				@include borderSet(2px, solid, #cfcfcf);
+				border-right-width:0; border-top-width:0;
+				@include transform(translate(0, vw(-2)) rotate(-135deg));
+				@include transition(border-color, .2s);
+			}
+			&.active {
+				background-color:#464646; color:$white; border-color:#464646;
+				i {border-color:$white;}
+				&:hover,
+				&:focus {
+					background-color:#f4f4f4; color:#464646;
+					i {border-color:#464646;}
+				}
+			}
+		}
+	}
+	.show_now_wrap {
+		position:fixed; bottom:vw(-220); right:0; z-index:10;
+		@include transition;
+		&.active {@include translate(0, vw(-220));}
+		> img {width:vw(157);position:absolute; bottom:vw(78); right:vw(20);}
+		#shopNowBtn {
+			width:vw(430); height:vw(116); background:linear-gradient(to right, #ea7902, #fac21e); line-height:vw(130); color:$white; font-size:vw(36); font-family:$bau; text-shadow:1px 1px 1px #686c6c;
+			border-top-left-radius:vw(60);
+			@include boxShadow(0px 0px vw(20) vw(-7) #ea7902);
+			@include transition;
+			i {
+				width:vw(31); height:vw(27); display:inline-block; background-image:url(../../images/common/show_now_icon.png);
+				@include backgroundSoltC;
+				@include transition(transform, .2s);
+			}
+			&:hover,
+			&:focus {
+				i {@include translate(vw(10), 0);}
+			}
+		}
+	}
+}

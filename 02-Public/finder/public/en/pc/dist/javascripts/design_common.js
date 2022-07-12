@@ -31,7 +31,9 @@ function main() {
 	let _select = {}; // 사용자 선택한 value 
 	let _stepProduct = {}; // 스텝별로 추출된 제품리스트
 	let _result = {}; // 마지막 최종 결과 데이터 추출 배열
-	let Q1Key = '';
+	let interaction = ''; // 인터렉션 페이지 유/무
+	let Q1Key = ''; // 처음 선택한 제품 키 값
+	let _selectData; // 셀렉된 제품 데이터 
 
 	const product = {
 		'product1': {
@@ -47,7 +49,7 @@ function main() {
 		},
 		'product2': {
 			Q1: 'Q1_value2',
-			Q2: 550,
+			Q2: 600,
 			Q3_1: 760,
 			Q3_2: 680,
 			Q3_3: 1800,
@@ -460,6 +462,7 @@ function main() {
 			{
 				id: '멀티 냉장고',
 				key: 'Q1_value1',
+				class: 'multi',
 				screenImg: {
 					// defaultScreenImg: '',
 					changeScreenImg: 'step01 - 1 항목 이미지',
@@ -470,6 +473,7 @@ function main() {
 			{
 				id: '아메리칸 냉장고',
 				key: 'Q1_value2',
+				class: 'american',
 				screenImg: {
 					// defaultScreenImg: '',
 					changeScreenImg: 'step01 - 2 항목 이미지',
@@ -480,6 +484,7 @@ function main() {
 			{
 				id: '톨 냉장고',
 				key: 'Q1_value3',
+				class: 'tall',
 				screenImg: {
 					// defaultScreenImg: '',
 					changeScreenImg: 'step01 - 3 항목 이미지',
@@ -493,7 +498,6 @@ function main() {
 			// 제품 선택
 			{
 				finderStep: 'step01',
-				key: '',
 				questionText: 'step01 - 질문?',
 				defaultScreenImg: 'step01 - default 이미지',
 				interactionPage: true, // 인터렉트 페이지 유/무 정의
@@ -501,31 +505,28 @@ function main() {
 			},
 			{
 				finderStep: 'step02',
-				key: '',
 				questionText: 'step02 - 질문?',
 				defaultScreenImg: 'step02 - default 이미지',
-				interactionPage: true, // 인터렉트 페이지 유/무 정의
+				interactionPage: false, // 인터렉트 페이지 유/무 정의
 				appliancePopup: false, // 팝업 유/무 정의
 			},
 			{
 				finderStep: 'step03',
-				key: '',
 				questionText: 'step03 - 질문?',
 				defaultScreenImg: 'step03 - default 이미지',
-				interactionPage: true, // 인터렉트 페이지 유/무 정의
-				appliancePopup: false, // 팝업 유/무 정의
+				interactionPage: false, // 인터렉트 페이지 유/무 정의
+				appliancePopup: true, // 팝업 유/무 정의
+				key: ['depth', 'width', 'height'],
 			},
 			{
 				finderStep: 'step04',
-				key: '',
 				questionText: 'step04 - 질문?',
 				defaultScreenImg: 'step04 - default 이미지',
-				interactionPage: true, // 인터렉트 페이지 유/무 정의
+				interactionPage: false, // 인터렉트 페이지 유/무 정의
 				appliancePopup: false, // 팝업 유/무 정의
 			},
 			{
 				finderStep: 'step05',
-				key: '',
 				questionText: 'step04 - 질문?',
 				defaultScreenImg: 'step04 - default 이미지',
 				interactionPage: true, // 인터렉트 페이지 유/무 정의
@@ -533,15 +534,13 @@ function main() {
 			},
 			{
 				finderStep: 'step06',
-				key: '',
 				questionText: 'step04 - 질문?',
 				defaultScreenImg: 'step04 - default 이미지',
-				interactionPage: true, // 인터렉트 페이지 유/무 정의
+				interactionPage: false, // 인터렉트 페이지 유/무 정의
 				appliancePopup: false, // 팝업 유/무 정의
 			},
 			{
 				finderStep: 'step07',
-				key: '',
 				questionText: 'step04 - 질문?',
 				defaultScreenImg: 'step04 - default 이미지',
 				interactionPage: true, // 인터렉트 페이지 유/무 정의
@@ -650,6 +649,7 @@ function main() {
 					changeData: {
 						description: 'step04 - 항목 1 디스크립션',
 						icon: 'step04 - 항목 1 아이콘',
+						screenImg : 'step04 - 항목 1 이미지',
 					}
 				},
 				{
@@ -658,6 +658,25 @@ function main() {
 					changeData: {
 						description: 'step04 - 항목 2 디스크립션',
 						icon: 'step04 - 항목 2 아이콘',
+						screenImg : 'step04 - 항목 2 이미지',
+					}
+				},
+				{
+					value: 'Q4_value3',
+					content: 'Q4_content3',
+					changeData: {
+						description: 'step04 - 항목 3 디스크립션',
+						icon: 'step04 - 항목 3 아이콘',
+						screenImg : 'step04 - 항목 3 이미지',
+					}
+				},
+				{
+					value: 'Q4_value4',
+					content: 'Q4_content4',
+					changeData: {
+						description: 'step04 - 항목 4 디스크립션',
+						icon: 'step04 - 항목 4 아이콘',
+						screenImg : 'step04 - 항목 4 이미지',
 					}
 				},
 			],
@@ -668,6 +687,7 @@ function main() {
 					changeData: {
 						description: 'step05 - 항목 1 디스크립션',
 						icon: 'step05 - 항목 1 아이콘',
+						screenImg : 'step06 - 항목 1 이미지',
 					}
 				},
 				{
@@ -676,6 +696,16 @@ function main() {
 					changeData: {
 						description: 'step05 - 항목 2 디스크립션',
 						icon: 'step05 - 항목 2 아이콘',
+						screenImg : 'step06 - 항목 2 이미지',
+					}
+				},
+				{
+					value: 'Q5_value3',
+					content: 'Q5_content3',
+					changeData: {
+						description: 'step05 - 항목 3 디스크립션',
+						icon: 'step05 - 항목 3 아이콘',
+						screenImg : 'step06 - 항목 3 이미지',
 					}
 				},
 			],
@@ -686,6 +716,7 @@ function main() {
 					changeData: {
 						description: 'step06 - 항목 1 디스크립션',
 						icon: 'step06 - 항목 1 아이콘',
+						screenImg : 'step06 - 항목 1 이미지',
 					}
 				},
 				{
@@ -694,6 +725,52 @@ function main() {
 					changeData: {
 						description: 'step06 - 항목 2 디스크립션',
 						icon: 'step06 - 항목 2 아이콘',
+						screenImg : 'step06 - 항목 2 이미지',
+					}
+				},
+				{
+					value: 'Q6_value3',
+					content: 'Q6_content3',
+					changeData: {
+						description: 'step06 - 항목 3 디스크립션',
+						icon: 'step06 - 항목 3 아이콘',
+						screenImg : 'step06 - 항목 3 이미지',
+					}
+				},
+				{
+					value: 'Q6_value4',
+					content: 'Q6_content4',
+					changeData: {
+						description: 'step06 - 항목 4 디스크립션',
+						icon: 'step06 - 항목 4 아이콘',
+						screenImg : 'step06 - 항목 4 이미지',
+					}
+				},
+				{
+					value: 'Q6_value5',
+					content: 'Q6_content5',
+					changeData: {
+						description: 'step06 - 항목 5 디스크립션',
+						icon: 'step06 - 항목 5 아이콘',
+						screenImg : 'step06 - 항목 5 이미지',
+					}
+				},
+				{
+					value: 'Q6_value6',
+					content: 'Q6_content6',
+					changeData: {
+						description: 'step06 - 항목 6 디스크립션',
+						icon: 'step06 - 항목 6 아이콘',
+						screenImg : 'step06 - 항목 6 이미지',
+					}
+				},
+				{
+					value: 'Q6_value7',
+					content: 'Q6_content7',
+					changeData: {
+						description: 'step06 - 항목 7 디스크립션',
+						icon: 'step06 - 항목 7 아이콘',
+						screenImg : 'step06 - 항목 7 이미지',
 					}
 				},
 			],
@@ -718,8 +795,11 @@ function main() {
 		},
 	}
 
+
+
 	// 스텝 이동 이벤트 함수
 	function stepChangeEvent(idx) {
+
 		// 스텝 open
 		$('#quickFinder').css('display', 'block');
 		stepUpdateEvent(idx);
@@ -727,9 +807,20 @@ function main() {
 		$('#nextStepBtn').on('click', function () {
 			let judgmentStep = 'nextStep';
 
-			if (idx < ConfigData.finderSetting.length - 1) {
+			// 인터렉션 페이지 true 일 때 실행
+			if (interaction && $('.answer_btn.active').length > 0) {
+				$('#quickFinder').css('display', 'none');
+				$('.popup_step01').css('display', 'block');
+				$('.popup_step01 .' + _selectData[0].class).css('display', 'block');
+			}
+			if (idx < ConfigData.finderSetting.length - 1 && $(this).hasClass('active')) {
 				idx++;
 				stepUpdateEvent(idx, judgmentStep);
+			}
+			// 마지막 페이지 실행
+			if (idx === ConfigData.finderSetting.length - 1) {
+				console.log('마지막!!')
+				// $('#quickFinder').css('display','none');
 			}
 		});
 		// 이전버튼
@@ -743,21 +834,18 @@ function main() {
 		});
 	}
 
-
-
 	function stepUpdateEvent(idx, judgmentStep) {
+		let interactionPage = ConfigData.finderSetting[idx].interactionPage;
+		let appliancePopup = ConfigData.finderSetting[idx].appliancePopup;
 		let htmlIdx = idx; // 항목 별 index
 		if (idx > 2) { htmlIdx += 2; }// 페이지 데이터 index
 		let currentKey = Object.keys(ConfigData.htmlData)[htmlIdx]; // 현재 스텝의 key 값
 		let currentHtml = Object.values(ConfigData.htmlData)[htmlIdx]; // 현재 스텝의 항목 데이터
 		let prevKey = Object.keys(ConfigData.htmlData)[htmlIdx - 1];
-		let asas = _select[prevKey];
-		// let currentQestionData = ConfigData.qestionData[idx].option;
-		// console.log(currentQestionData)
-		// let _valArray = []; // 이전 스텝에서(만) 저장된 product 배열
-		// let currentAnswerValue = selectAnswer[idx].value; // 현재스텝 저장된 value 
+		let lastAnswerValue; // 저장된 데이터에서 마지막 value
+		interaction = interactionPage; // 인터렉션 페이지 유/무
 
-		// step1 의 Q1 변수 담기
+		// step1 의 Q1 key 값 담기
 		if (idx === 1) {
 			Q1Key = _select[prevKey][0];
 		}
@@ -767,25 +855,19 @@ function main() {
 			return item.key === Q1Key
 		});
 
-		console.log(selectObject)
-
-		if (judgmentStep === 'backStep') {
-			// 앞에 선택한 데이터 삭제
-			delete _stepProduct[Object.keys(ConfigData.htmlData)[htmlIdx + 1]]; // 제품  데이터 삭제
-			delete _select[Object.keys(ConfigData.htmlData)[htmlIdx + 1]]; // 선택한 select 데이터 삭제
-		}
-
-
-
 		// 해당 스텝 정보
 		console.log('----step--------------------------------------------------------------');
 		console.log('idx (현재스텝 index) : ', idx);
-		console.log('currentSelectionsData.length : ', currentHtml.length)
+		console.log('interactionPage (인터렉트 페이지 유/ 무) : ', interactionPage);
 		console.log('htmlIdx : ', htmlIdx)
 		console.log('현재 스텝의 key : ', currentKey)
 		console.log('현재 스텝의 데이터 : ', currentHtml)
 		console.log('_select (사용자가 선택한 스텝별 value) : ', _select);
 		console.log('_stepProduct (스텝별 매칭된 제품) : ', _stepProduct);
+
+		// active 풀기
+		$('#nextStepBtn').removeClass('active');
+		$('.show_now_wrap').removeClass('active');
 
 		// step class 변경
 		$('#quickFinder').removeClass();
@@ -800,8 +882,18 @@ function main() {
 		// $('#qnaImgWrap').attr('style', 'background-image:url'  ConfigData.finderSetting[idx].defaultScreenImg);
 		// console.log(ConfigData.finderSetting[idx].defaultScreenImg)
 
-		// 항목 초기화 
-		$('#selectWrap').html('');
+
+		// 팝업창 해당 이미지로 변경
+		if (appliancePopup) {
+			$('.popup_step03').css('display', 'block');
+			$('.popup_step03 .' + selectObject[0].class).css('display', 'block');
+		} else {
+			$('.popup_step03').css('display', 'none');
+			$('.popup_step03 .popup_wrap div').css('display', 'none');
+		}
+
+		// 항목 버튼 초기화 
+		$('#selectWrap').html('<button type="button" class="caution_open_btn">Click here for a guide to dimensions and measurement.</button><p class="select_tit"><em>You Can Select Multiple Choices.</em></p>');
 		$('#selectWrap').append('<ol></ol>');
 
 		// step 3 제외
@@ -818,13 +910,11 @@ function main() {
 				for (let i = 0; i < currentHtml.length; i++) {
 					buttonHtml += '<button class="answer_btn" type="button" data-value="' + currentHtml[i].value + '"> <i></i> <p> ' + currentHtml[i].content + '</p></button>';
 				}
-				liHtml += '<li> ' + buttonHtml + ' </li>';
+				liHtml += '<li><span>' + ConfigData.finderSetting[idx].key[htmlIdx - 2] + ' <em>content 내용 입력</em> </span> <div>' + buttonHtml + ' </div></li> ';
 				htmlIdx++;
 			}
 			$('#selectWrap ol').append(liHtml);
 		}
-
-
 
 
 		// disabled 가르기
@@ -883,17 +973,54 @@ function main() {
 			}
 		}
 
+		if (judgmentStep === 'backStep') {
+			$('.que_title').css('display', 'none');
+			$('.qna_description').css('display', 'block');
+			$('#nextStepBtn').addClass('active');
+			$('.show_now_wrap').addClass('active');
 
-		answerSelectEvent(idx, htmlIdx, judgmentStep); // 항목 클릭 함수
+			// 이후 데이터 삭제
+			delete _stepProduct[Object.keys(ConfigData.htmlData)[htmlIdx + 1]]; // 제품  데이터 삭제
+			delete _select[Object.keys(ConfigData.htmlData)[htmlIdx + 1]]; // 선택한 select 데이터 삭제
+
+			// 버튼 value와 저장된 value와 같으면 active 
+			if (idx !== 2) {
+				$('.answer_btn').each(function () {
+					let _thisValue = $(this).data('value');
+					// 현재 선택한 value 값 가져오기
+					for (let i = 0; i < _select[currentKey].length; i++) {
+						// 매칭해서 추출
+						if (_select[currentKey][i] === _thisValue) {
+							$(this).addClass('active')
+						}
+					}
+				});
+				lastAnswerValue = _select[currentKey][_select[currentKey].length - 1]; //선택된 마지막 value
+			}
+
+			sprayData(idx, currentHtml, lastAnswerValue); // 선택한 항목의 대한 데이터 뿌리기
+		} else {
+			$('.que_title').css('display', 'block');
+			$('.qna_description').css('display', 'none');
+		}
+
+		answerSelectEvent(idx, htmlIdx, judgmentStep, selectObject); // 항목 클릭 함수
 	}
 
-	function answerSelectEvent(idx, htmlIdx, judgmentStep) {
+	function answerSelectEvent(idx, htmlIdx, judgmentStep, selectObject) {
 		let lastAnswerValue; // 저장된 데이터에서 마지막 value
 		let currentKey = Object.keys(ConfigData.htmlData)[htmlIdx]; // 현재 스텝의 key 값
 		let currentHtml = Object.values(ConfigData.htmlData)[htmlIdx]; // 현재 스텝의 항목 데이터
 		let prevKey = Object.keys(ConfigData.htmlData)[htmlIdx - 1];
-		let _valArray = [];
-		let _MultiplevalArray = [[], [], []];
+		let _valArray = []; // 현재 클릭한 value 배열
+		let _MultiplevalArray = [[], [], []]; // step 3의 value 배열
+
+
+		// 배열에 값이 들어있지 않을때 _select value 값을 넣음 (back 클릭시 해당되는 조건)
+		if (_select[currentKey] !== undefined) {
+			_valArray = _select[currentKey];
+		}
+
 
 		// 이전 스텝
 		if (judgmentStep !== 'backStep') {
@@ -909,7 +1036,7 @@ function main() {
 			console.log('항목클릭!------------------------------------------------------------')
 			let _this = $(this);
 			let _selectValue = _this.data('value');
-			let _currentAry = [];
+			let _currentAry = []; // 현재스텝에서만 매칭된 제품 배열
 
 			// 항목 매칭된 데이터 뿌리기 & 선택된 데이터 push
 			if (idx === 0) {
@@ -921,6 +1048,12 @@ function main() {
 				_select[currentKey] = [_selectValue]; // push
 				lastAnswerValue = _selectValue; // 마지막 선택한 값
 				console.log('선택된 마지막 value : ', lastAnswerValue);
+
+				let selectObject = ConfigData.object.filter(item => {
+					return item.key === _select[currentKey][0]
+				});
+
+				_selectData = selectObject;
 			} else {
 				// button active
 				if (!_this.hasClass('active')) {
@@ -943,15 +1076,20 @@ function main() {
 				if (_this.hasClass('active')) {
 					_valArray.push(_selectValue)
 				}
+
+				console.log(_valArray)
+
 				_select[currentKey] = _valArray;
 				lastAnswerValue = _select[currentKey][_select[currentKey].length - 1]; //선택된 마지막 value
 				console.log('선택된 마지막 value : ', lastAnswerValue);
 			}
 
+
+
 			if (idx === 2) {
 				let currentKey = Object.keys(ConfigData.htmlData)[_this.parents('li').index() + 2]; // 현재 스텝의 key 값
 				// li 갯수만큼 for 문 실행
-				for (let i = 0; i < $("#selectWrap ol li").length; i++) {
+				for (let i = 0; i < $('#selectWrap ol li').length; i++) {
 					// value 저장 배열에서 현재 선택된 value 와 중복되는 데이터 제거
 					_MultiplevalArray[i].forEach(function (item, index) {
 						if (item === _selectValue) {
@@ -977,13 +1115,19 @@ function main() {
 			}
 
 			// 사용자가 선택한 value 값과 product 의 value 값이 매칭되는 product 제품 추출
+			console.log(_select[currentKey])
 			if (idx === 0) {
 				// 현재 선택한 배열의 갯수만큼 for 문 실행
 				for (let i = 0; i < _select[currentKey].length; i++) {
 					// 제품 갯수만큼 for 문 실행
 					for (let key in product) {
+
 						if (product[key][currentKey] === _select[currentKey][i]) {
+							// let proKey = {};
+							// proKey[key] = product[key];
+							// _currentAry.push(proKey);
 							_currentAry.push(product[key]);
+							// productName = push(key);
 							_stepProduct[currentKey] = _currentAry;
 						}
 					}
@@ -1018,8 +1162,8 @@ function main() {
 					}
 				}
 			} else if (idx === 2) {
-				let prevKey = Object.keys(ConfigData.htmlData)[1];
-				let keyNum = [];
+				let prevKey = Object.keys(ConfigData.htmlData)[1]; // 이전 스텝에서 추출된 제품 키 (Q2)
+				let keyNum = []; // 선택한 키값 추출 (Q3_1, Q3_2, Q3_3)
 
 				// 선택된 항목의 key 값 추출
 				for (let i = 0; i < Object.keys(_select).length; i++) {
@@ -1027,6 +1171,33 @@ function main() {
 						keyNum.push(Object.keys(_select)[i]);
 					}
 				}
+
+				let htmlData = ConfigData.htmlData;
+
+				/* 
+					1. Q3_2 value를 선택했다면, Q3_2 (조건)에 해당되는 product 모두 매칭된 제품 배열에 push 한다.
+					ex ) Q3_1_value1,  Q3_2_value1, Q3_3_value1
+							이렇게 선택했다면 
+							무슨 항목?(key) 을 선택했는지 항목 값을 먼저 판단하기
+							항목의 값(key) 을 매칭시켜서 맞는 값을 제품 필터 배열에 push 한다.
+	
+					2. 제품을 전체 다시 돌려서 마크업과 매칭 후 없는 데이터는 diabled 한다.
+				*/
+				/* 
+					Q3_1_value1 / 760이하
+					Q3_1_value2 / 760이상
+	
+					Q3_2_value1 / 600이하 ✔  
+					Q3_2_value2 / 600~900
+					Q3_2_value3 / 900이상
+	
+					Q3_3_value1 / 1800이하
+					Q3_3_value2 / 1800~2000
+					Q3_3_value3 / 2000이상
+				*/
+
+				let resultBin = [];
+				let bin = [];
 
 				// 선택한 항목의 key 값 갯수 만큼 for 문 실행
 				for (let j = 0; j < keyNum.length; j++) {
@@ -1038,112 +1209,90 @@ function main() {
 						// 이전 선텍한 step 제품에서 push
 						for (let p = 0; p < _stepProduct[prevKey].length; p++) {
 							// console.log(_stepProduct[prevKey][p]) // 제품 가져오기
+
 							let valueNum = _stepProduct[prevKey][p][keyNum[j]]; //제품 value
 
-							// 760 이하
-							if (_currentVal === 'Q3_1_value1') {
+							// depth
+							if (_currentVal === htmlData.Q3_1[0].value) {
 								if (valueNum <= 760) {
 									console.log('760이하')
 									console.log(_stepProduct[prevKey][p]);
 								}
-							} else if (_currentVal === 'Q3_1_value2') {
+							} else if (_currentVal === htmlData.Q3_1[1].value) {
 								if (valueNum >= 760) {
 									console.log('760이상')
 									console.log(_stepProduct[prevKey][p]);
+									// resultBin = _stepProduct[prevKey][p];
+									bin.push(_stepProduct[prevKey][p])
 								}
-							} else if (_currentVal === 'Q3_2_value1') {
+							}
+
+							// width
+							if (_currentVal === htmlData.Q3_2[0].value) {
 								if (valueNum <= 600) {
 									console.log('600이하')
 									console.log(_stepProduct[prevKey][p]);
+									bin.push(_stepProduct[prevKey][p])
 								}
-							} else if (_currentVal === 'Q3_2_value2') {
+							} else if (_currentVal === htmlData.Q3_2[1].value) {
 								if (valueNum >= 600 && valueNum <= 900) {
 									console.log('600~900')
 									console.log(_stepProduct[prevKey][p]);
+									bin.push(_stepProduct[prevKey][p])
 								}
-							} else if (_currentVal === 'Q3_2_value3') {
+							} else if (_currentVal === htmlData.Q3_2[2].value) {
 								if (valueNum >= 900) {
 									console.log('900이상')
 									console.log(_stepProduct[prevKey][p]);
+									bin.push(_stepProduct[prevKey][p])
 								}
-							} else if (_currentVal === 'Q3_3_value1') {
+							}
+
+							// height
+							if (_currentVal === htmlData.Q3_3[0].value) {
 								if (valueNum >= 1800) {
 									console.log('1800이하')
 									console.log(_stepProduct[prevKey][p]);
+									bin.push(_stepProduct[prevKey][p])
 								}
-							} else if (_currentVal === 'Q3_3_value2') {
+							} else if (_currentVal === htmlData.Q3_3[1].value) {
 								if (valueNum >= 1800 && valueNum <= 2000) {
 									console.log('1800~2000')
 									console.log(_stepProduct[prevKey][p]);
+									bin.push(_stepProduct[prevKey][p])
 								}
-							} else if (_currentVal === 'Q3_3_value3') {
+							} else if (_currentVal === htmlData.Q3_3[2].value) {
 								if (valueNum >= 2000) {
 									console.log('2000이상')
 									console.log(_stepProduct[prevKey][p]);
+									bin.push(_stepProduct[prevKey][p])
 								}
 							}
 						}
+
 					}
-
-
-					// let keyNum = [];
-					/* 
-						Q3_1_value1 / 760이하
-						Q3_1_value2 / 760이상
-		
-						Q3_2_value1 / 600이하 ✔  
-						Q3_2_value2 / 600~900
-						Q3_2_value3 / 900이상
-		
-						Q3_3_value1 / 1800이하
-						Q3_3_value2 / 1800~2000
-						Q3_3_value3 / 2000이상
-					*/
-
-
-					/* 
-						1. Q3_2 value를 선택했다면, Q3_2 (조건)에 해당되는 product 모두 제품필터 배열에 push 한다.
-						ex ) Q3_1_value1,  Q3_2_value1, Q3_3_value1
-								이렇게 선택했다면 
-								무슨 항목?(key) 을 선택했는지 항목 값을 먼저 판단하기
-								항목의 값(key) 을 매칭시켜서 맞는 값을 제품 필터 배열에 push 한다.
-						
-		
-						2. 제품을 전체 다시 돌려서 마크업과 매칭 후 없는 데이터는 diabled 한다.
-					*/
-
-
 				}
-
+				// console.log(resultBin)
+				console.log(bin)
 			}
-
-
-
-
-
-
-
-
 
 			console.log('_select (사용자가 선택한 스텝별 value) : ', _select);
 			console.log('_stepProduct (최종 선택된 제품) : ', _stepProduct)
-
-
 
 			sprayData(idx, currentHtml, lastAnswerValue); // 선택한 항목의 대한 데이터 뿌리기
 
 
 			// 하나 이상 선택시 active 되는 부분
 			if ($('.answer_btn.active').length > 0) {
-				$(".que_title").css('display', 'none');
-				$(".qna_description").css('display', 'block');
-				// $("#nextStepBtn").addClass('active');
-				// $(".show_now_wrap").addClass('active');
+				$('.que_title').css('display', 'none');
+				$('.qna_description').css('display', 'block');
+				$('#nextStepBtn').addClass('active');
+				// $('.show_now_wrap').addClass('active');
 			} else {
-				$(".que_title").css('display', 'block');
-				$(".qna_description").css('display', 'none');
-				// $("#nextStepBtn").removeClass('active');
-				// $(".show_now_wrap").removeClass('active');
+				$('.que_title').css('display', 'block');
+				$('.qna_description').css('display', 'none');
+				$('#nextStepBtn').removeClass('active');
+				// $('.show_now_wrap').removeClass('active');
 			}
 		});
 	}
@@ -1161,31 +1310,54 @@ function main() {
 		if ($('.answer_btn.active').length > 0) {
 			// 공통 뿌리기
 			if (idx === 0) {
-				$(".qna_description .txt_box span").text(selectData[0].changeData.description);
-				$("#qnaImgWrap img").attr('alt', selectData[0].changeData.screenImg);
+				$('.qna_description .txt_box p').text(selectData[0].changeData.description);
+				$('#qnaImgWrap img').attr('alt', selectData[0].changeData.screenImg);
 			} else if (idx === 2) {
-				// $(".qna_description .txt_box").text(selectData[0].description.description);
-				// $(".qna_description .txt_box").text(ConfigData.finderSetting[idx].description.head);
+				// $('.qna_description .txt_box').text(selectData[0].description.description);
+				// $('.qna_description .txt_box').text(ConfigData.finderSetting[idx].description.head);
 				// console.log(selectData[0])
 			} else {
-				$(".qna_description .txt_box i").text(selectData[0].changeData.icon);
-				$(".qna_description .txt_box span").text(selectData[0].changeData.description);
+				$('.qna_description .txt_box i').text(selectData[0].changeData.icon);
+				$('.qna_description .txt_box p').text(selectData[0].changeData.description);
 			}
 		}
 	}
 
 
+	// 디스클레이머 닫기
+	$('.disc_more_btn').on('click', function () {
+		// $(this).parents('.qna_description').css('display','none');
+	});
+
+	// 사이즈 팝업 닫기
+	$('.popup_close_btn').on('click', function () {
+		$('.popup_step03').css('display', 'none');
+		$('.popup_step03 .popup_wrap > div').css('display', 'none');
+		// $(this).parents('.popup_step03 > div').css('display', 'none');
+	});
+
+	// 인터렉션 페이지 닫기
+	$('.close_btn').on('click', function () {
+		$('#quickFinder').css('display', 'block');
+		$('.popup_step01').css('display', 'none');
+		$('.popup_step01 .popup_wrap').css('display', 'none');
+	});
+
+	$('.caution_open_btn').on('click',function(){
+		$('.popup_step03').css('display', 'block');
+		// $('.popup_step03 .popup_wrap > div').css('display', 'none');
+	});
+
+	// 퀵파인더 start
+	/* $('.btn').on('click',function(){
+		stepChangeEvent(0);
+	}); */
 
 	// 결과화면
 	$('#shopNowBtn').on('click', function () {
 		console.log('결과화면');
 	});
 
-
-	// 퀵파인더 start
-	/* $('.btn').on('click',function(){
-		stepChangeEvent(0);
-	}); */
 	stepChangeEvent(0);
 }
 function maasdasasin1() {

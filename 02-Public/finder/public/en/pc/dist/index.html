@@ -42,7 +42,7 @@
                 <li>
                     <strong>2</strong>
                     <p>PRODUCT CAPACITY</p>
-                </li> 
+                </li>
                 <li>
                     <strong>3</strong>
                     <p>PRODUCT SIZE</p>
@@ -69,31 +69,43 @@
 
         <!--question & answer area-->
         <div class="qna_wrap">
-            <strong class="que_title">
-
-            </strong>
+            <strong class="que_title"></strong>
+            <!-- <div class="qna_description qna_description01"> -->
             <div class="qna_description">
                 <strong></strong>
-                <p class="txt_box">
+                <div class="txt_box">
                     <i></i>
-                    <span></span>
-                </p>
+                    <p></p>
+                    <button type="button" class="disc_more_btn">LOAD MORE</button>
+                </div>
             </div>
+
+            <!-- <div class="qna_description qna_description02"> -->
+            <!-- <div class="qna_description">
+                <div class="txt_box">
+                    <p></p>
+                    <button type="button" class="disc_more_btn">CLOSE</button>
+                </div>
+            </div> -->
         </div>
         <!--//question & answer area-->
 
         <!--question image-->
-        <!-- <div id="qnaImgWrap" style="background-image:url(./images/step01/que_img00.png);"> -->
+        <!-- <div id="qnaImgWrap" style="background-image:url(./images/step01/que_img00.png);"></div> -->
         <div id="qnaImgWrap">
-            <img src="" alt=""> 
+            <img src="" alt="">
         </div>
         <!--//question image-->
 
         <!--선택 항목 버튼-->
         <!--선택 된 항목은 button에 active 클래스-->
+        <!--선택 불가 항목은 button에 disable 클래스-->
         <div id="selectWrap">
-            <ol>
-            </ol>
+            <button type="button" class="caution_open_btn">Click here for a guide to dimensions and measurement.</button>
+            <p class="select_tit">
+                <em>You Can Select Multiple Choices.</em>
+            </p>
+            <!-- <ol></ol> -->
         </div>
         <!--//선택 항목 버튼-->
         <!--항목 선택되면 nextStepBtn id에 active 클래스 추가-->
@@ -194,6 +206,18 @@
         </div>
     </div>
     <!--//step1 next 버튼 이후 팝업-->
+
+    <!--step3 사이즈 팝업-->
+    <div class="popup_step03">
+        <div class="popup_wrap">
+            <strong>Size Guide</strong>
+            <div class="multi"><img src="./images/step03/popup_img01.jpg" alt="Multi Door Fridge Freezer, width/height/depth"></div>
+            <div class="american"><img src="./images/step03/popup_img02.jpg" alt="American Style Fridge Freezer, width/height/depth"></div>
+            <div class="tall"><img src="./images/step03/popup_img03.jpg" alt="Tall Fridge Freezer, width/height/depth"></div>
+            <button type="button" class="popup_close_btn">Close button</button>
+        </div>
+    </div>
+    <!--//step3 사이즈 팝업-->
 
 
 
