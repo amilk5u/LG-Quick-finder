@@ -40,10 +40,10 @@ function main() {
 	const product = {
 		'product1': {
 			Q1: 'Q1_value1',
-			Q2: 450,
-			Q3_1: 760,
-			Q3_2: 550,
-			Q3_3: 1790,
+			Q2: 'Q2_value3',
+			Q3_1: 'Q3_1_value1',
+			Q3_2: 'Q3_2_value3',
+			Q3_3: 'Q3_3_value3',
 			Q4: 'Q4_value1',
 			Q5: 'Q5_value1',
 			Q6: 'Q6_value2',
@@ -51,10 +51,10 @@ function main() {
 		},
 		'product2': {
 			Q1: 'Q1_value2',
-			Q2: 600,
-			Q3_1: 760,
-			Q3_2: 680,
-			Q3_3: 1800,
+			Q2: 'Q2_value2',
+			Q3_1: 'Q3_1_value1',
+			Q3_2: 'Q3_2_value2',
+			Q3_3: 'Q3_3_value3',
 			Q4: 'Q4_value1',
 			Q5: 'Q5_value2',
 			Q6: 'Q6_value2',
@@ -62,10 +62,10 @@ function main() {
 		},
 		'product3': {
 			Q1: 'Q1_value3',
-			Q2: 687,
-			Q3_1: 760,
-			Q3_2: 900,
-			Q3_3: 2200,
+			Q2: 'Q2_value1',
+			Q3_1: 'Q3_1_value1',
+			Q3_2: 'Q3_2_value2',
+			Q3_3: 'Q3_3_value2',
 			Q4: 'Q4_value3',
 			Q5: 'Q5_value2',
 			Q6: 'Q6_value1',
@@ -73,10 +73,10 @@ function main() {
 		},
 		'product4': {
 			Q1: 'Q1_value2',
-			Q2: 500,
-			Q3_1: 760,
-			Q3_2: 850,
-			Q3_3: 1780,
+			Q2: 'Q2_value1',
+			Q3_1: 'Q3_1_value1',
+			Q3_2: 'Q3_2_value3',
+			Q3_3: 'Q3_3_value3',
 			Q4: 'Q4_value1',
 			Q5: 'Q5_value1',
 			Q6: 'Q6_value2',
@@ -84,10 +84,10 @@ function main() {
 		},
 		'product5': {
 			Q1: 'Q1_value1',
-			Q2: 480,
-			Q3_1: 760,
-			Q3_2: 650,
-			Q3_3: 1820,
+			Q2: 'Q2_value3',
+			Q3_1: 'Q3_1_value1',
+			Q3_2: 'Q3_2_value2',
+			Q3_3: 'Q3_3_value2',
 			Q4: 'Q4_value1',
 			Q5: 'Q5_value1',
 			Q6: 'Q6_value2',
@@ -95,10 +95,10 @@ function main() {
 		},
 		'product6': {
 			Q1: 'Q1_value1',
-			Q2: 538,
-			Q3_1: 760,
-			Q3_2: 750,
-			Q3_3: 1850,
+			Q2: 'Q2_value2',
+			Q3_1: 'Q3_1_value1',
+			Q3_2: 'Q3_2_value1',
+			Q3_3: 'Q3_3_value2',
 			Q4: 'Q4_value1',
 			Q5: 'Q5_value1',
 			Q6: 'Q6_value2',
@@ -106,10 +106,10 @@ function main() {
 		},
 		'product7': {
 			Q1: 'Q1_value2',
-			Q2: 351,
-			Q3_1: 760,
-			Q3_2: 850,
-			Q3_3: 1720,
+			Q2: 'Q2_value3',
+			Q3_1: 'Q3_1_value1',
+			Q3_2: 'Q3_2_value1',
+			Q3_3: 'Q3_3_value3',
 			Q4: 'Q4_value1',
 			Q5: 'Q5_value1',
 			Q6: 'Q6_value2',
@@ -117,10 +117,10 @@ function main() {
 		},
 		'product8': {
 			Q1: 'Q1_value3',
-			Q2: 650,
-			Q3_1: 760,
-			Q3_2: 940,
-			Q3_3: 1980,
+			Q2: 'Q2_value1',
+			Q3_1: 'Q3_1_value1',
+			Q3_2: 'Q3_2_value2',
+			Q3_3: 'Q3_3_value3',
 			Q4: 'Q4_value1',
 			Q5: 'Q5_value1',
 			Q6: 'Q6_value2',
@@ -128,10 +128,10 @@ function main() {
 		},
 		'product9': {
 			Q1: 'Q1_value2',
-			Q2: 475,
-			Q3_1: 760,
-			Q3_2: 570,
-			Q3_3: 2100,
+			Q2: 'Q2_value3',
+			Q3_1: 'Q3_1_value1',
+			Q3_2: 'Q3_2_value3',
+			Q3_3: 'Q3_3_value3',
 			Q4: 'Q4_value1',
 			Q5: 'Q5_value1',
 			Q6: 'Q6_value2',
@@ -139,10 +139,10 @@ function main() {
 		},
 		'product10': {
 			Q1: 'Q1_value3',
-			Q2: 680,
-			Q3_1: 760,
-			Q3_2: 690,
-			Q3_3: 1860,
+			Q2: 'Q2_value1',
+			Q3_1: 'Q3_1_value1',
+			Q3_2: 'Q3_2_value2',
+			Q3_3: 'Q3_3_value1',
 			Q4: 'Q4_value1',
 			Q5: 'Q5_value1',
 			Q6: 'Q6_value2',
@@ -150,10 +150,10 @@ function main() {
 		},
 		'product11': {
 			Q1: 'Q1_value3',
-			Q2: 470,
-			Q3_1: 760,
-			Q3_2: 770,
-			Q3_3: 1730,
+			Q2: 'Q2_value2',
+			Q3_1: 'Q3_1_value1',
+			Q3_2: 'Q3_2_value2',
+			Q3_3: 'Q3_3_value1',
 			Q4: 'Q4_value1',
 			Q5: 'Q5_value1',
 			Q6: 'Q6_value2',
@@ -161,10 +161,10 @@ function main() {
 		},
 		'product12': {
 			Q1: 'Q1_value2',
-			Q2: 490,
-			Q3_1: 760,
-			Q3_2: 820,
-			Q3_3: 1990,
+			Q2: 'Q2_value1',
+			Q3_1: 'Q3_1_value1',
+			Q3_2: 'Q3_2_value3',
+			Q3_3: 'Q3_3_value2',
 			Q4: 'Q4_value1',
 			Q5: 'Q5_value1',
 			Q6: 'Q6_value2',
@@ -172,10 +172,10 @@ function main() {
 		},
 		'product13': {
 			Q1: 'Q1_value1',
-			Q2: 490,
-			Q3_1: 760,
-			Q3_2: 820,
-			Q3_3: 1990,
+			Q2: 'Q2_value3',
+			Q3_1: 'Q3_1_value1',
+			Q3_2: 'Q3_2_value2',
+			Q3_3: 'Q3_3_value2',
 			Q4: 'Q4_value1',
 			Q5: 'Q5_value1',
 			Q6: 'Q6_value2',
@@ -183,10 +183,10 @@ function main() {
 		},
 		'product14': {
 			Q1: 'Q1_value2',
-			Q2: 490,
-			Q3_1: 760,
-			Q3_2: 820,
-			Q3_3: 1990,
+			Q2: 'Q2_value1',
+			Q3_1: 'Q3_1_value1',
+			Q3_2: 'Q3_2_value1',
+			Q3_3: 'Q3_3_value1',
 			Q4: 'Q4_value1',
 			Q5: 'Q5_value1',
 			Q6: 'Q6_value2',
@@ -194,10 +194,10 @@ function main() {
 		},
 		'product15': {
 			Q1: 'Q1_value3',
-			Q2: 490,
-			Q3_1: 760,
-			Q3_2: 950,
-			Q3_3: 2000,
+			Q2: 'Q2_value3',
+			Q3_1: 'Q3_1_value1',
+			Q3_2: 'Q3_2_value2',
+			Q3_3: 'Q3_3_value1',
 			Q4: 'Q4_value1',
 			Q5: 'Q5_value1',
 			Q6: 'Q6_value2',
@@ -205,10 +205,10 @@ function main() {
 		},
 		'product16': {
 			Q1: 'Q1_value3',
-			Q2: 555,
-			Q3_1: 800,
-			Q3_2: 800,
-			Q3_3: 2500,
+			Q2: 'Q2_value2',
+			Q3_1: 'Q3_1_value1',
+			Q3_2: 'Q3_2_value3',
+			Q3_3: 'Q3_3_value2',
 			Q4: 'Q4_value1',
 			Q5: 'Q5_value1',
 			Q6: 'Q6_value2',
@@ -216,10 +216,10 @@ function main() {
 		},
 		'product17': {
 			Q1: 'Q1_value1',
-			Q2: 370,
-			Q3_1: 760,
-			Q3_2: 1500,
-			Q3_3: 1300,
+			Q2: 'Q2_value1',
+			Q3_1: 'Q3_1_value1',
+			Q3_2: 'Q3_2_value3',
+			Q3_3: 'Q3_3_value3',
 			Q4: 'Q4_value1',
 			Q5: 'Q5_value1',
 			Q6: 'Q6_value2',
@@ -227,10 +227,10 @@ function main() {
 		},
 		'product18': {
 			Q1: 'Q1_value2',
-			Q2: 350,
-			Q3_1: 780,
-			Q3_2: 450,
-			Q3_3: 1650,
+			Q2: 'Q2_value1',
+			Q3_1: 'Q3_1_value1',
+			Q3_2: 'Q3_2_value2',
+			Q3_3: 'Q3_3_value1',
 			Q4: 'Q4_value1',
 			Q5: 'Q5_value1',
 			Q6: 'Q6_value2',
@@ -238,10 +238,10 @@ function main() {
 		},
 		'product19': {
 			Q1: 'Q1_value1',
-			Q2: 860,
-			Q3_1: 790,
-			Q3_2: 1450,
-			Q3_3: 1760,
+			Q2: 'Q2_value3',
+			Q3_1: 'Q3_1_value1',
+			Q3_2: 'Q3_2_value1',
+			Q3_3: 'Q3_3_value3',
 			Q4: 'Q4_value1',
 			Q5: 'Q5_value1',
 			Q6: 'Q6_value2',
@@ -249,10 +249,10 @@ function main() {
 		},
 		'product20': {
 			Q1: 'Q1_value3',
-			Q2: 900,
-			Q3_1: 650,
-			Q3_2: 1200,
-			Q3_3: 1800,
+			Q2: 'Q2_value2',
+			Q3_1: 'Q3_1_value1',
+			Q3_2: 'Q3_2_value3',
+			Q3_3: 'Q3_3_value2',
 			Q4: 'Q4_value1',
 			Q5: 'Q5_value1',
 			Q6: 'Q6_value2',
@@ -260,10 +260,10 @@ function main() {
 		},
 		'product21': {
 			Q1: 'Q1_value2',
-			Q2: 700,
-			Q3_1: 800,
-			Q3_2: 650,
-			Q3_3: 1650,
+			Q2: 'Q2_value3',
+			Q3_1: 'Q3_1_value1',
+			Q3_2: 'Q3_2_value1',
+			Q3_3: 'Q3_3_value3',
 			Q4: 'Q4_value1',
 			Q5: 'Q5_value1',
 			Q6: 'Q6_value2',
@@ -271,10 +271,10 @@ function main() {
 		},
 		'product22': {
 			Q1: 'Q1_value3',
-			Q2: 680,
-			Q3_1: 900,
-			Q3_2: 750,
-			Q3_3: 1850,
+			Q2: 'Q2_value1',
+			Q3_1: 'Q3_1_value1',
+			Q3_2: 'Q3_2_value2',
+			Q3_3: 'Q3_3_value3',
 			Q4: 'Q4_value1',
 			Q5: 'Q5_value1',
 			Q6: 'Q6_value2',
@@ -282,10 +282,10 @@ function main() {
 		},
 		'product23': {
 			Q1: 'Q1_value1',
-			Q2: 600,
-			Q3_1: 900,
-			Q3_2: 850,
-			Q3_3: 2000,
+			Q2: 'Q2_value2',
+			Q3_1: 'Q3_1_value1',
+			Q3_2: 'Q3_2_value2',
+			Q3_3: 'Q3_3_value3',
 			Q4: 'Q4_value1',
 			Q5: 'Q5_value1',
 			Q6: 'Q6_value2',
@@ -293,10 +293,10 @@ function main() {
 		},
 		'product24': {
 			Q1: 'Q1_value3',
-			Q2: 840,
-			Q3_1: 680,
-			Q3_2: 1200,
-			Q3_3: 1840,
+			Q2: 'Q2_value1',
+			Q3_1: 'Q3_1_value1',
+			Q3_2: 'Q3_2_value2',
+			Q3_3: 'Q3_3_value2',
 			Q4: 'Q4_value1',
 			Q5: 'Q5_value1',
 			Q6: 'Q6_value2',
@@ -304,10 +304,10 @@ function main() {
 		},
 		'product25': {
 			Q1: 'Q1_value2',
-			Q2: 650,
-			Q3_1: 890,
-			Q3_2: 1350,
-			Q3_3: 2200,
+			Q2: 'Q2_value3',
+			Q3_1: 'Q3_1_value1',
+			Q3_2: 'Q3_2_value2',
+			Q3_3: 'Q3_3_value1',
 			Q4: 'Q4_value1',
 			Q5: 'Q5_value1',
 			Q6: 'Q6_value2',
@@ -315,10 +315,10 @@ function main() {
 		},
 		'product26': {
 			Q1: 'Q1_value3',
-			Q2: 490,
-			Q3_1: 760,
-			Q3_2: 950,
-			Q3_3: 2000,
+			Q2: 'Q2_value2',
+			Q3_1: 'Q3_1_value1',
+			Q3_2: 'Q3_2_value3',
+			Q3_3: 'Q3_3_value1',
 			Q4: 'Q4_value1',
 			Q5: 'Q5_value1',
 			Q6: 'Q6_value2',
@@ -326,10 +326,10 @@ function main() {
 		},
 		'product27': {
 			Q1: 'Q1_value3',
-			Q2: 490,
-			Q3_1: 760,
-			Q3_2: 950,
-			Q3_3: 2000,
+			Q2: 'Q2_value1',
+			Q3_1: 'Q3_1_value1',
+			Q3_2: 'Q3_2_value3',
+			Q3_3: 'Q3_3_value1',
 			Q4: 'Q4_value1',
 			Q5: 'Q5_value1',
 			Q6: 'Q6_value2',
@@ -337,10 +337,10 @@ function main() {
 		},
 		'product28': {
 			Q1: 'Q1_value3',
-			Q2: 490,
-			Q3_1: 760,
-			Q3_2: 950,
-			Q3_3: 2000,
+			Q2: 'Q2_value3',
+			Q3_1: 'Q3_1_value1',
+			Q3_2: 'Q3_2_value1',
+			Q3_3: 'Q3_3_value3',
 			Q4: 'Q4_value1',
 			Q5: 'Q5_value1',
 			Q6: 'Q6_value2',
@@ -348,10 +348,10 @@ function main() {
 		},
 		'product29': {
 			Q1: 'Q1_value3',
-			Q2: 490,
-			Q3_1: 760,
-			Q3_2: 950,
-			Q3_3: 2000,
+			Q2: 'Q2_value2',
+			Q3_1: 'Q3_1_value1',
+			Q3_2: 'Q3_2_value2',
+			Q3_3: 'Q3_3_value3',
 			Q4: 'Q4_value1',
 			Q5: 'Q5_value1',
 			Q6: 'Q6_value2',
@@ -359,10 +359,10 @@ function main() {
 		},
 		'product30': {
 			Q1: 'Q1_value3',
-			Q2: 490,
-			Q3_1: 760,
-			Q3_2: 950,
-			Q3_3: 2000,
+			Q2: 'Q2_value3',
+			Q3_1: 'Q3_1_value1',
+			Q3_2: 'Q3_2_value2',
+			Q3_3: 'Q3_3_value3',
 			Q4: 'Q4_value1',
 			Q5: 'Q5_value1',
 			Q6: 'Q6_value2',
@@ -370,87 +370,10 @@ function main() {
 		},
 		'product31': {
 			Q1: 'Q1_value3',
-			Q2: 490,
-			Q3_1: 760,
-			Q3_2: 950,
-			Q3_3: 2000,
-			Q4: 'Q4_value1',
-			Q5: 'Q5_value1',
-			Q6: 'Q6_value2',
-			Q7: 'Q7_value3',
-		},
-		'product32': {
-			Q1: 'Q1_value3',
-			Q2: 490,
-			Q3_1: 760,
-			Q3_2: 950,
-			Q3_3: 2000,
-			Q4: 'Q4_value1',
-			Q5: 'Q5_value1',
-			Q6: 'Q6_value2',
-			Q7: 'Q7_value3',
-		},
-		'product32': {
-			Q1: 'Q1_value3',
-			Q2: 490,
-			Q3_1: 760,
-			Q3_2: 950,
-			Q3_3: 2000,
-			Q4: 'Q4_value1',
-			Q5: 'Q5_value1',
-			Q6: 'Q6_value2',
-			Q7: 'Q7_value3',
-		},
-		'product32': {
-			Q1: 'Q1_value3',
-			Q2: 490,
-			Q3_1: 760,
-			Q3_2: 950,
-			Q3_3: 2000,
-			Q4: 'Q4_value1',
-			Q5: 'Q5_value1',
-			Q6: 'Q6_value2',
-			Q7: 'Q7_value3',
-		},
-		'product33': {
-			Q1: 'Q1_value3',
-			Q2: 490,
-			Q3_1: 760,
-			Q3_2: 950,
-			Q3_3: 2000,
-			Q4: 'Q4_value1',
-			Q5: 'Q5_value1',
-			Q6: 'Q6_value2',
-			Q7: 'Q7_value3',
-		},
-		'product34': {
-			Q1: 'Q1_value3',
-			Q2: 490,
-			Q3_1: 760,
-			Q3_2: 950,
-			Q3_3: 2000,
-			Q4: 'Q4_value1',
-			Q5: 'Q5_value1',
-			Q6: 'Q6_value2',
-			Q7: 'Q7_value3',
-		},
-		'product35': {
-			Q1: 'Q1_value3',
-			Q2: 490,
-			Q3_1: 760,
-			Q3_2: 950,
-			Q3_3: 2000,
-			Q4: 'Q4_value1',
-			Q5: 'Q5_value1',
-			Q6: 'Q6_value2',
-			Q7: 'Q7_value3',
-		},
-		'product36': {
-			Q1: 'Q1_value3',
-			Q2: 490,
-			Q3_1: 760,
-			Q3_2: 950,
-			Q3_3: 2000,
+			Q2: 'Q2_value1',
+			Q3_1: 'Q3_1_value3',
+			Q3_2: 'Q3_2_value1',
+			Q3_3: 'Q3_3_value1',
 			Q4: 'Q4_value1',
 			Q5: 'Q5_value1',
 			Q6: 'Q6_value2',
@@ -572,7 +495,7 @@ function main() {
 				},
 				{
 					key: 'Q1',
-					value: 'Q1_value13',
+					value: 'Q1_value3',
 					content: 'Q1_content3',
 					changeData: {
 						description: 'step01 - 항목 3 디스크립션',
@@ -690,7 +613,7 @@ function main() {
 				},
 				{
 					key: 'Q4',
-					value: 'Q4_value3',
+					value: 'Q4_value4',
 					content: 'Q4_content4',
 					changeData: {
 						description: 'step04 - 항목 4 디스크립션',
@@ -749,6 +672,7 @@ function main() {
 		let currentHtml = ConfigData.htmlData[htmlIdx]; // 현재 스텝의 항목 데이터
 		let prevKey = Object.keys(ConfigData.htmlData)[htmlIdx - 1];
 		let lastAnswerValue; // 저장된 데이터에서 마지막 value
+
 		// interaction = interactionPage; // 인터렉션 페이지 유/무
 
 		// step1 의 Q1 key 값 담기
@@ -768,7 +692,7 @@ function main() {
 		console.log('htmlIdx : ', htmlIdx)
 		console.log('현재 스텝의 key : ', currentKey)
 		console.log('현재 스텝의 데이터 : ', currentHtml)
-		console.log('_select (사용자가 선택한 스텝별 value) : ', _select);
+		// console.log('_select (사용자가 선택한 스텝별 value) : ', _select);
 		// console.log('_stepProduct (스텝별 매칭된 제품) : ', _stepProduct);
 
 
@@ -822,30 +746,101 @@ function main() {
 			$('#selectWrap ol').append(liHtml);
 		}
 
-
-
 		if (judgmentStep === 'backStep') {
 			$('.que_title').css('display', 'none');
 			$('.qna_description').css('display', 'block');
 			$('#nextStepBtn').addClass('active');
 			// $('.show_now_wrap').addClass('active');
 
-			// console.log(stepCount[idx + 1])
-			if (stepCount[idx + 1] !== undefined) {
-				console.log(_select)
-				// stepCount
-				
+			// 앞전 스텝에서 항목을 클릭 했을 때 (값이 있을 경우) 선택한 항목/카운트 배열 삭제
+			if (stepCount[idx + 1] !== undefined || stepCount[idx + 1] === 0) {
+				// _select 앞전 데이터 삭제
+				for (let i = 0; i < stepCount[stepCount.length - 1]; i++) {
+					_select.pop();
+				}
+				// 앞전 카운트 삭제
+				stepCount.pop();
 			}
 
+			// 현재 선택된 카운트 만큼 for문 실행 
+			for (let i = 0; i < stepCount[stepCount.length - 1]; i++) {
+				let currentValue = _select[_select.length - (i + 1)].split('=')[1]; // key=value에서 value 값만 추출
+				// 버튼 value와 저장된 value와 같으면 active 
+				$('.answer_btn').each(function () {
+					let _thisValue = $(this).data('value');
+					// 매칭해서 active
+					if (currentValue === _thisValue) {
+						$(this).addClass('active')
+					}
+				});
+			}
+			lastAnswerValue = _select[_select.length - 1].split('=')[1]; //선택된 마지막 value 값 추출
 
+			sprayData(idx, currentHtml, lastAnswerValue); // 선택한 항목의 대한 데이터 뿌리기
 		} else {
 			$('.que_title').css('display', 'block');
 			$('.qna_description').css('display', 'none');
 		}
 
+		console.log('_select : ', _select);
+		console.log('stepCount : ', stepCount);
 
 
 		// disabled 가르기
+		for (let i = 0; i < _select.length; i++) {
+			let selecKey = _select[i].split('=')[0];
+			let selecValue = _select[i].split('=')[1];
+
+			for (let key in product) {
+				console.log(product[key][selecKey])
+			}
+		}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -941,13 +936,18 @@ function main() {
 
 	// 현재 클릭한 항목에 대한 데이터 뿌리기
 	function sprayData(idx, currentHtml, lastAnswerValue) {
+		console.log('currentHtml : ', currentHtml)
 		// value 저장 배열의 마지막 value 값과 매칭되는 항목 데이터 가져오기
 		let selectData = currentHtml.filter(item => {
 			return item.value === lastAnswerValue
 		});
 
+		console.log('selectData : ', selectData)
+
 		// 선택한 항목 데이터 뿌리기
 		if ($('.answer_btn.active').length > 0) {
+
+			// $('.qna_description .txt_box p').text(selectData[0].changeData.description);
 			// 공통 뿌리기
 			if (idx === 0) {
 				$('.qna_description .txt_box p').text(selectData[0].changeData.description);
