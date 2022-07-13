@@ -1,0 +1,24 @@
+
+* 배열 만들기
+count = []
+result = {key : value, key : value }
+productfilter = [필터된 제품]
+
+* 마크업 뿌리기
+1. 마크업 뿌리기 key : value 해당되는 것 전체 뿌리기
+
+
+* next 클릭시 동작하는 데이터 
+1. result의 데이터를 가져와서 key : value 값이 일치하는 제품을 추출한다.
+2. 추출한 데이터를 마크업에 있는 value 값과 일치하는 제품이 하나라도 있을 때는 마크업 button 에 disabled false 한다.
+
+(* back 눌렀을 때 예외처리)
+1. 이후 스텝에서 클릭한게 있는지 없는지도 판단해서 클릭한게 있을때 아래 문 실행
+2. count 마지막 배열에 있는 카운트 수 만큼 result 의 key : value 값을 삭제하고, 마지막 count도 삭제한다.
+3. 삭제되고 나서 count 마지막 배열에 들어있는 갯수만큼 result 배열 마지막에서 부터 순서대로 value 를 acitve시킨다.
+
+
+* 항목을 클릭시 동작하는 데이터
+1. acitve된 버튼의 갯수를 판단해서 count 에 실시간 push 한다.
+2. 선택한 key : value 값을 실시간 result 배열에 추가한다.
+3. 맨 마지막에 넣은 value 값을 찾아서 그 value 에 해당되는 마크업을 찾아 화면에 뿌려준다.
