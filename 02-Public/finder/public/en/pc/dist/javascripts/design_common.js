@@ -39,7 +39,7 @@ function main() {
 
 	const product = {
 		'product1': {
-			Q1: 'Q1_value1',
+			Q1: 'Q1_value3',
 			Q2: 'Q2_value3',
 			Q3_1: 'Q3_1_value1',
 			Q3_2: 'Q3_2_value3',
@@ -117,7 +117,7 @@ function main() {
 		},
 		'product8': {
 			Q1: 'Q1_value3',
-			Q2: 'Q2_value1',
+			Q2: 'Q2_value3',
 			Q3_1: 'Q3_1_value1',
 			Q3_2: 'Q3_2_value2',
 			Q3_3: 'Q3_3_value3',
@@ -139,7 +139,7 @@ function main() {
 		},
 		'product10': {
 			Q1: 'Q1_value3',
-			Q2: 'Q2_value1',
+			Q2: 'Q2_value3',
 			Q3_1: 'Q3_1_value1',
 			Q3_2: 'Q3_2_value2',
 			Q3_3: 'Q3_3_value1',
@@ -565,7 +565,7 @@ function main() {
 			],
 			[
 				{
-					key: 'Q3_2',
+					key: 'Q3_3',
 					value: 'Q3_3_value1',
 					content: '1800이하',
 				},
@@ -686,12 +686,12 @@ function main() {
 		// });
 
 		// 해당 스텝 정보
-		console.log('----step--------------------------------------------------------------');
-		console.log('idx (현재스텝 index) : ', idx);
-		console.log('interactionPage (인터렉트 페이지 유/ 무) : ', interactionPage);
-		console.log('htmlIdx : ', htmlIdx)
-		console.log('현재 스텝의 key : ', currentKey)
-		console.log('현재 스텝의 데이터 : ', currentHtml)
+		// console.log('----step--------------------------------------------------------------');
+		// console.log('idx (현재스텝 index) : ', idx);
+		// console.log('interactionPage (인터렉트 페이지 유/ 무) : ', interactionPage);
+		// console.log('htmlIdx : ', htmlIdx)
+		// console.log('현재 스텝의 key : ', currentKey)
+		// console.log('현재 스텝의 데이터 : ', currentHtml)
 		// console.log('_select (사용자가 선택한 스텝별 value) : ', _select);
 		// console.log('_stepProduct (스텝별 매칭된 제품) : ', _stepProduct);
 
@@ -750,7 +750,7 @@ function main() {
 			$('.que_title').css('display', 'none');
 			$('.qna_description').css('display', 'block');
 			$('#nextStepBtn').addClass('active');
-			// $('.show_now_wrap').addClass('active');
+			$('.show_now_wrap').addClass('active');
 
 			// 앞전 스텝에서 항목을 클릭 했을 때 (값이 있을 경우) 선택한 항목/카운트 배열 삭제
 			if (stepCount[idx + 1] !== undefined || stepCount[idx + 1] === 0) {
@@ -768,7 +768,6 @@ function main() {
 				// 버튼 value와 저장된 value와 같으면 active 
 				$('.answer_btn').each(function () {
 					let _thisValue = $(this).data('value');
-					// 매칭해서 active
 					if (currentValue === _thisValue) {
 						$(this).addClass('active')
 					}
@@ -783,18 +782,96 @@ function main() {
 		}
 
 		console.log('_select : ', _select);
-		console.log('stepCount : ', stepCount);
+		// console.log('stepCount : ', stepCount);
+
+		let selectProduct = [];
+
+		// 1. 이전 선택한 값 초대로 제품 추출 부분
+		// 2. 제품 갯수만큼 for 문 실행 
+		for (let key in product) {
+			console.log(key + ' : ', product[key])
+			let num = 0; // ture 갯수 판단
+			let proNum = 0;
+			let ddd = [];
+
+			// _select 에 담긴 key=value 값 갯수만큼 for 문 실행
+			for (let i = 0; i < _select.length; i++) {
+				let selectKey = _select[i].split('=')[0]; // key
+				let selectValue = _select[i].split('=')[1]; // value
+
+				console.log(selectKey)
+				console.log('(제품)'+product[key][selectKey], ' : '+ selectValue +'(선택된)')
+
+				// 제품 value
+				// console.log(product[key][selectKey]);
 
 
-		// disabled 가르기
-		for (let i = 0; i < _select.length; i++) {
-			let selecKey = _select[i].split('=')[0];
-			let selecValue = _select[i].split('=')[1];
+				// 제품 value 와 _select에 저장된 value와 값이 같을 때 ture
+				
+				if (product[key][selectKey] === selectValue) {
+					console.debug(selectValue)
+					num++;
+				}
+				// product[key][selectKey] === selectValue && num++;
+			}
 
-			for (let key in product) {
-				console.log(product[key][selecKey])
+			// // _select에서 현재 선택된 key,value 중복되는 데이터 제거
+			// ddd.forEach(function (item, i) {
+			// 	item === _currentKeyValue && _select.splice(i, 1)
+			// });
+
+			// console.log(num)
+			// console.log(num === _select.length)
+
+
+
+			// true 갯수가 현재 _select 갯수와 일치하는 제품 추출
+			if (num === _select.length) {
+				console.log('모두 일치  :  ' + key + ' : ', product[key])
+				// console.debug(key + ' : ', product[key])
+				selectProduct.push(product[key])
 			}
 		}
+
+
+		console.log('selectProduct : ', selectProduct)
+
+		// 1. 추출된 제품과 마크업의 value 를 매칭시켜서 없는것은 disabled 
+		// if (idx !== 0) {
+		// 	// 추출된 제품 갯수만큼 for문 실행
+		// 	$('.answer_btn').attr('disabled', true) // default 부분
+		// 	for (let i = 0; i < selectProduct.length; i++) {
+
+		// 		console.log('---필터 거친 제품 갯수만큼 for 문-----------------------------')
+		// 		// 현재 스텝 버튼의 value 값 추출
+		// 		$('.answer_btn').each(function () {
+		// 			let _currentValue = $(this).data('value'); // 현재스텝의 value 
+		// 			let agreement = false; // 없으면 false 있으면 true 로 값 변경될 예정
+
+
+		// 			// console.log(' 제품 value 전체 : ', Object.values(selectProduct[i]))
+
+		// 			// 추출된 제품 당 포함되어 있는 전체 value 값 추출
+		// 			Object.values(selectProduct[i]).forEach(function (item) {
+		// 				// console.log('_currentValue : ', _currentValue)
+		// 				// console.log('item : ', item)
+		// 				// console.log(_currentValue === item)
+
+		// 				 // 현재스텝의 value 와 제품안에 있는 value 가 일치하면 ture
+		// 				if (_currentValue === item) {
+		// 					agreement = true;
+		// 				}
+		// 			})
+
+		// 			// bol 이 true 일때 실행
+		// 			// console.log('agreement : ', agreement)
+		// 			if (agreement) {
+		// 				// console.log($(this), 'true 하기!!!!!!!!!!')
+		// 				$(this).attr('disabled', false);
+		// 			}
+		// 		});
+		// 	}
+		// }
 
 
 
@@ -900,7 +977,7 @@ function main() {
 
 			// 선택된 value push
 			if (_this.hasClass('active')) {
-				_select.push(_currentKeyValue); // push
+				_select.push(_currentKeyValue);
 			}
 
 			// 카운팅 갯수 push 
@@ -913,7 +990,6 @@ function main() {
 			console.log('stepCount : ', stepCount)
 			console.log('_select : ', _select)
 
-			console.log(_select[_select.length - 1])
 			lastAnswerValue = _select[_select.length - 1].split('=')[1]; //선택된 마지막 value 값 추출
 			// lastAnswerValue = _selectValue; // 마지막 선택한 값
 			sprayData(idx, currentHtml, lastAnswerValue); // 선택한 항목의 대한 데이터 뿌리기
@@ -924,12 +1000,12 @@ function main() {
 				$('.que_title').css('display', 'none');
 				$('.qna_description').css('display', 'block');
 				$('#nextStepBtn').addClass('active');
-				// $('.show_now_wrap').addClass('active');
+				$('.show_now_wrap').addClass('active');
 			} else {
 				$('.que_title').css('display', 'block');
 				$('.qna_description').css('display', 'none');
 				$('#nextStepBtn').removeClass('active');
-				// $('.show_now_wrap').removeClass('active');
+				$('.show_now_wrap').removeClass('active');
 			}
 		});
 	}
@@ -993,7 +1069,15 @@ function main() {
 
 	// 결과화면
 	$('#shopNowBtn').on('click', function () {
-		console.log('결과화면');
+		let result = '';
+		for (let i = 0; i < _select.length; i++) {
+			if (i !== _select.length - 1) {
+				result += _select[i] + '&'
+			} else {
+				result += _select[i]
+			}
+		}
+		console.debug('result : ', '?' + result);
 	});
 
 	stepChangeEvent(0);
