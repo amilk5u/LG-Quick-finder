@@ -1,7 +1,7 @@
 function main() {
 	let _select = []; // 사용자 선택한 value 
 	let stepCount = [];
-	let _result = {}; // 마지막 최종 결과 데이터 추출 배열
+	let _currentProduct = [];
 
 	// let _stepProduct = {}; // 스텝별로 추출된 제품리스트
 	let interaction = ''; // 인터렉션 페이지 유/무
@@ -114,7 +114,7 @@ function main() {
 			Q3_1: 'Q3_1_value1',
 			Q3_2: 'Q3_2_value2',
 			Q3_3: 'Q3_3_value1',
-			Q4: 'Q4_value1',
+			Q4: 'Q4_value3',
 			Q5: 'Q5_value1',
 			Q6: 'Q6_value2',
 			Q7: 'Q7_value3',
@@ -125,7 +125,7 @@ function main() {
 			Q3_1: 'Q3_1_value1',
 			Q3_2: 'Q3_2_value2',
 			Q3_3: 'Q3_3_value1',
-			Q4: 'Q4_value1',
+			Q4: 'Q4_value2',
 			Q5: 'Q5_value1',
 			Q6: 'Q6_value2',
 			Q7: 'Q7_value3',
@@ -643,6 +643,7 @@ function main() {
 		let currentHtml = ConfigData.htmlData[htmlIdx]; // 현재 스텝의 항목 데이터
 		let prevKey = Object.keys(ConfigData.htmlData)[htmlIdx - 1];
 		let lastAnswerValue; // 저장된 데이터에서 마지막 value
+		let _array = []; // 스텝별 제품 추출
 
 		// interaction = interactionPage; // 인터렉션 페이지 유/무
 
@@ -665,6 +666,9 @@ function main() {
 		// console.log('현재 스텝의 데이터 : ', currentHtml)
 		// console.log('_select (사용자가 선택한 스텝별 value) : ', _select);
 		// console.log('_stepProduct (스텝별 매칭된 제품) : ', _stepProduct);
+
+
+		judgmentStep === 'backStep' && _currentProduct.pop(); // 앞전 데이터 삭제
 
 
 		// active 풀기
@@ -717,6 +721,111 @@ function main() {
 			$('#selectWrap ol').append(liHtml);
 		}
 
+		console.log('_select : ', _select);
+		console.log('stepCount : ', stepCount);
+
+
+
+
+
+
+
+
+		if (idx === 1) {
+			console.log('step2 다');
+			// product 갯수만큼 for 문 실행
+			if (_currentProduct.length < 1) {
+				for (let key in product) {
+					// 마지막에 선택한 value 값 추출
+					for (let i = 0; i < stepCount[stepCount.length - 1]; i++) {
+						let selectKey = _select[_select.length - (1 + i)].split('=')[0]; // key
+						let selectValue = _select[_select.length - (1 + i)].split('=')[1]; // value
+
+						// value 값 비교
+						if (product[key][selectKey] === selectValue) {
+							_array.push(product[key])
+						}
+					}
+				}
+				_currentProduct.push(_array);
+			}
+		}
+		if (idx !== 0 && idx > 1) {
+			if (idx === 3) {
+				console.log('step 해당되나요???????')
+
+			} else {
+				// console.log('step2 이상');
+				let _lastPro = _currentProduct[_currentProduct.length - 1];
+				// 추출된 마지막 제품 갯수만큼 for 문 실행 
+				// console.log(_lastPro)
+				for (let i = 0; i < _lastPro.length; i++) {
+					// 마지막에 선택한 value 값 추출
+					for (let j = 0; j < stepCount[stepCount.length - 1]; j++) {
+						let selectKey = _select[_select.length - (1 + j)].split('=')[0]; // key
+						let selectValue = _select[_select.length - (1 + j)].split('=')[1]; // value
+
+						// value 값 비교
+						if (_lastPro[i][selectKey] === selectValue) {
+							_array.push(_lastPro[i])
+						}
+					}
+				}
+				_currentProduct.push(_array);
+				console.log('키키키키')
+			}
+		}
+
+
+		// disabled 가르기
+		// console.log(_currentProduct)
+
+		if (idx !== 0) {
+			var dataValue = [];
+			$('#selectWrap ol').find('li').find('button').attr('disabled', true); // default disabled true
+			// console.debug('dkssuddfskljflsdkfjl')
+			let _lastPro = _currentProduct[_currentProduct.length - 1];
+			// 추출된 마지막 제품 갯수만큼 for 문 실행 
+			for (let i = 0; i < _lastPro.length; i++) {
+				// console.log(_lastPro[i]);
+				// console.log('Q' + (idx + Number(1)))
+				dataValue.push(_lastPro[i]['Q' + (idx + Number(1))])
+				// console.log(_lastPro[i]['Q' + (idx + Number(1))]);
+				// $('.answer_btn[data-value="' + _lastPro[i]['Q' + (idx + Number(1))] + '"]').attr('disabled', false);
+				// console.log($('.answer_btn[data-value="' + _lastPro[i]['Q' + (idx + Number(1))] + '"]'))
+			}
+			let _arrayValue = Array.from(new Set(dataValue));
+			// 뿌리는거 
+			for (let i = 0; i < _arrayValue.length; i++) {
+				$('.answer_btn[data-value="' + _arrayValue[i]).attr('disabled', false);
+			}
+
+			if (idx === 2) {
+				// console.log('step 3')
+			}
+		}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 		if (judgmentStep === 'backStep') {
 			$('.que_title').css('display', 'none');
 			$('.qna_description').css('display', 'block');
@@ -752,141 +861,10 @@ function main() {
 			$('.qna_description').css('display', 'none');
 		}
 
-		console.log('_select : ', _select);
-		// console.log('stepCount : ', stepCount);
 
-		let selectProduct = [];
 
-		// 1. 이전 선택한 값 초대로 제품 추출 부분
-		// 2. 제품 갯수만큼 for 문 실행 
-		for (let key in product) {
-			console.log(key + ' : ', product[key])
-			let num = 0; // ture 갯수 판단
-			let proNum = 0;
-			let ddd = [];
-
-			// _select 에 담긴 key=value 값 갯수만큼 for 문 실행
-			for (let i = 0; i < _select.length; i++) {
-				let selectKey = _select[i].split('=')[0]; // key
-				let selectValue = _select[i].split('=')[1]; // value
-
-				console.log(selectKey)
-				console.log('(제품)'+product[key][selectKey], ' : '+ selectValue +'(선택된)')
-
-				// 제품 value
-				// console.log(product[key][selectKey]);
-
-
-				// 제품 value 와 _select에 저장된 value와 값이 같을 때 ture
-				
-				if (product[key][selectKey] === selectValue) {
-					console.debug(selectValue)
-					num++;
-				}
-				// product[key][selectKey] === selectValue && num++;
-			}
-
-			// // _select에서 현재 선택된 key,value 중복되는 데이터 제거
-			// ddd.forEach(function (item, i) {
-			// 	item === _currentKeyValue && _select.splice(i, 1)
-			// });
-
-			// console.log(num)
-			// console.log(num === _select.length)
-
-
-
-			// true 갯수가 현재 _select 갯수와 일치하는 제품 추출
-			if (num === _select.length) {
-				console.log('모두 일치  :  ' + key + ' : ', product[key])
-				// console.debug(key + ' : ', product[key])
-				selectProduct.push(product[key])
-			}
-		}
-
-
-		console.log('selectProduct : ', selectProduct)
-
-		// 1. 추출된 제품과 마크업의 value 를 매칭시켜서 없는것은 disabled 
-		// if (idx !== 0) {
-		// 	// 추출된 제품 갯수만큼 for문 실행
-		// 	$('.answer_btn').attr('disabled', true) // default 부분
-		// 	for (let i = 0; i < selectProduct.length; i++) {
-
-		// 		console.log('---필터 거친 제품 갯수만큼 for 문-----------------------------')
-		// 		// 현재 스텝 버튼의 value 값 추출
-		// 		$('.answer_btn').each(function () {
-		// 			let _currentValue = $(this).data('value'); // 현재스텝의 value 
-		// 			let agreement = false; // 없으면 false 있으면 true 로 값 변경될 예정
-
-
-		// 			// console.log(' 제품 value 전체 : ', Object.values(selectProduct[i]))
-
-		// 			// 추출된 제품 당 포함되어 있는 전체 value 값 추출
-		// 			Object.values(selectProduct[i]).forEach(function (item) {
-		// 				// console.log('_currentValue : ', _currentValue)
-		// 				// console.log('item : ', item)
-		// 				// console.log(_currentValue === item)
-
-		// 				 // 현재스텝의 value 와 제품안에 있는 value 가 일치하면 ture
-		// 				if (_currentValue === item) {
-		// 					agreement = true;
-		// 				}
-		// 			})
-
-		// 			// bol 이 true 일때 실행
-		// 			// console.log('agreement : ', agreement)
-		// 			if (agreement) {
-		// 				// console.log($(this), 'true 하기!!!!!!!!!!')
-		// 				$(this).attr('disabled', false);
-		// 			}
-		// 		});
-		// 	}
-		// }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+		console.log('_array : ', _array)
+		console.log('_currentProduct : ', _currentProduct)
 
 
 
@@ -915,10 +893,9 @@ function main() {
 			$('#shopNowBtn').removeClass('on');
 		}
 
-
 		// 항목 클릭 
 		$('.answer_btn').on('click', function () {
-			console.log('항목클릭!------------------------------------------------------------')
+			console.log('버튼 클릭 >')
 			let _this = $(this);
 			// let _currentAry = []; // 현재스텝에서만 매칭된 제품 배열
 			let _currentKeyValue = _this.data('key') + '=' + _this.data('value');
@@ -983,13 +960,12 @@ function main() {
 
 	// 현재 클릭한 항목에 대한 데이터 뿌리기
 	function sprayData(idx, currentHtml, lastAnswerValue) {
-		console.log('currentHtml : ', currentHtml)
 		// value 저장 배열의 마지막 value 값과 매칭되는 항목 데이터 가져오기
 		let selectData = currentHtml.filter(item => {
 			return item.value === lastAnswerValue
 		});
 
-		console.log('selectData : ', selectData)
+		// console.log('selectData : ', selectData)
 
 		// 선택한 항목 데이터 뿌리기
 		if ($('.answer_btn.active').length > 0) {
