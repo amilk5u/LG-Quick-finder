@@ -48,7 +48,7 @@ function main() {
 			Q3_1: 'Q3_1_value1',
 			Q3_2: 'Q3_2_value3',
 			Q3_3: 'Q3_3_value3',
-			Q4: 'Q4_value5',
+			Q4: 'Q4_value2',
 			Q5: 'Q5_value3',
 			Q6: 'Q6_value1',
 			Q7: 'Q7_value2',
@@ -710,8 +710,8 @@ function main() {
 				},
 				{
 					key: 'Q7',
-					value: 'Q7_value1',
-					content: 'Q7_content1',
+					value: 'Q7_value2',
+					content: 'Q7_content2',
 					changeData: {
 						description: 'step07 - 항목 1 디스크립션',
 						icon: 'step07 - 항목 1 아이콘',
@@ -874,6 +874,7 @@ function main() {
 
 
 		// 선택된 제품 추출 부분
+		// step 1 부터 시작되는 부분
 		if (idx === 1 && _currentProduct.length < 1) {
 			// 마지막에 선택한 value 값 추출
 			let selectKey = _select[_select.length - 1].split('=')[0]; // key
@@ -886,21 +887,21 @@ function main() {
 			}
 			_currentProduct.push(_array);
 		}
-		// step 2 이상 
-		// console.log(idx > 1 && _currentProduct[idx -1] === undefined)
-		if (idx > 1 && _currentProduct[idx - 1] === undefined) {
 
+
+		// step 2 부터 동작
+		if (idx > 1 && _currentProduct[idx - 1] === undefined) { // back 했을때를 고려해서 undefined 구분
 			if (idx === 3) {
-				let ddd = [];
-				let _lastPro = _currentProduct[_currentProduct.length - 1];
+				let _wholeKey = []; // 선택한 key 값 
+				let _lastPro = _currentProduct[_currentProduct.length - 1]; // 라스트 추출 제품 가져오기
 
 				for (let j = 0; j < stepCount[stepCount.length - 1]; j++) {
 					let selectKey = _select[_select.length - (1 + j)].split('=')[0]; // key
 					let selectValue = _select[_select.length - (1 + j)].split('=')[1]; // value
-					ddd.push(selectKey)
+					_wholeKey.push(selectKey);
 				}
 
-				let restKey = Array.from(new Set(ddd)); // select 한 value의 중복 제거 된 key 값 추출
+				let restKey = Array.from(new Set(_wholeKey)); // select 한 value의 중복 제거 된 key 값 추출
 
 				// 제품 갯수만큼 for 문 실행
 				for (let i = 0; i < _lastPro.length; i++) {
@@ -949,7 +950,7 @@ function main() {
 
 
 
-		// disabled 가르는 부분
+		// disabled 구분하기
 		if (idx !== 0) {
 			var _dataValue = [];
 			$('.answer_btn').attr('disabled', true); // default disabled true
@@ -958,11 +959,6 @@ function main() {
 			let _lastPro = _currentProduct[_currentProduct.length - 1];
 			// 추출된 마지막 제품 갯수만큼 for 문 실행 
 			for (let i = 0; i < _lastPro.length; i++) {
-				// console.log(_lastPro[i]);
-				// console.log('Q' + (idx + Number(1)))
-				// console.log(_lastPro[i]['Q' + (idx + Number(1))]);
-				// $('.answer_btn[data-value="' + _lastPro[i]['Q' + (idx + Number(1))] + '"]').attr('disabled', false);
-				// console.log($('.answer_btn[data-value="' + _lastPro[i]['Q' + (idx + Number(1))] + '"]'))
 				_dataValue.push(_lastPro[i]['Q' + (idx + Number(1))])
 				if (idx === 2) {
 					for (let j = 0; j < $('#selectWrap').find('li').length; j++) {
@@ -971,14 +967,11 @@ function main() {
 				}
 			}
 
-			// disabled 하기
+			// disabled 하기 -----------------------------------------------------------------------------------------
 			let _arrayDataValue = Array.from(new Set(_dataValue)); // 추출된 제품 중복되는 value 제거한 나머지 최종 value
 			for (let i = 0; i < _arrayDataValue.length; i++) {
 				$('.answer_btn[data-value="' + _arrayDataValue[i]).attr('disabled', false);
 			}
-
-
-
 			if (idx === 2) {
 				// step 3
 				let _arrayDataValueStep3 = []; // step 3 의 중복 value 제거 최종 value 배열
@@ -996,26 +989,6 @@ function main() {
 				}
 			}
 		}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 		if (judgmentStep === 'backStep') {
@@ -1059,10 +1032,6 @@ function main() {
 
 
 
-
-
-
-
 		// answerSelectEvent(idx, htmlIdx, judgmentStep, selectObject); // 항목 클릭 함수
 		answerSelectEvent(idx, htmlIdx, judgmentStep); // 항목 클릭 함수
 	}
@@ -1086,7 +1055,7 @@ function main() {
 
 		// 항목 클릭 
 		$('.answer_btn').on('click', function () {
-			console.log('버튼 클릭 >')
+			// console.log('버튼 클릭 >')
 			let _this = $(this);
 			// let _currentAry = []; // 현재스텝에서만 매칭된 제품 배열
 			let _currentKeyValue = _this.data('key') + '=' + _this.data('value');
@@ -1126,8 +1095,8 @@ function main() {
 				stepCount.push($('.answer_btn.active').length);
 			}
 
-			console.log('stepCount : ', stepCount)
-			console.log('_select : ', _select)
+			// console.log('stepCount : ', stepCount)
+			// console.log('_select : ', _select)
 
 			lastAnswerValue = _select[_select.length - 1].split('=')[1]; //선택된 마지막 value 값 추출
 			// lastAnswerValue = _selectValue; // 마지막 선택한 값
