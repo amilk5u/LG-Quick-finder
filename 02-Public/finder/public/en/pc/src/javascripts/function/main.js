@@ -6,7 +6,7 @@ function main() {
 	let Q1Key = ''; // 처음 선택한 제품 키 값
 	let _selectData; // 셀렉된 제품 데이터 
 
-	let classC = '';
+	let currentClass = '';
 
 	const product = {
 		'product1': {
@@ -822,8 +822,7 @@ function main() {
 				$('.popup_step01').css('display', 'block');
 				$('.popup_step01 .' + _selectData[0].class).css('display', 'block');
 			}
-
-			console.log(_selectData)
+			// acitve 가 있을때 실행 & finderSetting 갯수보다 작으면 실행
 			if (idx < ConfigData.finderSetting.length - 1 && $(this).hasClass('active')) {
 				idx++;
 				stepUpdateEvent(idx, judgmentStep);
@@ -885,6 +884,9 @@ function main() {
 		// 앞전 데이터 삭제
 		judgmentStep === 'backStep' && _currentProduct.pop();
 
+		// open 삭제
+		$('.qna_description02').removeClass('open');
+
 		// active 풀기
 		$('#nextStepBtn').removeClass('active');
 		$('.show_now_wrap').removeClass('active');
@@ -903,9 +905,9 @@ function main() {
 
 		// 팝업창 해당 이미지로 변경
 		if (appliancePopup) {
-			classC = selectObject[0].class;
+			currentClass = selectObject[0].class;
 			$('.popup_step03').css('display', 'block');
-			$('.popup_step03 .' + classC).css('display', 'block');
+			$('.popup_step03 .' + currentClass).css('display', 'block');
 		} else {
 			$('.popup_step03').css('display', 'none');
 			$('.popup_step03 .popup_wrap div').css('display', 'none');
@@ -1187,13 +1189,18 @@ function main() {
 				$('.que_title').css('display', 'none');
 				$('#nextStepBtn').addClass('active');
 				$('.show_now_wrap').addClass('active');
-				$('.qna_description').css('display', 'none');
-				$('.qna_description01').css('display', 'block');
 				// step 3 예외처리
 				if (idx === 2) {
-					if ($('.qna_description02.open').length > 0) {
+					console.log($('.qna_description02').hasClass('open'))
+					
+					if ($('.qna_description02').hasClass('open')) {
 						$('.qna_description01').css('display', 'none');
+					} else {
+						$('.qna_description01').css('display', 'block');
 					}
+				} else {
+					$('.qna_description').css('display', 'none');
+					$('.qna_description01').css('display', 'block');
 				}
 			} else {
 				$('.que_title').css('display', 'block');
@@ -1244,24 +1251,24 @@ function main() {
 				$('.qna_description01 .txt_box p').text(selectData[0].changeData.description.head);
 				$('.qna_description02 .txt_box p').text(selectData[0].changeData.description.detail);
 				if (selectData[0].changeData.description.head !== undefined) {
-					$('.qna_description').addClass('more');
+					$('.qna_description01').addClass('more');
 					$('.qna_description01 .txt_box p').text(selectData[0].changeData.description.head);
 					$('.qna_description02 .txt_box p').text(selectData[0].changeData.description.detail);
 				} else {
-					$('.qna_description').removeClass('more');
+					$('.qna_description01').addClass('more');
 					$('.qna_description01 .txt_box p').text(selectData[0].changeData.description);
 				}
 			}
 		}
 	}
 
-	// 디스클레이머 닫기
+	// 디테일 디스크립션 열기
 	$('#descMoreBtn').on('click', function () {
 		$('.qna_description02').css('display', 'block');
 		$('.qna_description01').css('display', 'none');
 		$('.qna_description02').addClass('open');
 	});
-
+	// 디테일 디스크립션 닫기
 	$('#detailCloseBtn').on('click', function () {
 		$('.qna_description02').css('display', 'none');
 		$('.qna_description01').css('display', 'block');
@@ -1285,9 +1292,9 @@ function main() {
 	// 사이즈 팝업 
 	$('html,body').on('click', '.caution_open_btn', function () {
 		$('.popup_step03').css('display', 'block');
-		$('.popup_step03 .' + classC).css('display', 'block');
+		$('.popup_step03 .' + currentClass).css('display', 'block');
 		// console.log('야야야야야양!!')
-		console.log(classC)
+		console.log(currentClass)
 	});
 
 	// 퀵파인더 start
@@ -1311,19 +1318,20 @@ function main() {
 	stepChangeEvent(0);
 
 
+	// swiper slide
 	var popupStep05swiper = new Swiper(".popup_step05_slide", {
 		pagination: {
-			 el: ".popup_step05 .indicator",
+			el: ".popup_step05 .indicator",
 		},
 		observe: true,
 		effect: "fade"
-  });
+	});
 
-  var popupStep07swiper = new Swiper(".popup_step07_slide", {
+	var popupStep07swiper = new Swiper(".popup_step07_slide", {
 		pagination: {
-			 el: ".popup_step07 .indicator",
+			el: ".popup_step07 .indicator",
 		},
 		observe: true,
 		effect: "fade"
-  });
+	});
 }

@@ -12197,15 +12197,11 @@ strong, h1, h2, h3, h4, h5, h6 { font-weight: 500; }
 
 label, button { cursor: pointer; }
 
-#selectWrap li { display: flex; }
-
-#selectWrap li button { width: 100%; padding: 20px 0; background-color: #eee; box-sizing: border-box; }
-
-#selectWrap li button.active { background-color: #222; color: #fff; }
-
 #quickFinder #selectWrap li button.active.select { background-color: red !important; }
 
-#quickFinder .qna_wrap .qna_description.more .txt_box #descMoreBtn { display: inline-block; }
+#quickFinder .qna_wrap .qna_description .txt_box #descMoreBtn { display: none !important; }
+
+#quickFinder .qna_wrap .qna_description.more .txt_box #descMoreBtn { display: inline-block !important; }
 
 #quickFinder.step01 .qna_wrap .qna_description .txt_box #descMoreBtn { display: none; }
 
@@ -12222,14 +12218,6 @@ label, button { cursor: pointer; }
 #quickFinder.step03 #selectWrap .caution_open_btn { display: block !important; }
 
 #quickFinder.step03 .qna_wrap .qna_description .txt_box i, #quickFinder.step04 .qna_wrap .qna_description .txt_box i, #quickFinder.step05 .qna_wrap .qna_description .txt_box i, #quickFinder.step06 .qna_wrap .qna_description .txt_box i, #quickFinder.step07 .qna_wrap .qna_description .txt_box i { display: none !important; }
-
-.popup_step03 { display: none; }
-
-.popup_step03 .multi { display: none; }
-
-.popup_step03 .american { display: none; }
-
-.popup_step03 .tall { display: none; }
 
 #quickFinder { padding: 2.60417vw 0 0; background-image: url(../../images/common/bg_gradation.gif); display: none; -ms-background-position-x: 0; background-position-x: 0; -ms-background-position-y: 0; background-position-y: 0; background-repeat: repeat-x; }
 

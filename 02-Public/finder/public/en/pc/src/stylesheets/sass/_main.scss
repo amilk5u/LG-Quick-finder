@@ -1,11 +1,9 @@
 @charset "UTF-8";
-
-#selectWrap li { display: flex; }
-#selectWrap li button { width:100%; padding:20px 0; background-color: #eee; box-sizing: border-box; }
-#selectWrap li button.active { background-color: #222; color:#fff; }
+// 마지막 셀렉트
 #quickFinder #selectWrap li button.active.select {background-color: red !important;}
 // more : (디테일 디스크립션 유/무)
-#quickFinder .qna_wrap .qna_description.more .txt_box #descMoreBtn { display: inline-block; }
+#quickFinder .qna_wrap .qna_description .txt_box #descMoreBtn { display: none !important; }
+#quickFinder .qna_wrap .qna_description.more .txt_box #descMoreBtn { display: inline-block !important; }
 // step1
 #quickFinder.step01 .qna_wrap .qna_description .txt_box #descMoreBtn { display: none;}
 #quickFinder.step02 .qna_wrap .qna_description .txt_box #descMoreBtn { display: none;}
@@ -23,11 +21,6 @@
 #quickFinder.step07 .qna_wrap .qna_description .txt_box i { display: none !important; }
 
 
-.popup_step03 { display: none; }
-// .popup_step03 .popup_wrap { display: block; }
-.popup_step03 .multi { display: none; }
-.popup_step03 .american { display: none; }
-.popup_step03 .tall { display: none; }
 #quickFinder {
 	padding:vw(20) 0 0; background-image:url(../../images/common/bg_gradation.gif); display:none;
 	@include backgroundSolt(0, 0, repeat-x);
