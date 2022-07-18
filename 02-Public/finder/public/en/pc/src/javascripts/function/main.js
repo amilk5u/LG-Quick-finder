@@ -2,11 +2,11 @@ function main() {
 	let _select = []; // 사용자 선택한 value 
 	let stepCount = [];
 	let _currentProduct = [];
-
-	// let _stepProduct = {}; // 스텝별로 추출된 제품리스트
 	let interaction = ''; // 인터렉션 페이지 유/무
-	// let Q1Key = ''; // 처음 선택한 제품 키 값
-	// let _selectData; // 셀렉된 제품 데이터 
+	let Q1Key = ''; // 처음 선택한 제품 키 값
+	let _selectData; // 셀렉된 제품 데이터 
+
+	let classC = '';
 
 	const product = {
 		'product1': {
@@ -16,8 +16,8 @@ function main() {
 			Q3_2: 'Q3_2_value3',
 			Q3_3: 'Q3_3_value3',
 			Q4: 'Q4_value1',
-			Q5: 'Q5_value1',
-			Q6: 'Q6_value2',
+			Q5: 'Q5_value2',
+			Q6: 'Q6_value6',
 			Q7: 'Q7_value3'
 		},
 		'product2': {
@@ -27,9 +27,9 @@ function main() {
 			Q3_2: 'Q3_2_value2',
 			Q3_3: 'Q3_3_value3',
 			Q4: 'Q4_value1',
-			Q5: 'Q5_value2',
-			Q6: 'Q6_value2',
-			Q7: 'Q7_value1'
+			Q5: 'Q5_value3',
+			Q6: 'Q6_value5',
+			Q7: 'Q7_value2'
 		},
 		'product3': {
 			Q1: 'Q1_value3',
@@ -39,8 +39,8 @@ function main() {
 			Q3_3: 'Q3_3_value2',
 			Q4: 'Q4_value3',
 			Q5: 'Q5_value2',
-			Q6: 'Q6_value1',
-			Q7: 'Q7_value41'
+			Q6: 'Q6_value4',
+			Q7: 'Q7_value4'
 		},
 		'product4': {
 			Q1: 'Q1_value2',
@@ -48,10 +48,10 @@ function main() {
 			Q3_1: 'Q3_1_value1',
 			Q3_2: 'Q3_2_value3',
 			Q3_3: 'Q3_3_value3',
-			Q4: 'Q4_value1',
-			Q5: 'Q5_value1',
-			Q6: 'Q6_value2',
-			Q7: 'Q7_value3',
+			Q4: 'Q4_value2',
+			Q5: 'Q5_value3',
+			Q6: 'Q6_value1',
+			Q7: 'Q7_value2',
 		},
 		'product5': {
 			Q1: 'Q1_value1',
@@ -59,9 +59,9 @@ function main() {
 			Q3_1: 'Q3_1_value1',
 			Q3_2: 'Q3_2_value2',
 			Q3_3: 'Q3_3_value2',
-			Q4: 'Q4_value1',
-			Q5: 'Q5_value1',
-			Q6: 'Q6_value2',
+			Q4: 'Q4_value3',
+			Q5: 'Q5_value2',
+			Q6: 'Q6_value7',
 			Q7: 'Q7_value3',
 		},
 		'product6': {
@@ -70,10 +70,10 @@ function main() {
 			Q3_1: 'Q3_1_value1',
 			Q3_2: 'Q3_2_value1',
 			Q3_3: 'Q3_3_value2',
-			Q4: 'Q4_value1',
+			Q4: 'Q4_value2',
 			Q5: 'Q5_value1',
-			Q6: 'Q6_value2',
-			Q7: 'Q7_value3',
+			Q6: 'Q6_value4',
+			Q7: 'Q7_value1',
 		},
 		'product7': {
 			Q1: 'Q1_value2',
@@ -81,10 +81,10 @@ function main() {
 			Q3_1: 'Q3_1_value1',
 			Q3_2: 'Q3_2_value1',
 			Q3_3: 'Q3_3_value3',
-			Q4: 'Q4_value1',
+			Q4: 'Q4_value4',
 			Q5: 'Q5_value1',
-			Q6: 'Q6_value2',
-			Q7: 'Q7_value3',
+			Q6: 'Q6_value5',
+			Q7: 'Q7_value1',
 		},
 		'product8': {
 			Q1: 'Q1_value3',
@@ -92,10 +92,10 @@ function main() {
 			Q3_1: 'Q3_1_value1',
 			Q3_2: 'Q3_2_value2',
 			Q3_3: 'Q3_3_value3',
-			Q4: 'Q4_value1',
-			Q5: 'Q5_value1',
-			Q6: 'Q6_value2',
-			Q7: 'Q7_value3',
+			Q4: 'Q4_value4',
+			Q5: 'Q5_value2',
+			Q6: 'Q6_value4',
+			Q7: 'Q7_value2',
 		},
 		'product9': {
 			Q1: 'Q1_value2',
@@ -103,10 +103,10 @@ function main() {
 			Q3_1: 'Q3_1_value1',
 			Q3_2: 'Q3_2_value3',
 			Q3_3: 'Q3_3_value3',
-			Q4: 'Q4_value1',b
+			Q4: 'Q4_value3',
 			Q5: 'Q5_value1',
-			Q6: 'Q6_value2',
-			Q7: 'Q7_value3',
+			Q6: 'Q6_value6',
+			Q7: 'Q7_value2',
 		},
 		'product10': {
 			Q1: 'Q1_value3',
@@ -114,10 +114,10 @@ function main() {
 			Q3_1: 'Q3_1_value1',
 			Q3_2: 'Q3_2_value2',
 			Q3_3: 'Q3_3_value1',
-			Q4: 'Q4_value3',
-			Q5: 'Q5_value1',
+			Q4: 'Q4_value1',
+			Q5: 'Q5_value3',
 			Q6: 'Q6_value2',
-			Q7: 'Q7_value3',
+			Q7: 'Q7_value4',
 		},
 		'product11': {
 			Q1: 'Q1_value3',
@@ -125,10 +125,10 @@ function main() {
 			Q3_1: 'Q3_1_value1',
 			Q3_2: 'Q3_2_value2',
 			Q3_3: 'Q3_3_value1',
-			Q4: 'Q4_value2',
+			Q4: 'Q4_value4',
 			Q5: 'Q5_value1',
 			Q6: 'Q6_value2',
-			Q7: 'Q7_value3',
+			Q7: 'Q7_value2',
 		},
 		'product12': {
 			Q1: 'Q1_value2',
@@ -137,8 +137,8 @@ function main() {
 			Q3_2: 'Q3_2_value3',
 			Q3_3: 'Q3_3_value2',
 			Q4: 'Q4_value1',
-			Q5: 'Q5_value1',
-			Q6: 'Q6_value2',
+			Q5: 'Q5_value2',
+			Q6: 'Q6_value5',
 			Q7: 'Q7_value3',
 		},
 		'product13': {
@@ -147,10 +147,10 @@ function main() {
 			Q3_1: 'Q3_1_value1',
 			Q3_2: 'Q3_2_value2',
 			Q3_3: 'Q3_3_value2',
-			Q4: 'Q4_value1',
+			Q4: 'Q4_value2',
 			Q5: 'Q5_value1',
 			Q6: 'Q6_value2',
-			Q7: 'Q7_value3',
+			Q7: 'Q7_value2',
 		},
 		'product14': {
 			Q1: 'Q1_value2',
@@ -158,9 +158,9 @@ function main() {
 			Q3_1: 'Q3_1_value1',
 			Q3_2: 'Q3_2_value1',
 			Q3_3: 'Q3_3_value1',
-			Q4: 'Q4_value1',
-			Q5: 'Q5_value1',
-			Q6: 'Q6_value2',
+			Q4: 'Q4_value2',
+			Q5: 'Q5_value2',
+			Q6: 'Q6_value4',
 			Q7: 'Q7_value3',
 		},
 		'product15': {
@@ -169,10 +169,10 @@ function main() {
 			Q3_1: 'Q3_1_value1',
 			Q3_2: 'Q3_2_value2',
 			Q3_3: 'Q3_3_value1',
-			Q4: 'Q4_value1',
+			Q4: 'Q4_value2',
 			Q5: 'Q5_value1',
-			Q6: 'Q6_value2',
-			Q7: 'Q7_value3',
+			Q6: 'Q6_value6',
+			Q7: 'Q7_value1',
 		},
 		'product16': {
 			Q1: 'Q1_value3',
@@ -180,10 +180,10 @@ function main() {
 			Q3_1: 'Q3_1_value1',
 			Q3_2: 'Q3_2_value3',
 			Q3_3: 'Q3_3_value2',
-			Q4: 'Q4_value1',
-			Q5: 'Q5_value1',
-			Q6: 'Q6_value2',
-			Q7: 'Q7_value3',
+			Q4: 'Q4_value2',
+			Q5: 'Q5_value3',
+			Q6: 'Q6_value5',
+			Q7: 'Q7_value1',
 		},
 		'product17': {
 			Q1: 'Q1_value1',
@@ -191,10 +191,10 @@ function main() {
 			Q3_1: 'Q3_1_value1',
 			Q3_2: 'Q3_2_value3',
 			Q3_3: 'Q3_3_value3',
-			Q4: 'Q4_value1',
+			Q4: 'Q4_value2',
 			Q5: 'Q5_value1',
-			Q6: 'Q6_value2',
-			Q7: 'Q7_value3',
+			Q6: 'Q6_value7',
+			Q7: 'Q7_value2',
 		},
 		'product18': {
 			Q1: 'Q1_value2',
@@ -202,10 +202,10 @@ function main() {
 			Q3_1: 'Q3_1_value1',
 			Q3_2: 'Q3_2_value2',
 			Q3_3: 'Q3_3_value1',
-			Q4: 'Q4_value1',
-			Q5: 'Q5_value1',
-			Q6: 'Q6_value2',
-			Q7: 'Q7_value3',
+			Q4: 'Q4_value2',
+			Q5: 'Q5_value2',
+			Q6: 'Q6_value5',
+			Q7: 'Q7_value1',
 		},
 		'product19': {
 			Q1: 'Q1_value1',
@@ -213,10 +213,10 @@ function main() {
 			Q3_1: 'Q3_1_value1',
 			Q3_2: 'Q3_2_value1',
 			Q3_3: 'Q3_3_value3',
-			Q4: 'Q4_value1',
-			Q5: 'Q5_value1',
-			Q6: 'Q6_value2',
-			Q7: 'Q7_value3',
+			Q4: 'Q4_value2',
+			Q5: 'Q5_value2',
+			Q6: 'Q6_value1',
+			Q7: 'Q7_value4',
 		},
 		'product20': {
 			Q1: 'Q1_value3',
@@ -224,9 +224,9 @@ function main() {
 			Q3_1: 'Q3_1_value1',
 			Q3_2: 'Q3_2_value3',
 			Q3_3: 'Q3_3_value2',
-			Q4: 'Q4_value1',
-			Q5: 'Q5_value1',
-			Q6: 'Q6_value2',
+			Q4: 'Q4_value2',
+			Q5: 'Q5_value2',
+			Q6: 'Q6_value3',
 			Q7: 'Q7_value3',
 		},
 		'product21': {
@@ -236,8 +236,8 @@ function main() {
 			Q3_2: 'Q3_2_value1',
 			Q3_3: 'Q3_3_value3',
 			Q4: 'Q4_value1',
-			Q5: 'Q5_value1',
-			Q6: 'Q6_value2',
+			Q5: 'Q5_value2',
+			Q6: 'Q6_value3',
 			Q7: 'Q7_value3',
 		},
 		'product22': {
@@ -246,10 +246,10 @@ function main() {
 			Q3_1: 'Q3_1_value1',
 			Q3_2: 'Q3_2_value2',
 			Q3_3: 'Q3_3_value3',
-			Q4: 'Q4_value1',
-			Q5: 'Q5_value1',
+			Q4: 'Q4_value3',
+			Q5: 'Q5_value3',
 			Q6: 'Q6_value2',
-			Q7: 'Q7_value3',
+			Q7: 'Q7_value2',
 		},
 		'product23': {
 			Q1: 'Q1_value1',
@@ -257,10 +257,10 @@ function main() {
 			Q3_1: 'Q3_1_value1',
 			Q3_2: 'Q3_2_value2',
 			Q3_3: 'Q3_3_value3',
-			Q4: 'Q4_value1',
-			Q5: 'Q5_value1',
-			Q6: 'Q6_value2',
-			Q7: 'Q7_value3',
+			Q4: 'Q4_value2',
+			Q5: 'Q5_value2',
+			Q6: 'Q6_value4',
+			Q7: 'Q7_value1',
 		},
 		'product24': {
 			Q1: 'Q1_value3',
@@ -270,8 +270,8 @@ function main() {
 			Q3_3: 'Q3_3_value2',
 			Q4: 'Q4_value1',
 			Q5: 'Q5_value1',
-			Q6: 'Q6_value2',
-			Q7: 'Q7_value3',
+			Q6: 'Q6_value1',
+			Q7: 'Q7_value1',
 		},
 		'product25': {
 			Q1: 'Q1_value2',
@@ -280,7 +280,7 @@ function main() {
 			Q3_2: 'Q3_2_value2',
 			Q3_3: 'Q3_3_value1',
 			Q4: 'Q4_value1',
-			Q5: 'Q5_value1',
+			Q5: 'Q5_value2',
 			Q6: 'Q6_value2',
 			Q7: 'Q7_value3',
 		},
@@ -302,9 +302,9 @@ function main() {
 			Q3_2: 'Q3_2_value3',
 			Q3_3: 'Q3_3_value1',
 			Q4: 'Q4_value1',
-			Q5: 'Q5_value1',
-			Q6: 'Q6_value2',
-			Q7: 'Q7_value3',
+			Q5: 'Q5_value2',
+			Q6: 'Q6_value7',
+			Q7: 'Q7_value4',
 		},
 		'product28': {
 			Q1: 'Q1_value3',
@@ -313,9 +313,9 @@ function main() {
 			Q3_2: 'Q3_2_value1',
 			Q3_3: 'Q3_3_value3',
 			Q4: 'Q4_value1',
-			Q5: 'Q5_value1',
-			Q6: 'Q6_value2',
-			Q7: 'Q7_value3',
+			Q5: 'Q5_value2',
+			Q6: 'Q6_value5',
+			Q7: 'Q7_value4',
 		},
 		'product29': {
 			Q1: 'Q1_value3',
@@ -323,10 +323,10 @@ function main() {
 			Q3_1: 'Q3_1_value1',
 			Q3_2: 'Q3_2_value2',
 			Q3_3: 'Q3_3_value3',
-			Q4: 'Q4_value1',
-			Q5: 'Q5_value1',
+			Q4: 'Q4_value3',
+			Q5: 'Q5_value3',
 			Q6: 'Q6_value2',
-			Q7: 'Q7_value3',
+			Q7: 'Q7_value1',
 		},
 		'product30': {
 			Q1: 'Q1_value3',
@@ -334,9 +334,9 @@ function main() {
 			Q3_1: 'Q3_1_value1',
 			Q3_2: 'Q3_2_value2',
 			Q3_3: 'Q3_3_value3',
-			Q4: 'Q4_value1',
-			Q5: 'Q5_value1',
-			Q6: 'Q6_value2',
+			Q4: 'Q4_value2',
+			Q5: 'Q5_value2',
+			Q6: 'Q6_value1',
 			Q7: 'Q7_value3',
 		},
 		'product31': {
@@ -364,7 +364,25 @@ function main() {
 					changeScreenImg: 'step01 - 1 항목 이미지',
 					popupImg: 'step01 1 항목 팝업.png',
 					productImg: 'step01 1 항목 냉장고 이미지.png',
-				}
+				},
+				colorScreenImg: [
+					{
+						value: 'Q7_value1',
+						screenImg: 'step01 - 항목 1 이미지',
+					},
+					{
+						value: 'Q7_value2',
+						screenImg: 'step01 - 항목 2 이미지',
+					},
+					{
+						value: 'Q7_value3',
+						screenImg: 'step01 - 항목 3 이미지',
+					},
+					{
+						value: 'Q7_value4',
+						screenImg: 'step01 - 항목 4 이미지',
+					},
+				]
 			},
 			{
 				id: '아메리칸 냉장고',
@@ -375,7 +393,25 @@ function main() {
 					changeScreenImg: 'step01 - 2 항목 이미지',
 					popupImg: 'step01 - 2 항목 팝업.png',
 					productImg: 'step01 - 2 항목 냉장고 이미지.png',
-				}
+				},
+				colorScreenImg: [
+					{
+						value: 'Q7_value1',
+						screenImg: 'step02 - 항목 1 이미지',
+					},
+					{
+						value: 'Q7_value2',
+						screenImg: 'step02 - 항목 2 이미지',
+					},
+					{
+						value: 'Q7_value3',
+						screenImg: 'step02 - 항목 3 이미지',
+					},
+					{
+						value: 'Q7_value4',
+						screenImg: 'step02 - 항목 4 이미지',
+					},
+				]
 			},
 			{
 				id: '톨 냉장고',
@@ -386,7 +422,25 @@ function main() {
 					changeScreenImg: 'step01 - 3 항목 이미지',
 					popupImg: 'step01 - 3 항목 팝업.png',
 					productImg: 'step01 - 3 항목 냉장고 이미지.png',
-				}
+				},
+				colorScreenImg: [
+					{
+						value: 'Q7_value1',
+						screenImg: 'step03 - 항목 1 이미지',
+					},
+					{
+						value: 'Q7_value2',
+						screenImg: 'step03 - 항목 2 이미지',
+					},
+					{
+						value: 'Q7_value3',
+						screenImg: 'step03 - 항목 3 이미지',
+					},
+					{
+						value: 'Q7_value4',
+						screenImg: 'step03 - 항목 4 이미지',
+					},
+				]
 			}
 		],
 		// 질문페이지 사전 정의 
@@ -423,22 +477,22 @@ function main() {
 			},
 			{
 				finderStep: 'step05',
-				questionText: 'step04 - 질문?',
-				defaultScreenImg: 'step04 - default 이미지',
+				questionText: 'step05 - 질문?',
+				defaultScreenImg: 'step05 - default 이미지',
 				interactionPage: true, // 인터렉트 페이지 유/무 정의
 				appliancePopup: false, // 팝업 유/무 정의
 			},
 			{
 				finderStep: 'step06',
-				questionText: 'step04 - 질문?',
-				defaultScreenImg: 'step04 - default 이미지',
+				questionText: 'step06 - 질문?',
+				defaultScreenImg: 'step06 - default 이미지',
 				interactionPage: false, // 인터렉트 페이지 유/무 정의
 				appliancePopup: false, // 팝업 유/무 정의
 			},
 			{
 				finderStep: 'step07',
-				questionText: 'step04 - 질문?',
-				defaultScreenImg: 'step04 - default 이미지',
+				questionText: 'step07 - 질문?',
+				defaultScreenImg: 'step07 - default 이미지',
 				interactionPage: true, // 인터렉트 페이지 유/무 정의
 				appliancePopup: false, // 팝업 유/무 정의
 			},
@@ -453,6 +507,7 @@ function main() {
 					changeData: {
 						description: 'step01 - 항목 1 디스크립션',
 						icon: 'step01 - 항목 1 아이콘',
+						screenImg: 'step01 - 항목 1 이미지',
 					}
 				},
 				{
@@ -462,6 +517,7 @@ function main() {
 					changeData: {
 						description: 'step01 - 항목 2 디스크립션',
 						icon: 'step01 - 항목 2 아이콘',
+						screenImg: 'step01 - 항목 2 이미지',
 					}
 				},
 				{
@@ -471,6 +527,7 @@ function main() {
 					changeData: {
 						description: 'step01 - 항목 3 디스크립션',
 						icon: 'step01 - 항목 3 아이콘',
+						screenImg: 'step01 - 항목 3 이미지',
 					}
 				},
 			],
@@ -558,7 +615,6 @@ function main() {
 					content: 'Q4_content1',
 					changeData: {
 						description: 'step04 - 항목 1 디스크립션',
-						icon: 'step04 - 항목 1 아이콘',
 						screenImg: 'step04 - 항목 1 이미지',
 					}
 				},
@@ -567,8 +623,10 @@ function main() {
 					value: 'Q4_value2',
 					content: 'Q4_content2',
 					changeData: {
-						description: 'step04 - 항목 2 디스크립션',
-						icon: 'step04 - 항목 2 아이콘',
+						description: {
+							head: 'step04 - 항목 2 디스크립션',
+							detail: 'step04 - 항목 2 디테일 디스크립션'
+						},
 						screenImg: 'step04 - 항목 2 이미지',
 					}
 				},
@@ -577,8 +635,10 @@ function main() {
 					value: 'Q4_value3',
 					content: 'Q4_content3',
 					changeData: {
-						description: 'step04 - 항목 3 디스크립션',
-						icon: 'step04 - 항목 3 아이콘',
+						description: {
+							head: 'step04 - 항목 3 디스크립션',
+							detail: 'step04 - 항목 3 디테일 디스크립션'
+						},
 						screenImg: 'step04 - 항목 3 이미지',
 					}
 				},
@@ -588,8 +648,158 @@ function main() {
 					content: 'Q4_content4',
 					changeData: {
 						description: 'step04 - 항목 4 디스크립션',
-						icon: 'step04 - 항목 4 아이콘',
 						screenImg: 'step04 - 항목 4 이미지',
+					}
+				},
+			],
+			[
+				{
+					key: 'Q5',
+					value: 'Q5_value1',
+					content: 'Q5_content1',
+					changeData: {
+						description: {
+							head: 'step05 - 항목 1 디스크립션',
+							detail: 'step05 - 항목 1 디테일 디스크립션'
+						},
+						screenImg: 'step05 - 항목 1 이미지',
+					}
+				},
+				{
+					key: 'Q5',
+					value: 'Q5_value2',
+					content: 'Q5_content2',
+					changeData: {
+						description: 'step05 - 항목 2 디스크립션',
+						screenImg: 'step05 - 항목 2 이미지',
+					}
+				},
+				{
+					key: 'Q5',
+					value: 'Q5_value3',
+					content: 'Q5_content3',
+					changeData: {
+						description: {
+							head: 'step05 - 항목 3 디스크립션',
+							detail: 'step05 - 항목 3 디테일 디스크립션'
+						},
+						screenImg: 'step05 - 항목 3 이미지',
+					}
+				},
+			],
+			[
+				{
+					key: 'Q6',
+					value: 'Q6_value1',
+					content: 'Q6_content1',
+					changeData: {
+						description: 'step06 - 항목 1 디스크립션',
+						icon: 'step06 - 항목 1 아이콘',
+						screenImg: 'step06 - 항목 1 이미지',
+					}
+				},
+				{
+					key: 'Q6',
+					value: 'Q6_value2',
+					content: 'Q6_content2',
+					changeData: {
+						description: 'step06 - 항목 2 디스크립션',
+						icon: 'step06 - 항목 2 아이콘',
+						screenImg: 'step06 - 항목 2 이미지',
+					}
+				},
+				{
+					key: 'Q6',
+					value: 'Q6_value3',
+					content: 'Q6_content3',
+					changeData: {
+						description: {
+							head: 'step06 - 항목 3 디스크립션',
+							detail: 'step06 - 항목 3 디테일 디스크립션'
+						},
+						icon: 'step06 - 항목 3 아이콘',
+						screenImg: 'step06 - 항목 3 이미지',
+					}
+				},
+				{
+					key: 'Q6',
+					value: 'Q6_value4',
+					content: 'Q6_content4',
+					changeData: {
+						description: 'step06 - 항목 4 디스크립션',
+						icon: 'step06 - 항목 4 아이콘',
+						screenImg: 'step06 - 항목 4 이미지',
+					}
+				},
+				{
+					key: 'Q6',
+					value: 'Q6_value5',
+					content: 'Q6_content5',
+					changeData: {
+						description: {
+							head: 'step06 - 항목 5 디스크립션',
+							detail: 'step06 - 항목 5 디테일 디스크립션'
+						},
+						icon: 'step06 - 항목 5 아이콘',
+						screenImg: 'step06 - 항목 5 이미지',
+					}
+				},
+				{
+					key: 'Q6',
+					value: 'Q6_value6',
+					content: 'Q6_content6',
+					changeData: {
+						description: 'step06 - 항목 6 디스크립션',
+						icon: 'step06 - 항목 6 아이콘',
+						screenImg: 'step06 - 항목 6 이미지',
+					}
+				},
+				{
+					key: 'Q6',
+					value: 'Q6_value7',
+					content: 'Q6_content7',
+					changeData: {
+						description: 'step06 - 항목 7 디스크립션',
+						icon: 'step06 - 항목 7 아이콘',
+						screenImg: 'step06 - 항목 7 이미지',
+					}
+				},
+			],
+			[
+				{
+					key: 'Q7',
+					value: 'Q7_value1',
+					content: 'Q7_content1',
+					changeData: {
+						description: 'step07 - 항목 1 디스크립션',
+						screenImg: 'step07 - 항목 1 이미지',
+					}
+				},
+				{
+					key: 'Q7',
+					value: 'Q7_value2',
+					content: 'Q7_content2',
+					changeData: {
+						description: 'step07 - 항목 2 디스크립션',
+						screenImg: 'step07 - 항목 2 이미지',
+					}
+				},
+				{
+					key: 'Q7',
+					value: 'Q7_value3',
+					content: 'Q7_content3',
+					changeData: {
+						description: 'step07 - 항목 3 디스크립션',
+						screenImg: 'step07 - 항목 3 이미지',
+					}
+				},
+				{
+					key: 'Q7',
+					value: 'Q7_value4',
+					content: 'Q7_content4',
+					changeData: {
+						description: 'step07 - 항목 4 디스크립션',
+						screenImg: 'step07 - 항목 4 이미지',
 					}
 				},
 			],
@@ -607,13 +817,14 @@ function main() {
 			let judgmentStep = 'nextStep';
 
 			// 인터렉션 페이지 true 일 때 실행
-			// if (interaction && $('.answer_btn.active').length > 0) {
-			// 	$('#quickFinder').css('display', 'none');
-			// 	$('.popup_step01').css('display', 'block');
-			// 	$('.popup_step01 .' + _selectData[0].class).css('display', 'block');
-			// }
-			// if (idx < ConfigData.finderSetting.length - 1 && $(this).hasClass('active')) {
-			if (idx < ConfigData.finderSetting.length - 1) {
+			if (interaction && $('.answer_btn.active').length > 0) {
+				$('#quickFinder').css('display', 'none');
+				$('.popup_step01').css('display', 'block');
+				$('.popup_step01 .' + _selectData[0].class).css('display', 'block');
+			}
+
+			console.log(_selectData)
+			if (idx < ConfigData.finderSetting.length - 1 && $(this).hasClass('active')) {
 				idx++;
 				stepUpdateEvent(idx, judgmentStep);
 			}
@@ -639,27 +850,30 @@ function main() {
 		let appliancePopup = ConfigData.finderSetting[idx].appliancePopup;
 		let htmlIdx = idx; // 항목 별 index
 		if (idx > 2) { htmlIdx += 2; }// 페이지 데이터 index
-		let currentKey = Object.keys(ConfigData.htmlData)[htmlIdx]; // 현재 스텝의 key 값
 		let currentHtml = ConfigData.htmlData[htmlIdx]; // 현재 스텝의 항목 데이터
-		let prevKey = Object.keys(ConfigData.htmlData)[htmlIdx - 1];
 		let lastAnswerValue; // 저장된 데이터에서 마지막 value
 		let _array = []; // 스텝별 제품 추출
-
-		// interaction = interactionPage; // 인터렉션 페이지 유/무
+		interaction = interactionPage; // 인터렉션 페이지 유/무
 
 		// step1 의 Q1 key 값 담기
-		// if (idx === 1) {
-		// 	Q1Key = _select[prevKey][0];
-		// }
+		if (idx === 1) {
+			Q1Key = _select[0].split('=')[1];
+		}
 
-		// step1 에서 선택된 데이터 추출
-		// let selectObject = ConfigData.object.filter(item => {
-		// 	return item.key === Q1Key
-		// });
+		// // step1 에서 선택된 데이터 추출
+		let selectObject = ConfigData.object.filter(item => {
+			return item.key === Q1Key
+		});
+
+
+
+
 
 		// 해당 스텝 정보
 		// console.log('----step--------------------------------------------------------------');
-		// console.log('idx (현재스텝 index) : ', idx);
+		console.log('idx (스텝별 index) : ', idx);
+		console.log('stepCount (스텝별 카운팅) : ', stepCount)
+		console.log('_select (선택된 value) : ', _select)
 		// console.log('interactionPage (인터렉트 페이지 유/ 무) : ', interactionPage);
 		// console.log('htmlIdx : ', htmlIdx)
 		// console.log('현재 스텝의 key : ', currentKey)
@@ -668,8 +882,8 @@ function main() {
 		// console.log('_stepProduct (스텝별 매칭된 제품) : ', _stepProduct);
 
 
-		judgmentStep === 'backStep' && _currentProduct.pop(); // 앞전 데이터 삭제
-
+		// 앞전 데이터 삭제
+		judgmentStep === 'backStep' && _currentProduct.pop();
 
 		// active 풀기
 		$('#nextStepBtn').removeClass('active');
@@ -686,16 +900,17 @@ function main() {
 		// 해당 이미지 뿌리기
 		$('#qnaImgWrap img').attr('alt', ConfigData.finderSetting[idx].defaultScreenImg);
 		// $('#qnaImgWrap').attr('style', 'background-image:url'  ConfigData.finderSetting[idx].defaultScreenImg);
-		// console.log(ConfigData.finderSetting[idx].defaultScreenImg)
 
 		// 팝업창 해당 이미지로 변경
-		// if (appliancePopup) {
-		// 	$('.popup_step03').css('display', 'block');
-		// 	$('.popup_step03 .' + selectObject[0].class).css('display', 'block');
-		// } else {
-		// 	$('.popup_step03').css('display', 'none');
-		// 	$('.popup_step03 .popup_wrap div').css('display', 'none');
-		// }
+		if (appliancePopup) {
+			classC = selectObject[0].class;
+			$('.popup_step03').css('display', 'block');
+			$('.popup_step03 .' + classC).css('display', 'block');
+		} else {
+			$('.popup_step03').css('display', 'none');
+			$('.popup_step03 .popup_wrap div').css('display', 'none');
+		}
+
 
 		// 항목 버튼 초기화 
 		$('#selectWrap').html('<button type="button" class="caution_open_btn">Click here for a guide to dimensions and measurement.</button><p class="select_tit"><em>You Can Select Multiple Choices.</em></p>');
@@ -721,114 +936,135 @@ function main() {
 			$('#selectWrap ol').append(liHtml);
 		}
 
-		console.log('_select : ', _select);
-		console.log('stepCount : ', stepCount);
+
+		// 선택된 제품 추출 부분
+		// step 1 부터 시작되는 부분
+		if (idx === 1 && _currentProduct.length < 1) {
+			// 마지막에 선택한 value 값 추출
+			let selectKey = _select[_select.length - 1].split('=')[0]; // key
+			let selectValue = _select[_select.length - 1].split('=')[1]; // value
+			for (let key in product) {
+				// // value 값 비교
+				if (product[key][selectKey] === selectValue) {
+					_array.push(product[key]);
+				}
+			}
+			_currentProduct.push(_array);
+		}
 
 
+		// step 2 부터 동작
+		if (idx > 1 && _currentProduct[idx - 1] === undefined) { // back 했을때를 고려해서 undefined 구분
+			if (idx === 3) {
+				let _wholeKey = []; // 선택한 key 값 
+				let _lastPro = _currentProduct[_currentProduct.length - 1]; // 라스트 추출 제품 가져오기
 
+				for (let j = 0; j < stepCount[stepCount.length - 1]; j++) {
+					let selectKey = _select[_select.length - (1 + j)].split('=')[0]; // key
+					_wholeKey.push(selectKey);
+				}
 
+				let restKey = Array.from(new Set(_wholeKey)); // select 한 value의 중복 제거 된 key 값 추출
 
+				// 제품 갯수만큼 for 문 실행
+				for (let i = 0; i < _lastPro.length; i++) {
+					let judgmentNum = 0; // true 된 갯수 판단
+					// 선택한 value 값 추출
+					for (let j = 0; j < stepCount[stepCount.length - 1]; j++) {
+						let selectKey = _select[_select.length - (1 + j)].split('=')[0]; // key
+						let selectValue = _select[_select.length - (1 + j)].split('=')[1]; // value
+						for (let p = 0; p < restKey.length; p++) {
 
-
-
-		if (idx === 1) {
-			console.log('step2 다');
-			// product 갯수만큼 for 문 실행
-			if (_currentProduct.length < 1) {
-				for (let key in product) {
-					// 마지막에 선택한 value 값 추출
-					for (let i = 0; i < stepCount[stepCount.length - 1]; i++) {
-						let selectKey = _select[_select.length - (1 + i)].split('=')[0]; // key
-						let selectValue = _select[_select.length - (1 + i)].split('=')[1]; // value
-
-						// value 값 비교
-						if (product[key][selectKey] === selectValue) {
-							_array.push(product[key])
+							// value값 비교해서 같으면 ++
+							if (_lastPro[i][restKey[p]] === selectValue) {
+								// console.log(_lastPro[i][restKey[p]], selectValue, _lastPro[i][restKey[p]] === selectValue, _lastPro[i])
+								judgmentNum++
+							}
 						}
+					}
+					// 선택한 key 만큼 judgmentNum 의 true 된 갯수가 동일 할 때의 제품을 추출
+					if (judgmentNum === restKey.length) {
+						_array.push(_lastPro[i]);
 					}
 				}
 				_currentProduct.push(_array);
-			}
-		}
-		if (idx !== 0 && idx > 1) {
-			if (idx === 3) {
-				console.log('step 해당되나요???????')
-
 			} else {
-				// console.log('step2 이상');
 				let _lastPro = _currentProduct[_currentProduct.length - 1];
-				// 추출된 마지막 제품 갯수만큼 for 문 실행 
-				// console.log(_lastPro)
+
+				// 추출된 마지막 제품 갯수 만큼 for 문 실행 
 				for (let i = 0; i < _lastPro.length; i++) {
 					// 마지막에 선택한 value 값 추출
+					let num = 0;
 					for (let j = 0; j < stepCount[stepCount.length - 1]; j++) {
 						let selectKey = _select[_select.length - (1 + j)].split('=')[0]; // key
 						let selectValue = _select[_select.length - (1 + j)].split('=')[1]; // value
 
 						// value 값 비교
 						if (_lastPro[i][selectKey] === selectValue) {
-							_array.push(_lastPro[i])
+							_array.push(_lastPro[i]);
 						}
 					}
 				}
 				_currentProduct.push(_array);
-				console.log('키키키키')
 			}
 		}
 
 
-		// disabled 가르기
-		// console.log(_currentProduct)
 
+
+
+		// disabled 구분하기
 		if (idx !== 0) {
-			var dataValue = [];
-			$('#selectWrap ol').find('li').find('button').attr('disabled', true); // default disabled true
-			// console.debug('dkssuddfskljflsdkfjl')
+			var _dataValue = [];
+			$('.answer_btn').attr('disabled', true); // default disabled true
+			var _multiArray = [[], [], []]; // step 3 다중 배열
+
 			let _lastPro = _currentProduct[_currentProduct.length - 1];
 			// 추출된 마지막 제품 갯수만큼 for 문 실행 
 			for (let i = 0; i < _lastPro.length; i++) {
-				// console.log(_lastPro[i]);
-				// console.log('Q' + (idx + Number(1)))
-				dataValue.push(_lastPro[i]['Q' + (idx + Number(1))])
-				// console.log(_lastPro[i]['Q' + (idx + Number(1))]);
-				// $('.answer_btn[data-value="' + _lastPro[i]['Q' + (idx + Number(1))] + '"]').attr('disabled', false);
-				// console.log($('.answer_btn[data-value="' + _lastPro[i]['Q' + (idx + Number(1))] + '"]'))
-			}
-			let _arrayValue = Array.from(new Set(dataValue));
-			// 뿌리는거 
-			for (let i = 0; i < _arrayValue.length; i++) {
-				$('.answer_btn[data-value="' + _arrayValue[i]).attr('disabled', false);
+				_dataValue.push(_lastPro[i]['Q' + (idx + Number(1))])
+				if (idx === 2) {
+					for (let j = 0; j < $('#selectWrap').find('li').length; j++) {
+						_multiArray[j].push(_lastPro[i]['Q3_' + (j + 1)])
+					}
+				}
 			}
 
+			// disabled 하기 -----------------------------------------------------------------------------------------
+			let _arrayDataValue = Array.from(new Set(_dataValue)); // 추출된 제품 중복되는 value 제거한 나머지 최종 value
+			for (let i = 0; i < _arrayDataValue.length; i++) {
+				$('.answer_btn[data-value="' + _arrayDataValue[i]).attr('disabled', false);
+			}
 			if (idx === 2) {
-				// console.log('step 3')
+				// step 3
+				let _arrayDataValueStep3 = []; // step 3 의 중복 value 제거 최종 value 배열
+				for (let i = 0; i < _multiArray.length; i++) {
+					_arrayDataValueStep3.push(Array.from(new Set(_multiArray[i])))
+				}
+				// console.log('_arrayDataValueStep3 (추출된 제품에서 중복되는 value 제거한 나머지) : ', _arrayDataValueStep3)
+
+				// disabled 하기
+				for (let i = 0; i < _arrayDataValueStep3.length; i++) {
+					for (let j = 0; j < _arrayDataValueStep3[i].length; j++) {
+						// console.log(_arrayDataValueStep3[i][j])
+						$('.answer_btn[data-value="' + _arrayDataValueStep3[i][j]).attr('disabled', false);
+					}
+				}
 			}
 		}
 
+		// 첫번째 선택지에서 선택한 이미지 추출
+		if (idx === 1) {
+			$('#qnaImgWrap img').attr('alt', selectObject[0].screenImg.changeScreenImg);
+		} else if (idx === 2) {
+			$('#qnaImgWrap img').attr('alt', selectObject[0].screenImg.changeScreenImg);
+		}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+		// backStep
 		if (judgmentStep === 'backStep') {
 			$('.que_title').css('display', 'none');
-			$('.qna_description').css('display', 'block');
+			$('.qna_description').css('display', 'none');
+			$('.qna_description01').css('display', 'block');
 			$('#nextStepBtn').addClass('active');
 			$('.show_now_wrap').addClass('active');
 
@@ -861,19 +1097,8 @@ function main() {
 			$('.qna_description').css('display', 'none');
 		}
 
-
-
-		console.log('_array : ', _array)
-		console.log('_currentProduct : ', _currentProduct)
-
-
-
-
-
-
-
-		// answerSelectEvent(idx, htmlIdx, judgmentStep, selectObject); // 항목 클릭 함수
-		answerSelectEvent(idx, htmlIdx, judgmentStep); // 항목 클릭 함수
+		console.log('_currentProduct (스텝별 추출 제품) : ', _currentProduct)
+		answerSelectEvent(idx, htmlIdx, judgmentStep, selectObject); // 항목 클릭 함수
 	}
 
 	function answerSelectEvent(idx, htmlIdx, judgmentStep, selectObject) {
@@ -895,7 +1120,7 @@ function main() {
 
 		// 항목 클릭 
 		$('.answer_btn').on('click', function () {
-			console.log('버튼 클릭 >')
+			// console.log('버튼 클릭 >')
 			let _this = $(this);
 			// let _currentAry = []; // 현재스텝에서만 매칭된 제품 배열
 			let _currentKeyValue = _this.data('key') + '=' + _this.data('value');
@@ -909,6 +1134,12 @@ function main() {
 
 				_select = [];
 				_select.push(_currentKeyValue); // push
+
+				let selectObject = ConfigData.object.filter(item => {
+					return item.key === _select[0].split('=')[1]
+				});
+
+				_selectData = selectObject;
 			} else {
 				// button active
 				if (!_this.hasClass('active')) {
@@ -935,61 +1166,107 @@ function main() {
 				stepCount.push($('.answer_btn.active').length);
 			}
 
-			console.log('stepCount : ', stepCount)
-			console.log('_select : ', _select)
+			// console.log('stepCount : ', stepCount)
+			// console.log('_select : ', _select)
 
 			lastAnswerValue = _select[_select.length - 1].split('=')[1]; //선택된 마지막 value 값 추출
 			// lastAnswerValue = _selectValue; // 마지막 선택한 값
-			sprayData(idx, currentHtml, lastAnswerValue); // 선택한 항목의 대한 데이터 뿌리기
+			sprayData(idx, currentHtml, lastAnswerValue, selectObject); // 선택한 항목의 대한 데이터 뿌리기
+
+
+			$('.answer_btn').each(function () {
+				$(this).removeClass('select');
+				if ($(this).data('value') === lastAnswerValue) {
+					$(this).addClass('select')
+				}
+			})
 
 
 			// 하나 이상 선택시 active 되는 부분
 			if ($('.answer_btn.active').length > 0) {
 				$('.que_title').css('display', 'none');
-				$('.qna_description').css('display', 'block');
 				$('#nextStepBtn').addClass('active');
 				$('.show_now_wrap').addClass('active');
+				$('.qna_description').css('display', 'none');
+				$('.qna_description01').css('display', 'block');
+				// step 3 예외처리
+				if (idx === 2) {
+					if ($('.qna_description02.open').length > 0) {
+						$('.qna_description01').css('display', 'none');
+					}
+				}
 			} else {
 				$('.que_title').css('display', 'block');
 				$('.qna_description').css('display', 'none');
+				$('.qna_description02').removeClass('open');
 				$('#nextStepBtn').removeClass('active');
 				$('.show_now_wrap').removeClass('active');
 			}
 		});
 	}
 
+
+
+
 	// 현재 클릭한 항목에 대한 데이터 뿌리기
-	function sprayData(idx, currentHtml, lastAnswerValue) {
+	function sprayData(idx, currentHtml, lastAnswerValue, selectObject) {
 		// value 저장 배열의 마지막 value 값과 매칭되는 항목 데이터 가져오기
 		let selectData = currentHtml.filter(item => {
 			return item.value === lastAnswerValue
 		});
+		let selectColor;
+		if (idx === 6) {
+			selectColor = selectObject[0].colorScreenImg.filter(item => {
+				return item.value === lastAnswerValue
+			});
+		}
 
-		// console.log('selectData : ', selectData)
+
+		// $('.qna_description .txt_box i').css('display','none');
+		$('.qna_description01').removeClass('more');
 
 		// 선택한 항목 데이터 뿌리기
 		if ($('.answer_btn.active').length > 0) {
-
-			// $('.qna_description .txt_box p').text(selectData[0].changeData.description);
-			// 공통 뿌리기
-			if (idx === 0) {
-				$('.qna_description .txt_box p').text(selectData[0].changeData.description);
-				$('#qnaImgWrap img').attr('alt', selectData[0].changeData.screenImg);
-			} else if (idx === 2) {
-				let currentHtml = ConfigData.htmlData[2]; // 현재 스텝의 항목 데이터
-				$('.qna_description .txt_box p').text(currentHtml[0].changeData.description.head);
-				$('.qna_description .txt_box i').text(currentHtml[0].changeData.icon);
-			} else {
+			if (idx === 1) {
 				$('.qna_description .txt_box i').text(selectData[0].changeData.icon);
 				$('.qna_description .txt_box p').text(selectData[0].changeData.description);
+			} else if (idx === 2) {
+				let currentHtml = ConfigData.htmlData[2]; // 현재 스텝의 항목 데이터
+				$('.qna_description01').addClass('more');
+				$('.qna_description01 .txt_box p').text(currentHtml[0].changeData.description.head);
+				$('.qna_description01 .txt_box i').text(currentHtml[0].changeData.icon);
+				$('.qna_description02 .txt_box p').text(currentHtml[0].changeData.description.detail);
+			} else if (idx === 6) {
+				$('#qnaImgWrap img').attr('alt', selectColor[0].screenImg);
+				$('.qna_description01 .txt_box p').text(selectData[0].changeData.description);
+			} else {
+				$('#qnaImgWrap img').attr('alt', selectData[0].changeData.screenImg);
+				$('.qna_description01 .txt_box p').text(selectData[0].changeData.description.head);
+				$('.qna_description02 .txt_box p').text(selectData[0].changeData.description.detail);
+				if (selectData[0].changeData.description.head !== undefined) {
+					$('.qna_description').addClass('more');
+					$('.qna_description01 .txt_box p').text(selectData[0].changeData.description.head);
+					$('.qna_description02 .txt_box p').text(selectData[0].changeData.description.detail);
+				} else {
+					$('.qna_description').removeClass('more');
+					$('.qna_description01 .txt_box p').text(selectData[0].changeData.description);
+				}
 			}
 		}
 	}
 
 	// 디스클레이머 닫기
-	$('.disc_more_btn').on('click', function () {
-		// $(this).parents('.qna_description').css('display','none');
+	$('#descMoreBtn').on('click', function () {
+		$('.qna_description02').css('display', 'block');
+		$('.qna_description01').css('display', 'none');
+		$('.qna_description02').addClass('open');
 	});
+
+	$('#detailCloseBtn').on('click', function () {
+		$('.qna_description02').css('display', 'none');
+		$('.qna_description01').css('display', 'block');
+		$('.qna_description02').removeClass('open');
+	})
 
 	// 사이즈 팝업 닫기
 	$('.popup_close_btn').on('click', function () {
@@ -1005,8 +1282,12 @@ function main() {
 		$('.popup_step01 .popup_wrap').css('display', 'none');
 	});
 
-	$('html,body').on('click', 'caution_open_btn', function () {
+	// 사이즈 팝업 
+	$('html,body').on('click', '.caution_open_btn', function () {
 		$('.popup_step03').css('display', 'block');
+		$('.popup_step03 .' + classC).css('display', 'block');
+		// console.log('야야야야야양!!')
+		console.log(classC)
 	});
 
 	// 퀵파인더 start
@@ -1028,4 +1309,21 @@ function main() {
 	});
 
 	stepChangeEvent(0);
+
+
+	var popupStep05swiper = new Swiper(".popup_step05_slide", {
+		pagination: {
+			 el: ".popup_step05 .indicator",
+		},
+		observe: true,
+		effect: "fade"
+  });
+
+  var popupStep07swiper = new Swiper(".popup_step07_slide", {
+		pagination: {
+			 el: ".popup_step07 .indicator",
+		},
+		observe: true,
+		effect: "fade"
+  });
 }

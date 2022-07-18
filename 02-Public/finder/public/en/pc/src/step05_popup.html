@@ -1,0 +1,437 @@
+@@include("./include/header.html")
+
+<!-- Enter Code Here -->
+<link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css">
+<script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
+<div id="quickFinder" class="step05" style="display: none;">
+    <!--navigation-->
+    <div id="finderNav">
+        <ul>
+            <li>
+                <strong>1</strong>
+                <p>PRODUCT TYPE</p>
+            </li>
+            <li>
+                <strong>2</strong>
+                <p>PRODUCT CAPACITY</p>
+            </li>
+            <li>
+                <strong>3</strong>
+                <p>PRODUCT SIZE</p>
+            </li>
+            <li>
+                <strong>4</strong>
+                <p>Ice & Water Dispenser</p>
+            </li>
+            <li>
+                <strong>5</strong>
+                <p>KEY FEATURE</p>
+            </li>
+            <li>
+                <strong>6</strong>
+                <p>ADDITIONAL FEATURES</p>
+            </li>
+            <li>
+                <strong>7</strong>
+                <p>PRODUCT COLOUR</p>
+            </li>
+        </ul>
+    </div>
+    <!--//navigation-->
+
+    <!--question & answer area-->
+    <div class="qna_wrap">
+        <strong class="que_title">Which key feature of a fridge is your priority?</strong>
+        <div class="qna_description qna_description01">
+            <strong>Which key feature of a fridge is your priority?</strong>
+            <div class="txt_box">
+                <p>Enjoy fresh food with LG’s temperature control and cooling technology. </p>
+                <button type="button" class="disc_more_btn" style="display: inline-block;">LOAD MORE</button>
+            </div>
+        </div>
+        <div class="qna_description qna_description02" style="display: none;">
+            <div class="txt_box">
+                <p>
+                    High-tech features like Linear Cooling,
+                    Door Cooling+, and etc,
+                    lets you keep food fresher, longer.
+                </p>
+                <button type="button" class="disc_more_btn">CLOSE</button>
+            </div>
+        </div>
+    </div>
+    <!--//question & answer area-->
+
+    <!--question image-->
+    <div id="qnaImgWrap" style="background-image:url(./images/step05/que_img01.png);"></div>
+    <!--//question image-->
+
+    <!--선택 항목 버튼-->
+    <!--선택 된 항목은 button에 active 클래스-->
+    <!--선택 불가 항목은 button에 disable 클래스-->
+    <div id="selectWrap">
+        <p class="select_tit">
+            <em>You Can Select Multiple Choices.</em>
+        </p>
+        <ol>
+            <li>
+                <button type="button" class="disable exclusively_badge">
+                    <i></i>
+                    <p>Long-lasting Freshness</p>
+                </button>
+            </li>
+            <li>
+                <button type="button" class="active exclusively_badge">
+                    <i></i>
+                    <p>Ventilation</p>
+                </button>
+            </li>
+            <li>
+                <button type="button">
+                    <i></i>
+                    <p>A or better Energy Ratings</p>
+                </button>
+            </li>
+        </ol>
+    </div>
+    <!--//선택 항목 버튼-->
+    <!--항목 선택되면 nextStepBtn id에 active 클래스 추가-->
+    <div class="step_move_wrap">
+        <button type="button" id="backStepBtn">prev button</button>
+        <button type="button" id="nextStepBtn">Next <i></i></button>
+    </div>
+    <!--항목 선택 후 버튼 올리려면 show_now_wrap 클래스에 active 추가-->
+    <div class="show_now_wrap">
+        <img src="./images/common/shop_now_character.png" alt="button character">
+        <button type="button" id="shopNowBtn">#SHOP NOW <i></i></button>
+    </div>
+</div>
+
+<!--step1 next 버튼 이후 팝업-->
+<!--popup_step01 none:block-->
+<!--popup_wrap에서 필요한 제품군 block / class 명칭은 이후에 필터 값으로 변경-->
+<div class="popup_step01">
+    <div class="popup_wrap multi">
+        <div class="tit_wrap">
+            <i></i>
+            <strong>Multi Door Fridge Freezer</strong>
+        </div>
+        <div class="popup_con">
+            <strong>
+                A fitting choice for large <br>
+                households or food lovers.
+            </strong>
+            <div class="txt_wrap">
+                <img src="./images/step01/popup_contents_img01.png" alt="family & Multi Door Fridge Freezer">
+                <div class="txt_box">
+                    <p>
+                        Fits effortlessly into smaller spaces,
+                        ideal for prudent grocery shoppers
+                        who store small smounts of food.
+                        It is a decades-long steady-seller
+                        in the UK, chosen by
+                        nearly half of its households.
+                    </p>
+                    <button type="button" class="close_btn">Moving on</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="popup_wrap american">
+        <div class="tit_wrap">
+            <i></i>
+            <strong>American Style Fridge Freezer</strong>
+        </div>
+        <div class="popup_con">
+            <strong>
+                A nice choice for those who <br>
+                use the freezer frequently.
+            </strong>
+            <div class="txt_wrap">
+                <img src="./images/step01/popup_contents_img02.png" alt="cooking & American Style Fridge Freezer">
+                <div class="txt_box">
+                    <p>
+                        Its fridge and freezer sections are
+                        positioned  next to each other,
+                        making both easy to reach.
+                        This vertically arranged side-by-side'
+                        or 'double door' type is spacious.
+                        It offers lots of space with our
+                        largest model, and is chosen by nearly
+                        a quarter of UK households.
+                    </p>
+                    <button type="button" class="close_btn">Moving on</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="popup_wrap tall">
+        <div class="tit_wrap">
+            <i></i>
+            <strong>Tall Fridge Freezer</strong>
+        </div>
+        <div class="popup_con">
+            <strong>
+                A sleek and practical option <br>
+                for space-saving.
+            </strong>
+            <div class="txt_wrap">
+                <img src="./images/step01/popup_contents_img03.png" alt="best seller & Tall Fridge Freezer">
+                <div class="txt_box">
+                    <p>
+                        Fit effortlessly into smaller
+                        spaces and ideal for fewer people.
+                        It is a decades-long
+                        steady-seller in the UK,
+                        chosen by nearly half of
+                        its households.
+                    </p>
+                    <button type="button" class="close_btn">Moving on</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--//step1 next 버튼 이후 팝업-->
+
+<!--step3 사이즈 팝업-->
+<div class="popup_step03">
+    <div class="popup_wrap">
+        <strong>Size Guide</strong>
+        <div class="multi"><img src="./images/step03/popup_img01.jpg" alt="Multi Door Fridge Freezer, width/height/depth"></div>
+        <div class="american"><img src="./images/step03/popup_img02.jpg" alt="American Style Fridge Freezer, width/height/depth"></div>
+        <div class="tall"><img src="./images/step03/popup_img03.jpg" alt="Tall Fridge Freezer, width/height/depth"></div>
+        <button type="button" class="popup_close_btn">Close button</button>
+    </div>
+</div>
+<!--//step3 사이즈 팝업-->
+
+<!--step5 영상 팝업-->
+<div class="popup_movie_step05">
+    <div class="popup_wrap">
+        <strong>Pure N Fresh</strong>
+        <div class="long">
+            <video loop playsinline="" controls muted="">
+                <source src="./datafile/step05_video01.mp4" type="video/mp4">
+            </video>
+        </div>
+        <div class="energy">
+            <video loop playsinline="" controls muted="">
+                <source src="./datafile/step05_video01.mp4" type="video/mp4">
+            </video>
+        </div>
+        <button type="button" class="popup_close_btn">Close button</button>
+    </div>
+</div>
+<!--//step5 영상 팝업-->
+
+
+<!--step5 next 버튼 이후 팝업-->
+<div class="popup_step05" style="display: block;">
+    <div class="popup_wrap">
+        <div class="popup_step05_slide">
+            <ol class="swiper-wrapper">
+                <li class="swiper-slide" style="display: block;">
+                    <div class="tit_wrap">
+                        <i></i>
+                        <strong>Long-lasting freshness</strong>
+                    </div>
+                    <div class="popup_con">
+                        <strong>
+                            Keep your food fresher, <br>
+                            for longer.
+                        </strong>
+                        <div class="txt_wrap">
+                            <img src="./images/step05/popup_contents_img01.png" alt="Long-lasting freshness">
+                            <div class="txt_box">
+                                <div>
+                                    <p>
+                                        Enjoy garden-fresh produce
+                                        and groceries with evenly
+                                        distributed coolness from
+                                        LG's temperature control and
+                                        cooling technology.
+                                    </p>
+                                </div>
+                                <button type="button" class="close_btn">Your results are ready!</button>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li class="swiper-slide" style="display: block;">
+                    <div class="tit_wrap">
+                        <i></i>
+                        <strong>Ventilation</strong>
+                    </div>
+                    <div class="popup_con">
+                        <strong>
+                            Fresh air filter (Pure N Fresh)
+                            actively absorbs
+                            unwated odor paricles.
+                        </strong>
+                        <div class="txt_wrap">
+                            <img src="./images/step05/popup_contents_img02.png" alt="Long-lasting freshness">
+                            <div class="txt_box">
+                                <div>
+                                    <p>
+                                        Pure N Fresh uses a powerful
+                                        fan and a carbon filter to
+                                        keep fridge air fresh.
+                                    </p>
+                                </div>
+                                <button type="button" class="close_btn">Your results are ready!</button>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li class="swiper-slide" style="display: block;">
+                    <div class="tit_wrap">
+                        <i></i>
+                        <strong>A or better Energy Ratings</strong>
+                    </div>
+                    <div class="popup_con">
+                        <strong>
+                            Save on your energy bills
+                            with high energy ratings.
+                        </strong>
+                        <div class="txt_wrap">
+                            <img src="./images/step05/popup_contents_img03.png" alt="Long-lasting freshness">
+                            <div class="txt_box">
+                                <div>
+                                    <p>
+                                        LG's exclusive feature
+                                        Inverter LINEAR Compressor™
+                                        saves more energy compared to
+                                        a conventional compressor,
+                                        saving your bills and our planet.
+                                    </p>
+                                </div>
+                                <button type="button" class="close_btn">Your results are ready!</button>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+            </ol>
+        </div>
+        <div class="indicator"></div>
+    </div>
+</div>
+<!--//step5 next 버튼 이후 팝업-->
+
+<!--step7 result 버튼 이후 팝업-->
+<div class="popup_step07" style="display: none;">
+    <div class="popup_wrap">
+        <div class="popup_step07_slide">
+            <ol class="swiper-wrapper">
+                <li class="swiper-slide">
+                    <div class="tit_wrap">
+                        <i></i>
+                        <strong>Black</strong>
+                    </div>
+                    <div class="popup_con">
+                        <strong>
+                            Black will never go out <br>
+                            of fashion!
+                        </strong>
+                        <div class="txt_wrap">
+                            <img src="./images/step07/popup_contents_img01.png" alt="Long-lasting freshness">
+                            <div class="txt_box">
+                                <div>
+                                    <p>
+                                        Matte black surfaces are
+                                        less likely
+                                        to be covered by fingerprints
+                                        from frequent use.
+                                    </p>
+                                </div>
+                                <button type="button" class="close_btn">Your results are ready!</button>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li class="swiper-slide">
+                    <div class="tit_wrap">
+                        <i></i>
+                        <strong>Stainless Steel</strong>
+                    </div>
+                    <div class="popup_con">
+                        <strong>
+                            This sleek shade blends in <br>
+                            effortlessly<br>
+                            with various styles.
+                        </strong>
+                        <div class="txt_wrap">
+                            <img src="./images/step07/popup_contents_img02.png" alt="Long-lasting freshness">
+                            <div class="txt_box">
+                                <div class="">
+                                    <p>
+                                        Fingerprints don’t stay on <br>
+                                        metal textures, so you won't<br>
+                                        need to wipe frequently to<br>
+                                        maintain its sleek appearance.
+                                    </p>
+                                </div>
+                                <button type="button" class="close_btn">Your results are ready!</button>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li class="swiper-slide">
+                    <div class="tit_wrap">
+                        <i></i>
+                        <strong>Silver</strong>
+                    </div>
+                    <div class="popup_con">
+                        <strong>
+                            This steady-selling colour <br>
+                            goes well with any kitchen <br>
+                            interior, mood or look.
+                        </strong>
+                        <div class="txt_wrap">
+                            <img src="./images/step07/popup_contents_img03.png" alt="Long-lasting freshness">
+                            <div class="txt_box">
+                                <div class="">
+                                    <p>
+                                        Silver goes well <br>
+                                        with various colours and<br>
+                                        interior styles.
+                                    </p>
+                                </div>
+                                <button type="button" class="close_btn">Your results are ready!</button>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li class="swiper-slide">
+                    <div class="tit_wrap">
+                        <i></i>
+                        <strong>White</strong>
+                    </div>
+                    <div class="popup_con">
+                        <strong>
+                            White is always a classy choice!
+                            You've got good taste.
+                            It is also easy to maintain.
+                        </strong>
+                        <div class="txt_wrap">
+                            <img src="./images/step07/popup_contents_img04.png" alt="Long-lasting freshness">
+                            <div class="txt_box">
+                                <div class="">
+                                    <p>
+                                        Your new fridge will blend
+                                        well with diverse styles
+                                        and material.
+                                    </p>
+                                </div>
+                                <button type="button" class="close_btn">Your results are ready!</button>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+            </ol>
+        </div>
+        <div class="indicator"></div>
+    </div>
+</div>
+<!--//step7 result 버튼 이후 팝업-->
+@@include("./include/footer.html")

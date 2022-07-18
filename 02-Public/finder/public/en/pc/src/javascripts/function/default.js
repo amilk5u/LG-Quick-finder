@@ -17,6 +17,6 @@ $window.load(function () {
     $(window).scroll(function () {
         winSc = $(this).scrollTop();
     });
+    intro(); 
     main(); 
-   //  layout();
 });

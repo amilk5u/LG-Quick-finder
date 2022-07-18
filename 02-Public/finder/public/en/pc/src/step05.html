@@ -1,4 +1,7 @@
 @@include("./include/header.html")
+<link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css"
+/>
+<script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
 
 <!-- Enter Code Here -->
 <div id="quickFinder" class="step05">
@@ -39,22 +42,20 @@
 
     <!--question & answer area-->
     <div class="qna_wrap">
-        <strong class="que_title" style="display: block;">Which key feature of a fridge is your priority?</strong>
-        <div class="qna_description qna_description01" style="display: none;">
-            <strong>Do you need a fridge with an Ice & Water Dispenser?</strong>
+        <strong class="que_title" style="display: none;">Which key feature of a fridge is your priority?</strong>
+        <div class="qna_description qna_description01" style="display: block;">
+            <strong>Which key feature of a fridge is your priority?</strong>
             <div class="txt_box">
-                <p>Refillable water tanks connected to the dispenser.</p>
+                <p>Enjoy fresh food with LG’s temperature control and cooling technology. </p>
                 <button type="button" class="disc_more_btn" style="display: inline-block;">LOAD MORE</button>
             </div>
         </div>
         <div class="qna_description qna_description02" style="display: none;">
             <div class="txt_box">
                 <p>
-                    Know how much space you have for
-                    your fridge. Doors need (25-50 mm) space to
-                    open and ventilate. All LG fridges are counter
-                    depth, a slender, complementary structure.
-                    Cold or hot spots are not advised.
+                    High-tech features like Linear Cooling,
+                    Door Cooling+, and etc,
+                    lets you keep food fresher, longer.
                 </p>
                 <button type="button" class="disc_more_btn">CLOSE</button>
             </div>
@@ -63,7 +64,7 @@
     <!--//question & answer area-->
 
     <!--question image-->
-    <div id="qnaImgWrap" style="background-image:url(./images/step04/que_img01.png);"></div>
+    <div id="qnaImgWrap" style="background-image:url(./images/step05/que_img02.jpg);"></div>
     <!--//question image-->
 
     <!--선택 항목 버튼-->
@@ -75,13 +76,13 @@
         </p>
         <ol>
             <li>
-                <button type="button" class="disable">
+                <button type="button" disabled class="exclusively_badge">
                     <i></i>
                     <p>Long-lasting Freshness</p>
                 </button>
             </li>
             <li>
-                <button type="button" class="active">
+                <button type="button" class="active exclusively_badge">
                     <i></i>
                     <p>Ventilation</p>
                 </button>
@@ -205,5 +206,117 @@
     </div>
 </div>
 <!--//step3 사이즈 팝업-->
+
+<!--step5 영상 팝업-->
+<div class="popup_movie_step05">
+    <div class="popup_wrap">
+        <strong>Pure N Fresh</strong>
+        <div class="long">
+            <video loop playsinline="" controls muted="">
+                <source src="./datafile/step05_video01.mp4" type="video/mp4">
+            </video>
+        </div>
+        <div class="energy">
+            <video loop playsinline="" controls muted="">
+                <source src="./datafile/step05_video01.mp4" type="video/mp4">
+            </video>
+        </div>
+        <button type="button" class="popup_close_btn">Close button</button>
+    </div>
+</div>
+<!--//step5 영상 팝업-->
+
+
+<!--step5 next 버튼 이후 팝업-->
+<div class="popup_step05">
+    <div class="popup_wrap">
+        <div class="popup_step05_slide">
+            <ol class="swiper-wrapper">
+                <li class="swiper-slide">
+                    <div class="tit_wrap">
+                        <i></i>
+                        <strong>Long-lasting freshness</strong>
+                    </div>
+                    <div class="popup_con">
+                        <strong>
+                            Keep your food fresher, <br>
+                            for longer.
+                        </strong>
+                        <div class="txt_wrap">
+                            <img src="./images/step05/popup_contents_img01.png" alt="Long-lasting freshness">
+                            <div class="txt_box">
+                                <div class="popup_step05_slide">
+                                    <p>
+                                        Enjoy garden-fresh produce
+                                        and groceries with evenly
+                                        distributed coolness from
+                                        LG's temperature control and
+                                        cooling technology.
+                                    </p>
+                                </div>
+                                <button type="button" class="close_btn">Your results are ready!</button>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li class="swiper-slide">
+                    <div class="tit_wrap">
+                        <i></i>
+                        <strong>Ventilation</strong>
+                    </div>
+                    <div class="popup_con">
+                        <strong>
+                            Fresh air filter (Pure N Fresh)
+                            actively absorbs
+                            unwated odor paricles.
+                        </strong>
+                        <div class="txt_wrap">
+                            <img src="./images/step05/popup_contents_img02.png" alt="Long-lasting freshness">
+                            <div class="txt_box">
+                                <div class="popup_step05_slide">
+                                    <p>
+                                        Pure N Fresh uses a powerful
+                                        fan and a carbon filter to
+                                        keep fridge air fresh.
+                                    </p>
+                                </div>
+                                <button type="button" class="close_btn">Your results are ready!</button>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li class="swiper-slide">
+                    <div class="tit_wrap">
+                        <i></i>
+                        <strong>A or better Energy Ratings</strong>
+                    </div>
+                    <div class="popup_con">
+                        <strong>
+                            Save on your energy bills
+                            with high energy ratings.
+                        </strong>
+                        <div class="txt_wrap">
+                            <img src="./images/step05/popup_contents_img03.png" alt="Long-lasting freshness">
+                            <div class="txt_box">
+                                <div class="popup_step05_slide">
+                                    <p>
+                                        LG's exclusive feature
+                                        Inverter LINEAR Compressor™
+                                        saves more energy compared to
+                                        a conventional compressor,
+                                        saving your bills and our planet.
+                                    </p>
+                                </div>
+                                <button type="button" class="close_btn">Your results are ready!</button>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+            </ol>
+        </div>
+        <div class="indicator"></div>
+    </div>
+</div>
+<!--//step5 next 버튼 이후 팝업-->
 
 @@include("./include/footer.html")
