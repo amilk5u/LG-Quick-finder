@@ -12199,6 +12199,8 @@ label, button { cursor: pointer; }
 
 #quickFinder #selectWrap li button.active.select { background-color: red !important; }
 
+#quickFinder .qna_wrap .qna_description .txt_box #leanMoreBtn { display: none !important; }
+
 #quickFinder .qna_wrap .qna_description .txt_box #descMoreBtn { display: none !important; }
 
 #quickFinder .qna_wrap .qna_description.more .txt_box #descMoreBtn { display: inline-block !important; }
@@ -12225,6 +12227,8 @@ label, button { cursor: pointer; }
 	3. #descMoreBtn default 는 display:none; .more class가 있을때 inline-block 으로 변경
 	4. step1, step2 의 more 버튼 display:none;
 	5. step3,4,5,6,7 의 .txt_box 의 i 는 display:none;
+	6. step7 의 close_btn class 를 result_btn 로 변경
+	7. popup_step01, 03, 05, 07 공통 class 추가 popup_step
 */
 #quickFinder { padding: 2.60417vw 0 0; background-image: url(../../images/common/bg_gradation.gif); display: none; -ms-background-position-x: 0; background-position-x: 0; -ms-background-position-y: 0; background-position-y: 0; background-repeat: repeat-x; }
 
@@ -12516,7 +12520,7 @@ label, button { cursor: pointer; }
 
 #quickFinder.step07 .qna_wrap .qna_description .txt_box:after { width: 7.29167vw; height: 5.20833vw; display: block; content: ""; background-image: url(../../images/step05/txt_bubble_icon.png); position: absolute; bottom: -5.20833vw; left: 41.66667vw; -ms-background-position-x: 50%; background-position-x: 50%; -ms-background-position-y: 50%; background-position-y: 50%; -webkit-background-size: cover; background-size: cover; background-repeat: no-repeat; }
 
-#quickFinder.step07 #qnaImgWrap { height: 59.89583vw; }
+#quickFinder.step07 #qnaImgWrap { height: 59.50521vw; }
 
 #quickFinder.step07 #selectWrap { padding: 7.16146vw 5.85938vw 10.41667vw; -ms-background-position-x: 0; background-position-x: 0; -ms-background-position-y: 0; background-position-y: 0; background-repeat: repeat-x; }
 
@@ -12754,7 +12758,7 @@ html.no_scroll { overflow: hidden; padding: 0 17px 0 0; }
 
 .popup_step03 { width: 100%; height: 100%; position: fixed; background-color: rgba(0, 0, 0, 0.5); top: 0; left: 0; z-index: 10000; display: none; }
 
-.popup_step03 .popup_wrap { width: 80%; padding: 6.51042vw 0 13.02083vw; position: absolute; background-color: #fff; top: 50%; left: 10%; text-align: center; -webkit-transform: translate(0, -50%); -moz-transform: translate(0, -50%); -ms-transform: translate(0, -50%); -o-transform: translate(0, -50%); transform: translate(0, -50%); -webkit-border-radius: 2.60417vw; -moz-border-radius: 2.60417vw; border-radius: 2.60417vw; }
+.popup_step03 .popup_wrap { width: 80%; padding: 6.51042vw 0 15.625vw; position: absolute; background-color: #fff; top: 50%; left: 10%; text-align: center; -webkit-transform: translate(0, -50%); -moz-transform: translate(0, -50%); -ms-transform: translate(0, -50%); -o-transform: translate(0, -50%); transform: translate(0, -50%); -webkit-border-radius: 2.60417vw; -moz-border-radius: 2.60417vw; border-radius: 2.60417vw; }
 
 .popup_step03 .popup_wrap strong { font-size: 4.16667vw; }
 
@@ -12769,6 +12773,12 @@ html.no_scroll { overflow: hidden; padding: 0 17px 0 0; }
 .popup_step03 .popup_wrap .popup_close_btn:before { -webkit-transform: rotate(45deg); -moz-transform: rotate(45deg); -ms-transform: rotate(45deg); -o-transform: rotate(45deg); transform: rotate(45deg); }
 
 .popup_step03 .popup_wrap .popup_close_btn:after { -webkit-transform: rotate(135deg); -moz-transform: rotate(135deg); -ms-transform: rotate(135deg); -o-transform: rotate(135deg); transform: rotate(135deg); }
+
+.popup_step03 .popup_wrap .indicator { width: 100%; position: absolute; bottom: 6.51042vw; z-index: 100; text-align: center; }
+
+.popup_step03 .popup_wrap .indicator .swiper-pagination-bullet { width: 1.5625vw; height: 1.5625vw; background-color: #c5c5c5; opacity: 1; margin: 0 0.65104vw; }
+
+.popup_step03 .popup_wrap .indicator .swiper-pagination-bullet-active { background-color: #c61a49; }
 
 .popup_movie_step05 { width: 100%; height: 100%; position: fixed; background-color: rgba(0, 0, 0, 0.5); top: 0; left: 0; z-index: 10000; display: none; }
 
@@ -12789,6 +12799,12 @@ html.no_scroll { overflow: hidden; padding: 0 17px 0 0; }
 .popup_movie_step05 .popup_wrap .popup_close_btn:after { -webkit-transform: rotate(135deg); -moz-transform: rotate(135deg); -ms-transform: rotate(135deg); -o-transform: rotate(135deg); transform: rotate(135deg); }
 
 .popup_step05 { width: 100%; display: none; }
+
+.popup_step05.Q5_value1 .swiper-slide:nth-of-type(1) { display: block; }
+
+.popup_step05.Q5_value2 .swiper-slide:nth-of-type(2) { display: block; }
+
+.popup_step05.Q5_value3 .swiper-slide:nth-of-type(3) { display: block; }
 
 .popup_step05 .popup_wrap { position: relative; }
 
@@ -12830,7 +12846,17 @@ html.no_scroll { overflow: hidden; padding: 0 17px 0 0; }
 
 .popup_step07 { width: 100%; display: none; }
 
+.popup_step07.Q7_value1 .swiper-slide:nth-of-type(1) { display: block; }
+
+.popup_step07.Q7_value2 .swiper-slide:nth-of-type(2) { display: block; }
+
+.popup_step07.Q7_value3 .swiper-slide:nth-of-type(3) { display: block; }
+
+.popup_step07.Q7_value4 .swiper-slide:nth-of-type(4) { display: block; }
+
 .popup_step07 .popup_wrap { position: relative; }
+
+.popup_step07 .popup_wrap .swiper-slide { display: none; }
 
 .popup_step07 .popup_wrap .swiper-slide:nth-of-type(1) .tit_wrap i { background-color: #000; }
 
@@ -12867,6 +12893,8 @@ html.no_scroll { overflow: hidden; padding: 0 17px 0 0; }
 .popup_step07 .popup_wrap .popup_con .txt_wrap p { height: 39.0625vw; font-size: 4.94792vw; line-height: 5.72917vw; padding: 0 1.95313vw; display: -webkit-box; display: -moz-box; display: -ms-flexbox; display: -webkit-flex; display: flex; -webkit-align-items: center; align-items: center; -webkit-justify-content: center; justify-content: center; }
 
 .popup_step07 .popup_wrap .popup_con .txt_wrap .close_btn { width: 100%; height: 13.02083vw; background-color: #464646; color: #fff; font-size: 4.6875vw; font-weight: 500; margin: 5.20833vw 0 0; -webkit-border-radius: 6.51042vw; -moz-border-radius: 6.51042vw; border-radius: 6.51042vw; }
+
+#finderIntro #introAnimation { width: 100%; height: 100%; position: fixed; top: 0; left: 0; background-color: rgba(0, 0, 0, 0.5); z-index: 10000; }
 
 #finderIntro .intro_wrap { padding: 5.20833vw; background-image: url(../../images/common/bg_gradation.gif); -ms-background-position-x: 0; background-position-x: 0; -ms-background-position-y: 0; background-position-y: 0; background-repeat: repeat-x; }
 

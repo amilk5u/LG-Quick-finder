@@ -52,7 +52,7 @@
     width:100%; height:100%; position:fixed; background-color:rgba(0, 0, 0, .5); top:0; left:0; z-index:10000;
     display:none;
     .popup_wrap {
-        width:80%; padding:vw(50) 0 vw(100); position:absolute; background-color:$white; top:50%; left:10%; text-align:center;
+        width:80%; padding:vw(50) 0 vw(120); position:absolute; background-color:$white; top:50%; left:10%; text-align:center;
         @include translate(0, -50%);
         @include borderRadius(vw(20));
         strong {font-size:vw(32);}
@@ -66,6 +66,11 @@
             &:after {width:vw(40); height:vw(4); display:block; content:""; background-color:#3c3c3c; position:absolute; top:50%; right:0;}
             &:before {@include rotate(45);}
             &:after {@include rotate(135);}
+        }
+        .indicator {
+            width:100%; position:absolute; bottom:vw(50); z-index:100; text-align:center;
+            .swiper-pagination-bullet {width:vw(12); height:vw(12); background-color:#c5c5c5; opacity:1; margin:0 vw(5);}
+            .swiper-pagination-bullet-active {background-color:$red;}
         }
     }
 }
@@ -94,6 +99,9 @@
 
 .popup_step05 {
     width:100%; display:none;
+    &.Q5_value1 .swiper-slide:nth-of-type(1) {display:block;}
+    &.Q5_value2 .swiper-slide:nth-of-type(2) {display:block;}
+    &.Q5_value3 .swiper-slide:nth-of-type(3) {display:block;}
     .popup_wrap {
         position:relative;
         .swiper-slide {display:none;}
@@ -148,8 +156,13 @@
 
 .popup_step07 {
     width:100%; display:none;
+    &.Q7_value1 .swiper-slide:nth-of-type(1) {display:block;}
+    &.Q7_value2 .swiper-slide:nth-of-type(2) {display:block;}
+    &.Q7_value3 .swiper-slide:nth-of-type(3) {display:block;}
+    &.Q7_value4 .swiper-slide:nth-of-type(4) {display:block;}
     .popup_wrap {
         position:relative;
+        .swiper-slide {display:none;}
         .swiper-slide:nth-of-type(1) .tit_wrap i {background-color:$black;}
         .swiper-slide:nth-of-type(2) .tit_wrap i {background-image:url(../../images/step07/btn_icon02.jpg);}
         .swiper-slide:nth-of-type(3) .tit_wrap i {background-image:url(../../images/step07/btn_icon03.jpg);}

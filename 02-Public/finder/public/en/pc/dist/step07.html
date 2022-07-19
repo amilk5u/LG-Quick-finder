@@ -30,127 +30,247 @@
 </div>
 
 
-<!-- Enter Code Here -->
-<div id="quickFinder" class="step07">
-    <!--navigation-->
-    <div id="finderNav">
-        <ul>
-            <li>
-                <strong>1</strong>
-                <p>PRODUCT TYPE</p>
-            </li>
-            <li>
-                <strong>2</strong>
-                <p>PRODUCT CAPACITY</p>
-            </li>
-            <li>
-                <strong>3</strong>
-                <p>PRODUCT SIZE</p>
-            </li>
-            <li>
-                <strong>4</strong>
-                <p>Ice & Water Dispenser</p>
-            </li>
-            <li>
-                <strong>5</strong>
-                <p>KEY FEATURE</p>
-            </li>
-            <li>
-                <strong>6</strong>
-                <p>ADDITIONAL FEATURES</p>
-            </li>
-            <li>
-                <strong>7</strong>
-                <p>PRODUCT COLOUR</p>
-            </li>
-        </ul>
-    </div>
-    <!--//navigation-->
+    <!-- Enter Code Here -->
+    <link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css">
+    <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
 
-    <!--question & answer area-->
-    <div class="qna_wrap">
-        <strong class="que_title">
-            Which colour theme
-            matches your interior?
-        </strong>
-        <div class="qna_description qna_description01">
-            <strong>
+    <!--intro-->
+    <div id="finderIntro" style="display: none;">
+        <div id="introAnimation">
+            <lottie-player id="animationPlayer" src="./images/intro/intro_animation.json" mode="bounce" background="transparent" speed="1" autoplay></lottie-player>
+        </div>
+
+        <div class="intro_wrap">
+            <strong class="tit">
+                What is most important<br>
+                to your fridge<br>
+                purchase considerations?
+            </strong>
+            <div class="center_img_wrap" style="background-image: url(./images/intro/intro_img01.png);"></div>
+            <div class="intro_select_wrap">
+                <ol>
+                    <li>
+                        <button type="button">
+                            <p>Big Capacity</p>
+                        </button>
+                    </li>
+                    <li>
+                        <button type="button">
+                            <p>Affordable Price</p>
+                        </button>
+                    </li>
+                    <li>
+                        <button type="button">
+                            <p>Energy Savings</p>
+                        </button>
+                    </li>
+                    <li>
+                        <button type="button">
+                            <p>Size Suited to Your Space</p>
+                        </button>
+                    </li>
+                    <li>
+                        <button type="button">
+                            <p>Latest Features and Usability </p>
+                        </button>
+                    </li>
+                    <li>
+                        <button type="button">
+                            <p>
+                                I am not sure : <br>
+                                <span>I’m open to LG’s recommendations</span>
+                            </p>
+                        </button>
+                    </li>
+                </ol>
+            </div>
+        </div>
+        <div class="select_after_wrap">
+            <div class="img_wrap"></div>
+            <div class="txt_wrap">
+                <ol class="disc">
+                    <li>Big Capacity</li>
+                    <li>Affordable Price</li>
+                    <li>Energy Savings</li>
+                    <li>Size Suited to Your Space</li>
+                    <li>Latest Features and Usability </li>
+                    <li>
+                        I am not sure : <span>I’m open to LG’s recommendations</span>
+                    </li>
+                </ol>
+                <div class="txt_box">
+                    <ol>
+                        <li>
+                            <strong>Not sure what you want?1</strong>
+                            <p>
+                                That’s alright. <br>
+                                LG is here to accompany your journey!
+                            </p>
+                        </li>
+                        <li>
+                            <strong>Not sure what you want?2</strong>
+                            <p>
+                                That’s alright. <br>
+                                LG is here to accompany your journey!
+                            </p>
+                        </li>
+                        <li>
+                            <strong>Not sure what you want?3</strong>
+                            <p>
+                                That’s alright. <br>
+                                LG is here to accompany your journey!
+                            </p>
+                        </li>
+                        <li>
+                            <strong>Not sure what you want?4</strong>
+                            <p>
+                                That’s alright. <br>
+                                LG is here to accompany your journey!
+                            </p>
+                        </li>
+                        <li>
+                            <strong>Not sure what you want?5</strong>
+                            <p>
+                                That’s alright. <br>
+                                LG is here to accompany your journey!
+                            </p>
+                        </li>
+                        <li>
+                            <strong>Not sure what you want?</strong>
+                            <p>
+                                That’s alright. <br>
+                                LG is here to accompany your journey!
+                            </p>
+                        </li>
+                    </ol>
+                    <button type="button" id="introEndBtn"># GET STARTED NOW</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--//intro-->
+
+    <div id="quickFinder" style="display: block;" class="step07">
+        <!--navigation-->
+        <div id="finderNav">
+            <ul>
+                <li>
+                    <strong>1</strong>
+                    <p>PRODUCT TYPE</p>
+                </li>
+                <li>
+                    <strong>2</strong>
+                    <p>PRODUCT CAPACITY</p>
+                </li>
+                <li>
+                    <strong>3</strong>
+                    <p>PRODUCT SIZE</p>
+                </li>
+                <li>
+                    <strong>4</strong>
+                    <p>Ice & Water Dispenser</p>
+                </li>
+                <li>
+                    <strong>5</strong>
+                    <p>KEY FEATURE</p>
+                </li>
+                <li>
+                    <strong>6</strong>
+                    <p>ADDITIONAL FEATURES</p>
+                </li>
+                <li>
+                    <strong>7</strong>
+                    <p>PRODUCT COLOUR</p>
+                </li>
+            </ul>
+        </div>
+        <!--//navigation-->
+
+        <!--question & answer area-->
+        <div class="qna_wrap">
+            <strong class="que_title">
                 Which colour theme
                 matches your interior?
             </strong>
-            <div class="txt_box">
-                <p>Knock twice to see inside while keeping it cool.</p>
-                <button type="button" class="disc_more_btn" style="display: none;">LOAD MORE</button>
+            <div class="qna_description qna_description01">
+                <strong>
+                    Which colour theme
+                    matches your interior?
+                </strong>
+                <div class="txt_box">
+                    <p>Knock twice to see inside while keeping it cool.</p>
+                    <button type="button" class="disc_more_btn" style="display: none;">LOAD MORE</button>
+                </div>
+            </div>
+            <div class="qna_description qna_description02" style="display: none;">
+                <div class="txt_box">
+                    <p></p>
+                    <button type="button" class="disc_more_btn">CLOSE</button>
+                </div>
             </div>
         </div>
-        <div class="qna_description qna_description02" style="display: none;">
-            <div class="txt_box">
-                <p></p>
-                <button type="button" class="disc_more_btn">CLOSE</button>
-            </div>
+        <!--//question & answer area-->
+
+        <!--question image-->
+        <div id="qnaImgWrap" style="background-image:url(./images/step07/multi_que_img04.png);"></div>
+        <!--//question image-->
+
+        <!--선택 항목 버튼-->
+        <!--선택 된 항목은 button에 active 클래스-->
+        <!--선택 불가 항목은 button에 disable 클래스-->
+        <div id="selectWrap">
+            <p class="select_tit">
+                <em>You Can Select Multiple Choices.</em>
+            </p>
+            <ol>
+                <li>
+                    <button type="button" class="active">
+                        <i></i>
+                        <p>Black</p>
+                    </button>
+                </li>
+                <li>
+                    <button type="button" disabled>
+                        <i></i>
+                        <p>
+                            Stainless <br>
+                            Steel
+                        </p>
+                    </button>
+                </li>
+                <li>
+                    <button type="button">
+                        <i></i>
+                        <p>Silver</p>
+                    </button>
+                </li>
+                <li>
+                    <button type="button">
+                        <i></i>
+                        <p>White</p>
+                    </button>
+                </li>
+            </ol>
+        </div>
+        <!--//선택 항목 버튼-->
+        <!--항목 선택되면 nextStepBtn id에 active 클래스 추가-->
+        <div class="step_move_wrap">
+            <button type="button" id="backStepBtn">prev button</button>
+            <button type="button" id="nextStepBtn">Next <i></i></button>
+            <button type="button" id="resultBtn">Result <i></i></button>
+        </div>
+        <!--항목 선택 후 버튼 올리려면 show_now_wrap 클래스에 active 추가-->
+        <div class="show_now_wrap">
+            <img src="./images/common/shop_now_character.png" alt="button character">
+            <button type="button" id="shopNowBtn">#SHOP NOW <i></i></button>
         </div>
     </div>
-    <!--//question & answer area-->
 
-    <!--question image-->
-    <div id="qnaImgWrap" style="background-image:url(./images/step07/que_img01.png);"></div>
-    <!--//question image-->
-
-    <!--선택 항목 버튼-->
-    <!--선택 된 항목은 button에 active 클래스-->
-    <!--선택 불가 항목은 button에 disable 클래스-->
-    <div id="selectWrap">
-        <p class="select_tit">
-            <em>You Can Select Multiple Choices.</em>
-        </p>
-        <ol>
-            <li>
-                <button type="button" class="active">
-                    <i></i>
-                    <p>Black</p>
-                </button>
-            </li>
-            <li>
-                <button type="button" disabled>
-                    <i></i>
-                    <p>
-                        Stainless <br>
-                        Steel
-                    </p>
-                </button>
-            </li>
-            <li>
-                <button type="button">
-                    <i></i>
-                    <p>Silver</p>
-                </button>
-            </li>
-            <li>
-                <button type="button">
-                    <i></i>
-                    <p>White</p>
-                </button>
-            </li>
-        </ol>
-    </div>
-    <!--//선택 항목 버튼-->
-    <!--항목 선택되면 nextStepBtn id에 active 클래스 추가-->
-    <div class="step_move_wrap">
-        <button type="button" id="backStepBtn">prev button</button>
-        <button type="button" id="nextStepBtn">Next <i></i></button>
-        <button type="button" id="resultBtn">Result <i></i></button>
-    </div>
-    <!--항목 선택 후 버튼 올리려면 show_now_wrap 클래스에 active 추가-->
-    <div class="show_now_wrap">
-        <img src="./images/common/shop_now_character.png" alt="button character">
-        <button type="button" id="shopNowBtn">#SHOP NOW <i></i></button>
-    </div>
-</div>
-
-<!--step1 next 버튼 이후 팝업-->
+    <!--step1 next 버튼 이후 팝업-->
 <!--popup_step01 none:block-->
 <!--popup_wrap에서 필요한 제품군 block / class 명칭은 이후에 필터 값으로 변경-->
-<div class="popup_step01">
+<div class="popup_step01 popup_step">
     <div class="popup_wrap multi">
         <div class="tit_wrap">
             <i></i>
@@ -235,27 +355,40 @@
 <!--//step1 next 버튼 이후 팝업-->
 
 <!--step3 사이즈 팝업-->
-<div class="popup_step03">
+<div class="popup_step03 popup_step">
     <div class="popup_wrap">
         <strong>Size Guide</strong>
-        <div class="multi"><img src="./images/step03/popup_img01.jpg" alt="Multi Door Fridge Freezer, width/height/depth"></div>
-        <div class="american"><img src="./images/step03/popup_img02.jpg" alt="American Style Fridge Freezer, width/height/depth"></div>
-        <div class="tall"><img src="./images/step03/popup_img03.jpg" alt="Tall Fridge Freezer, width/height/depth"></div>
+        <div class="multi">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide"><img src="./images/step03/popup_img01.jpg" alt="Multi Door Fridge Freezer, width/height/depth"></div>
+                <div class="swiper-slide"><img src="./images/step03/popup_img01.jpg" alt="Multi Door Fridge Freezer, width/height/depth"></div>
+            </div>
+            <div class="indicator"></div>
+        </div>
+        <div class="american">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide"><img src="./images/step03/popup_img02.jpg" alt="American Style Fridge Freezer, width/height/depth"></div>
+                <div class="swiper-slide"><img src="./images/step03/popup_img02.jpg" alt="American Style Fridge Freezer, width/height/depth"></div>
+            </div>
+            <div class="indicator"></div>
+        </div>
+        <div class="tall">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide"><img src="./images/step03/popup_img03.jpg" alt="Tall Fridge Freezer, width/height/depth"></div>
+                <div class="swiper-slide"><img src="./images/step03/popup_img03.jpg" alt="Tall Fridge Freezer, width/height/depth"></div>
+            </div>
+            <div class="indicator"></div>
+        </div>
         <button type="button" class="popup_close_btn">Close button</button>
     </div>
 </div>
 <!--//step3 사이즈 팝업-->
 
 <!--step5 영상 팝업-->
-<div class="popup_movie_step05">
+<div class="popup_movie_step05 popup_step">
     <div class="popup_wrap">
         <strong>Pure N Fresh</strong>
         <div class="long">
-            <video loop playsinline="" controls muted="">
-                <source src="./datafile/step05_video01.mp4" type="video/mp4">
-            </video>
-        </div>
-        <div class="energy">
             <video loop playsinline="" controls muted="">
                 <source src="./datafile/step05_video01.mp4" type="video/mp4">
             </video>
@@ -266,7 +399,7 @@
 <!--//step5 영상 팝업-->
 
 <!--step5 next 버튼 이후 팝업-->
-<div class="popup_step05">
+<div class="popup_step05 popup_step">
     <div class="popup_wrap">
         <div class="popup_step05_slide">
             <ol class="swiper-wrapper">
@@ -358,7 +491,7 @@
 <!--//step5 next 버튼 이후 팝업-->
 
 <!--step7 result 버튼 이후 팝업-->
-<div class="popup_step07">
+<div class="popup_step07 popup_step">
     <div class="popup_wrap">
         <div class="popup_step07_slide">
             <ol class="swiper-wrapper">
@@ -373,9 +506,9 @@
                             of fashion!
                         </strong>
                         <div class="txt_wrap">
-                            <img src="./images/step07/popup_contents_img01.png" alt="Long-lasting freshness">
+                            <img src="./images/step07/_black_popup_img.png" alt="black product">
                             <div class="txt_box">
-                                <div class="">
+                                <div>
                                     <p>
                                         Matte black surfaces are
                                         less likely
@@ -383,7 +516,7 @@
                                         from frequent use.
                                     </p>
                                 </div>
-                                <button type="button" class="close_btn">Your results are ready!</button>
+                                <button type="button" class="result_btn">Your results are ready!</button>
                             </div>
                         </div>
                     </div>
@@ -400,9 +533,9 @@
                             with various styles.
                         </strong>
                         <div class="txt_wrap">
-                            <img src="./images/step07/popup_contents_img02.png" alt="Long-lasting freshness">
+                            <img src="./images/step07/_steel_popup_img.png" alt="steel product">
                             <div class="txt_box">
-                                <div class="">
+                                <div>
                                     <p>
                                         Fingerprints don’t stay on <br>
                                         metal textures, so you won't<br>
@@ -410,7 +543,7 @@
                                         maintain its sleek appearance.
                                     </p>
                                 </div>
-                                <button type="button" class="close_btn">Your results are ready!</button>
+                                <button type="button" class="result_btn">Your results are ready!</button>
                             </div>
                         </div>
                     </div>
@@ -427,16 +560,16 @@
                             interior, mood or look.
                         </strong>
                         <div class="txt_wrap">
-                            <img src="./images/step07/popup_contents_img03.png" alt="Long-lasting freshness">
+                            <img src="./images/step07/_silver_popup_img.png" alt="silver product">
                             <div class="txt_box">
-                                <div class="">
+                                <div>
                                     <p>
                                         Silver goes well <br>
                                         with various colours and<br>
                                         interior styles.
                                     </p>
                                 </div>
-                                <button type="button" class="close_btn">Your results are ready!</button>
+                                <button type="button" class="result_btn">Your results are ready!</button>
                             </div>
                         </div>
                     </div>
@@ -453,16 +586,16 @@
                             It is also easy to maintain.
                         </strong>
                         <div class="txt_wrap">
-                            <img src="./images/step07/popup_contents_img04.png" alt="Long-lasting freshness">
+                            <img src="./images/step07/_white_popup_img.png" alt="white product">
                             <div class="txt_box">
-                                <div class="">
+                                <div>
                                     <p>
                                         Your new fridge will blend
                                         well with diverse styles
                                         and material.
                                     </p>
                                 </div>
-                                <button type="button" class="close_btn">Your results are ready!</button>
+                                <button type="button" class="result_btn">Your results are ready!</button>
                             </div>
                         </div>
                     </div>

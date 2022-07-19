@@ -2,6 +2,8 @@
 // 마지막 셀렉트
 #quickFinder #selectWrap li button.active.select {background-color: red !important;}
 // more : (디테일 디스크립션 유/무)
+// #quickFinder .qna_wrap .qna_description .txt_box .disc_more_btn { display: none !important; }
+#quickFinder .qna_wrap .qna_description .txt_box #leanMoreBtn { display: none !important; }
 #quickFinder .qna_wrap .qna_description .txt_box #descMoreBtn { display: none !important; }
 #quickFinder .qna_wrap .qna_description.more .txt_box #descMoreBtn { display: inline-block !important; }
 // step1
@@ -28,6 +30,8 @@
 	3. #descMoreBtn default 는 display:none; .more class가 있을때 inline-block 으로 변경
 	4. step1, step2 의 more 버튼 display:none;
 	5. step3,4,5,6,7 의 .txt_box 의 i 는 display:none;
+	6. step7 의 close_btn class 를 result_btn 로 변경
+	7. popup_step01, 03, 05, 07 공통 class 추가 popup_step
 */
 
 
@@ -426,7 +430,7 @@
 				}
 			}
 		}
-		#qnaImgWrap {height:vw(460);}
+		#qnaImgWrap {height:vw(457);}
 		#selectWrap {
 			padding:vw(55) vw(45) vw(80);
 			@include backgroundSolt(0, 0, repeat-x);

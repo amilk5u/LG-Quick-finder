@@ -21,6 +21,12 @@ $window.load(function () {
     main(); 
 });
 function intro(){
+    var $introPlayer = document.querySelector('lottie-player'),
+        $introAnimation = $("#introAnimation");
+    $introPlayer.addEventListener('complete', function(e) {
+        TweenMax.to($introAnimation, .3, {opacity:0, display:"none"});
+    });
+
     var $finderIntro = $("#finderIntro"),
         $quickFinder = $("#quickFinder"),
         $introWrap = $finderIntro.find(".intro_wrap"),
@@ -42,6 +48,46 @@ function intro(){
         $finderIntro.css({display:"none"});
         $quickFinder.css({display:"block"});
     });
+
+    var popupStep05swiper = new Swiper(".popup_step05_slide", {
+        pagination: {
+            el: ".popup_step05 .indicator",
+        },
+        observe: true,
+        effect: "fade"
+    });
+
+    var popupStep07swiper = new Swiper(".popup_step07_slide", {
+        pagination: {
+            el: ".popup_step07 .indicator",
+        },
+        observe: true,
+        effect: "fade"
+    });
+
+    var popupStep03swiperMulti = new Swiper(".popup_step03 .multi", {
+        pagination: {
+            el: ".popup_step03 .multi .indicator",
+        },
+        observe: true,
+        effect: "fade"
+    });
+
+    var popupStep03swiperAmerican = new Swiper(".popup_step03 .american", {
+        pagination: {
+            el: ".popup_step03 .american .indicator",
+        },
+        observe: true,
+        effect: "fade"
+    });
+
+    var popupStep03swiperTall = new Swiper(".popup_step03 .tall", {
+        pagination: {
+            el: ".popup_step03 .tall .indicator",
+        },
+        observe: true,
+        effect: "fade"
+    });
 }
 function layout() {
 
@@ -52,15 +98,15 @@ function layout() {
 
 function main() {
 	let _select = []; // 사용자 선택한 value 
-	let _stepCount = [];
-	let _currentProduct = [];
+	let _stepCount = []; // 스텝별 카운트
+	let _currentProduct = []; // 스텝별 선택된 제품
 
-	let Q1Key = ''; // 처음 선택한 제품 키 값
+	let Q1Key = ''; // 선택한 제품의 키 값 ex) Q1_value1, Q1_value2, Q1_value3
+	let _currentPage; // 현재 해당 페이지 데이터 ex) step1, step2....
 	let _selectData; // 셀렉된 제품 데이터 
-	let currentClass = '';
-	let filePath = ''; //
+	let _currentClass = ''; // 셀렉된 제품 class
 
-	let currentPage; // 현재 페이지 
+	let filePath = ''; // desktop / mobile 이미지 경로 구분
 
 	if (winW > 768) {
 		filePath = './images/pc/'
@@ -424,7 +470,7 @@ function main() {
 					changeScreenImg: filePath + 'step02/que_img01.png',
 					popupImg: 'step01 1 항목 팝업.png',
 					productImg: 'step01 1 항목 냉장고 이미지.png',
-					lastScreenImg: filePath + 'step07/que_img01.png',
+					lastScreenImg: filePath + 'step07/multi_que_img04.png',
 				}
 			},
 			{
@@ -435,7 +481,7 @@ function main() {
 					changeScreenImg: filePath + 'step02/que_img02.png',
 					popupImg: 'step01 - 2 항목 팝업.png',
 					productImg: 'step01 - 2 항목 냉장고 이미지.png',
-					lastScreenImg: filePath + 'step07/que_img01.png',
+					lastScreenImg: filePath + 'step07/american_que_img04.png',
 				}
 			},
 			{
@@ -446,7 +492,7 @@ function main() {
 					changeScreenImg: './images/step02/que_img03.png',
 					popupImg: 'step01 - 3 항목 팝업.png',
 					productImg: 'step01 - 3 항목 냉장고 이미지.png',
-					lastScreenImg: filePath + 'step07/que_img01.png',
+					lastScreenImg: filePath + 'step07/tall_que_img04.png',
 				}
 			}
 		],
@@ -456,46 +502,43 @@ function main() {
 			{
 				finderStep: 'step01',
 				questionText: 'step01 - 질문?',
-				defaultScreenImg: './images/step01/que_img00.png',
+				defaultScreenImg: filePath + 'step01/que_img00.png',
 				interactionPage: true, // 인터렉트 페이지 유/무 정의
 				appliancePopup: false, // 팝업 유/무 정의
 			},
 			{
 				finderStep: 'step02',
 				questionText: 'step02 - 질문?',
-				defaultScreenImg: 'step02 - default 이미지',
 				appliancePopup: false, // 팝업 유/무 정의
 			},
 			{
 				finderStep: 'step03',
 				questionText: 'step03 - 질문?',
-				defaultScreenImg: 'step03 - default 이미지',
 				appliancePopup: true, // 팝업 유/무 정의
 				key: ['depth', 'width', 'height'],
 			},
 			{
 				finderStep: 'step04',
 				questionText: 'step04 - 질문?',
-				defaultScreenImg: './images/step04/que_img01.jpg',
+				defaultScreenImg: filePath + 'step04/que_img01.jpg',
 				appliancePopup: false, // 팝업 유/무 정의
 			},
 			{
 				finderStep: 'step05',
 				questionText: 'step05 - 질문?',
-				defaultScreenImg: './images/step05/que_img01.jpg',
+				defaultScreenImg: filePath + 'step05/que_img01.jpg',
 				interactionPage: true, // 인터렉트 페이지 유/무 정의
 				appliancePopup: false, // 팝업 유/무 정의
 			},
 			{
 				finderStep: 'step06',
 				questionText: 'step06 - 질문?',
-				defaultScreenImg: './images/step06/que_img01.jpg',
+				defaultScreenImg: filePath + 'step06/que_img01.jpg',
 				appliancePopup: false, // 팝업 유/무 정의
 			},
 			{
 				finderStep: 'step07',
 				questionText: 'step07 - 질문?',
-				defaultScreenImg: 'step07 - default 이미지',
 				interactionPage: true, // 인터렉트 페이지 유/무 정의
 				appliancePopup: false, // 팝업 유/무 정의
 			},
@@ -618,7 +661,7 @@ function main() {
 					content: 'Q4_content1',
 					changeData: {
 						description: 'step04 - 항목 1 디스크립션',
-						screenImg: './images/step04/que_img02.jpg',
+						screenImg: filePath + 'step04/que_img02.jpg',
 					}
 				},
 				{
@@ -630,7 +673,7 @@ function main() {
 							head: 'step04 - 항목 2 디스크립션',
 							detail: 'step04 - 항목 2 디테일 디스크립션'
 						},
-						screenImg: './images/step04/que_img03.jpg',
+						screenImg: filePath + 'step04/que_img03.jpg',
 					}
 				},
 				{
@@ -642,7 +685,7 @@ function main() {
 							head: 'step04 - 항목 3 디스크립션',
 							detail: 'step04 - 항목 3 디테일 디스크립션'
 						},
-						screenImg: './images/step04/que_img04.jpg',
+						screenImg: filePath + 'step04/que_img04.jpg',
 					}
 				},
 				{
@@ -651,7 +694,7 @@ function main() {
 					content: 'Q4_content4',
 					changeData: {
 						description: 'step04 - 항목 4 디스크립션',
-						screenImg: './images/step04/que_img01.jpg',
+						screenImg: filePath + 'step04/que_img01.jpg',
 					}
 				},
 			],
@@ -665,7 +708,7 @@ function main() {
 							head: 'step05 - 항목 1 디스크립션',
 							detail: 'step05 - 항목 1 디테일 디스크립션'
 						},
-						screenImg: './images/step05/que_img02.jpg',
+						screenImg: filePath + 'step05/que_img02.jpg',
 					}
 				},
 				{
@@ -674,7 +717,7 @@ function main() {
 					content: 'Q5_content2',
 					changeData: {
 						description: 'step05 - 항목 2 디스크립션',
-						screenImg: './images/step05/que_img03.jpg',
+						screenImg: filePath + 'step05/que_img03.jpg',
 					}
 				},
 				{
@@ -686,7 +729,7 @@ function main() {
 							head: 'step05 - 항목 3 디스크립션',
 							detail: 'step05 - 항목 3 디테일 디스크립션'
 						},
-						screenImg: './images/step05/que_img04.jpg',
+						screenImg: filePath + 'step05/que_img04.jpg',
 					}
 				},
 			],
@@ -698,7 +741,7 @@ function main() {
 					changeData: {
 						description: 'step06 - 항목 1 디스크립션',
 						icon: 'step06 - 항목 1 아이콘',
-						screenImg: './images/step06/que_img02.jpg',
+						screenImg: filePath + 'step06/que_img02.jpg',
 					}
 				},
 				{
@@ -708,7 +751,7 @@ function main() {
 					changeData: {
 						description: 'step06 - 항목 2 디스크립션',
 						icon: 'step06 - 항목 2 아이콘',
-						screenImg: './images/step06/que_img03.jpg',
+						screenImg: filePath + 'step06/que_img03.jpg',
 					}
 				},
 				{
@@ -721,7 +764,7 @@ function main() {
 							detail: 'step06 - 항목 3 디테일 디스크립션'
 						},
 						icon: 'step06 - 항목 3 아이콘',
-						screenImg: './images/step06/que_img04.jpg',
+						screenImg: filePath + 'step06/que_img04.jpg',
 					}
 				},
 				{
@@ -731,7 +774,7 @@ function main() {
 					changeData: {
 						description: 'step06 - 항목 4 디스크립션',
 						icon: 'step06 - 항목 4 아이콘',
-						screenImg: './images/step06/que_img05.jpg',
+						screenImg: filePath + 'step06/que_img05.jpg',
 					}
 				},
 				{
@@ -744,7 +787,7 @@ function main() {
 							detail: 'step06 - 항목 5 디테일 디스크립션'
 						},
 						icon: 'step06 - 항목 5 아이콘',
-						screenImg: './images/step06/que_img06.jpg',
+						screenImg: filePath + 'step06/que_img06.jpg',
 					}
 				},
 				{
@@ -754,7 +797,7 @@ function main() {
 					changeData: {
 						description: 'step06 - 항목 6 디스크립션',
 						icon: 'step06 - 항목 6 아이콘',
-						screenImg: './images/step06/que_img07.jpg',
+						screenImg: filePath + 'step06/que_img07.jpg',
 					}
 				},
 				{
@@ -764,7 +807,7 @@ function main() {
 					changeData: {
 						description: 'step06 - 항목 7 디스크립션',
 						icon: 'step06 - 항목 7 아이콘',
-						screenImg: './images/step06/que_img08.jpg',
+						screenImg: filePath + 'step06/que_img08.jpg',
 					}
 				},
 			],
@@ -820,19 +863,23 @@ function main() {
 			let judgmentStep = 'nextStep';
 
 			// 인터렉션 페이지 실행
-			if (currentPage.interactionPage) {
-				console.log(currentPage.finderStep)
+			if (_currentPage.interactionPage) {
 				$('#quickFinder').css('display', 'none');
-				$('.popup_' + currentPage.finderStep).css('display', 'block');
-				if (currentPage.finderStep === 'step01') {
+				$('.popup_' + _currentPage.finderStep).css('display', 'block');
+				if (_currentPage.finderStep === 'step01') {
 					$('.popup_step01 .' + _selectData[0].class).css('display', 'block');
-				} else if (currentPage.finderStep === 'step05' || currentPage.finderStep === 'step07') {
+				} else if (_currentPage.finderStep === 'step05' || _currentPage.finderStep === 'step07') {
+					$('.popup_' + _currentPage.finderStep).removeClass().addClass('popup_' + _currentPage.finderStep).addClass('popup_step'); // class 초기화
 					for (let j = 0; j < _stepCount[_stepCount.length - 1]; j++) {
 						let selectValue = _select[_select.length - (1 + j)].split('=')[1]; // value
-						$('.popup_' + currentPage.finderStep).addClass(selectValue);
+						$('.popup_' + _currentPage.finderStep).addClass(selectValue); // 선택한 value 값 class 추가
 					}
-					if (currentPage.finderStep === 'step07') {
-						console.log($('.popup_' + currentPage.finderStep).find('.txt_wrap img').attr('src', './images/step07/'+ currentClass +'_popup_contents_img01.png'))
+					if (_currentPage.finderStep === 'step07') {
+						// 이미지 경로 앞에 선택한 class 추가
+						$('.popup_' + _currentPage.finderStep).find('.txt_wrap img').each(function () {
+							let srcUrl = $(this).attr('src').split('/')[$(this).attr('src').split('/').length - 1];
+							$(this).attr('src', './images/step07/' + _currentClass + srcUrl);
+						})
 					}
 				}
 			}
@@ -868,7 +915,7 @@ function main() {
 		let currentHtml = ConfigData.htmlData[htmlIdx]; // 현재 스텝의 항목 데이터
 		let lastAnswerValue; // 저장된 데이터에서 마지막 value
 		let _array = []; // 스텝별 제품 추출
-		currentPage = ConfigData.finderSetting[idx]; // 인터렉션 페이지 유/무
+		_currentPage = ConfigData.finderSetting[idx]; // 인터렉션 페이지 유/무
 
 		// step1 의 Q1 key 값 담기
 		if (idx === 1) {
@@ -891,10 +938,10 @@ function main() {
 		// // 팝업창 해당 이미지로 변경
 		if (appliancePopup) {
 			$('.popup_step03').css('display', 'block');
-			$('.popup_step03 .' + currentClass).css('display', 'block');
+			$('.popup_step03 .' + _currentClass).css('display', 'block');
 		} else {
 			$('.popup_step03').css('display', 'none');
-			$('.popup_step03 .popup_wrap div').css('display', 'none');
+			$('.popup_step03 .popup_wrap > div').css('display', 'none');
 		}
 
 
@@ -903,9 +950,9 @@ function main() {
 
 		// class 저장
 		if (idx !== 0) {
-			currentClass = selectObject[0].class;
+			_currentClass = selectObject[0].class;
 		}
-		console.log('currentClass : ', currentClass)
+		console.log('_currentClass : ', _currentClass)
 
 		// open 삭제
 		$('.qna_description02').removeClass('open');
@@ -1249,7 +1296,7 @@ function main() {
 				$('.qna_description02 .txt_box p').text(currentHtml[0].changeData.description.detail);
 			} else if (idx === 6) {
 				// $('#qnaImgWrap').attr('style', 'background-image:url(' + selectData[0].changeData.screenImg + ')');
-				console.log('background-image:url(./images/step07/' + currentClass + '_' + selectData[0].changeData.screenImg + ')')
+				console.log('background-image:url(./images/step07/' + _currentClass + '_' + selectData[0].changeData.screenImg + ')')
 				$('.qna_description01 .txt_box p').text(selectData[0].changeData.description);
 			} else {
 				$('#qnaImgWrap').attr('style', 'background-image:url(' + selectData[0].changeData.screenImg + ')');
@@ -1294,15 +1341,27 @@ function main() {
 	// 인터렉션 페이지 닫기
 	$('.close_btn').on('click', function () {
 		$('#quickFinder').css('display', 'block');
-		$('.popup_step01').css('display', 'none');
+		$('.popup_step').css('display', 'none');
 		$('.popup_step01 .popup_wrap').css('display', 'none');
 	});
 
 	// 사이즈 팝업 
 	$('html,body').on('click', '.caution_open_btn', function () {
 		$('.popup_step03').css('display', 'block');
-		$('.popup_step03 .' + currentClass).css('display', 'block');
+		$('.popup_step03 .' + _currentClass).css('display', 'block');
 	});
+
+
+	// result
+	$('.result_btn').on('click', function () {
+		$('.popup_step07').css('display', 'none');
+		$('#finderResult').css('display', 'block');
+
+
+
+
+	})
+
 
 	// 퀵파인더 start
 	/* $('.btn').on('click',function(){
@@ -1321,26 +1380,7 @@ function main() {
 		}
 		console.debug('result : ', '?' + result);
 	});
-
 	stepChangeEvent(0);
-
-
-	// swiper slide
-	var popupStep05swiper = new Swiper(".popup_step05_slide", {
-		pagination: {
-			el: ".popup_step05 .indicator",
-		},
-		observe: true,
-		effect: "fade"
-	});
-
-	var popupStep07swiper = new Swiper(".popup_step07_slide", {
-		pagination: {
-			el: ".popup_step07 .indicator",
-		},
-		observe: true,
-		effect: "fade"
-	});
 }
 function main_220713() {
 	let _select = {}; // 사용자 선택한 value 

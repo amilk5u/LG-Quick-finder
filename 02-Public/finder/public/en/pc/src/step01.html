@@ -1,7 +1,127 @@
 @@include("./include/header.html")
 
     <!-- Enter Code Here -->
-    <div id="quickFinder" class="step01">
+    <link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css">
+    <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+
+    <!--intro-->
+    <div id="finderIntro" style="display: none;">
+        <div id="introAnimation">
+            <lottie-player id="animationPlayer" src="./images/intro/intro_animation.json" mode="bounce" background="transparent" speed="1" autoplay></lottie-player>
+        </div>
+
+        <div class="intro_wrap">
+            <strong class="tit">
+                What is most important<br>
+                to your fridge<br>
+                purchase considerations?
+            </strong>
+            <div class="center_img_wrap" style="background-image: url(./images/intro/intro_img01.png);"></div>
+            <div class="intro_select_wrap">
+                <ol>
+                    <li>
+                        <button type="button">
+                            <p>Big Capacity</p>
+                        </button>
+                    </li>
+                    <li>
+                        <button type="button">
+                            <p>Affordable Price</p>
+                        </button>
+                    </li>
+                    <li>
+                        <button type="button">
+                            <p>Energy Savings</p>
+                        </button>
+                    </li>
+                    <li>
+                        <button type="button">
+                            <p>Size Suited to Your Space</p>
+                        </button>
+                    </li>
+                    <li>
+                        <button type="button">
+                            <p>Latest Features and Usability </p>
+                        </button>
+                    </li>
+                    <li>
+                        <button type="button">
+                            <p>
+                                I am not sure : <br>
+                                <span>I’m open to LG’s recommendations</span>
+                            </p>
+                        </button>
+                    </li>
+                </ol>
+            </div>
+        </div>
+        <div class="select_after_wrap">
+            <div class="img_wrap"></div>
+            <div class="txt_wrap">
+                <ol class="disc">
+                    <li>Big Capacity</li>
+                    <li>Affordable Price</li>
+                    <li>Energy Savings</li>
+                    <li>Size Suited to Your Space</li>
+                    <li>Latest Features and Usability </li>
+                    <li>
+                        I am not sure : <span>I’m open to LG’s recommendations</span>
+                    </li>
+                </ol>
+                <div class="txt_box">
+                    <ol>
+                        <li>
+                            <strong>Not sure what you want?1</strong>
+                            <p>
+                                That’s alright. <br>
+                                LG is here to accompany your journey!
+                            </p>
+                        </li>
+                        <li>
+                            <strong>Not sure what you want?2</strong>
+                            <p>
+                                That’s alright. <br>
+                                LG is here to accompany your journey!
+                            </p>
+                        </li>
+                        <li>
+                            <strong>Not sure what you want?3</strong>
+                            <p>
+                                That’s alright. <br>
+                                LG is here to accompany your journey!
+                            </p>
+                        </li>
+                        <li>
+                            <strong>Not sure what you want?4</strong>
+                            <p>
+                                That’s alright. <br>
+                                LG is here to accompany your journey!
+                            </p>
+                        </li>
+                        <li>
+                            <strong>Not sure what you want?5</strong>
+                            <p>
+                                That’s alright. <br>
+                                LG is here to accompany your journey!
+                            </p>
+                        </li>
+                        <li>
+                            <strong>Not sure what you want?</strong>
+                            <p>
+                                That’s alright. <br>
+                                LG is here to accompany your journey!
+                            </p>
+                        </li>
+                    </ol>
+                    <button type="button" id="introEndBtn"># GET STARTED NOW</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--//intro-->
+
+    <div id="quickFinder" style="display: block;" class="step01">
         <!--navigation-->
         <div id="finderNav">
             <ul>
@@ -95,91 +215,6 @@
         </div>
     </div>
 
-    <!--step1 next 버튼 이후 팝업-->
-    <!--popup_step01 none:block-->
-    <!--popup_wrap에서 필요한 제품군 block / class 명칭은 이후에 필터 값으로 변경-->
-    <div class="popup_step01">
-        <div class="popup_wrap multi">
-            <div class="tit_wrap">
-                <i></i>
-                <strong>Multi Door Fridge Freezer</strong>
-            </div>
-            <div class="popup_con">
-                <strong>
-                    A fitting choice for large <br>
-                    households or food lovers.
-                </strong>
-                <div class="txt_wrap">
-                    <img src="./images/step01/popup_contents_img01.png" alt="family & Multi Door Fridge Freezer">
-                    <div class="txt_box">
-                        <p>
-                            Fits effortlessly into smaller spaces,
-                            ideal for prudent grocery shoppers
-                            who store small smounts of food.
-                            It is a decades-long steady-seller
-                            in the UK, chosen by
-                            nearly half of its households.
-                        </p>
-                        <button type="button" class="close_btn">Moving on</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="popup_wrap american">
-            <div class="tit_wrap">
-                <i></i>
-                <strong>American Style Fridge Freezer</strong>
-            </div>
-            <div class="popup_con">
-                <strong>
-                    A nice choice for those who <br>
-                    use the freezer frequently.
-                </strong>
-                <div class="txt_wrap">
-                    <img src="./images/step01/popup_contents_img02.png" alt="cooking & American Style Fridge Freezer">
-                    <div class="txt_box">
-                        <p>
-                            Its fridge and freezer sections are
-                            positioned  next to each other,
-                            making both easy to reach.
-                            This vertically arranged side-by-side'
-                            or 'double door' type is spacious.
-                            It offers lots of space with our
-                            largest model, and is chosen by nearly
-                            a quarter of UK households.
-                        </p>
-                        <button type="button" class="close_btn">Moving on</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="popup_wrap tall">
-            <div class="tit_wrap">
-                <i></i>
-                <strong>Tall Fridge Freezer</strong>
-            </div>
-            <div class="popup_con">
-                <strong>
-                    A sleek and practical option <br>
-                    for space-saving.
-                </strong>
-                <div class="txt_wrap">
-                    <img src="./images/step01/popup_contents_img03.png" alt="best seller & Tall Fridge Freezer">
-                    <div class="txt_box">
-                        <p>
-                            Fit effortlessly into smaller
-                            spaces and ideal for fewer people.
-                            It is a decades-long
-                            steady-seller in the UK,
-                            chosen by nearly half of
-                            its households.
-                        </p>
-                        <button type="button" class="close_btn">Moving on</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!--//step1 next 버튼 이후 팝업-->
+    @@include("./include/popup.html")
 
 @@include("./include/footer.html")
