@@ -21,6 +21,16 @@
 #quickFinder.step07 .qna_wrap .qna_description .txt_box i { display: none !important; }
 
 
+// 마크업, css 변경수정사항
+/* 
+	1. qna_description01 에 more 버튼 class 를 id descMoreBtn로 변경
+	2. qna_description02 에 close 버튼 class 를 id detailCloseBtn 로 변경
+	3. #descMoreBtn default 는 display:none; .more class가 있을때 inline-block 으로 변경
+	4. step1, step2 의 more 버튼 display:none;
+	5. step3,4,5,6,7 의 .txt_box 의 i 는 display:none;
+*/
+
+
 #quickFinder {
 	padding:vw(20) 0 0; background-image:url(../../images/common/bg_gradation.gif); display:none;
 	@include backgroundSolt(0, 0, repeat-x);
