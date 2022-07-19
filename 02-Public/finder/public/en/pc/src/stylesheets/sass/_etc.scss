@@ -204,7 +204,7 @@
                     height:vw(300); font-size:vw(38); line-height:vw(44); padding:0 vw(15);
                     @include displayFlexCenter;
                 }
-                .close_btn {
+                .result_btn {
                     width:100%; height:vw(100); background-color:#464646; color:$white; font-size:vw(36); font-weight:$bold; margin:vw(40) 0 0;
                     @include borderRadius(vw(50));
                 }

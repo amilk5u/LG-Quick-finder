@@ -107,6 +107,7 @@ function main() {
 	let _currentClass = ''; // 셀렉된 제품 class
 
 	let filePath = ''; // desktop / mobile 이미지 경로 구분
+	let productColorImg = ['_black_popup_img', '_steel_popup_img', '_silver_popup_img', '_white_popup_img']; // 마지막 컬러 이미지 뿌리기
 
 	if (winW > 768) {
 		filePath = './images/pc/'
@@ -876,9 +877,8 @@ function main() {
 					}
 					if (_currentPage.finderStep === 'step07') {
 						// 이미지 경로 앞에 선택한 class 추가
-						$('.popup_' + _currentPage.finderStep).find('.txt_wrap img').each(function () {
-							let srcUrl = $(this).attr('src').split('/')[$(this).attr('src').split('/').length - 1];
-							$(this).attr('src', './images/step07/' + _currentClass + srcUrl);
+						$('.popup_' + _currentPage.finderStep).find('.txt_wrap img').each(function (i) {
+							$(this).attr('src', './images/step07/' + _currentClass + productColorImg[i] + '.png');
 						})
 					}
 				}
@@ -927,12 +927,8 @@ function main() {
 		});
 
 		// 해당 스텝 정보
-		console.log('----step--------------------------------------------------------------');
-		console.log('idx (스텝별 index) : ', idx);
-		console.log('_stepCount (스텝별 카운팅) : ', _stepCount);
+		console.log('---- ' + idx + '  ------------------------------------------------------------------');
 		console.log('_select (선택된 value) : ', _select);
-		console.log('interactionPage (인터렉션 페이지) : ', interactionPage);
-
 
 
 		// // 팝업창 해당 이미지로 변경
@@ -952,7 +948,6 @@ function main() {
 		if (idx !== 0) {
 			_currentClass = selectObject[0].class;
 		}
-		console.log('_currentClass : ', _currentClass)
 
 		// open 삭제
 		$('.qna_description02').removeClass('open');
@@ -1078,10 +1073,6 @@ function main() {
 				_currentProduct.push(_array);
 			}
 		}
-
-
-
-
 
 		// disabled 구분하기
 		if (idx !== 0) {
@@ -1231,13 +1222,9 @@ function main() {
 				_stepCount.push($('.answer_btn.active').length);
 			}
 
-			// console.log('_stepCount : ', _stepCount)
-			// console.log('_select : ', _select)
-
 			lastAnswerValue = _select[_select.length - 1].split('=')[1]; //선택된 마지막 value 값 추출
 			// lastAnswerValue = _selectValue; // 마지막 선택한 값
 			sprayData(idx, currentHtml, lastAnswerValue, selectObject); // 선택한 항목의 대한 데이터 뿌리기
-
 
 			$('.answer_btn').each(function () {
 				$(this).removeClass('select');
@@ -1254,7 +1241,6 @@ function main() {
 				$('.show_now_wrap').addClass('active');
 				// step 3 예외처리
 				if (idx === 2) {
-					console.log($('.qna_description02').hasClass('open'))
 					if ($('.qna_description02').hasClass('open')) {
 						$('.qna_description01').css('display', 'none');
 					} else {
@@ -1273,7 +1259,6 @@ function main() {
 			}
 		});
 	}
-
 
 	// 현재 클릭한 항목에 대한 데이터 뿌리기
 	function sprayData(idx, currentHtml, lastAnswerValue, selectObject) {
